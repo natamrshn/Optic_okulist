@@ -1,4 +1,4 @@
-package spring.boot.optic_okulist;
+package spring.boot.optic.okulist;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

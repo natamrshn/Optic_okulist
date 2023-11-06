@@ -1,4 +1,4 @@
-package spring.boot.optic_okulist.model;
+package spring.boot.optic.okulist.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
