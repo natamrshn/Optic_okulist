@@ -40,7 +40,7 @@ public class User implements UserDetails {
     private String firstName;
     @Column(name = "last_name", nullable = false)
     private String lastName;
-    @Column(name = "phone_number")
+    @Column(name = "phone_number",nullable = false, unique = true)
     private Long phoneNumber;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "users_roles",
