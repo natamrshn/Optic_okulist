@@ -16,7 +16,7 @@ import spring.boot.optic.okulist.dto.user.UserRegistrationRequestDto;
 import spring.boot.optic.okulist.dto.user.UserResponseDto;
 import spring.boot.optic.okulist.exception.RegistrationException;
 import spring.boot.optic.okulist.security.AuthenticationService;
-import spring.boot.optic.okulist.service.userService.UserService;
+import spring.boot.optic.okulist.service.user.UserService;
 
 @Tag(name = "Authentication management", description = "Endpoints for managing authentication")
 @RequiredArgsConstructor
