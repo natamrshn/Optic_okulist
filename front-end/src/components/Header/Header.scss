@@ -1,0 +1,67 @@
+@import "../../styles/vars.scss";
+
+.header {
+    z-index: 15;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.329);
+
+    &-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding-block: 8px;
+
+        position: relative;
+    }
+
+    .header-buttons {
+        display: flex;
+
+        position: relative;
+        order: 2;
+
+        @media (max-width: 768px) {
+            position: static;
+        }
+
+        button {
+            border-radius: 0px;
+        }
+    }
+
+    &-burger {
+        display: none;
+    }
+
+    .logo {
+        font-size: 24px;
+        margin: 0;
+        color: black;
+        font-weight: 700;
+
+        order: 0;
+    }
+
+    &-search {
+        display: flex;
+        background: white;
+        border-radius: 32px;
+
+        input {
+            border-radius: 32px;
+            font-size: 16px;
+            padding: 0 16px;
+            width: 100px;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        position: relative;
+        &-burger {
+            display: flex;
+        }
+        .logo {
+            font-size: 16px;
+        }
+    }
+}
