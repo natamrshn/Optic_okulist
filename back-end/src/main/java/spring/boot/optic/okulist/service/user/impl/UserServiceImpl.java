@@ -26,6 +26,10 @@ public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
     private final RoleRepository roleRepository;
 
+    public boolean isFirstUser() {
+        return userRepository.count() == 0;
+    }
+
     @Override
     public UserResponseDto register(UserRegistrationRequestDto requestDto)
             throws RegistrationException {
@@ -37,12 +41,23 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(requestDto.getPassword()));
         user.setFirstName(requestDto.getFirstName());
         user.setLastName(requestDto.getLastName());
-        user.setPhoneNumber(user.getPhoneNumber());
-        Role userRole = roleRepository.findRoleByName(Role.RoleName.USER)
-                .orElseThrow(() -> new RegistrationException("Can't find role by name"));
-        Set<Role> defaultUserRoleSet = new HashSet<>();
-        defaultUserRoleSet.add(userRole);
-        user.setRoles(defaultUserRoleSet);
+        user.setPhoneNumber(requestDto.getPhoneNumber());
+        if (isFirstUser()) {
+            Role mainAdminRole = roleRepository.findRoleByName(Role.RoleName.MAIN_ADMIN)
+                    .orElseThrow(() -> new RegistrationException("Can't find role by name"));
+            Set<Role> mainAdminRoleSet = new HashSet<>();
+            mainAdminRoleSet.add(mainAdminRole);
+            user.setRoles(mainAdminRoleSet);
+            user.setCreatePermission(true);
+            user.setUpdatePermission(true);
+            user.setDeletePermission(true);
+        } else {
+            Role userRole = roleRepository.findRoleByName(Role.RoleName.USER)
+                    .orElseThrow(() -> new RegistrationException("Can't find role by name"));
+            Set<Role> defaultUserRoleSet = new HashSet<>();
+            defaultUserRoleSet.add(userRole);
+            user.setRoles(defaultUserRoleSet);
+        }
         return userMapper.toDto(userRepository.save(user));
     }
 
