@@ -1,8 +1,10 @@
 package spring.boot.optic.okulist.repository;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import spring.boot.optic.okulist.model.Role;
 import spring.boot.optic.okulist.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
@@ -11,4 +13,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
             + "AND u.isDeleted = FALSE "
             + "AND r.isDeleted = FALSE")
     Optional<User> findByEmail(String email);
+
+    List<User> findUsersByRolesContainingAndIsDeletedFalse(Role role);
 }
