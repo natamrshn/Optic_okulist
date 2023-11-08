@@ -29,12 +29,19 @@ body {
 ol, ul {
 	list-style: none;
 }
+input {
+    border: none;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
 blockquote, q {
 	quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
+	content: "";
 	content: none;
 }
 table {

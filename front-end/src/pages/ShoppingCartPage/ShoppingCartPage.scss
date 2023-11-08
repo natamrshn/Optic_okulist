@@ -1,0 +1,11 @@
+@import '../../styles/vars.scss';
+
+.cart-page {
+    margin-block: 72px;
+
+    button {
+        margin-top: 20px;
+        background-color: $blue;
+        width: min-content;
+    }
+}
