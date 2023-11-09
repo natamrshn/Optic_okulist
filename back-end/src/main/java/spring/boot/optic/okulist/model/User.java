@@ -47,6 +47,12 @@ public class User implements UserDetails {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
+
+    @Column(name = "is_admin", nullable = false)
+    private boolean isAdmin = false;
+    private boolean createPermission;
+    private boolean updatePermission;
+    private boolean deletePermission;
     @Column(name = "is_deleted", nullable = false)
     private boolean isDeleted = false;
 
