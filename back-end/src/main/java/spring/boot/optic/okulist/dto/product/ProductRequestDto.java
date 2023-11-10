@@ -12,6 +12,7 @@ public class ProductRequestDto {
     private String name;
     @Positive
     private double price;
+    @NotNull
     private String identifier;
     private String category;
     private Set<Long> categoryIds;
@@ -20,9 +21,5 @@ public class ProductRequestDto {
     private boolean isValid() {
         return (category == null || categoryIds == null)
                 || (category.isEmpty() || categoryIds.isEmpty());
-        /*
-        To ensure that the user does not provide both category and categoryIds simultaneously.
-         If both fields are not empty or not null, the validation will fail.
-         */
     }
 }
