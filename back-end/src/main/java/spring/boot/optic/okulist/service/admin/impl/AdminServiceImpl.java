@@ -32,7 +32,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void revokePermissionsFromAdmins() {
-        Role adminRole = roleRepository.findRoleByName(Role.RoleName.ADMIN)
+        Role adminRole = roleRepository.findRoleByName(Role.RoleName.USER)
                 .orElseThrow(() -> new EntityNotFoundException("Role 'ADMIN' not found"));
         List<User> adminUsers = userRepository
                 .findUsersByRolesContainingAndIsDeletedFalse(adminRole);
