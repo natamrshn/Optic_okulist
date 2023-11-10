@@ -40,6 +40,7 @@ public class Product {
     private double price;
     private String identifier;
     private String category;
+    private String description;
 
     @ToStringExclude
     @EqualsAndHashCode.Exclude

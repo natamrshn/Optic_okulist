@@ -9,6 +9,7 @@ public class GlassesResponseDto {
     private Long id;
     private String glassesName;
     private double price;
+    private String description;
     private String identifier;
     private String color;
     private String model;

@@ -10,5 +10,6 @@ public class ProductResponseDto {
     private String name;
     private double price;
     private String identifier;
+    private String description;
     private Set<CategoryResponseDto> categories;
 }

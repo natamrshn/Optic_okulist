@@ -9,6 +9,7 @@ public class ContactLensesResponseDto {
     private Long id;
     private String name;
     private double price;
+    private String description;
     private String identifier;
     private Set<CategoryResponseDto> categories;
     private double diopter;

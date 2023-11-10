@@ -9,6 +9,7 @@ public class LiquidResponseDto {
     private Long id;
     private String name;
     private double price;
+    private String description;
     private String identifier;
     private int volume;
     private Set<CategoryResponseDto> categories;
