@@ -7,22 +7,24 @@ import java.util.concurrent.ConcurrentHashMap;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import spring.boot.optic.okulist.model.ContactLenses;
-import spring.boot.optic.okulist.specification.contactlenses.providers.SpecificationProvider;
+import spring.boot.optic.okulist.specification.contactlenses.providers.SpecificationProviderLenses;
 
 @RequiredArgsConstructor
 @Component
-public class ContactLensesProviderManager implements SpecificationProviderManager<ContactLenses> {
-    private final List<SpecificationProvider<ContactLenses>> LensesSpecificationProviders;
-    private final Map<String, SpecificationProvider<ContactLenses>> providerCache =
+public class ContactLensesProviderManagerLenses
+        implements SpecificationProviderManagerLenses<ContactLenses> {
+    private final List<SpecificationProviderLenses<ContactLenses>>
+            lensesSpecificationProviderLenses;
+    private final Map<String, SpecificationProviderLenses<ContactLenses>> providerCache =
             new ConcurrentHashMap<>();
 
     @Override
-    public SpecificationProvider<ContactLenses> getSpecificationProvider(String key) {
+    public SpecificationProviderLenses<ContactLenses> getSpecificationProvider(String key) {
         return providerCache.computeIfAbsent(key, this::findProviderByKey);
     }
 
-    private SpecificationProvider<ContactLenses> findProviderByKey(String key) {
-        return Optional.ofNullable(LensesSpecificationProviders)
+    private SpecificationProviderLenses<ContactLenses> findProviderByKey(String key) {
+        return Optional.ofNullable(lensesSpecificationProviderLenses)
                 .orElseThrow(() -> new RuntimeException("bookSpecificationProviders is null"))
                 .stream()
                 .filter(p -> p.getKey().equalsIgnoreCase(key))
