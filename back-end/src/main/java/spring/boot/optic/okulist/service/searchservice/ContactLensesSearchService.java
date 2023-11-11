@@ -14,14 +14,14 @@ import spring.boot.optic.okulist.exception.ContactLensesSearchException;
 import spring.boot.optic.okulist.mapper.ContactLensesMapper;
 import spring.boot.optic.okulist.model.ContactLenses;
 import spring.boot.optic.okulist.repository.ContactLensesRepository;
-import spring.boot.optic.okulist.specification.contactlenses.builders.ContactLensesSpecificationBuilder;
+import spring.boot.optic.okulist.specification.contactlenses.builders.ContactLensesSpecificationBuilderLenses;
 
 @Service
 @RequiredArgsConstructor
 public class ContactLensesSearchService {
     private static final Logger logger = LogManager.getLogger(ContactLensesSearchService.class);
     @NonNull
-    private final ContactLensesSpecificationBuilder specificationBuilder;
+    private final ContactLensesSpecificationBuilderLenses specificationBuilder;
     private final ContactLensesRepository contactLensesRepository;
     @NonNull
     private final ContactLensesMapper mapper;
