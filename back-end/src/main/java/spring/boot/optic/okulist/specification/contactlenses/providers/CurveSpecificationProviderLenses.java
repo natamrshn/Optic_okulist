@@ -3,7 +3,8 @@ package spring.boot.optic.okulist.specification.contactlenses.providers;
 import org.springframework.data.jpa.domain.Specification;
 import spring.boot.optic.okulist.model.ContactLenses;
 
-public class CurveSpecificationProvider implements SpecificationProvider<ContactLenses> {
+public class CurveSpecificationProviderLenses
+        implements SpecificationProviderLenses<ContactLenses> {
     @Override
     public String getKey() {
         return "curve";
