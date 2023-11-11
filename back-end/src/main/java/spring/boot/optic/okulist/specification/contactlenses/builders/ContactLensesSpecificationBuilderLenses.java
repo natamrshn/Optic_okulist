@@ -13,18 +13,18 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import spring.boot.optic.okulist.dto.contactlenses.ContactLensesSearchParameter;
 import spring.boot.optic.okulist.model.ContactLenses;
-import spring.boot.optic.okulist.specification.contactlenses.managers.SpecificationProviderManager;
+import spring.boot.optic.okulist.specification.contactlenses.managers.SpecificationProviderManagerLenses;
 
 @Component
 @RequiredArgsConstructor
 @Tag(name = "Contact Lenses Specification Builder ",
         description = "Builds Contact Lenses specifications for filtering")
-public class ContactLensesSpecificationBuilder implements
-        SpecificationBuilder<ContactLenses> {
+public class ContactLensesSpecificationBuilderLenses implements
+        SpecificationBuilderLenses<ContactLenses> {
     private static final Logger logger = LogManager
-            .getLogger(ContactLensesSpecificationBuilder.class);
+            .getLogger(ContactLensesSpecificationBuilderLenses.class);
 
-    private final SpecificationProviderManager<ContactLenses> specificationProviderManager;
+    private final SpecificationProviderManagerLenses<ContactLenses> specificationProviderManager;
     private final Map<String, Specification<ContactLenses>> specificationCache =
             new ConcurrentHashMap<>();
 
