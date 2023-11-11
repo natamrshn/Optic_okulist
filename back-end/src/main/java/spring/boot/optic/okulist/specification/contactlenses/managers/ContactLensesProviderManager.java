@@ -12,7 +12,7 @@ import spring.boot.optic.okulist.specification.contactlenses.providers.Specifica
 @RequiredArgsConstructor
 @Component
 public class ContactLensesProviderManager implements SpecificationProviderManager<ContactLenses> {
-    private final List<SpecificationProvider<ContactLenses>> bookSpecificationProviders;
+    private final List<SpecificationProvider<ContactLenses>> LensesSpecificationProviders;
     private final Map<String, SpecificationProvider<ContactLenses>> providerCache =
             new ConcurrentHashMap<>();
 
@@ -22,7 +22,7 @@ public class ContactLensesProviderManager implements SpecificationProviderManage
     }
 
     private SpecificationProvider<ContactLenses> findProviderByKey(String key) {
-        return Optional.ofNullable(bookSpecificationProviders)
+        return Optional.ofNullable(LensesSpecificationProviders)
                 .orElseThrow(() -> new RuntimeException("bookSpecificationProviders is null"))
                 .stream()
                 .filter(p -> p.getKey().equalsIgnoreCase(key))

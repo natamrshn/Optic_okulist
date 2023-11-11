@@ -31,7 +31,7 @@ public class ContactLensesSearchService {
         try {
             Objects.requireNonNull(specificationBuilder,
                     "specificationBuilder"
-                    + " must not be null"); // check null value before using
+                    + " must not be null");
             Objects.requireNonNull(contactLensesRepository,
                     "contactLensesRepository"
                     + "must not be null");
@@ -48,4 +48,3 @@ public class ContactLensesSearchService {
         }
     }
 }
-// we have full action control  in case where value can be null
