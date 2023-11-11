@@ -32,4 +32,11 @@ public interface ContactLensesMapper {
                 })
                 .collect(Collectors.toSet()));
     }
+
+    default List<String> mapDiopterOptions(List<ContactLenses> contactLensesList) {
+        return contactLensesList.stream()
+                .map(ContactLenses::getDiopter)
+                .distinct()
+                .collect(Collectors.toList());
+    }
 }

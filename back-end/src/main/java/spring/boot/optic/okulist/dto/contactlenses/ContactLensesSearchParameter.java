@@ -1,15 +1,16 @@
 package spring.boot.optic.okulist.dto.contactlenses;
 
 public record ContactLensesSearchParameter(
-        double minDiopter,
-        double maxDiopter,
-        double minCylinder,
-        double maxCylinder,
-        double minAngle,
-        double maxAngle,
-        double minBaseCurve,
-        double maxBaseCurve,
+        String minDiopter,
+        String maxDiopter,
+        String minCylinder,
+        String maxCylinder,
+        String minAngle,
+        String maxAngle,
+        String minBaseCurve,
+        String maxBaseCurve,
         String lensColor,
-        String adidation
+        String adidation,
+         String selectedParameter
 ) {
 }
