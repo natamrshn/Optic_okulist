@@ -4,10 +4,10 @@ import lombok.Data;
 
 @Data
 public class ContactLensesRequestDto {
-    private double diopter;
-    private double cylinder;
-    private double angle;
-    private double baseCurve;
+    private String diopter;
+    private String cylinder;
+    private String angle;
+    private String baseCurve;
     private String lensColor;
     private String adidation;
 }
