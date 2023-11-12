@@ -7,7 +7,7 @@ import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
 @Data
 public class GlassesResponseDto {
     private Long id;
-    private String glassesName;
+    private String name;
     private double price;
     private String description;
     private String identifier;
