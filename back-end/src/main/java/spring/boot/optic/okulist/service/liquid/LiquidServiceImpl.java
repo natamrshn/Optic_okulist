@@ -1,6 +1,9 @@
 package spring.boot.optic.okulist.service.liquid;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -45,5 +48,43 @@ public class LiquidServiceImpl implements LiquidService {
         );
         liquid.setDeleted(true);
         liquidRepository.save(liquid);
+    }
+
+    @Override
+    public List<LiquidResponseDto> findSimilar(LiquidRequestDto liquidRequestDto) {
+        Liquid referenceLiquid = liquidMapper.toModel(liquidRequestDto);
+
+        List<Liquid> similarLiquids = liquidRepository.findByVolumeNotAndPriceNotAndNameAndIdentifierAndDescription(
+                referenceLiquid.getVolume(),
+                referenceLiquid.getPrice(),
+                referenceLiquid.getName(),
+                referenceLiquid.getIdentifier(),
+                referenceLiquid.getDescription()
+        );
+
+        return similarLiquids.stream()
+                .map(liquidMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public LiquidResponseDto update(Long id, LiquidRequestDto liquidRequestDto) {
+        Optional<Liquid> optionalLiquid = liquidRepository.findById(id);
+
+        if (optionalLiquid.isPresent()) {
+            Liquid existingLiquid = optionalLiquid.get();
+
+            existingLiquid.setVolume(liquidRequestDto.getVolume());
+            existingLiquid.setPrice(liquidRequestDto.getPrice());
+            existingLiquid.setName(liquidRequestDto.getName());
+            existingLiquid.setIdentifier(liquidRequestDto.getIdentifier());
+            existingLiquid.setDescription(liquidRequestDto.getDescription());
+
+            Liquid updatedLiquid = liquidRepository.save(existingLiquid);
+            return liquidMapper.toDto(updatedLiquid);
+        } else {
+            throw new EntityNotFoundException("Liquid with ID " + id + " not found");
+        }
+    }
     }
 }

@@ -13,4 +13,8 @@ public interface LiquidService {
     LiquidResponseDto save(LiquidRequestDto liquidRequestDto);
 
     void deleteById(Long id);
+
+    public List<LiquidResponseDto> findSimilar(LiquidRequestDto liquidRequestDto);
+
+    public LiquidResponseDto update(Long id, LiquidRequestDto liquidRequestDto);
 }

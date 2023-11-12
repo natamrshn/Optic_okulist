@@ -10,4 +10,8 @@ import java.util.List;
 @Repository
 public interface LiquidRepository extends JpaRepository<Liquid, Long> {
     List<Liquid> findAll(Specification<Liquid> specification);
+
+    List<Liquid> findByVolumeNotAndPriceNotAndNameAndIdentifierAndDescription(
+            int volume, double price, String name, String identifier, String description
+    );
 }

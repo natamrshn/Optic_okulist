@@ -11,6 +11,8 @@ import spring.boot.optic.okulist.model.Glasses;
 import spring.boot.optic.okulist.repository.GlassesRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class GlassesServiceImpl implements GlassesService {
@@ -46,5 +48,34 @@ public class GlassesServiceImpl implements GlassesService {
         );
         glasses.setDeleted(true);
         glassesRepository.save(glasses);
+    }
+
+    @Override
+    public List<GlassesResponseDto> findSimilar(GlassesRequestDto glassesRequestDto) {
+        Glasses referenceGlasses = glassesMapper.toModel(glassesRequestDto);
+
+        List<Glasses> similarGlasses = glassesRepository.findByColorIgnoreCaseAndNameAndPriceAndIdentifierAndDescription(
+                referenceGlasses.getColor(),
+                referenceGlasses.getName(),
+                referenceGlasses.getPrice(),
+                referenceGlasses.getIdentifier(),
+                referenceGlasses.getDescription()
+        );
+
+        return similarGlasses.stream()
+                .map(glassesMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public GlassesResponseDto update(Long id, GlassesRequestDto glassesRequestDto) {
+        Glasses existingGlasses = glassesRepository.findById(id).orElseThrow(
+                () -> new EntityNotFoundException("Can't find Glasses with ID: " + id)
+        );
+
+        Glasses updatedGlasses = glassesMapper.toModel(glassesRequestDto);
+        updatedGlasses.setId(existingGlasses.getId());
+
+        return glassesMapper.toDto(glassesRepository.save(updatedGlasses));
     }
 }

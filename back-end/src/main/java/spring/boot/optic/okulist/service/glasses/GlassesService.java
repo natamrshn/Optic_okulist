@@ -13,4 +13,8 @@ public interface GlassesService {
     GlassesResponseDto save(GlassesRequestDto glassesRequestDto);
 
     void deleteById(Long id);
+
+    public List<GlassesResponseDto> findSimilar(GlassesRequestDto glassesRequestDto);
+
+    public GlassesResponseDto update(Long id, GlassesRequestDto glassesRequestDto);
 }

@@ -12,4 +12,8 @@ public interface GlassesRepository extends JpaRepository<Glasses, Long> {
     List<Glasses> findAll(Specification<Glasses> specification);
 
     List<Glasses> findByModelAndIsDeletedFalse(String model);
+
+    List<Glasses> findByColorIgnoreCaseAndNameAndPriceAndIdentifierAndDescription(
+            String color, String name, double price, String identifier, String description
+    );
 }
