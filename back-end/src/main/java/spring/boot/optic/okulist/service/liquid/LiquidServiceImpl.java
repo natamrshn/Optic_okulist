@@ -86,5 +86,4 @@ public class LiquidServiceImpl implements LiquidService {
             throw new EntityNotFoundException("Liquid with ID " + id + " not found");
         }
     }
-    }
 }
