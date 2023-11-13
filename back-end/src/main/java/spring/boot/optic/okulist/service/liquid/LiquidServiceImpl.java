@@ -3,6 +3,7 @@ package spring.boot.optic.okulist.service.liquid;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
@@ -66,6 +67,23 @@ public class LiquidServiceImpl implements LiquidService {
                 .stream()
                 .map(liquidMapper::toDto)
                 .toList();
+    }
+
+    @Override
+    public List<LiquidResponseDto> findSimilar(LiquidSearchParameter liquidRequestDto) {
+        Liquid referenceLiquid = liquidMapper.toModelSearchParam(liquidRequestDto);
+
+        List<Liquid> similarLiquids = liquidRepository
+                .findByVolumeNotAndPriceNotAndNameAndIdentifierAndDescription(
+                referenceLiquid.getVolume(),
+                referenceLiquid.getPrice(),
+                referenceLiquid.getName(),
+                referenceLiquid.getIdentifier(),
+                referenceLiquid.getDescription()
+        );
+        return similarLiquids.stream()
+                .map(liquidMapper::toDto)
+                .collect(Collectors.toList());
     }
 
     @Override

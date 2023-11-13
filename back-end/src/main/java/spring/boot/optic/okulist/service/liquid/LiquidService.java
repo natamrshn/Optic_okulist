@@ -18,4 +18,7 @@ public interface LiquidService {
     public LiquidResponseDto update(Long id, LiquidRequestDto liquidRequestDto);
 
     List<LiquidResponseDto> searchLiquidByParameters(LiquidSearchParameter searchParameters);
+
+    List<LiquidResponseDto> findSimilar(LiquidSearchParameter liquidRequestDto);
+
 }

@@ -9,6 +9,7 @@ import spring.boot.optic.okulist.config.MapperConfig;
 import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidRequestDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidResponseDto;
+import spring.boot.optic.okulist.dto.liquid.LiquidSearchParameter;
 import spring.boot.optic.okulist.model.Category;
 import spring.boot.optic.okulist.model.Liquid;
 
@@ -18,6 +19,8 @@ public interface LiquidMapper {
     LiquidResponseDto toDto(Liquid liquid);
 
     Liquid toModel(LiquidRequestDto liquidRequestDto);
+
+    Liquid toModelSearchParam(LiquidSearchParameter liquidSearchParameter);
 
     @AfterMapping
     default void mapCategories(@MappingTarget LiquidResponseDto liquidResponseDto,
