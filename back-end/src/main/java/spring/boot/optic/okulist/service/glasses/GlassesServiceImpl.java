@@ -3,6 +3,7 @@ package spring.boot.optic.okulist.service.glasses;
 import static spring.boot.optic.okulist.service.liquid.LiquidServiceImpl.getStrings;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Pageable;
@@ -44,6 +45,24 @@ public class GlassesServiceImpl implements GlassesService {
     public GlassesResponseDto save(GlassesRequestDto glassesRequestDto) {
         Glasses glasses = glassesMapper.toModel(glassesRequestDto);
         return glassesMapper.toDto(glassesRepository.save(glasses));
+    }
+
+    @Override
+    public List<GlassesResponseDto> findSimilar(GlassesSearchParameter glassesRequestDto) {
+        Glasses referenceGlasses = glassesMapper.toModelSearchParam(glassesRequestDto);
+
+        List<Glasses> similarGlasses = glassesRepository
+                .findByColorIgnoreCaseAndNameAndPriceAndIdentifierAndDescription(
+                referenceGlasses.getColor(),
+                referenceGlasses.getName(),
+                referenceGlasses.getPrice(),
+                referenceGlasses.getIdentifier(),
+                referenceGlasses.getDescription()
+        );
+
+        return similarGlasses.stream()
+                .map(glassesMapper::toDto)
+                .collect(Collectors.toList());
     }
 
     @Override
