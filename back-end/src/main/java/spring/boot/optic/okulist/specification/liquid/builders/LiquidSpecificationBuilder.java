@@ -34,6 +34,12 @@ public class LiquidSpecificationBuilder implements SpecificationBuilderLiquid<Li
             specifications.add((root, query, criteriaBuilder) ->
                     criteriaBuilder.equal(root.get("volume"), searchParametersDto.volume()));
         }
+
+        if (searchParametersDto.name() != null) {
+            specifications.add((root, query, criteriaBuilder) ->
+                    criteriaBuilder.equal(root.get("name"), searchParametersDto.name()));
+        }
+
         return specifications.stream().reduce(Specification::and).orElse(null);
     }
 }
