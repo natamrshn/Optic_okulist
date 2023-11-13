@@ -9,6 +9,7 @@ import spring.boot.optic.okulist.config.MapperConfig;
 import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
 import spring.boot.optic.okulist.dto.glasses.GlassesRequestDto;
 import spring.boot.optic.okulist.dto.glasses.GlassesResponseDto;
+import spring.boot.optic.okulist.dto.glasses.GlassesSearchParameter;
 import spring.boot.optic.okulist.model.Category;
 import spring.boot.optic.okulist.model.Glasses;
 
@@ -19,6 +20,8 @@ public interface GlassesMapper {
 
     @Mapping(target = "name", source = "glassesName")
     Glasses toModel(GlassesRequestDto requestDto);
+
+    Glasses toModelSearchParam(GlassesSearchParameter glassesSearchParameter);
 
     @AfterMapping
     default void mapCategories(@MappingTarget GlassesResponseDto glassesResponseDto,
