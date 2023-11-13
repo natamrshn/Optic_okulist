@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.data.domain.Pageable;
 import spring.boot.optic.okulist.dto.liquid.LiquidRequestDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidResponseDto;
+import spring.boot.optic.okulist.dto.liquid.LiquidSearchParameter;
 
 public interface LiquidService {
     List<LiquidResponseDto> findAll(Pageable pageable);
@@ -14,7 +15,7 @@ public interface LiquidService {
 
     void deleteById(Long id);
 
-    public List<LiquidResponseDto> findSimilar(LiquidRequestDto liquidRequestDto);
-
     public LiquidResponseDto update(Long id, LiquidRequestDto liquidRequestDto);
+
+    List<LiquidResponseDto> searchLiquidByParameters(LiquidSearchParameter searchParameters);
 }
