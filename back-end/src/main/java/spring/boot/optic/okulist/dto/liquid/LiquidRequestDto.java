@@ -8,9 +8,9 @@ import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
 
 @Data
 public class LiquidRequestDto {
+    private String name;
     @Positive
     private int volume;
-    private String name;
     @Positive
     private double price;
     private String description;
