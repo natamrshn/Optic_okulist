@@ -3,7 +3,10 @@ package spring.boot.optic.okulist.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -69,8 +72,24 @@ public class LiquidController {
                     + "various search parameters such as volume or name."
     )
     @GetMapping("/search")
-    public List<LiquidResponseDto> searchBooks(LiquidSearchParameter searchParameters) {
+    public List<LiquidResponseDto> searchLiquids(LiquidSearchParameter searchParameters) {
         return liquidService.searchLiquidByParameters(searchParameters);
+    }
+
+    @Operation(summary = "Search for liquid",
+            description = "Searches for liquid in the store based "
+            + "on various search parameters such as volume or name.")
+    @GetMapping("/search-similiar")
+    public List<LiquidResponseDto> searchLiquidsWithSimiliarParams(
+            LiquidSearchParameter searchParameters) {
+        List<LiquidResponseDto> foundLiquids = liquidService
+                .searchLiquidByParameters(searchParameters);
+        List<LiquidResponseDto> similarLiquids = liquidService
+                .findSimilar(searchParameters);
+        Set<LiquidResponseDto> combinedSet = new HashSet<>(foundLiquids);
+        combinedSet.addAll(similarLiquids);
+        List<LiquidResponseDto> combinedList = new ArrayList<>(combinedSet);
+        return combinedList;
     }
 
     @Operation(summary = "Delete liquids by their ID")

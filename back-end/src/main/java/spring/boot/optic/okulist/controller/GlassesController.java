@@ -3,7 +3,10 @@ package spring.boot.optic.okulist.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -48,7 +51,6 @@ public class GlassesController {
     public List<GlassesResponseDto> getAll(Pageable pageable) {
         return glassesService.findAll(pageable);
     }
-    // думаю нужно использовать нейм и оно у нас дублируеться
 
     @Operation(summary = "Get Glasses by ID")
     @GetMapping("/{id}")
@@ -69,9 +71,24 @@ public class GlassesController {
             description = "Searches for glass in the store based on "
                     + "various search parameters such as color, manufacturer, or model."
     )
-    @GetMapping("/search") // http://localhost:8080/api/glasses/search?color=red
+    @GetMapping("/search")
     public List<GlassesResponseDto> searchBooks(GlassesSearchParameter searchParameters) {
         return glassesService.searchGlassesByParameters(searchParameters);
+    }
+
+    @Operation(summary = "Search for glasses",
+            description = "Searches for glasses in the store based "
+                    + "on various search parameters such as color, manufacturer or model.")
+    @GetMapping("/search-similiar")
+    public List<GlassesResponseDto> searchLiquidsWithSimiliarParams(
+            GlassesSearchParameter searchParameters) {
+        List<GlassesResponseDto> foundGlasses = glassesService
+                .searchGlassesByParameters(searchParameters);
+        List<GlassesResponseDto> similarGlasses = glassesService
+                .findSimilar(searchParameters);
+        Set<GlassesResponseDto> combinedSet = new HashSet<>(foundGlasses);
+        combinedSet.addAll(similarGlasses);
+        return new ArrayList<>(combinedSet);
     }
 
     @Operation(summary = "Delete glasses by their ID")
