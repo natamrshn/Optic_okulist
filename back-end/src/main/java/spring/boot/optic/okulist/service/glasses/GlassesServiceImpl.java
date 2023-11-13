@@ -60,9 +60,9 @@ public class GlassesServiceImpl implements GlassesService {
     @Override
     public List<GlassesResponseDto> searchGlassesByParameters(
             GlassesSearchParameter searchParameters) {
-        Specification<Glasses> bookSpecification = glassesSpecificationBuilder
+        Specification<Glasses> glassSpecification = glassesSpecificationBuilder
                 .build(searchParameters);
-        return glassesRepository.findAll(bookSpecification)
+        return glassesRepository.findAll(glassSpecification)
                 .stream()
                 .map(glassesMapper::toDto)
                 .toList();
