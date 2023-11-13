@@ -1,6 +1,5 @@
 package spring.boot.optic.okulist.mapper;
 
-import java.util.List;
 import java.util.stream.Collectors;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
@@ -10,6 +9,7 @@ import spring.boot.optic.okulist.config.MapperConfig;
 import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidRequestDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidResponseDto;
+import spring.boot.optic.okulist.model.Category;
 import spring.boot.optic.okulist.model.Liquid;
 
 @Mapper(config = MapperConfig.class)
@@ -19,17 +19,19 @@ public interface LiquidMapper {
 
     Liquid toModel(LiquidRequestDto liquidRequestDto);
 
-    List<LiquidResponseDto> toResponseDtoList(List<Liquid> contactLensesList);
-
     @AfterMapping
-    default void mapCategories(@MappingTarget LiquidResponseDto liquidResponseDto, Liquid liquid) {
+    default void mapCategories(@MappingTarget LiquidResponseDto liquidResponseDto,
+                               Liquid liquid) {
+        liquidResponseDto.setName(liquid.getName());
         liquidResponseDto.setCategories(liquid.getCategories().stream()
-                .map(category -> {
-                    CategoryResponseDto categoryResponseDto = new CategoryResponseDto();
-                    categoryResponseDto.setName(category.getName());
-                    return categoryResponseDto;
-                })
+                .map(this::mapCategoryToDto)
                 .collect(Collectors.toSet()));
     }
 
+    default CategoryResponseDto mapCategoryToDto(Category category) {
+        CategoryResponseDto categoryResponseDto = new CategoryResponseDto();
+        categoryResponseDto.setId(category.getId());
+        categoryResponseDto.setName(category.getName());
+        return categoryResponseDto;
+    }
 }

@@ -45,7 +45,7 @@ public class Product {
     @EqualsAndHashCode.Exclude
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "products_categories",
-            joinColumns = @JoinColumn(name = "products"),
+            joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 

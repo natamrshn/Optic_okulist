@@ -1,23 +1,30 @@
 package spring.boot.optic.okulist.service.liquid;
 
+import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import java.util.Set;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.BeanWrapper;
+import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.liquid.LiquidRequestDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidResponseDto;
+import spring.boot.optic.okulist.dto.liquid.LiquidSearchParameter;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.mapper.LiquidMapper;
 import spring.boot.optic.okulist.model.Liquid;
 import spring.boot.optic.okulist.repository.LiquidRepository;
+import spring.boot.optic.okulist.specification.liquid.builders.LiquidSpecificationBuilder;
 
 @Service
 @RequiredArgsConstructor
 public class LiquidServiceImpl implements LiquidService {
     private final LiquidRepository liquidRepository;
     private final LiquidMapper liquidMapper;
+    private final LiquidSpecificationBuilder specificationBuilder;
 
     @Override
     public List<LiquidResponseDto> findAll(Pageable pageable) {
@@ -51,40 +58,42 @@ public class LiquidServiceImpl implements LiquidService {
     }
 
     @Override
-    public List<LiquidResponseDto> findSimilar(LiquidRequestDto liquidRequestDto) {
-        Liquid referenceLiquid = liquidMapper.toModel(liquidRequestDto);
-
-        List<Liquid> similarLiquids = liquidRepository
-                .findByVolumeNotAndPriceNotAndNameAndIdentifierAndDescription(
-                referenceLiquid.getVolume(),
-                referenceLiquid.getPrice(),
-                referenceLiquid.getName(),
-                referenceLiquid.getIdentifier(),
-                referenceLiquid.getDescription()
-        );
-
-        return similarLiquids.stream()
+    public List<LiquidResponseDto> searchLiquidByParameters(
+            LiquidSearchParameter searchParameters) {
+        Specification<Liquid> glassSpecification = specificationBuilder
+                .build(searchParameters);
+        return liquidRepository.findAll(glassSpecification)
+                .stream()
                 .map(liquidMapper::toDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
     public LiquidResponseDto update(Long id, LiquidRequestDto liquidRequestDto) {
-        Optional<Liquid> optionalLiquid = liquidRepository.findById(id);
+        Liquid existingGlasses = liquidRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(
+                        "Can't find Glasses with ID: " + id));
+        BeanUtils.copyProperties(liquidRequestDto, existingGlasses,
+                getNullPropertyNames(liquidRequestDto));
+        Liquid updatedGlasses = liquidRepository.save(existingGlasses);
+        return liquidMapper.toDto(updatedGlasses);
+    }
 
-        if (optionalLiquid.isPresent()) {
-            Liquid existingLiquid = optionalLiquid.get();
+    private String[] getNullPropertyNames(Object source) {
+        return getStrings(source);
+    }
 
-            existingLiquid.setVolume(liquidRequestDto.getVolume());
-            existingLiquid.setPrice(liquidRequestDto.getPrice());
-            existingLiquid.setName(liquidRequestDto.getName());
-            existingLiquid.setIdentifier(liquidRequestDto.getIdentifier());
-            existingLiquid.setDescription(liquidRequestDto.getDescription());
-
-            Liquid updatedLiquid = liquidRepository.save(existingLiquid);
-            return liquidMapper.toDto(updatedLiquid);
-        } else {
-            throw new EntityNotFoundException("Liquid with ID " + id + " not found");
+    public static String[] getStrings(Object source) {
+        final BeanWrapper src = new BeanWrapperImpl(source);
+        java.beans.PropertyDescriptor[] pds = src.getPropertyDescriptors();
+        Set<String> emptyNames = new HashSet<>();
+        for (java.beans.PropertyDescriptor pd : pds) {
+            Object srcValue = src.getPropertyValue(pd.getName());
+            if (srcValue == null) {
+                emptyNames.add(pd.getName());
+            }
         }
+        String[] result = new String[emptyNames.size()];
+        return emptyNames.toArray(result);
     }
 }
