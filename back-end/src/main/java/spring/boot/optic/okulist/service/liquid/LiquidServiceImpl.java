@@ -3,7 +3,6 @@ package spring.boot.optic.okulist.service.liquid;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -19,6 +18,7 @@ import spring.boot.optic.okulist.repository.LiquidRepository;
 public class LiquidServiceImpl implements LiquidService {
     private final LiquidRepository liquidRepository;
     private final LiquidMapper liquidMapper;
+
     @Override
     public List<LiquidResponseDto> findAll(Pageable pageable) {
         return liquidRepository.findAll()
@@ -44,7 +44,7 @@ public class LiquidServiceImpl implements LiquidService {
     @Override
     public void deleteById(Long id) {
         Liquid liquid = liquidRepository.findById(id).orElseThrow(
-                () ->new EntityNotFoundException("Can't found liquid with ID :" + id)
+                () -> new EntityNotFoundException("Can't found liquid with ID :" + id)
         );
         liquid.setDeleted(true);
         liquidRepository.save(liquid);
@@ -54,7 +54,8 @@ public class LiquidServiceImpl implements LiquidService {
     public List<LiquidResponseDto> findSimilar(LiquidRequestDto liquidRequestDto) {
         Liquid referenceLiquid = liquidMapper.toModel(liquidRequestDto);
 
-        List<Liquid> similarLiquids = liquidRepository.findByVolumeNotAndPriceNotAndNameAndIdentifierAndDescription(
+        List<Liquid> similarLiquids = liquidRepository
+                .findByVolumeNotAndPriceNotAndNameAndIdentifierAndDescription(
                 referenceLiquid.getVolume(),
                 referenceLiquid.getPrice(),
                 referenceLiquid.getName(),

@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.data.domain.Pageable;
 import spring.boot.optic.okulist.dto.glasses.GlassesRequestDto;
 import spring.boot.optic.okulist.dto.glasses.GlassesResponseDto;
+import spring.boot.optic.okulist.dto.glasses.GlassesSearchParameter;
 
 public interface GlassesService {
     List<GlassesResponseDto> findAll(Pageable pageable);
@@ -14,7 +15,7 @@ public interface GlassesService {
 
     void deleteById(Long id);
 
-    public List<GlassesResponseDto> findSimilar(GlassesRequestDto glassesRequestDto);
+    GlassesResponseDto update(Long id, GlassesRequestDto glassesRequestDto);
 
-    public GlassesResponseDto update(Long id, GlassesRequestDto glassesRequestDto);
+    List<GlassesResponseDto> searchGlassesByParameters(GlassesSearchParameter searchParameters);
 }
