@@ -1,6 +1,6 @@
 import React from 'react';
 import { Glasses } from '../Catalog/Catalog';
-
+//
 import { BsCart3 as CartIcon } from 'react-icons/bs';
 import './Card.scss';
 import { Link } from 'react-router-dom';

@@ -1,0 +1,59 @@
+@import '../../styles/vars.scss';
+
+.modal {
+    width: 50%;
+    height: 60vh;
+    margin: auto;
+    overflow: hidden;
+    // display: flex;
+    justify-content: center;
+    position: relative;
+
+    &-content {
+        height: 95%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .close {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+    &-title {
+        // margin-bottom: 24px;
+    }
+    &-input {
+        padding: 8px 8px;
+        border-bottom: .5px solid rgba(128, 128, 128, 0.336);
+        border-radius: 4px;
+
+        &:focus {
+            outline: 1px solid rgba(0, 162, 255, 0.151);
+        }
+    }
+    &-submit {
+        width: 70px;
+        border-radius: 4px;
+        background-color: $blue;
+        padding: 8px 4px;
+    }
+    &-switch_msg {
+        font-size: 16px;
+        // margin-top: 12px;
+    }
+    &-switch {
+        display: inline;
+        padding: 0;
+        color: $blue;
+    }
+    
+
+    &-form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+}
