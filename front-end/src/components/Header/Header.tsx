@@ -11,19 +11,27 @@ import Container from '../ui/Container/Container';
 import { Link } from 'react-router-dom';
 import HeaderSearch from '../HeaderSearch/HeaderSearch';
 import AuthModal from '../AuthModal/AuthModal';
+import useOutsideClick from '../../lib/hooks/useOutsideClick';
 
 const Header = () => {
     const [isPopUpOpened, setIsPopUpOpened] = useState<boolean>(false);
     const [isCartOpened, setIsCartOpened] = useState<boolean>(false);
-    const [isModalOpened, setIsModalOpened] = useState<boolean>(false);
 
     const dialogRef = useRef<HTMLDialogElement | null>(null);
+    const cartRef = useOutsideClick<HTMLButtonElement>(() => setIsCartOpened(false));
 
-    const openModal = () => {
+    const openAuth = () => {
         if (dialogRef.current) {
             dialogRef.current.showModal();
         }
     };
+    
+    const closeAuth = () => {
+        if (dialogRef.current) {
+            dialogRef.current.close();
+        }
+    };
+    
 
     return (
         <>
@@ -37,6 +45,7 @@ const Header = () => {
                         <div className='header-buttons'>
                             <HeaderSearch />
                             <button
+                                ref={cartRef}
                                 onClick={() => setIsCartOpened(!isCartOpened)}
                             >
                                 <CartIcon />
@@ -48,7 +57,7 @@ const Header = () => {
                                 />
                             )}
 
-                            <button onClick={openModal}>
+                            <button onClick={openAuth}>
                                 <UserIcon />
                             </button>
 
@@ -67,9 +76,7 @@ const Header = () => {
                 </Container>
             </header>
 
-            <AuthModal
-                dialogRef={dialogRef}
-            />
+            <AuthModal dialogRef={dialogRef} closeAuth={closeAuth} />
         </>
     );
 };
