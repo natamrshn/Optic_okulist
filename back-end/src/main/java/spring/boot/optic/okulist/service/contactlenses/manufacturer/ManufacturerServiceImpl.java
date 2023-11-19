@@ -21,7 +21,6 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     @Override
     public ManufacturerResponseDto createManufacturer(
             ManufacturerRequestDto manufacturerRequestDto) {
-
         return null;
     }
 

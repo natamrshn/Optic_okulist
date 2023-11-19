@@ -96,7 +96,6 @@ public class GlassesServiceImpl implements GlassesService {
         return glassesMapper.toDto(updatedGlasses);
     }
 
-    // Допоміжний метод для отримання імен властивостей з null значеннями
     private String[] getNullPropertyNames(Object source) {
         return getStrings(source);
     }

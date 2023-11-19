@@ -19,27 +19,6 @@ import spring.boot.optic.okulist.service.contactlenses.manufacturer.Manufacturer
 public class ManufacturerController {
     private final ManufacturerService manufacturerService;
 
-    /*
-    цей контролер нам потрібен для того щоб створювати виробника.І потім використовувати його при
-    створенні нового продукту.
-
-    Продукт можна буде створювати за вробником або за конфігурацією
-
-    LOGIC:
-    створити виробника і кожному виробнику сетити потрібні параметри.
-    Потім ці параметри які є у виробника використовувувати для
-    створення лінз.
-
-    клас Contact Lenses повинен бути головним та давати
-    можливість взаємодіяти з класом manufacturer
-    and lensConfigModel для того щоб була можливість
-    створювати нові товари та використовувати присети
-    Це потрібно в тому випадку якщо Лінзи будуть мати однакові параметри
-    і щоб не перестворювати потрібні варіанти можна використати пресет(заготовку/шаблон)
-
-
-     */
-
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ManufacturerResponseDto createManufacturer(
