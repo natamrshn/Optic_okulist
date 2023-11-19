@@ -13,7 +13,7 @@ import lombok.Setter;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 import spring.boot.optic.okulist.model.Product;
-import spring.boot.optic.okulist.model.lenses.parameters.LensConfigurationModel;
+import spring.boot.optic.okulist.model.lenses.parameters.Manufacturer;
 
 @Entity
 @Getter
@@ -24,12 +24,9 @@ import spring.boot.optic.okulist.model.lenses.parameters.LensConfigurationModel;
 @Table(name = "contact_lenses_product")
 public class ContactLenses extends Product {
 
-    // це клас продукт який буде створюватися за конфігурацією або за виробником.
-
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    // лінзи можуть мати багато конфігурацій лінз
-    @JoinColumn(name = "lens_configuration_id")
-    private LensConfigurationModel lensConfiguration;
+    @JoinColumn(name = "manufacturers_id")
+    private Manufacturer lensConfiguration;
 
     @Column(name = "is_deleted", nullable = false)
     private boolean isDeleted = false;

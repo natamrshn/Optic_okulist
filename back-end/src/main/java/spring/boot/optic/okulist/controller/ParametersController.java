@@ -18,15 +18,12 @@ import spring.boot.optic.okulist.dto.contactlenses.parameters.degree.DegreeReque
 import spring.boot.optic.okulist.dto.contactlenses.parameters.degree.DegreeResponseDto;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.diopter.DiopterRequestDto;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.diopter.DiopterResponseDto;
-import spring.boot.optic.okulist.dto.contactlenses.parameters.material.MaterialRequestDto;
-import spring.boot.optic.okulist.dto.contactlenses.parameters.material.MaterialResponseDto;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.sphere.SphereRequestDto;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.sphere.SphereResponseDto;
 import spring.boot.optic.okulist.service.contactlenses.params.color.ColorService;
 import spring.boot.optic.okulist.service.contactlenses.params.cylinder.CylinderService;
 import spring.boot.optic.okulist.service.contactlenses.params.degree.DegreeService;
 import spring.boot.optic.okulist.service.contactlenses.params.diopter.DiopterService;
-import spring.boot.optic.okulist.service.contactlenses.params.material.MaterialService;
 import spring.boot.optic.okulist.service.contactlenses.params.sphere.SphereService;
 
 @RequiredArgsConstructor
@@ -34,25 +31,10 @@ import spring.boot.optic.okulist.service.contactlenses.params.sphere.SphereServi
 @RequestMapping("/parameters")
 public class ParametersController {
     private final ColorService colorService;
-    private final MaterialService materialService;
     private final CylinderService cylinderService;
     private final DegreeService degreeService;
     private final DiopterService diopterService;
     private final SphereService sphereService;
-
-
-    /*
-    Це я протестував воно працює
-
-    сервіс для створення парметрів які ми потім будемо використовувати
-     для створення Manufacturer
-    і для створення конфігурацій.
-    Конфігурації нам потрібні для того щоб в адміністратора була заготовка.Наприклад в
-     нього є новий товар
-    і параметри цього товару такі самі як параметри якогось іншого товарі.
-    І при створенні нового товару
-     адміністратор може просто обрати вже існуючу конфігурацію.
-     */
 
     @PostMapping("/colors")
     public ResponseEntity<ColorResponseDto> createColor(@RequestBody
@@ -64,19 +46,6 @@ public class ParametersController {
     @GetMapping("/colors/{id}")
     public ColorResponseDto getColorById(@PathVariable Long id) {
         return colorService.getColorById(id);
-    }
-
-    @PostMapping("/materials")
-    public ResponseEntity<MaterialResponseDto> createMaterial(
-            @RequestBody
-            @Valid MaterialRequestDto materialRequestDto) {
-        MaterialResponseDto createdMaterial = materialService.createMaterial(materialRequestDto);
-        return new ResponseEntity<>(createdMaterial, HttpStatus.CREATED);
-    }
-
-    @GetMapping("/materials/{id}")
-    public MaterialResponseDto getMaterialById(@PathVariable Long id) {
-        return materialService.getMaterialById(id);
     }
 
     @PostMapping("/cylinders")

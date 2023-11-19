@@ -7,10 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import java.util.List;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -33,9 +31,6 @@ public class Manufacturer {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "color_id")
     private Color color;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "material_id")
-    private Material material;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cylinder_id")
@@ -52,10 +47,6 @@ public class Manufacturer {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "sphere_id")
     private Sphere sphere;
-
-    // Останній параметр - конфігурація лінз, що належить виробнику
-    @OneToMany(mappedBy = "manufacturer", cascade = CascadeType.ALL)
-    private List<LensConfigurationModel> lensConfigurationModels;
 
     @Column(name = "is_deleted", nullable = false)
     private boolean isDeleted = false;

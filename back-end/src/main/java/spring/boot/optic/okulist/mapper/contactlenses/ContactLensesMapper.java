@@ -11,7 +11,7 @@ import spring.boot.optic.okulist.dto.contactlenses.parameters.contactlenses.Cont
 import spring.boot.optic.okulist.model.Category;
 import spring.boot.optic.okulist.model.lenses.ContactLenses;
 
-@Mapper(config = MapperConfig.class, uses = {LensConfigurationModelMapper.class})
+@Mapper(config = MapperConfig.class)
 public interface ContactLensesMapper {
 
     ContactLensesResponseDto toDto(ContactLenses contactLenses);

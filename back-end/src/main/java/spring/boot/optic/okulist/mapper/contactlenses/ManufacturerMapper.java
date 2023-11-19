@@ -10,8 +10,7 @@ import spring.boot.optic.okulist.model.lenses.parameters.Manufacturer;
         uses = {ColorMapper.class,
                 CylinderMapper.class,
                 DegreeMapper.class,
-                DiopterMapper.class,
-                LensConfigurationModelMapper.class})
+                DiopterMapper.class})
 public interface ManufacturerMapper {
 
     ManufacturerResponseDto toDto(Manufacturer manufacturer);
