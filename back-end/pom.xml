@@ -80,11 +80,6 @@
             <version>6.0.5</version>
             <scope>test</scope>
         </dependency>
-        <!-- docker -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-docker-compose</artifactId>
-        </dependency>
         <!-- lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -246,7 +241,7 @@
                 <version>4.24.0</version>
                 <!-- Property file for Liquibase configuration -->
                 <configuration>
-                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+                    <propertyFile>/Users/rostyslav/IdeaProjects/Optic_okulist/back-end/src/main/resources/liquibase.properties</propertyFile>
                 </configuration>
             </plugin>
             <!-- Maven Compiler Plugin for Java compilation -->

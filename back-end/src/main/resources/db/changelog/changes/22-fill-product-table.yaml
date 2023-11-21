@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: fill-products-table
+      author: Ros
+      changes:
+        - insert:
+            tableName: products
+            columns:
+              - column: {name: "name", value: "Classic Black Glasses"}
+              - column: {name: "price", value: 49.99}
+              - column: {name: "identifier", value: "CLB001"}
+              - column: {name: "description", value: "Timeless black glasses"}
+              - column: {name: "is_deleted", value: 0}
+        - insert:
+            tableName: products
+            columns:
+              - column: {name: "name", value: "Elegant Brown Glasses"}
+              - column: {name: "price", value: 59.99}
+              - column: {name: "identifier", value: "EBG002"}
+              - column: {name: "description", value: "Sophisticated brown glasses"}
+              - column: {name: "is_deleted", value: 0}
+        - insert:
+            tableName: products
+            columns:
+              - column: {name: "name", value: "Sporty Red Glasses"}
+              - column: {name: "price", value: 69.99}
+              - column: {name: "identifier", value: "SRG003"}
+              - column: {name: "description", value: "Dynamic red sports glasses"}
+              - column: {name: "is_deleted", value: 0}

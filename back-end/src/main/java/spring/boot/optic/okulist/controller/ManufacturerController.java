@@ -23,7 +23,7 @@ public class ManufacturerController {
     @PreAuthorize("hasRole('ADMIN')")
     public ManufacturerResponseDto createManufacturer(
             @RequestBody @Valid ManufacturerRequestDto manufacturerRequestDto) {
-        return null;
+        return manufacturerService.createManufacturer(manufacturerRequestDto);
     }
 
     @GetMapping

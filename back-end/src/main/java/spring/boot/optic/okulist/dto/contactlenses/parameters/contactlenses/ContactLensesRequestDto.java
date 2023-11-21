@@ -6,6 +6,6 @@ import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
 
 @Data
 public class ContactLensesRequestDto {
-    private Long lensConfigurationId; // Ідентифікатор конфігурації лінз
+    private Long lensConfigurationId;
     private Set<CategoryResponseDto> categories;
 }
