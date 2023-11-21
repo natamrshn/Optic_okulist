@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: fill-liquids-table
+      author: optic-okulist
+      changes:
+        - insert:
+            tableName: liquids
+            columns:
+              - column:
+                  name: name
+                  value: "Liquid 2"
+              - column:
+                  name: volume
+                  value: 150

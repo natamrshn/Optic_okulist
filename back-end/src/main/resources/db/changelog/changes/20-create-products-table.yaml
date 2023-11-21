@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-products-table
+      author: Ros
+      changes:
+        - createTable:
+            tableName: "products"
+            columns:
+              - column:
+                  name: "id"
+                  type: "bigint"
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: "name"
+                  type: "varchar(255)"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: "price"
+                  type: "double"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: "identifier"
+                  type: "varchar(255)"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: "description"
+                  type: "varchar(255)"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: "is_deleted"
+                  type: "boolean"
+                  constraints:
+                    nullable: false
+                    defaultValue: "false"
+
+        - addForeignKeyConstraint:
+            baseTableName: "products_categories"
+            baseColumnNames: "product_id"
+            referencedTableName: "products"
+            referencedColumnNames: "id"
+
+        - addForeignKeyConstraint:
+            baseTableName: "products_categories"
+            baseColumnNames: "category_id"
+            referencedTableName: "category"
+            referencedColumnNames: "id"
