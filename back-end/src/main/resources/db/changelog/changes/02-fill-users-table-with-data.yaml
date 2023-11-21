@@ -23,19 +23,19 @@ databaseChangeLog:
                   value: 1234567890
               - column:
                   name: is_deleted
-                  value: false
+                  value: 0
               - column:
                   name: create_permission
-                  value: true
+                  value: 1
               - column:
                   name: update_permission
-                  value: true
+                  value: 1
               - column:
                   name: delete_permission
-                  value: true
+                  value: 1
               - column:
                   name: is_admin
-                  value: true
+                  value: 1
         - insert:
             tableName: users
             columns:
@@ -53,22 +53,22 @@ databaseChangeLog:
                   value: User
               - column:
                   name: phone_number
-                  value: 1234567891
+                  value: "1234567891"
               - column:
                   name: is_deleted
-                  value: false
+                  value: 0
               - column:
                   name: create_permission
-                  value: true
+                  value: 1
               - column:
                   name: update_permission
-                  value: true
+                  value: 1
               - column:
                   name: delete_permission
-                  value: true
+                  value: 1
               - column:
                   name: is_admin
-                  value: true
+                  value: 1
         - insert:
             tableName: users
             columns:
@@ -86,22 +86,22 @@ databaseChangeLog:
                   value: User
               - column:
                   name: phone_number
-                  value: 1234567892
+                  value: "1234567892"
               - column:
                   name: is_deleted
-                  value: false
+                  value: 0
               - column:
                   name: create_permission
-                  value: false
+                  value: 0
               - column:
                   name: update_permission
-                  value: false
+                  value: 0
               - column:
                   name: delete_permission
-                  value: false
+                  value: 0
               - column:
                   name: is_admin
-                  value: false
+                  value: 0
         - insert:
             tableName: users
             columns:
@@ -119,19 +119,19 @@ databaseChangeLog:
                   value: User
               - column:
                   name: phone_number
-                  value: 1234567899
+                  value: "1234567899"
               - column:
                   name: is_deleted
-                  value: false
+                  value: 0
               - column:
                   name: create_permission
-                  value: false
+                  value: 0
               - column:
                   name: update_permission
-                  value: false
+                  value: 0
               - column:
                   name: delete_permission
-                  value: false
+                  value: 0
               - column:
                   name: is_admin
-                  value: false
+                  value: 0

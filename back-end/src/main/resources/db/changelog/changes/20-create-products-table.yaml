@@ -39,15 +39,3 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                     defaultValue: "false"
-
-        - addForeignKeyConstraint:
-            baseTableName: "products_categories"
-            baseColumnNames: "product_id"
-            referencedTableName: "products"
-            referencedColumnNames: "id"
-
-        - addForeignKeyConstraint:
-            baseTableName: "products_categories"
-            baseColumnNames: "category_id"
-            referencedTableName: "category"
-            referencedColumnNames: "id"

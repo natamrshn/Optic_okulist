@@ -43,3 +43,7 @@ databaseChangeLog:
       file: db/changelog/changes/21-fill-glasses-table.yaml
   - include:
       file: db/changelog/changes/22-fill-product-table.yaml
+  - include:
+      file: db/changelog/changes/23-create-liquid-table.yaml
+  - include:
+      file: db/changelog/changes/24-fill-liquid-table.yaml

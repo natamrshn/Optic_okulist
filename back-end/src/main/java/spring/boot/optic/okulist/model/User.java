@@ -50,8 +50,11 @@ public class User implements UserDetails {
 
     @Column(name = "is_admin", nullable = false)
     private boolean isAdmin = false;
+    @Column(name = "create_Permission", nullable = false)
     private boolean createPermission;
+    @Column(name = "update_Permission", nullable = false)
     private boolean updatePermission;
+    @Column(name = "delete_Permission", nullable = false)
     private boolean deletePermission;
     @Column(name = "is_deleted", nullable = false)
     private boolean isDeleted = false;
