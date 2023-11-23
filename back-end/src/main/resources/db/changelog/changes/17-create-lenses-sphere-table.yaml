@@ -8,13 +8,13 @@ databaseChangeLog:
             columns:
               - column:
                   name: "id"
-                  type: "bigint"
+                  type: bigint
                   autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
                   name: "base_curve"
-                  type: "varchar(255)"
+                  type: varchar(255)
                   constraints:
                     nullable: true

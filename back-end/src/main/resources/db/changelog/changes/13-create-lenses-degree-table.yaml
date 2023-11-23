@@ -8,23 +8,23 @@ databaseChangeLog:
               columns:
                 - column:
                     name: "id"
-                    type: "bigint"
+                    type: bigint
                     autoIncrement: true
                     constraints:
                       primaryKey: true
                       nullable: false
                 - column:
                     name: "min_degree"
-                    type: "varchar(255)"
+                    type: varchar(255)
                     constraints:
                       nullable: true
                 - column:
                     name: "max_degree"
-                    type: "varchar(255)"
+                    type: varchar(255)
                     constraints:
                       nullable: true
                 - column:
                     name: "degree_step"
-                    type: "varchar(255)"
+                    type: varchar(255)
                     constraints:
                       nullable: true
