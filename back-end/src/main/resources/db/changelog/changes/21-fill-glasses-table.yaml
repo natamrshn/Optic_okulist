@@ -9,6 +9,7 @@ databaseChangeLog:
               - column: { name: "color", value: "Black" }
               - column: { name: "model", value: "Classic" }
               - column: { name: "manufacturer", value: "BrandX" }
+              - column: { name: "category_id", value: 1 }
               - column: { name: "is_deleted", value: 0 }
         - insert:
             tableName: glasses
@@ -16,6 +17,7 @@ databaseChangeLog:
               - column: { name: "color", value: "Brown" }
               - column: { name: "model", value: "Elegant" }
               - column: { name: "manufacturer", value: "BrandY" }
+              - column: { name: "category_id", value: 1 }
               - column: { name: "is_deleted", value: 0 }
         - insert:
             tableName: glasses
@@ -23,4 +25,5 @@ databaseChangeLog:
               - column: { name: "color", value: "Red" }
               - column: { name: "model", value: "Sporty" }
               - column: { name: "manufacturer", value: "BrandZ" }
+              - column: { name: "category_id", value: 1 }
               - column: { name: "is_deleted", value: 0 }

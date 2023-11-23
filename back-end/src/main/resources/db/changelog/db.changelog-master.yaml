@@ -47,3 +47,7 @@ databaseChangeLog:
       file: db/changelog/changes/23-create-liquid-table.yaml
   - include:
       file: db/changelog/changes/24-fill-liquid-table.yaml
+  - include:
+      file: db/changelog/changes/25-create-products-categories-table.yaml
+  - include:
+      file: db/changelog/changes/26-fill-products-categories-table.yaml
