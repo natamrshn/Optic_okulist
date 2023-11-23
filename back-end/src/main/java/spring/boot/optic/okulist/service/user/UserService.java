@@ -6,7 +6,8 @@ import spring.boot.optic.okulist.exception.RegistrationException;
 import spring.boot.optic.okulist.model.User;
 
 public interface UserService {
-    UserResponseDto register(UserRegistrationRequestDto requestDto) throws RegistrationException;
+    UserResponseDto register(
+            UserRegistrationRequestDto requestDto) throws RegistrationException;
 
     User getAuthenticated();
 }

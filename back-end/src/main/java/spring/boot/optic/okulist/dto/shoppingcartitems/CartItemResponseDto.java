@@ -1,4 +1,4 @@
-package spring.boot.optic.okulist.dto.ShoppingCartItems;
+package spring.boot.optic.okulist.dto.shoppingcartitems;
 
 import lombok.Data;
 import spring.boot.optic.okulist.dto.product.ProductResponseDto;

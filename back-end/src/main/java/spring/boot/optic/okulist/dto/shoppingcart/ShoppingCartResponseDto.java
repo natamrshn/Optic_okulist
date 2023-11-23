@@ -1,9 +1,8 @@
-package spring.boot.optic.okulist.dto.shoppingCart;
-
-import lombok.Data;
-import spring.boot.optic.okulist.dto.ShoppingCartItems.CartItemResponseDto;
+package spring.boot.optic.okulist.dto.shoppingcart;
 
 import java.util.Set;
+import lombok.Data;
+import spring.boot.optic.okulist.dto.shoppingcartitems.CartItemResponseDto;
 
 @Data
 public class ShoppingCartResponseDto {

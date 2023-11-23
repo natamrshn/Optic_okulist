@@ -1,12 +1,11 @@
-package spring.boot.optic.okulist.service.shoppingcartitem;
-
-import spring.boot.optic.okulist.dto.ShoppingCartItems.CartItemResponseDto;
-import spring.boot.optic.okulist.dto.ShoppingCartItems.ShoppingCartItemsRequestDto;
-import spring.boot.optic.okulist.dto.ShoppingCartItems.UpdateQuantityDto;
-import spring.boot.optic.okulist.model.ShoppingCartItem;
-import spring.boot.optic.okulist.model.User;
+package spring.boot.optic.okulist.service.cartitem;
 
 import java.util.Set;
+import spring.boot.optic.okulist.dto.shoppingcartitems.CartItemResponseDto;
+import spring.boot.optic.okulist.dto.shoppingcartitems.ShoppingCartItemsRequestDto;
+import spring.boot.optic.okulist.dto.shoppingcartitems.UpdateQuantityDto;
+import spring.boot.optic.okulist.model.ShoppingCartItem;
+import spring.boot.optic.okulist.model.User;
 
 public interface CartItemService {
     CartItemResponseDto save(ShoppingCartItemsRequestDto cartItemRequestDto);

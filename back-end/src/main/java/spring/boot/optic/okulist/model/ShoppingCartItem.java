@@ -30,8 +30,6 @@ public class ShoppingCartItem {
     @ManyToOne
     @JoinColumn(name = "shopping_carts_id", nullable = false)
     private ShoppingCart shoppingCart;
-
-
     @OneToOne
     @JoinColumn(name = "glasses_id", nullable = false)
     private Glasses glasses;

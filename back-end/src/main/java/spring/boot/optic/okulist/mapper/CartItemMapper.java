@@ -4,7 +4,7 @@ import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import spring.boot.optic.okulist.config.MapperConfig;
-import spring.boot.optic.okulist.dto.ShoppingCartItems.CartItemResponseDto;
+import spring.boot.optic.okulist.dto.shoppingcartitems.CartItemResponseDto;
 import spring.boot.optic.okulist.model.ShoppingCartItem;
 
 @Mapper(config = MapperConfig.class)

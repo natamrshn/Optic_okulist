@@ -1,4 +1,4 @@
-package spring.boot.optic.okulist.service.shoppingCart;
+package spring.boot.optic.okulist.service.shoppingcart;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
