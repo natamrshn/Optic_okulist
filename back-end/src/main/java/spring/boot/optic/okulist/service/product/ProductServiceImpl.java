@@ -1,5 +1,8 @@
 package spring.boot.optic.okulist.service.product;
 
+import static spring.boot.optic.okulist.service.liquid.LiquidServiceImpl.getStrings;
+
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.jpa.domain.Specification;
@@ -9,14 +12,9 @@ import spring.boot.optic.okulist.dto.product.ProductResponseDto;
 import spring.boot.optic.okulist.dto.product.ProductSearchParameter;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.mapper.ProductMapper;
-import spring.boot.optic.okulist.model.Glasses;
 import spring.boot.optic.okulist.model.Product;
 import spring.boot.optic.okulist.repository.ProductRepository;
 import spring.boot.optic.okulist.specification.product.builders.ProductSpecificationBuilder;
-
-import java.util.List;
-
-import static spring.boot.optic.okulist.service.liquid.LiquidServiceImpl.getStrings;
 
 @Service
 @RequiredArgsConstructor
@@ -27,13 +25,13 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductResponseDto> searchProductByParameters(
-        ProductSearchParameter searchParameters) {
-            Specification<Product> productSpecification = productSpecificationBuilder
-                    .build(searchParameters);
-            return productRepository.findAll(productSpecification)
-                    .stream()
-                    .map(productMapper::toDto)
-                    .toList();
+            ProductSearchParameter searchParameters) {
+        Specification<Product> productSpecification = productSpecificationBuilder
+                .build(searchParameters);
+        return productRepository.findAll(productSpecification)
+                .stream()
+                .map(productMapper::toDto)
+                .toList();
     }
 
     @Override

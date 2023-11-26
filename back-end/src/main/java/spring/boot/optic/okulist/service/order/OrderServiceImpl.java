@@ -1,5 +1,6 @@
 package spring.boot.optic.okulist.service.order;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -10,8 +11,6 @@ import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.mapper.OrderMapper;
 import spring.boot.optic.okulist.model.Order;
 import spring.boot.optic.okulist.repository.OrderRepository;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @Service

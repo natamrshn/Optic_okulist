@@ -1,17 +1,13 @@
 package spring.boot.optic.okulist.specification.product.managers;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
-import spring.boot.optic.okulist.model.Glasses;
-import spring.boot.optic.okulist.model.Product;
-import spring.boot.optic.okulist.specification.glasses.managers.SpecificationProviderManagerGlasses;
-import spring.boot.optic.okulist.specification.glasses.providers.SpecificationProviderGlasses;
-import spring.boot.optic.okulist.specification.product.providers.SpecificationProviderProduct;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+import spring.boot.optic.okulist.model.Product;
+import spring.boot.optic.okulist.specification.product.providers.SpecificationProviderProduct;
 
 @RequiredArgsConstructor
 @Component
@@ -32,7 +28,7 @@ public class ProductProviderManager implements SpecificationProviderManagerProdu
                 .filter(p -> p.getKey().equalsIgnoreCase(key))
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException(
-                        "Can't find correct specifcation provider for key " + key
+                        "Can't find correct specification provider for key " + key
                 ));
     }
 }

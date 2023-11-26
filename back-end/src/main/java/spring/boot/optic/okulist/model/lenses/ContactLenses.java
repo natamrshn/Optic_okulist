@@ -27,6 +27,7 @@ public class ContactLenses extends Product {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "manufacturers_id")
     private Manufacturer lensConfiguration;
+    private String productType = "ContactLenses";
 
     @Column(name = "is_deleted", nullable = false)
     private boolean isDeleted = false;

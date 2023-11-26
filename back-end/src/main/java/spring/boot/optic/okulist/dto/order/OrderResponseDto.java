@@ -1,10 +1,10 @@
 package spring.boot.optic.okulist.dto.order;
 
-import spring.boot.optic.okulist.dto.order.orderitem.OrderItemDto;
-import spring.boot.optic.okulist.model.Order;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
+import spring.boot.optic.okulist.dto.order.orderitem.OrderItemDto;
+import spring.boot.optic.okulist.model.Order;
 
 public class OrderResponseDto {
     private Long id;

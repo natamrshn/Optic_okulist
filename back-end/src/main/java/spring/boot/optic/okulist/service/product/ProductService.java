@@ -1,10 +1,9 @@
 package spring.boot.optic.okulist.service.product;
 
+import java.util.List;
 import spring.boot.optic.okulist.dto.product.ProductRequestDto;
 import spring.boot.optic.okulist.dto.product.ProductResponseDto;
 import spring.boot.optic.okulist.dto.product.ProductSearchParameter;
-
-import java.util.List;
 
 public interface ProductService {
 

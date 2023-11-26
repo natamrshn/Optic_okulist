@@ -51,3 +51,7 @@ databaseChangeLog:
       file: db/changelog/changes/25-create-products-categories-table.yaml
   - include:
       file: db/changelog/changes/26-fill-products-categories-table.yaml
+  - include:
+      file: db/changelog/changes/27-create-order-table.yaml
+  - include:
+      file: db/changelog/changes/28-create-order-item-table.yaml
