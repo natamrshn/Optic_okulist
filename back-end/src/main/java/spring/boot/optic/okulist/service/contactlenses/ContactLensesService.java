@@ -1,12 +1,9 @@
 package spring.boot.optic.okulist.service.contactlenses;
 
+import java.util.List;
 import org.springframework.data.domain.Pageable;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.contactlenses.ContactLensesRequestDto;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.contactlenses.ContactLensesResponseDto;
-import spring.boot.optic.okulist.dto.glasses.GlassesRequestDto;
-import spring.boot.optic.okulist.dto.glasses.GlassesResponseDto;
-
-import java.util.List;
 
 public interface ContactLensesService {
     ContactLensesResponseDto createContactLenses(ContactLensesRequestDto contactLensesRequestDto);

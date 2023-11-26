@@ -28,7 +28,8 @@ public class ContactLensesServiceImpl implements ContactLensesService {
     public ContactLensesResponseDto createContactLenses(
             ContactLensesRequestDto contactLensesRequestDto) {
         ContactLenses lenses = contactLensesMapper.toModel(contactLensesRequestDto);
-        Manufacturer manufacturer = manufacturerRepository.findById(contactLensesRequestDto.getLensConfigurationId())
+        Manufacturer manufacturer = manufacturerRepository.findById(contactLensesRequestDto
+                        .getLensConfigurationId())
                 .orElseThrow(() -> new EntityNotFoundException("Configuration not found with ID: "
                         + contactLensesRequestDto.getLensConfigurationId()));
         lenses.setLensConfiguration(manufacturer);
@@ -53,7 +54,8 @@ public class ContactLensesServiceImpl implements ContactLensesService {
     }
 
     @Override
-    public ContactLensesResponseDto update(Long id, ContactLensesRequestDto contactLensesRequestDto) {
+    public ContactLensesResponseDto update(Long id,
+                                           ContactLensesRequestDto contactLensesRequestDto) {
         ContactLenses existingLenses = contactLensesRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(
                         "Can't find lenses with ID: " + id));

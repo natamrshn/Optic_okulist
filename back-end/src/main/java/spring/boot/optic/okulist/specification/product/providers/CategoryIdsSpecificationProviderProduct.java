@@ -3,7 +3,8 @@ package spring.boot.optic.okulist.specification.product.providers;
 import org.springframework.data.jpa.domain.Specification;
 import spring.boot.optic.okulist.model.Product;
 
-public class CategoryIdsSpecificationProviderProduct implements SpecificationProviderProduct<Product> {
+public class CategoryIdsSpecificationProviderProduct
+        implements SpecificationProviderProduct<Product> {
     @Override
     public String getKey() {
         return "category_id";
