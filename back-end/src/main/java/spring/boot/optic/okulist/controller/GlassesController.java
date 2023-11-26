@@ -72,7 +72,7 @@ public class GlassesController {
                     + "various search parameters such as color, manufacturer, or model."
     )
     @GetMapping("/search")
-    public List<GlassesResponseDto> searchBooks(GlassesSearchParameter searchParameters) {
+    public List<GlassesResponseDto> searchGlasses(GlassesSearchParameter searchParameters) {
         return glassesService.searchGlassesByParameters(searchParameters);
     }
 
