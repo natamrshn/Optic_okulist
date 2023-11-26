@@ -4,7 +4,7 @@ databaseChangeLog:
       author: hlib13
       changes:
         - createTable:
-            tableName: "order"
+            tableName: "orders"
             columns:
               - column:
                   name: id
@@ -39,7 +39,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
         - addForeignKeyConstraint:
-            baseTableName: "order"
+            baseTableName: "orders"
             baseColumnNames: "user_id"
             referencedTableName: "users"
             referencedColumnNames: "id"
