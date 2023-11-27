@@ -7,5 +7,9 @@ import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
 @Data
 public class ContactLensesRequestDto {
     private Long lensConfigurationId;
-    private Set<CategoryResponseDto> categories;
+   private Set<CategoryResponseDto> categories;
+    private String name;
+    private double price;
+    private String identifier;
+    private String description;
 }

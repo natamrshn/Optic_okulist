@@ -36,11 +36,4 @@ public interface GlassesMapper {
                 })
                 .collect(Collectors.toSet()));
     }
-
-    default CategoryResponseDto mapCategoryToDto(Category category) {
-        CategoryResponseDto categoryResponseDto = new CategoryResponseDto();
-        categoryResponseDto.setId(category.getId());
-        categoryResponseDto.setName(category.getName());
-        return categoryResponseDto;
-    }
 }

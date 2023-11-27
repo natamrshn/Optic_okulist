@@ -5,14 +5,15 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class ShoppingCartItemsRequestDto {
     @NotNull
     @Positive
     private Long productId;
     private Long glassesId;
-    private Long liquidId;
-    private Long contactLensesId;
+    private List<Long> contactLensesIds;
     @Positive
     private int quantity;
     @NotBlank

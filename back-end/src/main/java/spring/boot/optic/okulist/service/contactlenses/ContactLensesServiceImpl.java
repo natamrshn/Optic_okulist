@@ -33,8 +33,8 @@ public class ContactLensesServiceImpl implements ContactLensesService {
                 .orElseThrow(() -> new EntityNotFoundException("Configuration not found with ID: "
                         + contactLensesRequestDto.getLensConfigurationId()));
         lenses.setLensConfiguration(manufacturer);
-        ContactLenses savedLenses = contactLensesRepository.save(lenses);
-        return contactLensesMapper.toDto(contactLensesRepository.save(savedLenses));
+        lenses = contactLensesRepository.save(lenses);
+        return contactLensesMapper.toDto(lenses);
     }
 
     @Override
