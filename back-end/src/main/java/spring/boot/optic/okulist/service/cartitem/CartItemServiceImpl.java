@@ -58,7 +58,11 @@ public class CartItemServiceImpl implements CartItemService {
             default:
                 throw new RuntimeException("Unsupported product type");
         }
-        cartItem.setQuantity(cartItemRequestDto.getQuantity());
+        int quantity = cartItemRequestDto.getQuantity();
+        if (quantity > 99) {
+            throw new IllegalArgumentException("Quantity exceeds the limit of 99 units per item.");
+        }
+        cartItem.setQuantity(quantity);
         cartItem.setShoppingCart(shoppingCart);
         ShoppingCartItem savedCartItem = cartItemRepository.save(cartItem);
         shoppingCart.getCartItems().add(savedCartItem);
