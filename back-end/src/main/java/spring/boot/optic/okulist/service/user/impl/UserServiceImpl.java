@@ -43,6 +43,7 @@ public class UserServiceImpl implements UserService {
         user.setLastName(requestDto.getLastName());
         user.setPhoneNumber(requestDto.getPhoneNumber());
         if (isFirstUser()) {
+            // Перший користувач отримує адміністраторські права
             Role mainAdminRole = roleRepository.findRoleByName(Role.RoleName.MAIN_ADMIN)
                     .orElseThrow(() -> new RegistrationException("Can't find role by name"));
             Set<Role> mainAdminRoleSet = new HashSet<>();
@@ -51,7 +52,15 @@ public class UserServiceImpl implements UserService {
             user.setCreatePermission(true);
             user.setUpdatePermission(true);
             user.setDeletePermission(true);
+        } else if (user.getEmail().equals("admin2@example.com")) {
+            // Другий користувач завжди отримує адміністраторські права
+            Role adminRole = roleRepository.findRoleByName(Role.RoleName.ADMIN)
+                    .orElseThrow(() -> new RegistrationException("Can't find role by name"));
+            Set<Role> adminRoleSet = new HashSet<>();
+            adminRoleSet.add(adminRole);
+            user.setRoles(adminRoleSet);
         } else {
+            // Інші користувачі отримують звичайні права користувача
             Role userRole = roleRepository.findRoleByName(Role.RoleName.USER)
                     .orElseThrow(() -> new RegistrationException("Can't find role by name"));
             Set<Role> defaultUserRoleSet = new HashSet<>();

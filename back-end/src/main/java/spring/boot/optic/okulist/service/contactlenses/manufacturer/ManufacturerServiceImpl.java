@@ -36,26 +36,39 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     public ManufacturerResponseDto createManufacturer(
             ManufacturerRequestDto manufacturerRequestDto) {
         Manufacturer manufacturer = manufacturerMapper.toModel(manufacturerRequestDto);
-        Color color = colorRepository.findById(manufacturerRequestDto.getColorId())
-                .orElseThrow(() -> new EntityNotFoundException("Color not found with ID: "
-                        + manufacturerRequestDto.getColorId()));
-        Cylinder cylinder = cylinderRepository.findById(manufacturerRequestDto.getCylinderId())
-                .orElseThrow(() -> new EntityNotFoundException("Cylinder not found with ID: "
-                        + manufacturerRequestDto.getCylinderId()));
-        Degree degree = degreeRepository.findById(manufacturerRequestDto.getDegreeId())
-                .orElseThrow(() -> new EntityNotFoundException("Degree not found with ID: "
-                        + manufacturerRequestDto.getDegreeId()));
-        Diopter diopter = diopterRepository.findById(manufacturerRequestDto.getDiopterId())
-                .orElseThrow(() -> new EntityNotFoundException("Diopter not found with ID: "
-                        + manufacturerRequestDto.getDiopterId()));
-        Sphere sphere = sphereRepository.findById(manufacturerRequestDto.getSphereId())
-                .orElseThrow(() -> new EntityNotFoundException("Sphere not found with ID: "
-                        + manufacturerRequestDto.getSphereId()));
-        manufacturer.setColor(color);
-        manufacturer.setCylinder(cylinder);
-        manufacturer.setDegree(degree);
-        manufacturer.setDiopter(diopter);
-        manufacturer.setSphere(sphere);
+        if (manufacturerRequestDto.getColorId() != null) {
+            Color color = colorRepository.findById(manufacturerRequestDto.getColorId())
+                    .orElseThrow(() -> new EntityNotFoundException("Color not found with ID: "
+                            + manufacturerRequestDto.getColorId()));
+            manufacturer.setColor(color);
+        }
+
+        if (manufacturerRequestDto.getCylinderId() != null) {
+            Cylinder cylinder = cylinderRepository.findById(manufacturerRequestDto.getCylinderId())
+                    .orElseThrow(() -> new EntityNotFoundException("Cylinder not found with ID: "
+                            + manufacturerRequestDto.getCylinderId()));
+            manufacturer.setCylinder(cylinder);
+        }
+        if (manufacturerRequestDto.getDegreeId() != null) {
+            Degree degree = degreeRepository.findById(manufacturerRequestDto.getDegreeId())
+                    .orElseThrow(() -> new EntityNotFoundException("Degree not found with ID: "
+                            + manufacturerRequestDto.getDegreeId()));
+            manufacturer.setDegree(degree);
+        }
+
+        if (manufacturerRequestDto.getDiopterId() != null) {
+            Diopter diopter = diopterRepository.findById(manufacturerRequestDto.getDiopterId())
+                    .orElseThrow(() -> new EntityNotFoundException("Diopter not found with ID: "
+                            + manufacturerRequestDto.getDiopterId()));
+            manufacturer.setDiopter(diopter);
+        }
+
+        if (manufacturerRequestDto.getSphereId() != null) {
+            Sphere sphere = sphereRepository.findById(manufacturerRequestDto.getSphereId())
+                    .orElseThrow(() -> new EntityNotFoundException("Sphere not found with ID: "
+                            + manufacturerRequestDto.getSphereId()));
+            manufacturer.setSphere(sphere);
+        }
         Manufacturer savedManufacturer = manufacturerRepository.save(manufacturer);
         return manufacturerMapper.toDto(savedManufacturer);
     }

@@ -16,6 +16,7 @@ import spring.boot.optic.okulist.mapper.ShoppingCartMapper;
 import spring.boot.optic.okulist.model.ShoppingCart;
 import spring.boot.optic.okulist.model.ShoppingCartItem;
 import spring.boot.optic.okulist.model.User;
+import spring.boot.optic.okulist.model.lenses.ContactLenses;
 import spring.boot.optic.okulist.repository.GlassesRepository;
 import spring.boot.optic.okulist.repository.LiquidRepository;
 import spring.boot.optic.okulist.repository.ShoppingCartItemRepository;
@@ -43,8 +44,7 @@ public class CartItemServiceImpl implements CartItemService {
         ShoppingCartItem cartItem = new ShoppingCartItem();
         User user = userService.getAuthenticated();
         ShoppingCart shoppingCart = getOrCreateShoppingCart(user);
-        String productType = cartItemRequestDto.getProductType();
-        switch (productType) {
+        switch (cartItemRequestDto.getProductType()) {
             case "Glasses":
                 cartItem.setGlasses(glassesRepository.getById(cartItemRequestDto.getProductId()));
                 break;
@@ -52,8 +52,9 @@ public class CartItemServiceImpl implements CartItemService {
                 cartItem.setLiquid(liquidRepository.getById(cartItemRequestDto.getProductId()));
                 break;
             case "ContactLenses":
-                cartItem.setContactLenses(contactLensesRepository.getById(cartItemRequestDto
-                        .getProductId()));
+                List<ContactLenses> contactLenses = contactLensesRepository
+                        .findAllById(cartItemRequestDto.getContactLensesIds());
+                cartItem.setContactLenses((ContactLenses) contactLenses);
                 break;
             default:
                 throw new RuntimeException("Unsupported product type");

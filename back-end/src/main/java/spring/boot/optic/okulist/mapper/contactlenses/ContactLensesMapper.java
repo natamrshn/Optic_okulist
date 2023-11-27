@@ -1,5 +1,6 @@
 package spring.boot.optic.okulist.mapper.contactlenses;
 
+import java.util.Set;
 import java.util.stream.Collectors;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
@@ -23,11 +24,20 @@ public interface ContactLensesMapper {
     @AfterMapping
     default void mapCategories(@MappingTarget ContactLensesResponseDto contactLensesResponseDto,
                                ContactLenses contactLenses) {
-        contactLensesResponseDto.setLensConfigurationId(contactLensesResponseDto
-                .getLensConfigurationId());
-        contactLensesResponseDto.setCategories(contactLenses.getCategories().stream()
-                .map(this::mapCategoryToDto)
-                .collect(Collectors.toSet()));
+        contactLensesResponseDto.setName(contactLenses.getName());
+        contactLensesResponseDto.setLensConfigurationId(contactLenses.getLensConfiguration().getId());
+        contactLensesResponseDto.setCategories(mapCategoriesToDto(contactLenses.getCategories()));
+    }
+
+    default Set<CategoryResponseDto> mapCategoriesToDto(Set<Category> categories) {
+        return categories.stream()
+                .map(category -> {
+                    CategoryResponseDto categoryResponseDto = new CategoryResponseDto();
+                    categoryResponseDto.setId(category.getId());
+                    categoryResponseDto.setName(category.getName());
+                    return categoryResponseDto;
+                })
+                .collect(Collectors.toSet());
     }
 
     default CategoryResponseDto mapCategoryToDto(Category category) {
@@ -37,3 +47,4 @@ public interface ContactLensesMapper {
         return categoryResponseDto;
     }
 }
+

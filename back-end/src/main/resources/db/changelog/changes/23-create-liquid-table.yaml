@@ -24,11 +24,11 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: "is_deleted"
-                  type: "boolean"
+                  name: is_deleted
+                  type: boolean
                   constraints:
                     nullable: false
-                    defaultValue: "false"
+                  defaultValue: "false"
               - column:
                   name: "category_id"
                   type: "bigint"

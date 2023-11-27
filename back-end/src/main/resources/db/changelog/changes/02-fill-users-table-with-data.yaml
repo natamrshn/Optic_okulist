@@ -11,7 +11,7 @@ databaseChangeLog:
                   value: admin@example.com
               - column:
                   name: password
-                  value: $2a$10$.wpLuyxfXizK0QSFkJkClO1Oue2O37N/h5radiElxsRyz/Fj5YgEu
+                  value: $2a$10$t2ZNX.5poHloz9wDm5SDbuLQGkmfktBkuH63zDBbd2aBO85.MBX0S
               - column:
                   name: first_name
                   value: Admin
@@ -44,7 +44,7 @@ databaseChangeLog:
                   value: admin2@example.com
               - column:
                   name: password
-                  value: $2a$10$acWb8ArSzlxxgxvFnJUE2uE0216FAdpsBTm1p3kLT0f791gIn9psC
+                  value: $2a$10$/s6NuCW7Sg6m/fPfo/SCXOQHnJlolI//OztbgUU48XQiOYGyMrtUi
               - column:
                   name: first_name
                   value: Admin2
@@ -77,7 +77,7 @@ databaseChangeLog:
                   value: user1@example.com
               - column:
                   name: password
-                  value: $2a$10$0clr45XOTRxmj/W3JhB4H.3W2L5u3bFWfWqjbGzG.Zw4I6WC0aN4O
+                  value: $2a$10$qLP14wrYI2en53U/QxeW/e1hlJibR2E.5/tpKMNJ4GJREOPhQlJdO
               - column:
                   name: first_name
                   value: User1
@@ -110,7 +110,7 @@ databaseChangeLog:
                   value: user10@example.com
               - column:
                   name: password
-                  value: $2a$10$0clr45XOTRxmj/W3JhB4H.3W2L5u3bFWfWqjbGzG.Zw4I6WC0aN4O
+                  value: $2a$10$qLP14wrYI2en53U/QxeW/e1hlJibR2E.5/tpKMNJ4GJREOPhQlJdO
               - column:
                   name: first_name
                   value: User10
