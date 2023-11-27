@@ -25,12 +25,25 @@ const AuthModal: React.FC<AuthModalProps> = ({ dialogRef, closeAuth }) => {
 
     const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        if (validateForm(userData, isUserNew, setError)) {
-            console.log('Form submitted:', userData);
-            formReset();
-            setError('');
+
+        if (isUserNew) {
+            const validationError = validateForm(userData);
+            if (!validationError) {
+                console.log('registration', userData);
+                formReset();
+                closeAuth();
+            } else {
+                setError(validationError);
+                return;
+            }
         } else {
-            return;
+            const loginObject = {
+                email: userData.email,
+                password: userData.password,
+            };
+            console.log('login', loginObject);
+            formReset();
+            closeAuth();
         }
     };
 

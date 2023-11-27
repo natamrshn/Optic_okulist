@@ -18,7 +18,7 @@ const Header = () => {
     const [isCartOpened, setIsCartOpened] = useState<boolean>(false);
 
     const dialogRef = useRef<HTMLDialogElement | null>(null);
-    const cartRef = useOutsideClick<HTMLButtonElement>(() => setIsCartOpened(false));
+    const cartRef = useOutsideClick<HTMLUListElement>(() => setIsCartOpened(false));
 
     const openAuth = () => {
         if (dialogRef.current) {
@@ -45,14 +45,14 @@ const Header = () => {
                         <div className='header-buttons'>
                             <HeaderSearch />
                             <button
-                                ref={cartRef}
                                 onClick={() => setIsCartOpened(!isCartOpened)}
-                            >
+                                >
                                 <CartIcon />
                             </button>
 
                             {isCartOpened && (
                                 <ShoppingCart
+                                    ref={cartRef}
                                     setIsCartOpened={setIsCartOpened}
                                 />
                             )}
