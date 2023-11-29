@@ -8,6 +8,7 @@ import {
     validateForm,
 } from '../../lib/helpers/formValidation';
 import AuthSwitchMessage from './AuthSwitchMessage';
+import { login, register } from '../../lib/api/authRequest';
 
 type AuthModalProps = {
     dialogRef: React.MutableRefObject<HTMLDialogElement | null>;
@@ -29,19 +30,15 @@ const AuthModal: React.FC<AuthModalProps> = ({ dialogRef, closeAuth }) => {
         if (isUserNew) {
             const validationError = validateForm(userData);
             if (!validationError) {
-                console.log('registration', userData);
+                register(userData);
                 formReset();
-                closeAuth();
+                setIsUserNew(false);
             } else {
                 setError(validationError);
                 return;
             }
         } else {
-            const loginObject = {
-                email: userData.email,
-                password: userData.password,
-            };
-            console.log('login', loginObject);
+            login({email: userData.email, password: userData.password});
             formReset();
             closeAuth();
         }
