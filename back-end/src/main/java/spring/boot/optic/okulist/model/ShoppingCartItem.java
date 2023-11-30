@@ -31,13 +31,13 @@ public class ShoppingCartItem {
     @JoinColumn(name = "shopping_carts_id", nullable = false)
     private ShoppingCart shoppingCart;
     @OneToOne
-    @JoinColumn(name = "glasses_id", nullable = false)
+    @JoinColumn(name = "glasses_id")
     private Glasses glasses;
     @OneToOne
-    @JoinColumn(name = "contact_Lenses_id", nullable = false)
+    @JoinColumn(name = "contact_Lenses_id")
     private ContactLenses contactLenses;
     @OneToOne
-    @JoinColumn(name = "liquid_id", nullable = false)
+    @JoinColumn(name = "liquid_id")
     private Liquid liquid;
     @Column(name = "quantity", nullable = false)
     private int quantity;

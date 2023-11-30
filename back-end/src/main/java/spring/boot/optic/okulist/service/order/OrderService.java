@@ -18,4 +18,6 @@ public interface OrderService {
     List<OrderResponseDto> getAll(Pageable pageable);
 
     OrderResponseDto getByOrderIdAndOrderItemId(Long orderId, Long orderItemsId);
+
+    List<OrderResponseDto> findAllByUserEmail(String userEmail);
 }

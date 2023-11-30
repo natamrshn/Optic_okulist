@@ -14,6 +14,7 @@ public class ShoppingCartItemsRequestDto {
     private Long productId;
     private Long glassesId;
     private List<Long> contactLensesIds;
+    private Long liquidId;
     @Positive
     private int quantity;
     @NotBlank

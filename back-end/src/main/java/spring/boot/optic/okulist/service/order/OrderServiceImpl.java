@@ -62,4 +62,12 @@ public class OrderServiceImpl implements OrderService {
                 .orElseThrow(() -> new RuntimeException("Can't found OrderId and ItemsId"));
         return orderMapper.toDto(order);
     }
+
+    @Override
+    public List<OrderResponseDto> findAllByUserEmail(String userEmail) {
+        return orderRepository.findAllByUserEmail(userEmail)
+                .stream()
+                .map(orderMapper::toDto)
+                .toList();
+    }
 }
