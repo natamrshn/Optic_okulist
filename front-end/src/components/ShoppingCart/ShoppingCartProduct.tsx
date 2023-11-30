@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 type ShoppingCartProductProps = {
     product: {
@@ -17,19 +17,19 @@ const ShoppingCartProduct: React.FC<ShoppingCartProductProps> = ({
     const productPrice = (product.price * productAmount).toFixed(2);
     
     return (
-        <li className='cart-product'>
-            <div className='wrapper'>
+        <li className="cart-product">
+            <div className="wrapper">
                 <div>
                     <img src={product.imgUrl} alt={product.name} />
                     <h3>{product.name}</h3>
                 </div>
                 <div>
-                    <p className='cart-price'>${productPrice}</p> 
+                    <p className="cart-price">${productPrice}</p> 
 
-                    <div className='cart-amount'>
-                        <button className='amount-button' onClick={() => setProductAmount(prevState => prevState - 1)}>-</button>
+                    <div className="cart-amount">
+                        <button className="amount-button" onClick={() => setProductAmount(prevState => prevState - 1)}>-</button>
                         <p>{productAmount}</p>
-                        <button className='amount-button' onClick={() => setProductAmount(prevState => prevState + 1)}>+</button>
+                        <button className="amount-button" onClick={() => setProductAmount(prevState => prevState + 1)}>+</button>
                     </div>
                 </div>
             </div>

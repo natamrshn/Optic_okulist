@@ -1,10 +1,10 @@
 export const INITIAL_USER_DATA = {
-    firstName: '',
-    lastName: '',
-    phoneNumber: '',
-    email: '',
-    password: '',
-    repeatPassword: '',
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    email: "",
+    password: "",
+    repeatPassword: "",
 };
 
 export type UserData = typeof INITIAL_USER_DATA;
@@ -19,7 +19,7 @@ export function validateName(name: string): boolean {
 }
 
 export function validatePhoneNumber(phoneNumber: string): boolean {
-    const validNumber = phoneNumber.split('').every((n) => !isNaN(+n));
+    const validNumber = phoneNumber.split("").every((n) => !isNaN(+n));
     return validNumber && phoneNumber.trim().length > 8;
 }
 
@@ -40,7 +40,7 @@ export function validatePasswordMatch(
     password: string,
     repeatPassword: string
 ): boolean {
-    return password !== '' && password === repeatPassword;
+    return password !== "" && password === repeatPassword;
 }
 
 export function validateForm(userData: UserData): string {
@@ -56,55 +56,55 @@ export function validateForm(userData: UserData): string {
         case !validateName(firstName):
             return "Ім'я має мати довжину щонайменше 2 символи.";
         case !validateName(lastName):
-            return 'Прізвище має мати довжину щонайменше 2 символи.';
+            return "Прізвище має мати довжину щонайменше 2 символи.";
         case !validatePhoneNumber(phoneNumber):
-            return 'Номер телефону має мати довжину щонайменше 10 символів та містити лише цифри.';
+            return "Номер телефону має мати довжину щонайменше 10 символів та містити лише цифри.";
         case !validateEmail(email):
-            return 'Введіть правильну електронну адресу.';
+            return "Введіть правильну електронну адресу.";
         case !validatePassword(password):
-            return 'Пароль має містити літеру та цифри і мати довжину щонайменше 8 символів.';
+            return "Пароль має містити літеру та цифри і мати довжину щонайменше 8 символів.";
         case !validatePasswordMatch(password, repeatPassword):
-            return 'Паролі не співпадають.';
+            return "Паролі не співпадають.";
         default:
-            return '';
+            return "";
     }
 }
 
 export const UserInputFields = [
     {
-        type: 'text',
-        name: 'firstName',
+        type: "text",
+        name: "firstName",
         placeholder: "Ім'я",
         forNewUser: true,
     },
     {
-        type: 'text',
-        name: 'lastName',
-        placeholder: 'Прізвище',
+        type: "text",
+        name: "lastName",
+        placeholder: "Прізвище",
         forNewUser: true,
     },
     {
-        type: 'tel',
-        name: 'phoneNumber',
-        placeholder: 'Номер телефону',
+        type: "tel",
+        name: "phoneNumber",
+        placeholder: "Номер телефону",
         forNewUser: true,
     },
     {
-        type: 'email',
-        name: 'email',
-        placeholder: 'Email',
+        type: "email",
+        name: "email",
+        placeholder: "Email",
         forNewUser: false,
     },
     {
-        type: 'password',
-        name: 'password',
-        placeholder: 'Пароль',
+        type: "password",
+        name: "password",
+        placeholder: "Пароль",
         forNewUser: false,
     },
     {
-        type: 'password',
-        name: 'repeatPassword',
-        placeholder: 'Повторіть пароль',
+        type: "password",
+        name: "repeatPassword",
+        placeholder: "Повторіть пароль",
         forNewUser: true,
     },
 ];

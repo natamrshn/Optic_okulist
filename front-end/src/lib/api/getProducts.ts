@@ -1,8 +1,10 @@
-import axios, { AxiosResponse } from 'axios';
-import { GetTypes } from '../../types/GetTypes';
-import { Product } from '../../types/Product';
+import axios, { AxiosResponse } from "axios";
+import { GetTypes } from "../../types/GetTypes";
+import { Product } from "../../types/Product";
+import { getAuthToken } from "../helpers/localStorageToken";
 
-export async function getProducts(token: string, type: GetTypes): Promise<Product[]> {
+export async function getProducts(type: GetTypes): Promise<Product[]> {
+    const token = getAuthToken()
     const options = {
         headers: {
             Authorization: `Bearer ${token}`

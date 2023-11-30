@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 type AuthSwitchMessageProps = {
     isUserNew: boolean;
@@ -12,20 +12,20 @@ const AuthSwitchMessage: React.FC<AuthSwitchMessageProps> = ({
     setError,
 }) => {
     return (
-        <div className='modal-switch_msg'>
+        <div className="modal-switch_msg">
             <p>
                 {isUserNew
-                    ? 'У вас вже є обліковий запис? Тоді '
-                    : 'Якщо у вас немає облікового запису, '}
+                    ? "У вас вже є обліковий запис? Тоді "
+                    : "Якщо у вас немає облікового запису, "}
                 <span>
                     <button
                         onClick={(event) => {
                             setIsUserNew(!isUserNew);
-                            setError('');
+                            setError("");
                         }}
-                        className='modal-switch'
+                        className="modal-switch"
                     >
-                        {isUserNew ? 'увійдіть до нього' : 'зареєструйтесь'}
+                        {isUserNew ? "увійдіть до нього" : "зареєструйтесь"}
                     </button>
                 </span>
             </p>
