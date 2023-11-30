@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import './AuthModal.scss';
-import { GrFormClose } from 'react-icons/gr';
+import React, { useState } from "react";
+import "./AuthModal.scss";
+import { GrFormClose } from "react-icons/gr";
 import {
     INITIAL_USER_DATA,
     UserData,
     UserInputFields,
     validateForm,
-} from '../../lib/helpers/formValidation';
-import AuthSwitchMessage from './AuthSwitchMessage';
-import { login, register } from '../../lib/api/authRequest';
+} from "../../lib/helpers/formValidation";
+import AuthSwitchMessage from "./AuthSwitchMessage";
+import { login, register } from "../../lib/api/authRequest";
 
 type AuthModalProps = {
     dialogRef: React.MutableRefObject<HTMLDialogElement | null>;
@@ -16,7 +16,7 @@ type AuthModalProps = {
 };
 
 const AuthModal: React.FC<AuthModalProps> = ({ dialogRef, closeAuth }) => {
-    const [error, setError] = useState<string>('');
+    const [error, setError] = useState<string>("");
     const [isUserNew, setIsUserNew] = useState<boolean>(true);
     const [userData, setUserData] = useState(INITIAL_USER_DATA);
 
@@ -46,7 +46,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ dialogRef, closeAuth }) => {
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
-        setError('');
+        setError("");
         setUserData({
             ...userData,
             [name]: value.trim(),
@@ -54,19 +54,19 @@ const AuthModal: React.FC<AuthModalProps> = ({ dialogRef, closeAuth }) => {
     };
 
     return (
-        <dialog className='modal' ref={dialogRef}>
-            <div className='modal-content'>
-                <h3 className='modal-title'>
+        <dialog className="modal" ref={dialogRef}>
+            <div className="modal-content">
+                <h3 className="modal-title">
                     {isUserNew
-                        ? 'Реєстрація'
-                        : 'Ввійдіть у свій обліковий запис'}
+                        ? "Реєстрація"
+                        : "Ввійдіть у свій обліковий запис"}
                 </h3>
-                <button className='close' onClick={closeAuth}>
+                <button className="close" onClick={closeAuth}>
                     <GrFormClose />
                 </button>
 
                 <form
-                    className='modal-form'
+                    className="modal-form"
                     onSubmit={(event) => onFormSubmit(event)}
                 >
                     {UserInputFields.filter((field) =>
@@ -74,7 +74,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ dialogRef, closeAuth }) => {
                     ).map((field, index) => (
                         <input
                             key={index}
-                            className='modal-input'
+                            className="modal-input"
                             type={field.type}
                             name={field.name}
                             placeholder={field.placeholder}
@@ -82,16 +82,16 @@ const AuthModal: React.FC<AuthModalProps> = ({ dialogRef, closeAuth }) => {
                             onChange={handleInputChange}
                         />
                     ))}
-                    <p className={`modal-caption ${error ? ' error' : ''}`}>
+                    <p className={`modal-caption ${error ? " error" : ""}`}>
                         {error}
                     </p>
 
                     <button
                         disabled={!!error}
-                        className='modal-submit'
-                        type='submit'
+                        className="modal-submit"
+                        type="submit"
                     >
-                        {isUserNew ? 'Зараєструватись' : 'Увійти'}
+                        {isUserNew ? "Зараєструватись" : "Увійти"}
                     </button>
                 </form>
                 <AuthSwitchMessage

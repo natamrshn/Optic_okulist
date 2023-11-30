@@ -1,5 +1,5 @@
-import React from 'react';
-import Container from '../../components/ui/Container/Container';
+import React from "react";
+import Container from "../../components/ui/Container/Container";
 
 const DoctorPage = () => {
     return (

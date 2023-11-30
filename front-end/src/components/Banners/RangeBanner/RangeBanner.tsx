@@ -1,24 +1,11 @@
-import { useEffect, useState } from 'react';
+import React from "react";
 import Container from "../../ui/Container/Container";
 import "./RangeBanner.scss";
 import { Link } from "react-router-dom";
-import { getCategories } from '../../../lib/api/getCategories';
-import { Category } from '../../../types/Category';
+import { useFetchCategories } from "../../../lib/hooks/useFetchCategories";
 
 const RangeBanner = () => {
-    const [categories, setCategories] = useState<Category[]>([]);
-    const temporaryToken = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImlhdCI6MTcwMTI1NjI3NCwiZXhwIjo0ODU0ODU2Mjc0fQ.H70OT57MFgIjedqYyNd9t7B5fBnWMaMIWQHb1eoY1Zw';
-
-    
-    useEffect(() => {
-        async function fetchCategories() {
-            const categoriesFromAPI = await getCategories(temporaryToken);
-            setCategories(categoriesFromAPI);
-            console.log(categoriesFromAPI)
-        }
-
-        fetchCategories();
-    }, []);
+    const categories = useFetchCategories();
 
     return (
         <aside className="banner">
