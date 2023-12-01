@@ -1,5 +1,6 @@
 package spring.boot.optic.okulist.repository;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,4 +14,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
             + " AND EXISTS (SELECT oi FROM o.orderItems oi WHERE oi.id = :order_item_id)")
     Optional<Order> findByOrderIdAndOrderItemsId(@Param("order_id") Long orderId,
                                                  @Param("order_item_id") Long orderItemsId);
+
+    List<Order> findAllByUserEmail(String email);
+
 }

@@ -46,10 +46,10 @@ public class CartItemServiceImpl implements CartItemService {
         ShoppingCart shoppingCart = getOrCreateShoppingCart(user);
         switch (cartItemRequestDto.getProductType()) {
             case "Glasses":
-                cartItem.setGlasses(glassesRepository.getById(cartItemRequestDto.getProductId()));
+                cartItem.setGlasses(glassesRepository.getById(cartItemRequestDto.getGlassesId()));
                 break;
             case "Liquid":
-                cartItem.setLiquid(liquidRepository.getById(cartItemRequestDto.getProductId()));
+                cartItem.setLiquid(liquidRepository.getById(cartItemRequestDto.getLiquidId()));
                 break;
             case "ContactLenses":
                 List<ContactLenses> contactLenses = contactLensesRepository
