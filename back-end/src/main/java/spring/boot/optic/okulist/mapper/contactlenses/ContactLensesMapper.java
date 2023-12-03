@@ -25,8 +25,10 @@ public interface ContactLensesMapper {
     default void mapCategories(@MappingTarget ContactLensesResponseDto contactLensesResponseDto,
                                ContactLenses contactLenses) {
         contactLensesResponseDto.setName(contactLenses.getName());
-        contactLensesResponseDto.setLensConfigurationId(contactLenses.getLensConfiguration().getId());
-        contactLensesResponseDto.setCategories(mapCategoriesToDto(contactLenses.getCategories()));
+        contactLensesResponseDto.setLensConfigurationId(contactLenses
+                .getLensConfiguration().getId());
+        contactLensesResponseDto.setCategories(mapCategoriesToDto(contactLenses
+                .getCategories()));
     }
 
     default Set<CategoryResponseDto> mapCategoriesToDto(Set<Category> categories) {

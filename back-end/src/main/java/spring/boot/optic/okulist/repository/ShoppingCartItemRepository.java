@@ -8,6 +8,5 @@ import spring.boot.optic.okulist.model.ShoppingCartItem;
 
 @Repository
 public interface ShoppingCartItemRepository extends JpaRepository<ShoppingCartItem, Long> {
-    Set<ShoppingCartItem> findCartItemByShoppingCartId(
-            @Param("shoppingCartId") Long shoppingCart); // or shopping_carts_id
+    Set<ShoppingCartItem> findCartItemByShoppingCartId(@Param("shoppingCartId") Long shoppingCart);
 }

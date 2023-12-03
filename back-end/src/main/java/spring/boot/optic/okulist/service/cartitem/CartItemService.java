@@ -8,7 +8,7 @@ import spring.boot.optic.okulist.model.ShoppingCartItem;
 import spring.boot.optic.okulist.model.User;
 
 public interface CartItemService {
-    CartItemResponseDto save(ShoppingCartItemsRequestDto cartItemRequestDto);
+    CartItemResponseDto save(ShoppingCartItemsRequestDto shoppingCartItemsRequestDto);
 
     Set<CartItemResponseDto> findByShoppingCartId(Long id);
 
