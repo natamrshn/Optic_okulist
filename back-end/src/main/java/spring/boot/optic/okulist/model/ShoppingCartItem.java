@@ -14,7 +14,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
-import spring.boot.optic.okulist.model.lenses.ContactLenses;
 
 @Entity
 @Data
@@ -31,14 +30,8 @@ public class ShoppingCartItem {
     @JoinColumn(name = "shopping_carts_id", nullable = false)
     private ShoppingCart shoppingCart;
     @OneToOne
-    @JoinColumn(name = "glasses_id")
-    private Glasses glasses;
-    @OneToOne
-    @JoinColumn(name = "contact_Lenses_id")
-    private ContactLenses contactLenses;
-    @OneToOne
-    @JoinColumn(name = "liquid_id")
-    private Liquid liquid;
+    @JoinColumn(name = "product_id")
+    private Product product;
     @Column(name = "quantity", nullable = false)
     private int quantity;
     @Column(name = "is_deleted", nullable = false)

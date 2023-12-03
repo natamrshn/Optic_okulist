@@ -10,7 +10,6 @@ import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
 import spring.boot.optic.okulist.dto.glasses.GlassesRequestDto;
 import spring.boot.optic.okulist.dto.glasses.GlassesResponseDto;
 import spring.boot.optic.okulist.dto.glasses.GlassesSearchParameter;
-import spring.boot.optic.okulist.model.Category;
 import spring.boot.optic.okulist.model.Glasses;
 
 @Mapper(config = MapperConfig.class)

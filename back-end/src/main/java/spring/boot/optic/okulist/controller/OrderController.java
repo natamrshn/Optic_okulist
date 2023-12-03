@@ -4,11 +4,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.springdoc.core.annotations.ParameterObject;
-import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,7 +27,7 @@ public class OrderController {
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping
     @Operation(summary = "Get all orders", description = "Get a list of all available orders")
-    public List<OrderResponseDto> findAll(@ParameterObject Pageable pageable , Authentication authentication) {
+    public List<OrderResponseDto> findAll(Authentication authentication) {
         String currentPrincipalName = authentication.getName();
         return orderService.findAllByUserEmail(currentPrincipalName);
     }

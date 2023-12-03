@@ -17,4 +17,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
     List<Order> findAllByUserEmail(String email);
 
+    @Query("SELECT o FROM Order o ORDER BY o.orderDate DESC")
+    List<Order> findAllOrdersSortedByDateDesc();
 }
