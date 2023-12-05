@@ -7,8 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.util.ArrayList;
@@ -34,10 +33,7 @@ public class ShoppingCart {
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "shopping_cart_items",
-            joinColumns = @JoinColumn(name = "shopping_cart_id"),
-            inverseJoinColumns = @JoinColumn(name = "cart_items_id"))
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "shoppingCart")
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<ShoppingCartItem> cartItems = new ArrayList<>();

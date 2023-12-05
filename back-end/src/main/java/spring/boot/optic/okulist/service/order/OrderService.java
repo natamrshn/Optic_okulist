@@ -9,13 +9,13 @@ import spring.boot.optic.okulist.dto.order.UpdateOrderRequestDto;
 public interface OrderService {
     OrderResponseDto update(Long id, UpdateOrderRequestDto requestDto);
 
-    OrderResponseDto addOrder(CreateOrderRequestDto createOrderRequestDto);
+    OrderResponseDto addOrder(Long id,CreateOrderRequestDto createOrderRequestDto);
 
     OrderResponseDto getByUserId(Long userId);
 
     OrderResponseDto findById(Long id);
 
-    List<OrderResponseDto> getAll(Pageable pageable);
+    List<OrderResponseDto> findAllOrders(Long id, Pageable pageable);
 
     OrderResponseDto getByOrderIdAndOrderItemId(Long orderId, Long orderItemsId);
 

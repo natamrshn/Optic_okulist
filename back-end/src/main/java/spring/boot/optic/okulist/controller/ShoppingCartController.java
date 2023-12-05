@@ -32,7 +32,7 @@ public class ShoppingCartController {
     @Operation(summary = "add new item to a shopping cart")
     public CartItemResponseDto addCartItem(@RequestBody @Valid
                                            ShoppingCartItemsRequestDto cartItemRequestDto) {
-        return shoppingCartService.save(cartItemRequestDto);
+        return shoppingCartService.addItem(cartItemRequestDto);
     }
 
     @GetMapping

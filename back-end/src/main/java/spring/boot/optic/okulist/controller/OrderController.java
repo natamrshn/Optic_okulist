@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import spring.boot.optic.okulist.dto.order.CreateOrderRequestDto;
 import spring.boot.optic.okulist.dto.order.OrderResponseDto;
 import spring.boot.optic.okulist.dto.order.UpdateOrderRequestDto;
+import spring.boot.optic.okulist.model.User;
 import spring.boot.optic.okulist.service.order.OrderService;
 
 @RequiredArgsConstructor
@@ -57,8 +58,10 @@ public class OrderController {
     @PreAuthorize("hasRole('ROLE_USER')")
     @PostMapping
     @Operation(summary = "Add order to repository", description = "Add valid order to repository")
-    public OrderResponseDto addOrder(@RequestBody @Valid CreateOrderRequestDto requestDto) {
-        return orderService.addOrder(requestDto);
+    public OrderResponseDto addOrder(Authentication authentication,
+                                     @RequestBody @Valid CreateOrderRequestDto requestDto) {
+        User user = (User) authentication.getPrincipal();
+        return orderService.addOrder(user.getId(),requestDto);
     }
 
     @PreAuthorize("hasRole('ROLE_USER')")
