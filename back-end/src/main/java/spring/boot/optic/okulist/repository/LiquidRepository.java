@@ -1,5 +1,6 @@
 package spring.boot.optic.okulist.repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,6 +12,6 @@ public interface LiquidRepository extends JpaRepository<Liquid, Long> {
     List<Liquid> findAll(Specification<Liquid> specification);
 
     List<Liquid> findByVolumeNotAndPriceNotAndNameAndIdentifierAndDescription(
-            int volume, double price, String name, String identifier, String description
+            int volume, BigDecimal price, String name, String identifier, String description
     );
 }
