@@ -22,12 +22,9 @@ import spring.boot.optic.okulist.model.lenses.parameters.Manufacturer;
 @Where(clause = "is_deleted=false")
 @Table(name = "contact_lenses_product")
 public class ContactLenses extends Product {
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "manufacturers_id")
     private Manufacturer lensConfiguration;
-    private String productType = "ContactLenses";
-
     @Column(name = "is_deleted", nullable = false)
     private boolean isDeleted = false;
 }

@@ -20,7 +20,6 @@ public class Glasses extends Product {
     private String color;
     private String model;
     private String manufacturer;
-    private String productType = "Glasses";
     @Column(name = "is_deleted", nullable = false)
     private boolean isDeleted = false;
 }
