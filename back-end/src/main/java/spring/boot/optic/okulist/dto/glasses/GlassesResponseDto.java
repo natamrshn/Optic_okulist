@@ -1,5 +1,6 @@
 package spring.boot.optic.okulist.dto.glasses;
 
+import java.math.BigDecimal;
 import java.util.Set;
 import lombok.Data;
 import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
@@ -8,7 +9,7 @@ import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
 public class GlassesResponseDto {
     private Long id;
     private String name;
-    private double price;
+    private BigDecimal price;
     private String description;
     private String identifier;
     private String color;

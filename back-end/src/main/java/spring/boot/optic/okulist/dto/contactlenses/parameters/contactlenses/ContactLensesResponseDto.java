@@ -1,5 +1,6 @@
 package spring.boot.optic.okulist.dto.contactlenses.parameters.contactlenses;
 
+import java.math.BigDecimal;
 import java.util.Set;
 import lombok.Data;
 import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
@@ -10,7 +11,7 @@ public class ContactLensesResponseDto {
     private Long lensConfigurationId;
     private Set<CategoryResponseDto> categories;
     private String name;
-    private double price;
+    private BigDecimal price;
     private String identifier;
     private String description;
 }
