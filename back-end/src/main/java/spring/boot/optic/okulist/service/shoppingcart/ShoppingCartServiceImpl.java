@@ -21,7 +21,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     private final ShoppingCartManager registerNewCart;
 
     @Override
-    public CartItemResponseDto save(ShoppingCartItemsRequestDto requestDto) {
+    public CartItemResponseDto addItem(ShoppingCartItemsRequestDto requestDto) {
         return cartItemService.save(requestDto);
     }
 
@@ -30,7 +30,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     public ShoppingCartResponseDto getShoppingCart() {
         User authenticatedUser = userService.getAuthenticated();
         ShoppingCart shoppingCart = shoppingCartRepository
-                .getUserById(authenticatedUser.getId())
+                .getByUserId(authenticatedUser.getId())
                 .orElseGet(() -> registerNewCart.registerNewCart(authenticatedUser));
         Long id = shoppingCart.getId();
         ShoppingCartResponseDto shoppingCartDto = new ShoppingCartResponseDto();

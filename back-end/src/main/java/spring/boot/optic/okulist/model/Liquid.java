@@ -18,7 +18,6 @@ import org.hibernate.annotations.Where;
 @Table(name = "liquids")
 public class Liquid extends Product {
     private int volume;
-    private String productType = "Liquid";
     @Column(name = "is_deleted", nullable = false)
     private boolean isDeleted = false;
 }

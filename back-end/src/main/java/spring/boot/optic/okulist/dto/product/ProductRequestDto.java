@@ -2,6 +2,7 @@ package spring.boot.optic.okulist.dto.product;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+import java.math.BigDecimal;
 import java.util.Set;
 import lombok.Data;
 
@@ -10,7 +11,7 @@ public class ProductRequestDto {
     @NotNull
     private String name;
     @Positive
-    private double price;
+    private BigDecimal price;
     @NotNull
     private String identifier;
     private String category;

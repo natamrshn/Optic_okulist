@@ -10,7 +10,5 @@ import spring.boot.optic.okulist.model.Product;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long>,
         JpaSpecificationExecutor<Product> {
-    List<Product> findByName(String name);
-
     List<Product> findAll(Specification<Product> spec);
 }

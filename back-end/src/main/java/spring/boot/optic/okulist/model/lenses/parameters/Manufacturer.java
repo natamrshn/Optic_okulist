@@ -25,8 +25,8 @@ import org.hibernate.annotations.Where;
 public class Manufacturer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // id виробника
-    private String name; // назва виробника
+    private Long id;
+    private String name;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "color_id")
