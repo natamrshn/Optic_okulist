@@ -16,7 +16,6 @@ import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
 @Entity
-@Data
 @Getter
 @Setter
 @SQLDelete(sql = "UPDATE cart_items SET is_deleted = true WHERE id = ?")

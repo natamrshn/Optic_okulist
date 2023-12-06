@@ -24,7 +24,6 @@ import org.apache.commons.lang3.builder.ToStringExclude;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
-@Data
 @Getter
 @Setter
 @Entity

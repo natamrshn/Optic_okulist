@@ -16,11 +16,13 @@ import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Set;
-import lombok.Data;
+
+import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
-@Data
+@Getter
+@Setter
 @Entity
 @SQLDelete(sql = "Update orders SET is_deleted = true WHERE id=?")
 @Where(clause = "is_deleted=false")
@@ -50,32 +52,10 @@ public class Order {
     private LocalDateTime orderDate;
     @Column(name = "shipping_address", nullable = false)
     private String shippingAddress;
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Set<OrderItem> orderItems;
     @Column(name = "is_deleted", nullable = false)
     private boolean isDeleted = false;
-
-    @Override
-    public int hashCode() {
-        int hash = 17;
-        if (getId() != null) {
-            hash = 31 * hash + getId().hashCode();
-        }
-        if (getUser() != null) {
-            hash = 31 * hash + getUser().getId().hashCode();
-        }
-        if (getStatus() != null) {
-            hash = 31 * hash + getStatus().hashCode();
-        }
-        if (getTotal() != null) {
-            hash = 31 * hash + getTotal().hashCode();
-        }
-        if (getOrderDate() != null) {
-            hash = 31 * hash + getOrderDate().hashCode();
-        }
-        if (getShippingAddress() != null) {
-            hash = 31 * hash + getShippingAddress().hashCode();
-        }
-        return hash;
-    }
 }
