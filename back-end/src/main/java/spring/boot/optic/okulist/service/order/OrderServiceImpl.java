@@ -22,7 +22,6 @@ import spring.boot.optic.okulist.model.User;
 import spring.boot.optic.okulist.repository.OrderRepository;
 import spring.boot.optic.okulist.repository.ShoppingCartRepository;
 import spring.boot.optic.okulist.service.shoppingcart.ShoppingCartManager;
-import spring.boot.optic.okulist.service.shoppingcart.ShoppingCartService;
 import spring.boot.optic.okulist.service.user.UserService;
 
 @RequiredArgsConstructor
@@ -34,7 +33,6 @@ public class OrderServiceImpl implements OrderService {
     private final ShoppingCartRepository shoppingCartRepository;
     private final ShoppingCartManager manager;
     private final OrderItemMapper orderItemMapper;
-    private final ShoppingCartService shoppingCartService;
 
     @Override
     public OrderResponseDto update(Long id, UpdateOrderRequestDto requestDto) {
