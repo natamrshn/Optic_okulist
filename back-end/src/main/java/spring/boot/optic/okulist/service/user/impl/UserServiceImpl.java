@@ -2,12 +2,12 @@ package spring.boot.optic.okulist.service.user.impl;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import spring.boot.optic.okulist.dto.user.UserRegistrationRequestDto;
 import spring.boot.optic.okulist.dto.user.UserResponseDto;
 import spring.boot.optic.okulist.dto.user.UserUpdateRequestDto;
@@ -22,6 +22,7 @@ import spring.boot.optic.okulist.service.user.UserService;
 
 @RequiredArgsConstructor
 @Component
+@Transactional
 public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
@@ -76,12 +77,19 @@ public class UserServiceImpl implements UserService {
     public UserResponseDto update(Long userId, UserUpdateRequestDto updateRequestDto) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new EntityNotFoundException("User not found with id: " + userId));
-        user.setFirstName(updateRequestDto.getFirstName());
-        user.setLastName(updateRequestDto.getLastName());
-        user.setPhoneNumber(updateRequestDto.getPhoneNumber());
+        if (updateRequestDto.getFirstName() != null) {
+            user.setFirstName(updateRequestDto.getFirstName());
+        }
+        if (updateRequestDto.getLastName() != null) {
+            user.setLastName(updateRequestDto.getLastName());
+        }
+        if (updateRequestDto.getPhoneNumber() != null) {
+            user.setPhoneNumber(updateRequestDto.getPhoneNumber());
+        }
         User updatedUser = userRepository.save(user);
         return userMapper.toDto(updatedUser);
     }
+
 
     @Override
     public User getAuthenticated() {
