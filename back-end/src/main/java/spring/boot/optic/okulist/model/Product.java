@@ -40,6 +40,8 @@ public class Product {
     private BigDecimal price;
     private String identifier;
     private String description;
+    private String imageUrl;
+    private String imageUrlSecond;
 
     @ToStringExclude
     @EqualsAndHashCode.Exclude

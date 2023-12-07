@@ -16,4 +16,7 @@ public class ProductRequestDto {
     private String identifier;
     private String category;
     private Set<Long> categoryIds;
+    @NotNull
+    private String imageUrl;
+    private String imageUrlSecond;
 }
