@@ -6,6 +6,9 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +17,7 @@ import spring.boot.optic.okulist.dto.user.UserLoginRequestDto;
 import spring.boot.optic.okulist.dto.user.UserLoginResponseDto;
 import spring.boot.optic.okulist.dto.user.UserRegistrationRequestDto;
 import spring.boot.optic.okulist.dto.user.UserResponseDto;
+import spring.boot.optic.okulist.dto.user.UserUpdateRequestDto;
 import spring.boot.optic.okulist.exception.RegistrationException;
 import spring.boot.optic.okulist.security.AuthenticationService;
 import spring.boot.optic.okulist.service.user.UserService;
@@ -40,4 +44,14 @@ public class AuthController {
     public UserLoginResponseDto login(@RequestBody UserLoginRequestDto requestDto) {
         return authenticationService.authenticate(requestDto);
     }
+
+
+    @PatchMapping("/{userId}/update")
+    public UserResponseDto updateUserProfile(
+            @PathVariable Long userId,
+            @RequestBody UserUpdateRequestDto updateRequestDto) {
+        return userService.update(userId, updateRequestDto);
+    }
 }
+
+//find by name surname

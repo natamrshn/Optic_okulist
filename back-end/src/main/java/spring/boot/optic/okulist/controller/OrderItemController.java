@@ -32,7 +32,7 @@ public class OrderItemController {
         return orderItemService.getByProductId(productId);
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_USER')")  // maybe for user
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete orderItem by id",
             description = "Soft delete of orderItem by id from orders")

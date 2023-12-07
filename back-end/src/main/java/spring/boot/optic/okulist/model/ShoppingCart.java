@@ -37,7 +37,6 @@ public class ShoppingCart {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<ShoppingCartItem> cartItems = new ArrayList<>();
-
     @Column(name = "is_deleted", nullable = false)
     private boolean isDeleted = false;
 }

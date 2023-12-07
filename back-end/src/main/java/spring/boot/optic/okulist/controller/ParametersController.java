@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,6 +37,7 @@ public class ParametersController {
     private final DiopterService diopterService;
     private final SphereService sphereService;
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/colors")
     public ResponseEntity<ColorResponseDto> createColor(@RequestBody
                                                         @Valid ColorRequestDto colorRequestDto) {
@@ -43,11 +45,13 @@ public class ParametersController {
         return new ResponseEntity<>(createdColor, HttpStatus.CREATED);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/colors/{id}")
     public ColorResponseDto getColorById(@PathVariable Long id) {
         return colorService.getColorById(id);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/cylinders")
     public ResponseEntity<CylinderResponseDto> createCylinder(
             @RequestBody
@@ -56,11 +60,13 @@ public class ParametersController {
         return new ResponseEntity<>(createdCylinder, HttpStatus.CREATED);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/cylinder/{id}")
     public CylinderResponseDto getCylinderById(@PathVariable Long id) {
         return cylinderService.getCylinderById(id);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/degrees")
     public ResponseEntity<DegreeResponseDto> createDegree(
             @RequestBody
@@ -69,11 +75,13 @@ public class ParametersController {
         return new ResponseEntity<>(createdDegree, HttpStatus.CREATED);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/degrees/{id}")
     public DegreeResponseDto getDegreeById(@PathVariable Long id) {
         return degreeService.getDegreeById(id);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/diopters")
     public ResponseEntity<DiopterResponseDto> createDiopter(
             @RequestBody
@@ -82,11 +90,13 @@ public class ParametersController {
         return new ResponseEntity<>(createdDiopter, HttpStatus.CREATED);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/diopters/{id}")
     public DiopterResponseDto getDiopterById(@PathVariable Long id) {
         return diopterService.getDiopterById(id);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/spheres")
     public ResponseEntity<SphereResponseDto> createSphere(
             @RequestBody
@@ -95,6 +105,7 @@ public class ParametersController {
         return new ResponseEntity<>(createdSphere, HttpStatus.CREATED);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/spheres/{id}")
     public SphereResponseDto getSphereById(@PathVariable Long id) {
         return sphereService.getSphereById(id);

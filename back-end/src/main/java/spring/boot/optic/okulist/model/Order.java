@@ -28,15 +28,6 @@ import org.hibernate.annotations.Where;
 @Where(clause = "is_deleted=false")
 @Table(name = "orders")
 public class Order {
-    public enum Status {
-        PENDING,
-        PROCESSING,
-        SHIPPED,
-        DELIVERED,
-        CANCELLED,
-        REFUNDED
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -54,8 +45,16 @@ public class Order {
     private String shippingAddress;
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER) // before lazy
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<OrderItem> orderItems;
     @Column(name = "is_deleted", nullable = false)
     private boolean isDeleted = false;
+    public enum Status {
+        PENDING,
+        PROCESSING,
+        SHIPPED,
+        DELIVERED,
+        CANCELLED,
+        REFUNDED
+    }
 }

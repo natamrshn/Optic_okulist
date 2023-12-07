@@ -31,3 +31,4 @@ public class ManufacturerController {
         return null;
     }
 }
+// missing method
