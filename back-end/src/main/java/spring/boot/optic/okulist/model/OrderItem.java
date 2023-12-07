@@ -17,7 +17,6 @@ import lombok.Setter;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
-@Data
 @Getter
 @Setter
 @Entity

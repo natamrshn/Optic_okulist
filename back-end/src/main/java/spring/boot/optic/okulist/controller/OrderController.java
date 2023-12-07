@@ -28,7 +28,7 @@ public class OrderController {
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping
     @Operation(summary = "Get all orders", description = "Get a list of all available orders")
-    public List<OrderResponseDto> findAll(Authentication authentication) {
+    public List<OrderResponseDto> findAllUserOrders(Authentication authentication) {
         String currentPrincipalName = authentication.getName();
         return orderService.findAllByUserEmail(currentPrincipalName);
     }
