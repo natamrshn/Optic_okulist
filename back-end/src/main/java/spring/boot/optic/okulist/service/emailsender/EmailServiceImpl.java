@@ -93,4 +93,78 @@ public class EmailServiceImpl implements EmailService {
         textPart.setText(emailText);
         multipart.addBodyPart(textPart);
     }
+
+    @Override
+    public void sendVerificationCodeEmail(String userEmail, String verificationCode) {
+        try {
+            Session session = prepareSession();
+            MimeMessage message = createVerificationCodeMessage(session, userEmail, verificationCode);
+            Transport.send(message);
+        } catch (MessagingException e) {
+            throw new MessageSenderException("Error sending email....");
+        }
+    }
+
+    private MimeMessage createVerificationCodeMessage(Session session, String userEmail, String verificationCode)
+            throws MessagingException {
+        MimeMessage message = new MimeMessage(session);
+        message.setFrom(new InternetAddress(username));
+        message.addRecipient(Message.RecipientType.TO, new InternetAddress(userEmail));
+        message.setSubject("Verification Code");
+        Multipart multipart = createVerificationCodeMultipart(verificationCode);
+        message.setContent(multipart);
+        return message;
+    }
+
+    private Multipart createVerificationCodeMultipart(String verificationCode)
+            throws MessagingException {
+        Multipart multipart = new MimeMultipart();
+        addVerificationCodeTextPart(multipart, verificationCode);
+        return multipart;
+    }
+
+    private void addVerificationCodeTextPart(Multipart multipart, String verificationCode)
+            throws MessagingException {
+        BodyPart textPart = new MimeBodyPart();
+        String emailText = "Your verification code is: " + verificationCode;
+        textPart.setText(emailText);
+        multipart.addBodyPart(textPart);
+    }
+
+    @Override
+    public void sendPasswordChangeConfirmation(String userEmail) {
+        try {
+            Session session = prepareSession();
+            MimeMessage message = createPasswordChangeConfirmationMessage(session, userEmail);
+            Transport.send(message);
+        } catch (MessagingException e) {
+            throw new MessageSenderException("Error sending email....");
+        }
+    }
+
+    private MimeMessage createPasswordChangeConfirmationMessage(Session session, String userEmail)
+            throws MessagingException {
+        MimeMessage message = new MimeMessage(session);
+        message.setFrom(new InternetAddress(username));
+        message.addRecipient(Message.RecipientType.TO, new InternetAddress(userEmail));
+        message.setSubject("Password Change Confirmation");
+        Multipart multipart = createPasswordChangeConfirmationMultipart();
+        message.setContent(multipart);
+        return message;
+    }
+
+    private Multipart createPasswordChangeConfirmationMultipart()
+            throws MessagingException {
+        Multipart multipart = new MimeMultipart();
+        addPasswordChangeConfirmationTextPart(multipart);
+        return multipart;
+    }
+
+    private void addPasswordChangeConfirmationTextPart(Multipart multipart)
+            throws MessagingException {
+        BodyPart textPart = new MimeBodyPart();
+        String emailText = "Your password has been successfully changed.";
+        textPart.setText(emailText);
+        multipart.addBodyPart(textPart);
+    }
 }
