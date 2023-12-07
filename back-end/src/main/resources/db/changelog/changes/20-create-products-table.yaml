@@ -34,6 +34,16 @@ databaseChangeLog:
                   constraints:
                     nullable: true
               - column:
+                  name: "image_url"
+                  type: varchar(255)
+                  constraints:
+                  nullable: false
+              - column:
+                  name: "image_url_second"
+                  type: varchar(255)
+                  constraints:
+                  nullable: false
+              - column:
                   name: "category_id"
                   type: bigint
                   constraints:

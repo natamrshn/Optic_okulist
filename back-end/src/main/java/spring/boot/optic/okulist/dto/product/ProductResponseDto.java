@@ -13,4 +13,6 @@ public class ProductResponseDto {
     private String identifier;
     private String description;
     private Set<CategoryResponseDto> categories;
+    private String imageUrl;
+    private String imageUrlSecond;
 }
