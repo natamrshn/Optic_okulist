@@ -41,7 +41,7 @@ public class OrderController {
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @GetMapping("/{userId}")
+    @GetMapping("user/{userId}")
     @Operation(summary = "Get order by userId", description = "Get available order by userId")
     public OrderResponseDto getByUserId(@PathVariable Long userId) {
         return orderService.getByUserId(userId);
