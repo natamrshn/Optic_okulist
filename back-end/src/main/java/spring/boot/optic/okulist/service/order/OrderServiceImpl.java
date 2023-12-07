@@ -21,6 +21,7 @@ import spring.boot.optic.okulist.model.ShoppingCart;
 import spring.boot.optic.okulist.model.User;
 import spring.boot.optic.okulist.repository.OrderRepository;
 import spring.boot.optic.okulist.repository.ShoppingCartRepository;
+import spring.boot.optic.okulist.service.emailsender.EmailService;
 import spring.boot.optic.okulist.service.shoppingcart.ShoppingCartManager;
 import spring.boot.optic.okulist.service.user.UserService;
 
@@ -33,6 +34,7 @@ public class OrderServiceImpl implements OrderService {
     private final ShoppingCartRepository shoppingCartRepository;
     private final ShoppingCartManager manager;
     private final OrderItemMapper orderItemMapper;
+    private final EmailService emailService;
 
     @Override
     public OrderResponseDto update(Long id, UpdateOrderRequestDto requestDto) {
@@ -40,6 +42,21 @@ public class OrderServiceImpl implements OrderService {
                 .orElseThrow(() -> new EntityNotFoundException("Can't found order by id: " + id));
         order.setStatus(requestDto.getStatus());
         return orderMapper.toDto(orderRepository.save(order));
+    }
+
+
+    @Override
+    public OrderResponseDto updateOrderStatus(Long orderId, Order.Status status) {
+        Order order = getOrderById(orderId);
+        order.setStatus(status);
+        order = orderRepository.save(order);
+        emailService.sendStatusChangeEmail(order.getUser().getEmail(), status);
+        return orderMapper.toDto(order);
+    }
+
+    private Order getOrderById(Long orderId) {
+        return orderRepository.findById(orderId).orElseThrow(() ->
+                new EntityNotFoundException("can't find order by id: " + orderId));
     }
 
     @Override

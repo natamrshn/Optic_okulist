@@ -2,6 +2,7 @@ package spring.boot.optic.okulist.service.user.impl;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -9,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import spring.boot.optic.okulist.dto.user.UserRegistrationRequestDto;
 import spring.boot.optic.okulist.dto.user.UserResponseDto;
+import spring.boot.optic.okulist.dto.user.UserUpdateRequestDto;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.exception.RegistrationException;
 import spring.boot.optic.okulist.mapper.UserMapper;
@@ -68,6 +70,11 @@ public class UserServiceImpl implements UserService {
             user.setRoles(defaultUserRoleSet);
         }
         return userMapper.toDto(userRepository.save(user));
+    }
+
+    @Override
+    public UserResponseDto update(UserUpdateRequestDto updateRequestDto) {
+        return null;
     }
 
     @Override

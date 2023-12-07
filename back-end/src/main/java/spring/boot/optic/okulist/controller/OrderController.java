@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import spring.boot.optic.okulist.dto.order.CreateOrderRequestDto;
 import spring.boot.optic.okulist.dto.order.OrderResponseDto;
 import spring.boot.optic.okulist.dto.order.UpdateOrderRequestDto;
+import spring.boot.optic.okulist.model.Order;
 import spring.boot.optic.okulist.model.User;
 import spring.boot.optic.okulist.service.order.OrderService;
 
@@ -52,8 +54,22 @@ public class OrderController {
     @Operation(summary = "Update order by id", description = "Update available order by id")
     public OrderResponseDto update(@PathVariable Long id,
                            @RequestBody @Valid UpdateOrderRequestDto requestDto) {
-        return orderService.update(id, requestDto);
+        return orderService.updateOrderStatus(id, Order.Status
+                .valueOf(String.valueOf(requestDto.getStatus())));
     }
+
+
+    /*
+     @Operation(summary = "update order", description = "update order status")
+    @PatchMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public OrderResponseDto updateOrderStatus(@PathVariable Long id,
+                                              @RequestBody OrderUpdateDto orderUpdateDto) {
+        logger.info("updating Order Status by id." + id);
+        return orderService.updateOrderStatus(id, Order.Status
+                .valueOf(String.valueOf(orderUpdateDto.getStatus())));
+    }
+     */
 
     @PreAuthorize("hasRole('ROLE_USER')")
     @PostMapping
