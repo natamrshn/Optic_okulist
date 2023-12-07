@@ -42,7 +42,6 @@ public class Product {
     private String description;
     private String imageUrl;
     private String imageUrlSecond;
-
     @ToStringExclude
     @EqualsAndHashCode.Exclude
     @ManyToMany(fetch = FetchType.EAGER)

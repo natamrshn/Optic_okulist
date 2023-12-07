@@ -28,6 +28,8 @@ public class ContactLensesServiceImpl implements ContactLensesService {
     public ContactLensesResponseDto createContactLenses(
             ContactLensesRequestDto contactLensesRequestDto) {
         ContactLenses lenses = contactLensesMapper.toModel(contactLensesRequestDto);
+        lenses.setImageUrl(contactLensesRequestDto.getImageUrl());
+        lenses.setImageUrlSecond(contactLensesRequestDto.getImageUrlSecond());
         Manufacturer manufacturer = manufacturerRepository.findById(contactLensesRequestDto
                         .getLensConfigurationId())
                 .orElseThrow(() -> new EntityNotFoundException("Configuration not found with ID: "

@@ -10,7 +10,7 @@ public interface UserService {
     UserResponseDto register(
             UserRegistrationRequestDto requestDto) throws RegistrationException;
 
-    UserResponseDto update(UserUpdateRequestDto updateRequestDto);
+    UserResponseDto update(Long userId, UserUpdateRequestDto updateRequestDto);
 
     User getAuthenticated();
 }

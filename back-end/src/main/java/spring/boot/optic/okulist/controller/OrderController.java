@@ -28,18 +28,20 @@ public class OrderController {
     private final OrderService orderService;
 
     @PreAuthorize("hasRole('ROLE_USER')")
+    @PostMapping
+    @Operation(summary = "Add order to repository", description = "Add valid order to repository")
+    public OrderResponseDto addOrder(Authentication authentication,
+                                     @RequestBody @Valid CreateOrderRequestDto requestDto) {
+        User user = (User) authentication.getPrincipal();
+        return orderService.addOrder(user.getId(),requestDto);
+    }
+
+    @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping
     @Operation(summary = "Get all orders", description = "Get a list of all available orders")
     public List<OrderResponseDto> findAllUserOrders(Authentication authentication) {
         String currentPrincipalName = authentication.getName();
         return orderService.findAllByUserEmail(currentPrincipalName);
-    }
-
-    @PreAuthorize("hasRole('ROLE_USER')")
-    @GetMapping("/{id}")
-    @Operation(summary = "Get order by id", description = "Get available order by id")
-    public OrderResponseDto getOrderById(@PathVariable Long id) {
-        return orderService.findById(id);
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -57,37 +59,6 @@ public class OrderController {
         return orderService.updateOrderStatus(id, Order.Status
                 .valueOf(String.valueOf(requestDto.getStatus())));
     }
-
-
-    /*
-     @Operation(summary = "update order", description = "update order status")
-    @PatchMapping("/{id}")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public OrderResponseDto updateOrderStatus(@PathVariable Long id,
-                                              @RequestBody OrderUpdateDto orderUpdateDto) {
-        logger.info("updating Order Status by id." + id);
-        return orderService.updateOrderStatus(id, Order.Status
-                .valueOf(String.valueOf(orderUpdateDto.getStatus())));
-    }
-     */
-
-    @PreAuthorize("hasRole('ROLE_USER')")
-    @PostMapping
-    @Operation(summary = "Add order to repository", description = "Add valid order to repository")
-    public OrderResponseDto addOrder(Authentication authentication,
-                                     @RequestBody @Valid CreateOrderRequestDto requestDto) {
-        User user = (User) authentication.getPrincipal();
-        return orderService.addOrder(user.getId(),requestDto);
-    }
-
-    @PreAuthorize("hasRole('ROLE_USER')")
-    @GetMapping("/{id}/items/{orderItemId}")
-    @Operation(summary = "Get orderitem by order id and item id",
-            description = "Get available orderitem by order id and item id")
-    public OrderResponseDto getOrderItemByOrderIdAndItemId(
-            @PathVariable Long orderId,
-            @PathVariable Long orderItemId
-    ) {
-        return orderService.getByOrderIdAndOrderItemId(orderId, orderItemId);
-    }
 }
+
+// search for admin
