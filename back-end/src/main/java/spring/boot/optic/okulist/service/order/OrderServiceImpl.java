@@ -54,6 +54,11 @@ public class OrderServiceImpl implements OrderService {
         return orderMapper.toDto(order);
     }
 
+    @Override
+    public List<Order> findAllOrdersSortedByDateDesc() {
+        return orderRepository.findAllOrdersSortedByDateDesc();
+    }
+
     private Order getOrderById(Long orderId) {
         return orderRepository.findById(orderId).orElseThrow(() ->
                 new EntityNotFoundException("can't find order by id: " + orderId));
@@ -98,12 +103,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public OrderResponseDto getByUserId(Long userId) {
-        Order order = orderRepository.findByUserId(userId);
-        if (order == null) {
-            throw new RuntimeException("Can't found order by user id: " + userId);
-        }
-        return orderMapper.toDto(order);
+    public List<OrderResponseDto> getByUserId(Long userId) {
+        return orderRepository.findAllByUserId(userId).stream()
+                .map(orderMapper::toDto).toList();
     }
 
     @Override

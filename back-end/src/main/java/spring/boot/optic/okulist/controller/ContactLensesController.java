@@ -50,7 +50,7 @@ public class ContactLensesController {
 
     @Operation(summary = "Get Lenses by ID")
     @GetMapping("/{id}")
-    public ContactLensesResponseDto getGlassesById(@PathVariable Long id) {
+    public ContactLensesResponseDto getLensesById(@PathVariable Long id) {
         logger.info("Retrieving category with ID: " + id);
         return contactLensesService.getById(id);
     }
