@@ -38,13 +38,11 @@ databaseChangeLog:
                   type: varchar(255)
                   constraints:
                     nullable: false
-                  defaultValue: "default_image_url.jpg"  # Замініть на значення за замовчуванням
               - column:
                   name: "image_url_second"
                   type: varchar(255)
                   constraints:
                     nullable: false
-                  defaultValue: "default_image_url_second.jpg"  # Замініть на значення за замовчуванням
               - column:
                   name: "category_id"
                   type: bigint
