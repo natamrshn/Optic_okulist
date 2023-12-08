@@ -4,6 +4,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,7 +49,7 @@ public class OrderController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("user/{userId}")
     @Operation(summary = "Get order by userId", description = "Get available order by userId")
-    public OrderResponseDto getByUserId(@PathVariable Long userId) {
+    public List<OrderResponseDto> getByUserId(@PathVariable Long userId) {
         return orderService.getByUserId(userId);
     }
 
@@ -58,6 +60,11 @@ public class OrderController {
                            @RequestBody @Valid UpdateOrderRequestDto requestDto) {
         return orderService.updateOrderStatus(id, Order.Status
                 .valueOf(String.valueOf(requestDto.getStatus())));
+    }
+    @GetMapping("/logs")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public List<Order> getAllOrdersSortedByDateDesc() {
+        return orderService.findAllOrdersSortedByDateDesc();
     }
 }
 

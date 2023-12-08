@@ -12,7 +12,7 @@ public interface OrderService {
 
     OrderResponseDto addOrder(Long id,CreateOrderRequestDto createOrderRequestDto);
 
-    OrderResponseDto getByUserId(Long userId);
+    List<OrderResponseDto> getByUserId(Long userId);
 
     OrderResponseDto findById(Long id);
 
@@ -23,4 +23,6 @@ public interface OrderService {
     List<OrderResponseDto> findAllByUserEmail(String userEmail);
 
     OrderResponseDto updateOrderStatus(Long orderId, Order.Status status);
+
+    List<Order> findAllOrdersSortedByDateDesc();
 }
