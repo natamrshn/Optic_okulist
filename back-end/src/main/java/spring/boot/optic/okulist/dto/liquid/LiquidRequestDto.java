@@ -17,5 +17,7 @@ public class LiquidRequestDto {
     private String description;
     @NotNull
     private String identifier;
+    private String imageUrl;
+    private String imageUrlSecond;
     private Set<CategoryResponseDto> categories;
 }

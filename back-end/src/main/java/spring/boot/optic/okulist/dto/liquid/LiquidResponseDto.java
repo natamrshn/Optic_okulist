@@ -13,5 +13,7 @@ public class LiquidResponseDto {
     private String description;
     private String identifier;
     private int volume;
+    private String imageUrl;
+    private String imageUrlSecond;
     private Set<CategoryResponseDto> categories;
 }

@@ -15,4 +15,6 @@ public class ManufacturerResponseDto {
     private Long degreeId;
     private Long diopterId;
     private Long sphereId;
+    private String imageUrl;
+    private String imageUrlSecond;
 }

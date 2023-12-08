@@ -79,7 +79,9 @@ public class LiquidServiceImpl implements LiquidService {
                 referenceLiquid.getPrice(),
                 referenceLiquid.getName(),
                 referenceLiquid.getIdentifier(),
-                referenceLiquid.getDescription()
+                referenceLiquid.getDescription(),
+                referenceLiquid.getImageUrl(),
+                referenceLiquid.getImageUrlSecond()
         );
         return similarLiquids.stream()
                 .map(liquidMapper::toDto)
