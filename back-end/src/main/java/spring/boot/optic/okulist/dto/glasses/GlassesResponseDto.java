@@ -15,5 +15,7 @@ public class GlassesResponseDto {
     private String color;
     private String model;
     private String manufacturer;
+    private String imageUrl;
+    private String imageUrlSecond;
     private Set<CategoryResponseDto> categories;
 }

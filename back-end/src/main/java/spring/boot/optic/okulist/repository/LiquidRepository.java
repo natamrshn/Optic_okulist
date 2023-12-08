@@ -12,6 +12,7 @@ public interface LiquidRepository extends JpaRepository<Liquid, Long> {
     List<Liquid> findAll(Specification<Liquid> specification);
 
     List<Liquid> findByVolumeNotAndPriceNotAndNameAndIdentifierAndDescription(
-            int volume, BigDecimal price, String name, String identifier, String description
+            int volume, BigDecimal price, String name,
+            String identifier, String description, String imageUrl, String imageUrlSecond
     );
 }

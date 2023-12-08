@@ -12,6 +12,7 @@ public interface GlassesRepository extends JpaRepository<Glasses, Long> {
     List<Glasses> findAll(Specification<Glasses> specification);
 
     List<Glasses> findByColorIgnoreCaseAndNameAndPriceAndIdentifierAndDescription(
-            String color, String name, BigDecimal price, String identifier, String description
+            String color, String name, BigDecimal price, String identifier,
+            String description, String imageUrl, String imageUrlSecond
     );
 }

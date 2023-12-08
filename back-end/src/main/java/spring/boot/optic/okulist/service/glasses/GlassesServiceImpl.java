@@ -57,7 +57,9 @@ public class GlassesServiceImpl implements GlassesService {
                 referenceGlasses.getName(),
                 referenceGlasses.getPrice(),
                 referenceGlasses.getIdentifier(),
-                referenceGlasses.getDescription()
+                referenceGlasses.getDescription(),
+                referenceGlasses.getImageUrl(),
+                referenceGlasses.getImageUrlSecond()
         );
 
         return similarGlasses.stream()
