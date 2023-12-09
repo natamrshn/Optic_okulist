@@ -4,9 +4,12 @@ import React from "react";
 import Container from "../../components/ui/Container/Container";
 import { glassesProducts } from "../../components/ShoppingCart/ShoppingCart";
 import "./ShoppingCartPage.scss";
+import { selectCart } from '../../redux/cart/cartSlice';
 
 const ShoppingCartPage = () => {
     const totalPrice = Math.round(glassesProducts.slice(0, 5).reduce((totalPrice, product) => totalPrice + product.price, 0));
+    const products = selectCart;
+    console.log(products);
 
     return (
         <main className="cart-page">

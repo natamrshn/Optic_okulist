@@ -11,7 +11,7 @@ import { getProducts } from "../../lib/api/getProducts";
 const Catalog = () => {
     const [products, setProducts] = useState<Product[]>([]);
 
-    const location = useLocation()
+    const location = useLocation();
     const pathname = location.pathname.toLowerCase();
 
     useEffect(() => {
@@ -19,16 +19,17 @@ const Catalog = () => {
             let type: GetTypes = GetTypes.GLASSES;
 
             if (pathname.includes("lenses")) {
-                type = GetTypes.CONTACT_LENSES
+                type = GetTypes.CONTACT_LENSES;
             } else if (pathname.includes("liquids")) {
-                type = GetTypes.LIQUIDS
+                type = GetTypes.LIQUIDS;
             }
             const productsFromAPI = await getProducts(type);
             setProducts(productsFromAPI);
         }
 
         fetchProducts();
-    }, [pathname])
+    }, [pathname]);
+
     return (
         <section className="catalog">
             {products.map((product) => {
