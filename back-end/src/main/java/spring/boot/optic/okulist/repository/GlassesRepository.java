@@ -11,7 +11,7 @@ import spring.boot.optic.okulist.model.Glasses;
 public interface GlassesRepository extends JpaRepository<Glasses, Long> {
     List<Glasses> findAll(Specification<Glasses> specification);
 
-    List<Glasses> findByColorIgnoreCaseAndNameAndPriceAndIdentifierAndDescription(
+    List<Glasses> findByColorIgnoreCaseAndNameAndPriceAndIdentifierAndDescriptionAndImageUrlAndImageUrlSecond(
             String color, String name, BigDecimal price, String identifier,
             String description, String imageUrl, String imageUrlSecond
     );
