@@ -1,13 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./styles/main.scss";
+import { Provider } from 'react-redux';
+import store from './redux/store'
 import PageRouter from "./components/PageRouter/PageRouter";
+import "./styles/main.scss";
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
 );
 root.render(
     <React.StrictMode>
-        <PageRouter />
+        <Provider store={store}>
+            <PageRouter />
+        </Provider>
     </React.StrictMode>
 );
