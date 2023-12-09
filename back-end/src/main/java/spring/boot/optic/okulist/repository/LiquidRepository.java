@@ -11,7 +11,7 @@ import spring.boot.optic.okulist.model.Liquid;
 public interface LiquidRepository extends JpaRepository<Liquid, Long> {
     List<Liquid> findAll(Specification<Liquid> specification);
 
-    List<Liquid> findByVolumeNotAndPriceNotAndNameAndIdentifierAndDescription(
+    List<Liquid> findByVolumeNotAndPriceNotAndNameAndIdentifierAndDescriptionAndImageUrlAndImageUrlSecond(
             int volume, BigDecimal price, String name,
             String identifier, String description, String imageUrl, String imageUrlSecond
     );

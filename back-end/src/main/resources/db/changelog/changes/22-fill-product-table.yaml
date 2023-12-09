@@ -12,6 +12,8 @@ databaseChangeLog:
               - column: { name: "description", value: "Timeless black glasses" }
               - column: { name: "category_id", value: 1 }
               - column: { name: "is_deleted", value: 0 }
+              - column: { name: "image_url", value: "example_image_url_1.jpg" }
+              - column: { name: "image_url_second", value: "example_image_url_2.jpg" }
         - insert:
             tableName: products
             columns:
