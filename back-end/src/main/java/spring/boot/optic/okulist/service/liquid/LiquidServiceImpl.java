@@ -74,7 +74,7 @@ public class LiquidServiceImpl implements LiquidService {
         Liquid referenceLiquid = liquidMapper.toModelSearchParam(liquidRequestDto);
 
         List<Liquid> similarLiquids = liquidRepository
-                .findByVolumeNotAndPriceNotAndNameAndIdentifierAndDescription(
+                .findByVolumeNotAndPriceNotAndNameAndIdentifierAndDescriptionAndImageUrlAndImageUrlSecond(
                 referenceLiquid.getVolume(),
                 referenceLiquid.getPrice(),
                 referenceLiquid.getName(),

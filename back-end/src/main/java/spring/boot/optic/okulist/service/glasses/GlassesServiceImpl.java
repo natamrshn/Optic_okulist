@@ -52,7 +52,7 @@ public class GlassesServiceImpl implements GlassesService {
         Glasses referenceGlasses = glassesMapper.toModelSearchParam(glassesRequestDto);
 
         List<Glasses> similarGlasses = glassesRepository
-                .findByColorIgnoreCaseAndNameAndPriceAndIdentifierAndDescription(
+                .findByColorIgnoreCaseAndNameAndPriceAndIdentifierAndDescriptionAndImageUrlAndImageUrlSecond(
                 referenceGlasses.getColor(),
                 referenceGlasses.getName(),
                 referenceGlasses.getPrice(),
