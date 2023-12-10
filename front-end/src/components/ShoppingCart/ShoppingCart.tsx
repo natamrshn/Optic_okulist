@@ -1,10 +1,11 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { GrFormClose } from "react-icons/gr";
 
 import "./ShoppingCart.scss";
-import { Link } from "react-router-dom";
 import ShoppingCartProduct from "./ShoppingCartProduct";
+import { selectCart } from "../../redux/cart/cartSlice";
 
 type ShoppingCartProps = {
     setIsCartOpened: React.Dispatch<React.SetStateAction<boolean>>,
@@ -132,12 +133,7 @@ export const prodsWithIdsIds = glassesProducts.map((product, id) => ({
 }));
 
 const ShoppingCart: React.FC<ShoppingCartProps> = ({ setIsCartOpened }) => {
-    const totalPrice = Math.round(
-        glassesProducts.reduce(
-            (totalPrice, product) => totalPrice + product.price,
-            0
-        )
-    );
+    const products = useSelector(selectCart);
 
     return (
         <>
@@ -153,11 +149,10 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ setIsCartOpened }) => {
                         <GrFormClose size={30} />
                     </button>
                 </div>
-                {glassesProducts.slice(0, 5).map((product, index) => (
+                {products.map((product, index) => (
                     <ShoppingCartProduct key={product.name + index} product={product} />
                 ))}
 
-                <h3 className="cart-total">Total: ${totalPrice}</h3>
                 <Link to="/cart">Go to your cart</Link>
             </ul>
         </>

@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../store';
+import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../store";
+import { getShoppingCart } from "./getShoppingCart";
 
 export type CartProduct = {
     id: number;
@@ -13,13 +14,13 @@ type CartState = {
 };
 
 const initialState: CartState = {
-    products: [],
+    products: getShoppingCart(false),
 };
 
 const saveCartToServer = (cart: CartProduct[]) => {
     return new Promise<void>((resolve) => {
         setTimeout(() => {
-            console.log('Cart saved on server:', cart);
+            console.log("Cart saved on server:", cart);
             resolve();
         }, 1000);
     });
@@ -29,12 +30,12 @@ const saveCart = (isUserLoggedIn = false, products: CartProduct[]) => {
     if (isUserLoggedIn) {
         saveCartToServer(products);
     } else {
-        localStorage.setItem('cart', JSON.stringify(products));
+        localStorage.setItem("cart", JSON.stringify(products));
     }
 };
 
 const cartSlice = createSlice({
-    name: 'cart',
+    name: "cart",
     initialState,
     reducers: {
         addToCart: (state, action: PayloadAction<CartProduct>) => {
@@ -43,13 +44,11 @@ const cartSlice = createSlice({
             );
 
             if (existingProductIndex !== -1) {
-                state.products[existingProductIndex].amount +=
-                    action.payload.amount;
+                state.products[existingProductIndex].amount += 1;
             } else {
                 state.products.push(action.payload);
             }
 
-            console.log(state.products);
             saveCart(false, state.products);
         },
         removeFromCart: (state, action: PayloadAction<number>) => {
@@ -63,10 +62,32 @@ const cartSlice = createSlice({
             state.products = [];
             saveCart(false, state.products);
         },
+        decreaseProductAmount: (state, action: PayloadAction<number>) => {
+            const productId = action.payload;
+            const product = state.products.find(
+                (product) => product.id === productId
+            );
+            if (product && product.amount > 1) {
+                product.amount -= 1;
+            }
+            saveCart(false, state.products);
+        },
     },
 });
 
-export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
+export const selectProductAmount = (productId: number) =>
+    createSelector(
+        (state: RootState) => state.cart.products,
+        (products: CartProduct[]) => {
+            const product = products.find(
+                (product) => product.id === productId
+            );
+            return product ? product.amount : 0;
+        }
+    );
+
+export const { addToCart, removeFromCart, clearCart, decreaseProductAmount } =
+    cartSlice.actions;
 
 export const selectCart = (state: RootState) => state.cart.products;
 

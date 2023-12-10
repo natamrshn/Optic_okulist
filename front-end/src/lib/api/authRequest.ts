@@ -5,7 +5,7 @@ import { setAuthToken } from "../helpers/localStorageToken";
 export async function login(loginObject: { email: string, password: string}) {
     try {
         const response = await axios.post(
-            "http://localhost:8080/api/auth/login",
+            "http://localhost:8080/auth/login",
             loginObject
         );
 
@@ -20,7 +20,7 @@ export async function login(loginObject: { email: string, password: string}) {
 export async function register(registerObject: UserData) {
     try {
         const response = await axios.post(
-            "http://localhost:8080/api/auth/register",
+            "http://localhost:8080/auth/register",
             registerObject
         );
 

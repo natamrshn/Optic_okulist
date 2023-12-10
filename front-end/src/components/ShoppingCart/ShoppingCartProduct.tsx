@@ -1,35 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
+import { CartProduct, selectProductAmount } from "../../redux/cart/cartSlice";
+import { useSelector } from "react-redux";
+import { validatePrice } from "../../lib/helpers/validatePrice";
 
 type ShoppingCartProductProps = {
-    product: {
-        name: string;
-        price: number;
-        description: string;
-        imgUrl: string;
-        amount: number;
-    };
+    product: CartProduct;
 };
 
 const ShoppingCartProduct: React.FC<ShoppingCartProductProps> = ({
     product,
 }) => {
-    const [productAmount, setProductAmount] = useState(product.amount);
-    const productPrice = (product.price * productAmount).toFixed(2);
-    
+    const productAmount = useSelector(selectProductAmount(product.id));
+    const productPrice = validatePrice(product.price * productAmount);
+
     return (
         <li className="cart-product">
             <div className="wrapper">
                 <div>
-                    <img src={product.imgUrl} alt={product.name} />
+                    {/* <img src={product.imgUrl} alt={product.name} /> */}
                     <h3>{product.name}</h3>
                 </div>
                 <div>
-                    <p className="cart-price">${productPrice}</p> 
+                    <p className="cart-price">${productPrice}</p>
 
                     <div className="cart-amount">
-                        <button className="amount-button" onClick={() => setProductAmount(prevState => prevState - 1)}>-</button>
-                        <p>{productAmount}</p>
-                        <button className="amount-button" onClick={() => setProductAmount(prevState => prevState + 1)}>+</button>
+                        <p style={{ fontSize: "12px", color: "gray" }}>
+                            {productAmount} items
+                        </p>
                     </div>
                 </div>
             </div>
