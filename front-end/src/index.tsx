@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Provider } from 'react-redux';
-import store from './redux/store'
+import { Provider } from "react-redux";
+import store from "./redux/store";
 import PageRouter from "./components/PageRouter/PageRouter";
 import "./styles/main.scss";
 
