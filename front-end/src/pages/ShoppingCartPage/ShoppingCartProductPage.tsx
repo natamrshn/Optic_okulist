@@ -18,8 +18,9 @@ type ShoppingCartPageProductProps = {
 const ShoppingCartPageProduct: React.FC<ShoppingCartPageProductProps> = ({
     product,
 }) => {
-    const amount = useSelector(selectProductAmount(product.id));
-    const price = validatePrice(product.price * amount);
+    const { id, name, price, imageUrl } = product;
+    const productAmount = useSelector(selectProductAmount(id));
+    const totalProductPrice = validatePrice(price * productAmount);
     const dispatch = useDispatch();
 
     const incrementAmount = () => {
@@ -27,30 +28,30 @@ const ShoppingCartPageProduct: React.FC<ShoppingCartPageProductProps> = ({
     };
 
     const decrementAmount = () => {
-        dispatch(decreaseProductAmount(product.id));
+        dispatch(decreaseProductAmount(id));
     };
     
     const deleteItem = () => {
-        dispatch(removeFromCart(product.id))
+        dispatch(removeFromCart(id))
     }
 
     return (
         <li className="product-item">
             <div className="wrapper">
                 <div className="product-info">
-                    {/* <img src={product.imgUrl} alt={product.name} /> */}
-                    <h3>{product.name}</h3>
+                    <img src={imageUrl} alt={name} />
+                    <h3>{name}</h3>
                 </div>
 
                 <div className="buttons-wrapper">
-                    <p>${price}</p>
+                    <p>${totalProductPrice}</p>
 
                     <ProductAmountControl
                         incrementAmount={incrementAmount}
                         decrementAmount={decrementAmount}
-                        amount={amount}
+                        amount={productAmount}
                     />
-
+                    
                     <button onClick={() => deleteItem()} className="remove"><GrFormClose /></button>
                 </div>
             </div>

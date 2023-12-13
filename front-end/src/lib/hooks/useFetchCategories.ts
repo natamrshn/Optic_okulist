@@ -10,7 +10,6 @@ export function useFetchCategories() {
             try {
                 const categoriesFromAPI = await getCategories();
                 setCategories(categoriesFromAPI);
-                console.log(categoriesFromAPI);
             } catch (error) {
                 console.error("Error fetching categories:", error);
             }

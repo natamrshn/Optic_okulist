@@ -10,15 +10,16 @@ type ShoppingCartProductProps = {
 const ShoppingCartProduct: React.FC<ShoppingCartProductProps> = ({
     product,
 }) => {
-    const productAmount = useSelector(selectProductAmount(product.id));
-    const productPrice = validatePrice(product.price * productAmount);
+    const { id, name, imageUrl, price} = product;
+    const productAmount = useSelector(selectProductAmount(id));
+    const productPrice = validatePrice(price * productAmount);
 
     return (
         <li className="cart-product">
             <div className="wrapper">
                 <div>
-                    {/* <img src={product.imgUrl} alt={product.name} /> */}
-                    <h3>{product.name}</h3>
+                    <img src={imageUrl} alt={name + " photo"} />
+                    <h3>{name}</h3>
                 </div>
                 <div>
                     <p className="cart-price">${productPrice}</p>
