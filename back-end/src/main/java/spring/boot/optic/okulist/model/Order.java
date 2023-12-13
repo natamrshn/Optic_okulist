@@ -49,6 +49,11 @@ public class Order {
     private Set<OrderItem> orderItems;
     @Column(name = "is_deleted", nullable = false)
     private boolean isDeleted = false;
+
+    @ManyToOne
+    @JoinColumn(name = "temporary_user_id")
+    private TemporaryUser temporaryUser;
+
     public enum Status {
         PENDING,
         PROCESSING,
