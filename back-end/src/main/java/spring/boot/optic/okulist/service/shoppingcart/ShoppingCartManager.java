@@ -17,4 +17,9 @@ public class ShoppingCartManager {
         shoppingCartRepository.save(shoppingCart);
         return shoppingCart;
     }
+
+    public void clearCart(ShoppingCart shoppingCart) {
+        shoppingCart.getCartItems().clear();
+        shoppingCartRepository.save(shoppingCart);
+    }
 }
