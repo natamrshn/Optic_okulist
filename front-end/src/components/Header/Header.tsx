@@ -37,7 +37,7 @@ const Header = () => {
     };
 
     const cartProducts = useSelector(selectCart);
-    
+
     const amountOfProducts = cartProducts.reduce(
         (acc, product) => acc + product.amount,
         0
@@ -58,7 +58,11 @@ const Header = () => {
                                 className="header-cart-button"
                                 onClick={() => setIsCartOpened(!isCartOpened)}
                             >
-                            {amountOfProducts && <p className="header-products-amount">{amountOfProducts}</p>} 
+                                {amountOfProducts > 0 && (
+                                    <p className="header-products-amount">
+                                        {amountOfProducts}
+                                    </p>
+                                )}
                                 <CartIcon />
                             </button>
 

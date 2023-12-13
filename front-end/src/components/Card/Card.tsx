@@ -14,7 +14,7 @@ type CardProps = {
 };
 
 const Card: React.FC<CardProps> = ({ product }) => {
-    const { name, price, id } = product;
+    const { name, price, id, imageUrl } = product;
     const dispatch = useDispatch();
 
     const productForCart = {
@@ -22,6 +22,7 @@ const Card: React.FC<CardProps> = ({ product }) => {
         name,
         price,
         amount: 1,
+        imageUrl,
     };
 
     const handleAddToCart = (product: CartProduct) => {
@@ -31,7 +32,7 @@ const Card: React.FC<CardProps> = ({ product }) => {
     return (
         <div className="product">
             <div className="product-photo">
-                <img src="https://placehold.co/600x400" alt={name + " photo"} />
+                <img src={imageUrl} alt={name + " photo"} />
             </div>
 
             <Link to={`/product/${product.id}`} className="product-name">
