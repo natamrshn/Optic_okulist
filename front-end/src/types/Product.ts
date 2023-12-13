@@ -9,5 +9,6 @@ export type Product = {
     color: string,
     model: string,
     manufacturer: string,
-    categories: Category[]
+    categories: Category[],
+    imageUrl: string,
 };
