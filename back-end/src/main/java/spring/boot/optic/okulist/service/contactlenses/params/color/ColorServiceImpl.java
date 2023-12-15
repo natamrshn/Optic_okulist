@@ -8,6 +8,8 @@ import spring.boot.optic.okulist.mapper.contactlenses.ColorMapper;
 import spring.boot.optic.okulist.model.lenses.parameters.Color;
 import spring.boot.optic.okulist.repository.lenses.paramsrepository.ColorRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ColorServiceImpl implements ColorService {
@@ -26,5 +28,10 @@ public class ColorServiceImpl implements ColorService {
         Color color = colorRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Color not found with id: " + id));
         return colorMapper.toDto(color);
+    }
+    @Override
+    public List<ColorResponseDto> getAllColors() {
+        List<Color> colors = colorRepository.findAll();
+        return colorMapper.toDtoList(colors);
     }
 }

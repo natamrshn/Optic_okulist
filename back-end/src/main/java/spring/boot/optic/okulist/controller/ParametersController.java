@@ -27,6 +27,8 @@ import spring.boot.optic.okulist.service.contactlenses.params.degree.DegreeServi
 import spring.boot.optic.okulist.service.contactlenses.params.diopter.DiopterService;
 import spring.boot.optic.okulist.service.contactlenses.params.sphere.SphereService;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/parameters")
@@ -38,11 +40,18 @@ public class ParametersController {
     private final SphereService sphereService;
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @PostMapping("/colors")
+    @PostMapping("/create-color")
     public ResponseEntity<ColorResponseDto> createColor(@RequestBody
                                                         @Valid ColorRequestDto colorRequestDto) {
         ColorResponseDto createdColor = colorService.createColor(colorRequestDto);
         return new ResponseEntity<>(createdColor, HttpStatus.CREATED);
+    }
+
+
+    @GetMapping("/getAll-Colors")
+    public ResponseEntity<List<ColorResponseDto>> getAllColors() {
+        List<ColorResponseDto> allColors = colorService.getAllColors();
+        return ResponseEntity.ok(allColors);
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -60,6 +69,12 @@ public class ParametersController {
         return new ResponseEntity<>(createdCylinder, HttpStatus.CREATED);
     }
 
+    @GetMapping("/getAll-Cylinders")
+    public ResponseEntity<List<CylinderResponseDto>> getAllCylinders() {
+        List<CylinderResponseDto> allCylinders = cylinderService.getAllCylinders();
+        return ResponseEntity.ok(allCylinders);
+    }
+
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/cylinder/{id}")
     public CylinderResponseDto getCylinderById(@PathVariable Long id) {
@@ -73,6 +88,12 @@ public class ParametersController {
             @Valid DegreeRequestDto degreeRequestDto) {
         DegreeResponseDto createdDegree = degreeService.createDegree(degreeRequestDto);
         return new ResponseEntity<>(createdDegree, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/getAll-Degrees")
+    public ResponseEntity<List<DegreeResponseDto>> getAllDegrees() {
+        List<DegreeResponseDto> allDegrees = degreeService.getAllDegrees();
+        return ResponseEntity.ok(allDegrees);
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -90,6 +111,12 @@ public class ParametersController {
         return new ResponseEntity<>(createdDiopter, HttpStatus.CREATED);
     }
 
+    @GetMapping("/getAll-Diopters")
+    public ResponseEntity<List<DiopterResponseDto>> getAllDiopters() {
+        List<DiopterResponseDto> allDiopters = diopterService.getAllDiopters();
+        return ResponseEntity.ok(allDiopters);
+    }
+
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/diopters/{id}")
     public DiopterResponseDto getDiopterById(@PathVariable Long id) {
@@ -103,6 +130,12 @@ public class ParametersController {
             @Valid SphereRequestDto sphereRequestDto) {
         SphereResponseDto createdSphere = sphereService.createSphere(sphereRequestDto);
         return new ResponseEntity<>(createdSphere, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/getAll-Spheres")
+    public ResponseEntity<List<SphereResponseDto>> getAllSpheres() {
+        List<SphereResponseDto> allSpheres = sphereService.getAllSpheres();
+        return ResponseEntity.ok(allSpheres);
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")

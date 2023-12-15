@@ -8,6 +8,9 @@ import spring.boot.optic.okulist.mapper.contactlenses.CylinderMapper;
 import spring.boot.optic.okulist.model.lenses.parameters.Cylinder;
 import spring.boot.optic.okulist.repository.lenses.paramsrepository.CylinderRepository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class CylinderServiceImpl implements CylinderService {
@@ -26,5 +29,13 @@ public class CylinderServiceImpl implements CylinderService {
         Cylinder cylinder = cylinderRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Cylinder not found with id: " + id));
         return cylinderMapper.toDto(cylinder);
+    }
+
+    @Override
+    public List<CylinderResponseDto> getAllCylinders() {
+        List<Cylinder> cylinders = cylinderRepository.findAll();
+        return cylinders.stream()
+                .map(cylinderMapper::toDto)
+                .collect(Collectors.toList());
     }
 }

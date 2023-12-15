@@ -8,6 +8,9 @@ import spring.boot.optic.okulist.mapper.contactlenses.DegreeMapper;
 import spring.boot.optic.okulist.model.lenses.parameters.Degree;
 import spring.boot.optic.okulist.repository.lenses.paramsrepository.DegreeRepository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class DegreeServiceImpl implements DegreeService {
@@ -27,5 +30,12 @@ public class DegreeServiceImpl implements DegreeService {
         Degree degree = degreeRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Degree not found with id: " + id));
         return degreeMapper.toDto(degree);
+    }
+    @Override
+    public List<DegreeResponseDto> getAllDegrees() {
+        List<Degree> degrees = degreeRepository.findAll();
+        return degrees.stream()
+                .map(degreeMapper::toDto)
+                .collect(Collectors.toList());
     }
 }

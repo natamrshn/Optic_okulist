@@ -14,4 +14,6 @@ public class ContactLensesResponseDto {
     private BigDecimal price;
     private String identifier;
     private String description;
+    private String imageUrl;
+    private String imageUrlSecond;
 }
