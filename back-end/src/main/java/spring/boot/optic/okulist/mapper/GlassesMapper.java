@@ -22,17 +22,4 @@ public interface GlassesMapper {
 
     Glasses toModelSearchParam(GlassesSearchParameter glassesSearchParameter);
 
-    @AfterMapping
-    default void mapCategories(@MappingTarget GlassesResponseDto glassesResponseDto,
-                               Glasses glasses) {
-        glassesResponseDto.setName(glasses.getName());
-        glassesResponseDto.setCategories(glasses.getCategories().stream()
-                .map(category -> {
-                    CategoryResponseDto categoryResponseDto = new CategoryResponseDto();
-                    categoryResponseDto.setId(category.getId());
-                    categoryResponseDto.setName(category.getName());
-                    return categoryResponseDto;
-                })
-                .collect(Collectors.toSet()));
-    }
 }
