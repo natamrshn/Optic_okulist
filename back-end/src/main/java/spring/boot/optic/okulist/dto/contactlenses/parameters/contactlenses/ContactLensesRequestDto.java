@@ -13,6 +13,4 @@ public class ContactLensesRequestDto {
     private BigDecimal price;
     private String identifier;
     private String description;
-    private String imageUrl;
-    private String imageUrlSecond;
 }

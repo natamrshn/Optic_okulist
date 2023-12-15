@@ -22,6 +22,17 @@ public interface LiquidMapper {
 
     Liquid toModelSearchParam(LiquidSearchParameter liquidSearchParameter);
 
+
+    @AfterMapping
+    default void mapCategories(@MappingTarget LiquidResponseDto liquidResponseDto,
+                               Liquid liquid) {
+        liquidResponseDto.setName(liquid.getName());
+        liquidResponseDto.setCategories(liquid.getCategories().stream()
+                .map(this::mapCategoryToDto)
+                .collect(Collectors.toSet()));
+    }
+
+
     default CategoryResponseDto mapCategoryToDto(Category category) {
         CategoryResponseDto categoryResponseDto = new CategoryResponseDto();
         categoryResponseDto.setId(category.getId());
