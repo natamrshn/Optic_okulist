@@ -19,7 +19,6 @@ import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.exception.MessageSenderException;
 import spring.boot.optic.okulist.model.Order;
 
-
 @Service
 @RequiredArgsConstructor
 public class EmailServiceImpl implements EmailService {
@@ -37,7 +36,6 @@ public class EmailServiceImpl implements EmailService {
     @Value("${mail.password}")
     private String password;
 
-
     @Override
     public void sendStatusChangeEmail(String userEmail, Order.Status newStatus) {
         try {
@@ -48,7 +46,6 @@ public class EmailServiceImpl implements EmailService {
             throw new MessageSenderException("Error sending email....");
         }
     }
-
 
     private Session prepareSession() {
         Properties properties = prepareProperties();
@@ -98,14 +95,18 @@ public class EmailServiceImpl implements EmailService {
     public void sendVerificationCodeEmail(String userEmail, String verificationCode) {
         try {
             Session session = prepareSession();
-            MimeMessage message = createVerificationCodeMessage(session, userEmail, verificationCode);
+            MimeMessage message = createVerificationCodeMessage(session,
+                    userEmail,
+                    verificationCode);
             Transport.send(message);
         } catch (MessagingException e) {
             throw new MessageSenderException("Error sending email....");
         }
     }
 
-    private MimeMessage createVerificationCodeMessage(Session session, String userEmail, String verificationCode)
+    private MimeMessage createVerificationCodeMessage(Session session,
+                                                      String userEmail,
+                                                      String verificationCode)
             throws MessagingException {
         MimeMessage message = new MimeMessage(session);
         message.setFrom(new InternetAddress(username));

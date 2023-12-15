@@ -1,5 +1,7 @@
 package spring.boot.optic.okulist.service.contactlenses.params.degree;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.degree.DegreeRequestDto;
@@ -7,9 +9,6 @@ import spring.boot.optic.okulist.dto.contactlenses.parameters.degree.DegreeRespo
 import spring.boot.optic.okulist.mapper.contactlenses.DegreeMapper;
 import spring.boot.optic.okulist.model.lenses.parameters.Degree;
 import spring.boot.optic.okulist.repository.lenses.paramsrepository.DegreeRepository;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -31,6 +30,7 @@ public class DegreeServiceImpl implements DegreeService {
                 .orElseThrow(() -> new RuntimeException("Degree not found with id: " + id));
         return degreeMapper.toDto(degree);
     }
+
     @Override
     public List<DegreeResponseDto> getAllDegrees() {
         List<Degree> degrees = degreeRepository.findAll();

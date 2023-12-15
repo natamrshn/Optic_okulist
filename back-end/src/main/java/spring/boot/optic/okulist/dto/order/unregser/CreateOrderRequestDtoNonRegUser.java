@@ -1,4 +1,4 @@
-package spring.boot.optic.okulist.dto.order.unregUser;
+package spring.boot.optic.okulist.dto.order.unregser;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;

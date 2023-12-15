@@ -20,15 +20,16 @@ import spring.boot.optic.okulist.service.emailsender.EmailService;
 @EnableCaching
 public class UserPasswordUpdateServiceImpl implements UserPasswordUpdateService {
     private final PasswordEncoder passwordEncoder;
-    private final  CacheManager cacheManager;
+    private final CacheManager cacheManager;
     private final UserMapper userMapper;
     private final UserRepository userRepository;
     private final EmailService emailService;
 
-
     @Override
-    public UserResponseDto updatePassword(Long userId, UserPasswordUpdateRequestDto updateRequestDto) {
-        verifyCodeAndChangePassword(userId, updateRequestDto.getVerificationCode(), updateRequestDto.getPassword());
+    public UserResponseDto updatePassword(Long userId,
+                                          UserPasswordUpdateRequestDto updateRequestDto) {
+        verifyCodeAndChangePassword(userId, updateRequestDto.getVerificationCode(),
+                updateRequestDto.getPassword());
         User user = getUserById(userId);
         UserResponseDto responseDto = userMapper.toDto(user);
 
@@ -40,11 +41,13 @@ public class UserPasswordUpdateServiceImpl implements UserPasswordUpdateService 
     }
 
     @Override
-    public void verifyCodeAndChangePassword(Long userId, String verificationCode, String newPassword) {
+    public void verifyCodeAndChangePassword(Long userId, String verificationCode,
+                                            String newPassword) {
         String storedCode = getVerificationCode(userId);
         if (storedCode != null && storedCode.equals(verificationCode)) {
             User user = userRepository.findById(userId)
-                    .orElseThrow(() -> new EntityNotFoundException("User not found with id: " + userId));
+                    .orElseThrow(() ->
+                            new EntityNotFoundException("User not found with id: " + userId));
             user.setPassword(passwordEncoder.encode(newPassword));
             clearVerificationCode(userId);
             userRepository.save(user);
@@ -52,7 +55,6 @@ public class UserPasswordUpdateServiceImpl implements UserPasswordUpdateService 
             throw new VerificationCodeMismatchException("Invalid verification code");
         }
     }
-
 
     private String getVerificationCode(Long userId) {
         Cache cache = cacheManager.getCache("verificationCodes");
@@ -66,6 +68,7 @@ public class UserPasswordUpdateServiceImpl implements UserPasswordUpdateService 
 
     private User getUserById(Long userId) {
         return userRepository.findById(userId)
-                .orElseThrow(() -> new EntityNotFoundException("User not found with id: " + userId));
+                .orElseThrow(() ->
+                        new EntityNotFoundException("User not found with id: " + userId));
     }
 }

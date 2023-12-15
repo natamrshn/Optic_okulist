@@ -1,5 +1,7 @@
 package spring.boot.optic.okulist.service.contactlenses.params.sphere;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.sphere.SphereRequestDto;
@@ -7,9 +9,6 @@ import spring.boot.optic.okulist.dto.contactlenses.parameters.sphere.SphereRespo
 import spring.boot.optic.okulist.mapper.contactlenses.SphereMapper;
 import spring.boot.optic.okulist.model.lenses.parameters.Sphere;
 import spring.boot.optic.okulist.repository.lenses.paramsrepository.SphereRepository;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor

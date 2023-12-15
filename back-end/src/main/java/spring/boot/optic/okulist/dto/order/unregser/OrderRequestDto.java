@@ -1,12 +1,11 @@
-package spring.boot.optic.okulist.dto.order.unregUser;
+package spring.boot.optic.okulist.dto.order.unregser;
 
+import java.util.List;
 import lombok.Data;
 import spring.boot.optic.okulist.dto.order.orderitem.OrderItemDto;
 
-import java.util.List;
-
 @Data
-public class OrderRequestDTO {
+public class OrderRequestDto {
     private String firstName;
     private String lastName;
     private String phoneNumber;

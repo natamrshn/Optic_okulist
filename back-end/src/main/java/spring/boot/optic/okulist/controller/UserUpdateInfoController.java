@@ -27,7 +27,6 @@ public class UserUpdateInfoController {
     private final UserPasswordInitiationService initiationService;
     private final UserPasswordUpdateService updateService;
 
-
     @PatchMapping("/{userId}/update")
     public UserResponseDto updateUserProfile(
             @PathVariable Long userId,
