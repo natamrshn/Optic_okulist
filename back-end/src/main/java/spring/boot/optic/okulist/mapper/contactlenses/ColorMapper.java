@@ -1,5 +1,6 @@
 package spring.boot.optic.okulist.mapper.contactlenses;
 
+import java.util.List;
 import org.mapstruct.Mapper;
 import spring.boot.optic.okulist.config.MapperConfig;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.color.ColorRequestDto;
@@ -12,4 +13,6 @@ public interface ColorMapper {
     ColorResponseDto toDto(Color color);
 
     Color toModel(ColorRequestDto colorRequestDto);
+
+    List<ColorResponseDto> toDtoList(List<Color> colors);
 }

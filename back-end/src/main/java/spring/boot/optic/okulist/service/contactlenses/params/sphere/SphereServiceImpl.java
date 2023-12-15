@@ -1,5 +1,7 @@
 package spring.boot.optic.okulist.service.contactlenses.params.sphere;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.sphere.SphereRequestDto;
@@ -17,7 +19,7 @@ public class SphereServiceImpl implements SphereService {
     @Override
     public SphereResponseDto getSphereById(Long id) {
         Sphere sphere = sphereRepository.findById(id)
-                        .orElseThrow(() -> new RuntimeException("Sphere not found with id: " + id));
+                .orElseThrow(() -> new RuntimeException("Sphere not found with id: " + id));
         return sphereMapper.toDto(sphere);
     }
 
@@ -28,4 +30,11 @@ public class SphereServiceImpl implements SphereService {
         return sphereMapper.toDto(savedSphere);
     }
 
+    @Override
+    public List<SphereResponseDto> getAllSpheres() {
+        List<Sphere> spheres = sphereRepository.findAll();
+        return spheres.stream()
+                .map(sphereMapper::toDto)
+                .collect(Collectors.toList());
+    }
 }

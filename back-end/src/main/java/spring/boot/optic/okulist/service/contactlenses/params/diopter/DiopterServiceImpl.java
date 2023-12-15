@@ -1,5 +1,7 @@
 package spring.boot.optic.okulist.service.contactlenses.params.diopter;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.diopter.DiopterRequestDto;
@@ -27,5 +29,13 @@ public class DiopterServiceImpl implements DiopterService {
         Diopter diopter = diopterMapper.toModel(diopterRequestDto);
         Diopter savedDiopter = diopterRepository.save(diopter);
         return diopterMapper.toDto(savedDiopter);
+    }
+
+    @Override
+    public List<DiopterResponseDto> getAllDiopters() {
+        List<Diopter> diopters = diopterRepository.findAll();
+        return diopters.stream()
+                .map(diopterMapper::toDto)
+                .collect(Collectors.toList());
     }
 }

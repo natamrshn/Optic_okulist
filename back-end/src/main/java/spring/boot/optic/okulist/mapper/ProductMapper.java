@@ -1,5 +1,6 @@
 package spring.boot.optic.okulist.mapper;
 
+import java.util.stream.Collectors;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -9,8 +10,6 @@ import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
 import spring.boot.optic.okulist.dto.product.ProductRequestDto;
 import spring.boot.optic.okulist.dto.product.ProductResponseDto;
 import spring.boot.optic.okulist.model.Product;
-
-import java.util.stream.Collectors;
 
 @Mapper(config = MapperConfig.class)
 public interface ProductMapper {

@@ -4,8 +4,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,7 +35,6 @@ public class OrderController {
         return orderService.addOrder(user.getId(),requestDto);
     }
 
-
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping
     @Operation(summary = "Get all orders", description = "Get a list of all available orders")
@@ -61,11 +58,10 @@ public class OrderController {
         return orderService.updateOrderStatus(id, Order.Status
                 .valueOf(String.valueOf(requestDto.getStatus())));
     }
+
     @GetMapping("/logs")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public List<Order> getAllOrdersSortedByDateDesc() {
         return orderService.findAllOrdersSortedByDateDesc();
     }
 }
-
-// search for admin

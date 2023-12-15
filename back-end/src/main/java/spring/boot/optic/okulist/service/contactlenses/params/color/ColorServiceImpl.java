@@ -1,5 +1,6 @@
 package spring.boot.optic.okulist.service.contactlenses.params.color;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.color.ColorRequestDto;
@@ -26,5 +27,11 @@ public class ColorServiceImpl implements ColorService {
         Color color = colorRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Color not found with id: " + id));
         return colorMapper.toDto(color);
+    }
+
+    @Override
+    public List<ColorResponseDto> getAllColors() {
+        List<Color> colors = colorRepository.findAll();
+        return colorMapper.toDtoList(colors);
     }
 }

@@ -18,7 +18,6 @@ import spring.boot.optic.okulist.mapper.OrderMapper;
 import spring.boot.optic.okulist.model.Order;
 import spring.boot.optic.okulist.model.OrderItem;
 import spring.boot.optic.okulist.model.ShoppingCart;
-import spring.boot.optic.okulist.model.TemporaryUser;
 import spring.boot.optic.okulist.model.User;
 import spring.boot.optic.okulist.repository.OrderRepository;
 import spring.boot.optic.okulist.repository.ShoppingCartRepository;
@@ -44,7 +43,6 @@ public class OrderServiceImpl implements OrderService {
         order.setStatus(requestDto.getStatus());
         return orderMapper.toDto(orderRepository.save(order));
     }
-
 
     @Override
     public OrderResponseDto updateOrderStatus(Long orderId, Order.Status status) {
