@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import spring.boot.optic.okulist.dto.order.CreateOrderRequestDto;
-import spring.boot.optic.okulist.dto.order.CreateOrderRequestDtoNonRegUser;
 import spring.boot.optic.okulist.dto.order.OrderResponseDto;
 import spring.boot.optic.okulist.dto.order.UpdateOrderRequestDto;
 import spring.boot.optic.okulist.model.Order;
@@ -37,11 +35,6 @@ public class OrderController {
         return orderService.addOrder(user.getId(),requestDto);
     }
 
-    @PostMapping("/place-order-non-reg")
-    @Operation(summary = "Place order for non-registered users", description = "Place new order for non-registered users")
-    public OrderResponseDto placeOrderNonReg(@RequestBody @Valid CreateOrderRequestDtoNonRegUser requestDto) {
-        return orderService.placeOrder(requestDto);
-    }
 
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping
