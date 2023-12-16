@@ -36,13 +36,13 @@ databaseChangeLog:
   - include:
       file: db/changelog/changes/18-lenses-sphere-table.yaml
   - include:
-      file: db/changelog/changes/19-create-glasses-table.yaml
+      file: db/changelog/changes/19-create-products-table.yaml
   - include:
-      file: db/changelog/changes/20-create-products-table.yaml
+      file: db/changelog/changes/20-create-glasses-table.yaml
   - include:
-      file: db/changelog/changes/21-fill-glasses-table.yaml
+      file: db/changelog/changes/21-fill-product-table.yaml
   - include:
-      file: db/changelog/changes/22-fill-product-table.yaml
+      file: db/changelog/changes/22-fill-glasses-table.yaml
   - include:
       file: db/changelog/changes/23-create-liquid-table.yaml
   - include:
@@ -55,3 +55,15 @@ databaseChangeLog:
       file: db/changelog/changes/27-create-order-table.yaml
   - include:
       file: db/changelog/changes/28-create-order-item-table.yaml
+  - include:
+      file: db/changelog/changes/29-create-shopping-carts-table.yaml
+  - include:
+      file: db/changelog/changes/30-create-cart-items-table.yaml
+  - include:
+      file: db/changelog/changes/31-create-manufacturers-table.yaml
+  - include:
+      file: db/changelog/changes/32-create-contact-lenses-table.yaml
+  - include:
+      file: db/changelog/changes/33-create-temporary-users-table.yaml
+  - include:
+      file: db/changelog/changes/34-create-temporary-users-products-table.yaml

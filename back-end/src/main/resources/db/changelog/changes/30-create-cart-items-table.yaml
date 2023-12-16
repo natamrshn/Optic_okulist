@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: create-order-table
-      author: hlib13
+      id: create-cart-items-table
+      author: olekskov
       changes:
         - createTable:
-            tableName: "orders"
+            tableName: cart_items
             columns:
               - column:
                   name: id
@@ -14,28 +14,18 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: user_id
+                  name: shopping_carts_id
                   type: BIGINT
                   constraints:
                     nullable: false
               - column:
-                  name: status
-                  type: VARCHAR(255)
+                  name: product_id
+                  type: BIGINT
                   constraints:
                     nullable: false
               - column:
-                  name: total
-                  type: DECIMAL(10,2)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: order_date
-                  type: datetime(6)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: shipping_address
-                  type: VARCHAR(255)
+                  name: quantity
+                  type: INTEGER
                   constraints:
                     nullable: false
               - column:
@@ -45,8 +35,14 @@ databaseChangeLog:
                   constraints:
                     nullable: false
         - addForeignKeyConstraint:
-            baseTableName: "orders"
-            baseColumnNames: "user_id"
-            referencedTableName: "users"
-            referencedColumnNames: "id"
-            constraintName: "fk_order_user"
+            baseTableName: cart_items
+            baseColumnNames: shopping_carts_id
+            referencedTableName: "shopping_carts"
+            referencedColumnNames: id
+            constraintName: fk_cart_item_order
+        - addForeignKeyConstraint:
+            baseTableName: cart_items
+            baseColumnNames: product_id
+            referencedTableName: "products"
+            referencedColumnNames: id
+            constraintName: fk_cart_item_product

@@ -10,7 +10,6 @@ databaseChangeLog:
               - column: { name: "price", value: 49.99 }
               - column: { name: "identifier", value: "CLB001" }
               - column: { name: "description", value: "Timeless black glasses" }
-              - column: { name: "category_id", value: 1 }
               - column: { name: "is_deleted", value: 0 }
               - column: { name: "image_url", value: "example_image_url_1.jpg" }
               - column: { name: "image_url_second", value: "example_image_url_2.jpg" }
@@ -21,7 +20,6 @@ databaseChangeLog:
               - column: { name: "price", value: 59.99 }
               - column: { name: "identifier", value: "EBG002" }
               - column: { name: "description", value: "Sophisticated brown glasses" }
-              - column: { name: "category_id", value: 1 }
               - column:
                   name: "image_url"
                   value: "example_image_url_1.jpg"
@@ -36,7 +34,6 @@ databaseChangeLog:
               - column: { name: "price", value: 69.99 }
               - column: { name: "identifier", value: "SRG003" }
               - column: { name: "description", value: "Dynamic red sports glasses" }
-              - column: { name: "category_id", value: 1 }
               - column:
                   name: "image_url"
                   value: "example_image_url_1.jpg"
@@ -51,7 +48,6 @@ databaseChangeLog:
               - column: { name: "price", value: 22.53 }  # Adjust as needed
               - column: { name: "identifier", value: "LIQ78h" }  # Adjust as needed
               - column: { name: "description", value: "Example liquid" }  # Adjust as needed
-              - column: { name: "category_id", value: 3 }  # Adjust as needed
               - column:
                   name: "image_url"
                   value: "example_image_url_1.jpg"

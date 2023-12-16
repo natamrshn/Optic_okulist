@@ -1,6 +1,5 @@
 package spring.boot.optic.okulist.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -18,6 +17,4 @@ import org.hibernate.annotations.Where;
 @Table(name = "liquids")
 public class Liquid extends Product {
     private int volume;
-    @Column(name = "is_deleted", nullable = false)
-    private boolean isDeleted = false;
 }

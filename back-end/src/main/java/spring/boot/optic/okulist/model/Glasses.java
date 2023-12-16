@@ -1,6 +1,5 @@
 package spring.boot.optic.okulist.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -20,6 +19,4 @@ public class Glasses extends Product {
     private String color;
     private String model;
     private String manufacturer;
-    @Column(name = "is_deleted", nullable = false)
-    private boolean isDeleted = false;
 }

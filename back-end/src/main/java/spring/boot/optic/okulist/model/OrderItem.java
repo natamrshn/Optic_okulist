@@ -38,7 +38,4 @@ public class OrderItem {
     private BigDecimal price;
     @Column(name = "is_deleted", nullable = false)
     private boolean isDeleted = false;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
-    private Order.Status status;
 }
