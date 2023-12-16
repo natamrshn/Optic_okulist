@@ -9,6 +9,8 @@ import lombok.Data;
 @Data
 public class ProductRequestDto {
     @NotNull
+    private Long id; // can cause some issue
+    @NotNull
     private String name;
     @Positive
     private BigDecimal price;
