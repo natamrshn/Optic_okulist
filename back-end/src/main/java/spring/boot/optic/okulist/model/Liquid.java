@@ -12,7 +12,7 @@ import org.hibernate.annotations.Where;
 @Getter
 @Setter
 @RequiredArgsConstructor
-@SQLDelete(sql = "Update liquids SET is_deleted = true WHERE id=?")
+@SQLDelete(sql = "Update products SET is_deleted = true WHERE id=?")
 @Where(clause = "is_deleted=false")
 @Table(name = "liquids")
 public class Liquid extends Product {
