@@ -36,11 +36,6 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "user_id",nullable = false)
     private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "temporary_user_id")
-    private TemporaryUser temporaryUser;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private Status status;
