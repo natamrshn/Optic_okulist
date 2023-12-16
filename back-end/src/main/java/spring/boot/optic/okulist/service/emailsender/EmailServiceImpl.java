@@ -16,6 +16,7 @@ import javax.mail.internet.MimeMultipart;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import spring.boot.optic.okulist.dto.order.unregser.CreateOrderRequestDtoNonRegUser;
 import spring.boot.optic.okulist.exception.MessageSenderException;
 import spring.boot.optic.okulist.model.Order;
 
@@ -167,5 +168,15 @@ public class EmailServiceImpl implements EmailService {
         String emailText = "Your password has been successfully changed.";
         textPart.setText(emailText);
         multipart.addBodyPart(textPart);
+    }
+
+    public void sendOrderProcessingEmail(String userEmail, Order.Status status) {
+        try {
+            Session session = prepareSession();
+            MimeMessage message = createMessage(session, userEmail, Order.Status.PROCESSING);
+            Transport.send(message);
+        } catch (MessagingException e) {
+            throw new MessageSenderException("Error sending email....");
+        }
     }
 }
