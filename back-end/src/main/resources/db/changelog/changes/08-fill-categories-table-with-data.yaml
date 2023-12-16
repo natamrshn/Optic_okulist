@@ -4,14 +4,14 @@ databaseChangeLog:
       author: optic-okulist
       changes:
         - insert:
-            tableName: category
+            tableName: categories
             columns:
               - column: {name: "name", value: "Glasses"}
         - insert:
-            tableName: category
+            tableName: categories
             columns:
               - column: { name: "name", value: "Contact Lenses" }
         - insert:
-            tableName: category
+            tableName: categories
             columns:
               - column: { name: "name", value: "Liquids" }

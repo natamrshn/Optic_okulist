@@ -102,7 +102,6 @@ public class OrderServiceImpl implements OrderService {
                     orderItem.setOrder(order);
                     orderItem.setPrice(cartItem.getProduct().getPrice()
                             .multiply(new BigDecimal(cartItem.getQuantity())));
-                    orderItem.setStatus(Order.Status.PENDING); // Set the status here
                     return orderItem;
                 })
                 .collect(Collectors.toSet());

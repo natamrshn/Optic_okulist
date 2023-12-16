@@ -1,6 +1,5 @@
 package spring.boot.optic.okulist.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -13,13 +12,11 @@ import org.hibernate.annotations.Where;
 @Getter
 @Setter
 @RequiredArgsConstructor
-@SQLDelete(sql = "Update glasses SET is_deleted = true WHERE id=?")
+@SQLDelete(sql = "Update products SET is_deleted = true WHERE id=?")
 @Where(clause = "is_deleted=false")
 @Table(name = "glasses")
 public class Glasses extends Product {
     private String color;
     private String model;
     private String manufacturer;
-    @Column(name = "is_deleted", nullable = false)
-    private boolean isDeleted = false;
 }

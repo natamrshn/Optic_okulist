@@ -18,3 +18,15 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
                     nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: products_categories
+            baseColumnNames: product_id
+            referencedTableName: "products"
+            referencedColumnNames: id
+            constraintName: fk_products_categories_products
+        - addForeignKeyConstraint:
+            baseTableName: products_categories
+            baseColumnNames: category_id
+            referencedTableName: "categories"
+            referencedColumnNames: id
+            constraintName: fk_products_categories_categories

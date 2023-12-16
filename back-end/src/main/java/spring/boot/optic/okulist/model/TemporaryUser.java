@@ -6,7 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import java.util.List;
@@ -26,17 +27,16 @@ public class TemporaryUser {
     private String lastName;
     private Long phoneNumber;
     private String shoppingAddress;
-    @Getter
-    @OneToMany
-    @JoinColumn(name = "product_id")
-    private List<Product> product;
+
+    @ManyToMany
+    @JoinTable(
+            name = "temporary_users_products",
+            joinColumns = @JoinColumn(name = "temporary_user_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id"))
+    private List<Product> products;
     @Column(name = "product_name")
     private String productName;
     @Column(name = "quantity", nullable = false)
     private int quantity;
     private BigDecimal total;
-
-    public void setProducts(List<Product> products) {
-        this.product = products;
-    }
 }

@@ -18,9 +18,9 @@ import org.hibernate.annotations.Where;
 @Entity
 @Getter
 @Setter
-@SQLDelete(sql = "Update category SET is_deleted = true WHERE id=?")
+@SQLDelete(sql = "Update categories SET is_deleted = true WHERE id=?")
 @Where(clause = "is_deleted=false")
-@Table(name = "category")
+@Table(name = "categories")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

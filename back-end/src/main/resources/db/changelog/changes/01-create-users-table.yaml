@@ -36,7 +36,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: phone_number
-                  type: varchar(255)
+                  type: bigint
               - column:
                   name: is_admin
                   type: boolean
