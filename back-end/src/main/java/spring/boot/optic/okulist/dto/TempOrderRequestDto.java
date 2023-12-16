@@ -1,10 +1,10 @@
 package spring.boot.optic.okulist.dto;
 
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-import spring.boot.optic.okulist.dto.product.ProductRequestDto;
 import java.math.BigDecimal;
 import java.util.List;
+import lombok.Data;
+import spring.boot.optic.okulist.dto.product.ProductRequestDto;
 
 @Data
 public class TempOrderRequestDto {

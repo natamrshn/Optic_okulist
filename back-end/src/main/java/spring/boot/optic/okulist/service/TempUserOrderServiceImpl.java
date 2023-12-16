@@ -28,23 +28,20 @@ public class TempUserOrderServiceImpl implements TempUserOrderService {
         if (orderRequest.getEmail() == null || orderRequest.getEmail().isEmpty()) {
             throw new InvalidOrderRequestException("Email address is required");
         }
-
         if (orderRequest.getProducts() == null || orderRequest.getProducts().isEmpty()) {
             throw new InvalidOrderRequestException("At least one product is required");
         }
         String email = orderRequest.getEmail();
         // Send an email notification
         emailService.sendOrderProcessingEmail(email, Order.Status.PROCESSING);
-        // Використовуйте мапер для перетворення TempOrderRequestDto на TemporaryUser
         TemporaryUser temporaryUser = mapper.toEntity(orderRequest);
-        // Знайдіть продукти в базі даних та встановіть їх у temporaryUser
-         List<Product> products = orderRequest.getProducts().stream()
-                .map(productRequestDto -> productRepository.findById(productRequestDto.getId()).get())
+        List<Product> products = orderRequest.getProducts().stream()
+                .map(productRequestDto -> productRepository
+                        .findById(productRequestDto
+                                .getId()).get())
                 .collect(Collectors.toList());
         temporaryUser.setProducts(products);
-        // Збережіть temporaryUser у репозиторії
         TemporaryUser savedUser = userRepository.save(temporaryUser);
-        // Поверніть відповідь
         return mapper.toResponseDto(savedUser);
     }
 }
