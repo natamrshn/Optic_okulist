@@ -16,7 +16,6 @@ import javax.mail.internet.MimeMultipart;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import spring.boot.optic.okulist.dto.order.unregser.CreateOrderRequestDtoNonRegUser;
 import spring.boot.optic.okulist.exception.MessageSenderException;
 import spring.boot.optic.okulist.model.Order;
 

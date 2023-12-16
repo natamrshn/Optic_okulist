@@ -8,5 +8,6 @@ public interface EmailService {
     void sendVerificationCodeEmail(String userEmail, String verificationCode);
 
     void sendPasswordChangeConfirmation(String userEmail);
+
     void sendOrderProcessingEmail(String userEmail, Order.Status status);
 }
