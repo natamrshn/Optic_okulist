@@ -4,11 +4,12 @@ import org.mapstruct.Mapper;
 import spring.boot.optic.okulist.config.MapperConfig;
 import spring.boot.optic.okulist.dto.user.UserRegistrationRequestDto;
 import spring.boot.optic.okulist.dto.user.UserResponseDto;
-import spring.boot.optic.okulist.model.User;
+import spring.boot.optic.okulist.model.RegisteredUser;
+import spring.boot.optic.okulist.model.user.User;
 
 @Mapper(config = MapperConfig.class)
 public interface UserMapper {
-    UserResponseDto toDto(User user);
+    UserResponseDto toDto(RegisteredUser user);
 
-    User toModel(UserRegistrationRequestDto userRequestDto);
+    RegisteredUser toModel(UserRegistrationRequestDto userRequestDto);
 }

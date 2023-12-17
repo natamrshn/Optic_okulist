@@ -1,6 +1,7 @@
 package spring.boot.optic.okulist.service.user.impl;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -14,9 +15,12 @@ import spring.boot.optic.okulist.dto.user.UserUpdateRequestDto;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.exception.RegistrationException;
 import spring.boot.optic.okulist.mapper.UserMapper;
+import spring.boot.optic.okulist.model.RegisteredUser;
 import spring.boot.optic.okulist.model.Role;
-import spring.boot.optic.okulist.model.User;
+import spring.boot.optic.okulist.model.user.TemporaryUser;
+import spring.boot.optic.okulist.model.user.User;
 import spring.boot.optic.okulist.repository.RoleRepository;
+import spring.boot.optic.okulist.repository.TemporaryUserRepository;
 import spring.boot.optic.okulist.repository.UserRepository;
 import spring.boot.optic.okulist.service.user.UserService;
 
@@ -28,6 +32,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final RoleRepository roleRepository;
+    private final TemporaryUserRepository temporaryUserRepository;
 
     public boolean isFirstUser() {
         return userRepository.count() == 0;
@@ -39,7 +44,7 @@ public class UserServiceImpl implements UserService {
         if (userRepository.findByEmail(requestDto.getEmail()).isPresent()) {
             throw new RegistrationException("Unable to complete registration");
         }
-        User user = new User();
+        RegisteredUser user = new RegisteredUser();
         user.setEmail(requestDto.getEmail());
         user.setPassword(passwordEncoder.encode(requestDto.getPassword()));
         user.setFirstName(requestDto.getFirstName());
@@ -75,7 +80,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponseDto update(Long userId, UserUpdateRequestDto updateRequestDto) {
-        User user = userRepository.findById(userId)
+        RegisteredUser user = userRepository.findById(userId)
                 .orElseThrow(() ->
                         new EntityNotFoundException("User not found with id: " + userId));
         if (updateRequestDto.getFirstName() != null) {
@@ -87,15 +92,51 @@ public class UserServiceImpl implements UserService {
         if (updateRequestDto.getPhoneNumber() != null) {
             user.setPhoneNumber(updateRequestDto.getPhoneNumber());
         }
-        User updatedUser = userRepository.save(user);
+        RegisteredUser updatedUser = userRepository.save(user);
         return userMapper.toDto(updatedUser);
     }
 
     @Override
-    public User getAuthenticated() {
+    public Optional<RegisteredUser> getAuthenticated() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return userRepository.findByEmail(authentication.getName()).orElseThrow(
-                () -> new EntityNotFoundException("Can`t find user with according email"
-                        + authentication.getName()));
+        return userRepository.findByEmail(authentication.getName());
+    }
+
+    @Override
+    public Optional<TemporaryUser> getBySessionId(String sessionId) {
+        return temporaryUserRepository.findBySessionId(sessionId);
+    }
+
+    @Override
+    public TemporaryUser createTemporary(String sessionId) {
+        TemporaryUser temporaryUser = new TemporaryUser();
+        temporaryUser.setSessionId(sessionId);
+        return temporaryUserRepository.save(temporaryUser);
+    }
+
+    @Override
+    public User getUserOrCreateNew(String sessionId) {
+        User user;
+        Optional<RegisteredUser> registeredUser = getAuthenticated();
+        if (registeredUser.isPresent()) {
+            user = registeredUser.get();
+        } else {
+            Optional<TemporaryUser> temporaryUser = getBySessionId(sessionId);
+            user = temporaryUser.orElseGet(() -> createTemporary(sessionId));
+        }
+        return user;
+    }
+
+    @Override
+    public User getUser(String sessionId) {
+        User user;
+        Optional<RegisteredUser> registeredUser = getAuthenticated();
+        if (registeredUser.isPresent()) {
+            user = registeredUser.get();
+        } else {
+            Optional<TemporaryUser> temporaryUser = getBySessionId(sessionId);
+            user = temporaryUser.orElseThrow(() -> new EntityNotFoundException("TODO: proper message"));
+        }
+        return user;
     }
 }

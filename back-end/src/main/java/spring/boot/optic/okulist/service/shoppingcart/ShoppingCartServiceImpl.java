@@ -7,7 +7,7 @@ import spring.boot.optic.okulist.dto.shoppingcart.ShoppingCartResponseDto;
 import spring.boot.optic.okulist.dto.shoppingcartitems.CartItemResponseDto;
 import spring.boot.optic.okulist.dto.shoppingcartitems.ShoppingCartItemsRequestDto;
 import spring.boot.optic.okulist.model.ShoppingCart;
-import spring.boot.optic.okulist.model.User;
+import spring.boot.optic.okulist.model.user.User;
 import spring.boot.optic.okulist.repository.ShoppingCartRepository;
 import spring.boot.optic.okulist.service.cartitem.CartItemService;
 import spring.boot.optic.okulist.service.user.UserService;
@@ -27,8 +27,8 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Override
     @Transactional
-    public ShoppingCartResponseDto getShoppingCart() {
-        User authenticatedUser = userService.getAuthenticated();
+    public ShoppingCartResponseDto getShoppingCart(String sessionId) {
+        User authenticatedUser = userService.getUserOrCreateNew(sessionId);
         ShoppingCart shoppingCart = shoppingCartRepository
                 .getByUserId(authenticatedUser.getId())
                 .orElseGet(() -> registerNewCart.registerNewCart(authenticatedUser));

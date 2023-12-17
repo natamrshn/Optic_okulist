@@ -4,7 +4,11 @@ import spring.boot.optic.okulist.dto.user.UserRegistrationRequestDto;
 import spring.boot.optic.okulist.dto.user.UserResponseDto;
 import spring.boot.optic.okulist.dto.user.UserUpdateRequestDto;
 import spring.boot.optic.okulist.exception.RegistrationException;
-import spring.boot.optic.okulist.model.User;
+import spring.boot.optic.okulist.model.RegisteredUser;
+import spring.boot.optic.okulist.model.user.TemporaryUser;
+import spring.boot.optic.okulist.model.user.User;
+
+import java.util.Optional;
 
 public interface UserService {
     UserResponseDto register(
@@ -12,5 +16,13 @@ public interface UserService {
 
     UserResponseDto update(Long userId, UserUpdateRequestDto updateRequestDto);
 
-    User getAuthenticated();
+    Optional<RegisteredUser> getAuthenticated();
+
+    Optional<TemporaryUser> getBySessionId(String sessionId);
+
+    TemporaryUser createTemporary(String sessionId);
+
+    User getUserOrCreateNew(String sessionId);
+
+    User getUser(String sessionId);
 }

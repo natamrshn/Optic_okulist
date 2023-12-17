@@ -6,10 +6,11 @@ import org.mapstruct.Mapping;
 import spring.boot.optic.okulist.config.MapperConfig;
 import spring.boot.optic.okulist.dto.TempOrderRequestDto;
 import spring.boot.optic.okulist.dto.TempOrderResponseDto;
-import spring.boot.optic.okulist.model.TemporaryUser;
+import spring.boot.optic.okulist.model.user.TemporaryUser;
 
 @Mapper(config = MapperConfig.class)
 public interface TempUserOrderMapper {
+    /*
     @Mapping(target = "products", source = "products")
     TemporaryUser toEntity(TempOrderRequestDto requestDto);
 
@@ -17,5 +18,5 @@ public interface TempUserOrderMapper {
 
     List<TemporaryUser> toEntities(List<TempOrderRequestDto> requestDtos);
 
-    List<TempOrderResponseDto> toResponseDtos(List<TemporaryUser> entities);
+    List<TempOrderResponseDto> toResponseDtos(List<TemporaryUser> entities);*/
 }

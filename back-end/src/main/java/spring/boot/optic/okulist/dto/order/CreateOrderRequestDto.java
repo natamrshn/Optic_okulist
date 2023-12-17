@@ -7,4 +7,8 @@ import lombok.Data;
 public class CreateOrderRequestDto {
     @NotNull
     private String shippingAddress;
+    private String sessionId;
+    private Long phoneNumber;
+    private String firstName;
+    private String LastName;
 }

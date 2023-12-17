@@ -7,7 +7,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.user.UserLoginRequestDto;
 import spring.boot.optic.okulist.dto.user.UserLoginResponseDto;
-import spring.boot.optic.okulist.model.User;
+import spring.boot.optic.okulist.model.RegisteredUser;
 
 @Service
 @RequiredArgsConstructor
@@ -22,7 +22,7 @@ public class AuthenticationService {
 
         String token = jwtUtil.generateToken(authentication.getName());
         Long userId = authentication.getPrincipal()
-                .getClass() == User.class ? ((User) authentication.getPrincipal()).getId() : null;
+                .getClass() == RegisteredUser.class ? ((RegisteredUser) authentication.getPrincipal()).getId() : null;
         return new UserLoginResponseDto(userId, token);
     }
 }

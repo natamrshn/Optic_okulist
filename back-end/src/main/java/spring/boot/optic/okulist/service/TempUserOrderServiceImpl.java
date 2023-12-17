@@ -10,7 +10,7 @@ import spring.boot.optic.okulist.exception.InvalidOrderRequestException;
 import spring.boot.optic.okulist.mapper.TempUserOrderMapper;
 import spring.boot.optic.okulist.model.Order;
 import spring.boot.optic.okulist.model.Product;
-import spring.boot.optic.okulist.model.TemporaryUser;
+import spring.boot.optic.okulist.model.user.TemporaryUser;
 import spring.boot.optic.okulist.repository.ProductRepository;
 import spring.boot.optic.okulist.repository.TemporaryUserRepository;
 import spring.boot.optic.okulist.service.emailsender.EmailService;
@@ -25,7 +25,7 @@ public class TempUserOrderServiceImpl implements TempUserOrderService {
 
     @Override
     public TempOrderResponseDto processOrder(TempOrderRequestDto orderRequest) {
-        if (orderRequest.getEmail() == null || orderRequest.getEmail().isEmpty()) {
+        /*if (orderRequest.getEmail() == null || orderRequest.getEmail().isEmpty()) {
             throw new InvalidOrderRequestException("Email address is required");
         }
         if (orderRequest.getProducts() == null || orderRequest.getProducts().isEmpty()) {
@@ -42,6 +42,7 @@ public class TempUserOrderServiceImpl implements TempUserOrderService {
                 .collect(Collectors.toList());
         temporaryUser.setProducts(products);
         TemporaryUser savedUser = userRepository.save(temporaryUser);
-        return mapper.toResponseDto(savedUser);
+        return mapper.toResponseDto(savedUser);*/
+        return null;
     }
 }

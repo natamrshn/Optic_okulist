@@ -7,5 +7,5 @@ import spring.boot.optic.okulist.dto.shoppingcartitems.ShoppingCartItemsRequestD
 public interface ShoppingCartService {
     CartItemResponseDto addItem(ShoppingCartItemsRequestDto requestDto);
 
-    ShoppingCartResponseDto getShoppingCart();
+    ShoppingCartResponseDto getShoppingCart(String sessionId);
 }

@@ -18,6 +18,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
+import spring.boot.optic.okulist.model.user.User;
 
 @Entity
 @Getter

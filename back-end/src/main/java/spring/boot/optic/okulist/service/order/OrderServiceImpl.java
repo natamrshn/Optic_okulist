@@ -18,7 +18,7 @@ import spring.boot.optic.okulist.mapper.OrderMapper;
 import spring.boot.optic.okulist.model.Order;
 import spring.boot.optic.okulist.model.OrderItem;
 import spring.boot.optic.okulist.model.ShoppingCart;
-import spring.boot.optic.okulist.model.User;
+import spring.boot.optic.okulist.model.user.User;
 import spring.boot.optic.okulist.repository.OrderRepository;
 import spring.boot.optic.okulist.repository.ShoppingCartRepository;
 import spring.boot.optic.okulist.service.emailsender.EmailService;
@@ -66,7 +66,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional
     public OrderResponseDto addOrder(Long id, CreateOrderRequestDto createOrderRequestDto) {
-        User authUser = userService.getAuthenticated();
+        User authUser = userService.getUser(createOrderRequestDto.getSessionId());
         ShoppingCart shoppingCart = shoppingCartRepository.getByUserId(authUser.getId())
                 .orElseGet(() -> manager.registerNewCart(authUser));
         Order order = new Order();
@@ -141,13 +141,5 @@ public class OrderServiceImpl implements OrderService {
                                 + orderItemsId
                                 + ", with order id"
                                 + orderId));
-    }
-
-    @Override
-    public List<OrderResponseDto> findAllByUserEmail(String userEmail) {
-        return orderRepository.findAllByUserEmail(userEmail)
-                .stream()
-                .map(orderMapper::toDto)
-                .toList();
     }
 }
