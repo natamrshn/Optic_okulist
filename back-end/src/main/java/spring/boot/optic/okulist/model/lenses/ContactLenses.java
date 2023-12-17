@@ -21,7 +21,7 @@ import spring.boot.optic.okulist.model.lenses.parameters.Manufacturer;
 @Where(clause = "is_deleted=false")
 @Table(name = "contact_lenses")
 public class ContactLenses extends Product {
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "manufacturers_id")
     private Manufacturer lensConfiguration;
 }

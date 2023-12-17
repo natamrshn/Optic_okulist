@@ -67,3 +67,9 @@ databaseChangeLog:
       file: db/changelog/changes/33-create-temporary-users-table.yaml
   - include:
       file: db/changelog/changes/34-create-temporary-users-products-table.yaml
+  - include:
+      file: db/changelog/changes/35-redesign-manufacturers-table-and-connections.yaml
+  - include:
+      file: db/changelog/changes/36-fill-lenses-data.yaml
+  - include:
+      file: db/changelog/changes/37-chg-cart-items-table.yaml

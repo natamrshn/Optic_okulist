@@ -1,5 +1,7 @@
 package spring.boot.optic.okulist.mapper.contactlenses;
 
+import static java.lang.Double.parseDouble;
+
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.mapstruct.AfterMapping;
@@ -12,6 +14,8 @@ import spring.boot.optic.okulist.dto.contactlenses.parameters.contactlenses.Cont
 import spring.boot.optic.okulist.dto.contactlenses.parameters.contactlenses.ContactLensesResponseDto;
 import spring.boot.optic.okulist.model.Category;
 import spring.boot.optic.okulist.model.lenses.ContactLenses;
+import spring.boot.optic.okulist.model.lenses.parameters.Color;
+import spring.boot.optic.okulist.model.lenses.parameters.Manufacturer;
 
 @Mapper(config = MapperConfig.class)
 public interface ContactLensesMapper {
@@ -22,11 +26,32 @@ public interface ContactLensesMapper {
     ContactLenses toModel(ContactLensesRequestDto contactLensesRequestDto);
 
     @AfterMapping
-    default void mapCategories(@MappingTarget ContactLensesResponseDto contactLensesResponseDto,
+    default void mapLensesDetails(@MappingTarget ContactLensesResponseDto contactLensesResponseDto,
                                ContactLenses contactLenses) {
         contactLensesResponseDto.setName(contactLenses.getName());
-        contactLensesResponseDto.setLensConfigurationId(contactLenses
-                .getLensConfiguration().getId());
+
+        Manufacturer lensConfig = contactLenses.getLensConfiguration();
+
+        contactLensesResponseDto.setColors(lensConfig.getColors()
+                .stream()
+                .map(Color::getColor)
+                .toList());
+
+        contactLensesResponseDto.setCylinders(lensConfig.getCylinder().getRangeAsList());
+
+        contactLensesResponseDto.setDegrees(lensConfig.getDegree().getRangeAsList()
+                .stream()
+                .mapToInt(Double::intValue)
+                .boxed()
+                .toList());
+
+        contactLensesResponseDto.setDiopters(lensConfig.getDiopter().getRangeAsList());
+
+        contactLensesResponseDto.setSpheres(lensConfig.getSpheres()
+                .stream()
+                .map(value -> parseDouble(value.getBaseCurve().replaceAll("\\+", "")))
+                .toList());
+
         contactLensesResponseDto.setCategories(mapCategoriesToDto(contactLenses
                 .getCategories()));
     }
