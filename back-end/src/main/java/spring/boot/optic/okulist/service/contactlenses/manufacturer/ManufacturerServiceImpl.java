@@ -1,6 +1,10 @@
 package spring.boot.optic.okulist.service.contactlenses.manufacturer;
 
+import static java.util.stream.Collectors.toSet;
+
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -36,11 +40,29 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     public ManufacturerResponseDto createManufacturer(
             ManufacturerRequestDto manufacturerRequestDto) {
         Manufacturer manufacturer = manufacturerMapper.toModel(manufacturerRequestDto);
-        if (manufacturerRequestDto.getColorId() != null) {
-            Color color = colorRepository.findById(manufacturerRequestDto.getColorId())
-                    .orElseThrow(() -> new EntityNotFoundException("Color not found with ID: "
-                            + manufacturerRequestDto.getColorId()));
-            manufacturer.setColor(color);
+
+        List<Long> requestedColors = manufacturerRequestDto.getColorsIds();
+        if (requestedColors != null && !requestedColors.isEmpty()) {
+            List<Color> colors = requestedColors.stream()
+                    .map(colorRepository::findById)
+                    .filter(Optional::isPresent)
+                    .map(Optional::get)
+                    .toList();
+
+            if (colors.size() != requestedColors.size()) {
+                Set<Long> foundIds = colors.stream()
+                        .map(Color::getId)
+                        .collect(toSet());
+
+                List<Long> notFoundIds = requestedColors.stream()
+                        .filter(id -> !foundIds.contains(id))
+                        .toList();
+
+                throw new EntityNotFoundException("Not all lens colors were found. "
+                        + "Haven't found colors with ids: " + notFoundIds);
+            }
+
+            manufacturer.setColors(colors);
         }
 
         if (manufacturerRequestDto.getCylinderId() != null) {
@@ -63,12 +85,30 @@ public class ManufacturerServiceImpl implements ManufacturerService {
             manufacturer.setDiopter(diopter);
         }
 
-        if (manufacturerRequestDto.getSphereId() != null) {
-            Sphere sphere = sphereRepository.findById(manufacturerRequestDto.getSphereId())
-                    .orElseThrow(() -> new EntityNotFoundException("Sphere not found with ID: "
-                            + manufacturerRequestDto.getSphereId()));
-            manufacturer.setSphere(sphere);
+        List<Long> requestedSpheres = manufacturerRequestDto.getSpheresIds();
+        if (requestedSpheres != null && !requestedSpheres.isEmpty()) {
+            List<Sphere> spheres = requestedSpheres.stream()
+                    .map(sphereRepository::findById)
+                    .filter(Optional::isPresent)
+                    .map(Optional::get)
+                    .toList();
+
+            if (spheres.size() != requestedSpheres.size()) {
+                Set<Long> foundIds = spheres.stream()
+                        .map(Sphere::getId)
+                        .collect(toSet());
+
+                List<Long> notFoundIds = requestedSpheres.stream()
+                        .filter(id -> !foundIds.contains(id))
+                        .toList();
+
+                throw new EntityNotFoundException("Not all lens spheres were found. "
+                        + "Haven't found spheres with ids: " + notFoundIds);
+            }
+
+            manufacturer.setSpheres(spheres);
         }
+
         Manufacturer savedManufacturer = manufacturerRepository.save(manufacturer);
         return manufacturerMapper.toDto(savedManufacturer);
     }

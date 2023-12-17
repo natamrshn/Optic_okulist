@@ -6,6 +6,7 @@ import lombok.Data;
 @Data
 public class ShoppingCartItemsRequestDto {
     private Long productId;
+    private LenseConfigDto lenseConfig;
     @Positive
     private int quantity;
 }
