@@ -4,8 +4,8 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
+import spring.boot.optic.okulist.model.RegisteredUser;
 import spring.boot.optic.okulist.model.Role;
-import spring.boot.optic.okulist.model.User;
 import spring.boot.optic.okulist.repository.RoleRepository;
 import spring.boot.optic.okulist.repository.UserRepository;
 import spring.boot.optic.okulist.service.admin.AdminService;
@@ -20,9 +20,9 @@ public class AdminServiceImpl implements AdminService {
     public void grantPermissionsToAdmins() {
         Role adminRole = roleRepository.findRoleByName(Role.RoleName.ADMIN)
                 .orElseThrow(() -> new EntityNotFoundException("Role 'ADMIN' not found"));
-        List<User> adminUsers = userRepository
+        List<RegisteredUser> adminUsers = userRepository
                 .findUsersByRolesContainingAndIsDeletedFalse(adminRole);
-        for (User adminUser : adminUsers) {
+        for (RegisteredUser adminUser : adminUsers) {
             adminUser.setCreatePermission(true);
             adminUser.setUpdatePermission(true);
             adminUser.setDeletePermission(true);
@@ -34,9 +34,9 @@ public class AdminServiceImpl implements AdminService {
     public void revokePermissionsFromAdmins() {
         Role adminRole = roleRepository.findRoleByName(Role.RoleName.USER)
                 .orElseThrow(() -> new EntityNotFoundException("Role 'ADMIN' not found"));
-        List<User> adminUsers = userRepository
+        List<RegisteredUser> adminUsers = userRepository
                 .findUsersByRolesContainingAndIsDeletedFalse(adminRole);
-        for (User adminUser : adminUsers) {
+        for (RegisteredUser adminUser : adminUsers) {
             adminUser.setCreatePermission(false);
             adminUser.setUpdatePermission(false);
             adminUser.setDeletePermission(false);
@@ -46,8 +46,8 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void grantPermissionsToSpecificAdmins(List<Long> adminIds) {
-        List<User> specificAdmins = userRepository.findAllById(adminIds);
-        for (User specificAdmin : specificAdmins) {
+        List<RegisteredUser> specificAdmins = userRepository.findAllById(adminIds);
+        for (RegisteredUser specificAdmin : specificAdmins) {
             specificAdmin.setCreatePermission(true);
             specificAdmin.setUpdatePermission(true);
             specificAdmin.setDeletePermission(true);
@@ -57,8 +57,8 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void revokePermissionsFromSpecificAdmin(List<Long> adminIds) {
-        List<User> specificAdmins = userRepository.findAllById(adminIds);
-        for (User specificAdmin : specificAdmins) {
+        List<RegisteredUser> specificAdmins = userRepository.findAllById(adminIds);
+        for (RegisteredUser specificAdmin : specificAdmins) {
             specificAdmin.setCreatePermission(false);
             specificAdmin.setUpdatePermission(false);
             specificAdmin.setDeletePermission(false);

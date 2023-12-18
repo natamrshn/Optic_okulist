@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import spring.boot.optic.okulist.dto.shoppingcart.ShoppingCartResponseDto;
 import spring.boot.optic.okulist.dto.shoppingcartitems.CartItemResponseDto;
@@ -37,8 +39,13 @@ public class ShoppingCartController {
 
     @GetMapping
     @Operation(summary = "Get shopping cart")
-    public ShoppingCartResponseDto getShoppingCart() {
-        return shoppingCartService.getShoppingCart();
+    public ShoppingCartResponseDto getShoppingCart(@RequestParam(required = false) String sessionId, //TODO: think of cookies or header instead of RequestParam
+                                                   Authentication authentication) {
+        if ( (authentication == null || !authentication.isAuthenticated())
+                && sessionId == null) {
+            throw new RuntimeException("User should be authenticated or sessionId provided"); //TODO: proper exception type and handling
+        }
+        return shoppingCartService.getShoppingCart(sessionId);
     }
 
     @PutMapping("/cart-items/{id}")

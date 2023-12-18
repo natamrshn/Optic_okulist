@@ -11,7 +11,8 @@ import spring.boot.optic.okulist.dto.user.UserResponseDto;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.exception.VerificationCodeMismatchException;
 import spring.boot.optic.okulist.mapper.UserMapper;
-import spring.boot.optic.okulist.model.User;
+import spring.boot.optic.okulist.model.RegisteredUser;
+import spring.boot.optic.okulist.model.user.User;
 import spring.boot.optic.okulist.repository.UserRepository;
 import spring.boot.optic.okulist.service.emailsender.EmailService;
 
@@ -30,7 +31,7 @@ public class UserPasswordUpdateServiceImpl implements UserPasswordUpdateService 
                                           UserPasswordUpdateRequestDto updateRequestDto) {
         verifyCodeAndChangePassword(userId, updateRequestDto.getVerificationCode(),
                 updateRequestDto.getPassword());
-        User user = getUserById(userId);
+        RegisteredUser user = getUserById(userId);
         UserResponseDto responseDto = userMapper.toDto(user);
 
         // Send notification email
@@ -45,7 +46,7 @@ public class UserPasswordUpdateServiceImpl implements UserPasswordUpdateService 
                                             String newPassword) {
         String storedCode = getVerificationCode(userId);
         if (storedCode != null && storedCode.equals(verificationCode)) {
-            User user = userRepository.findById(userId)
+            RegisteredUser user = userRepository.findById(userId)
                     .orElseThrow(() ->
                             new EntityNotFoundException("User not found with id: " + userId));
             user.setPassword(passwordEncoder.encode(newPassword));
@@ -66,7 +67,7 @@ public class UserPasswordUpdateServiceImpl implements UserPasswordUpdateService 
         cache.evict(userId);
     }
 
-    private User getUserById(Long userId) {
+    private RegisteredUser getUserById(Long userId) {
         return userRepository.findById(userId)
                 .orElseThrow(() ->
                         new EntityNotFoundException("User not found with id: " + userId));

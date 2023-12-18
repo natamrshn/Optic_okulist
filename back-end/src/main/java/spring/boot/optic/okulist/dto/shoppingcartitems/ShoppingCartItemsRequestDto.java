@@ -9,4 +9,5 @@ public class ShoppingCartItemsRequestDto {
     private LenseConfigDto lenseConfig;
     @Positive
     private int quantity;
+    private String sessionId;
 }

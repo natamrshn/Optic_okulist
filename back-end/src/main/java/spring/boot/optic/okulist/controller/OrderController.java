@@ -12,35 +12,48 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import spring.boot.optic.okulist.dto.order.CreateOrderRequestDto;
 import spring.boot.optic.okulist.dto.order.OrderResponseDto;
 import spring.boot.optic.okulist.dto.order.UpdateOrderRequestDto;
 import spring.boot.optic.okulist.model.Order;
-import spring.boot.optic.okulist.model.User;
+import spring.boot.optic.okulist.model.RegisteredUser;
+import spring.boot.optic.okulist.model.user.User;
 import spring.boot.optic.okulist.service.order.OrderService;
+import spring.boot.optic.okulist.service.user.UserService;
 
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
     private final OrderService orderService;
+    private final UserService userService;
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+    //@PreAuthorize("hasRole('ROLE_USER')")
     @PostMapping
     @Operation(summary = "Add order to repository", description = "Add valid order to repository")
     public OrderResponseDto addOrder(Authentication authentication,
                                      @RequestBody @Valid CreateOrderRequestDto requestDto) {
-        User user = (User) authentication.getPrincipal();
-        return orderService.addOrder(user.getId(),requestDto);
+        if ( (authentication == null || !authentication.isAuthenticated())
+                && requestDto.getSessionId() == null) { //TODO: validate other fields
+            throw new RuntimeException("User should be authenticated or sessionId provided"); //TODO: proper exception type and handling
+        }
+        User user = userService.getUser(requestDto.getSessionId());
+        return orderService.addOrder(user.getId(), requestDto);
     }
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+    //@PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping
     @Operation(summary = "Get all orders", description = "Get a list of all available orders")
-    public List<OrderResponseDto> findAllUserOrders(Authentication authentication) {
-        String currentPrincipalName = authentication.getName();
-        return orderService.findAllByUserEmail(currentPrincipalName);
+    public List<OrderResponseDto> findAllUserOrders(@RequestParam(required = false) String sessionId,
+                                                    Authentication authentication) {
+        if ( (authentication == null || !authentication.isAuthenticated())
+                && sessionId == null) {
+            throw new RuntimeException("User should be authenticated or sessionId provided"); //TODO: proper exception type and handling
+        }
+        User user = userService.getUser(sessionId);
+        return orderService.getByUserId(user.getId());
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")

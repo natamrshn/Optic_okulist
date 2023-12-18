@@ -6,7 +6,7 @@ import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
-import spring.boot.optic.okulist.model.User;
+import spring.boot.optic.okulist.model.user.User;
 import spring.boot.optic.okulist.repository.UserRepository;
 import spring.boot.optic.okulist.service.emailsender.EmailService;
 
