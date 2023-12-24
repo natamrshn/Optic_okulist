@@ -18,6 +18,7 @@ import spring.boot.optic.okulist.dto.shoppingcart.ShoppingCartResponseDto;
 import spring.boot.optic.okulist.dto.shoppingcartitems.CartItemResponseDto;
 import spring.boot.optic.okulist.dto.shoppingcartitems.ShoppingCartItemsRequestDto;
 import spring.boot.optic.okulist.dto.shoppingcartitems.UpdateQuantityDto;
+import spring.boot.optic.okulist.exception.AuthenticationException;
 import spring.boot.optic.okulist.service.cartitem.CartItemService;
 import spring.boot.optic.okulist.service.shoppingcart.ShoppingCartService;
 
@@ -39,14 +40,24 @@ public class ShoppingCartController {
 
     @GetMapping
     @Operation(summary = "Get shopping cart")
-    public ShoppingCartResponseDto getShoppingCart(@RequestParam(required = false) String sessionId, //TODO: think of cookies or header instead of RequestParam
+    public ShoppingCartResponseDto getShoppingCart(@RequestParam(required = false) String sessionId,
+                                                   //TODO: think of cookies or header instead of RequestParam
                                                    Authentication authentication) {
         if ( (authentication == null || !authentication.isAuthenticated())
                 && sessionId == null) {
-            throw new RuntimeException("User should be authenticated or sessionId provided"); //TODO: proper exception type and handling
+            throw new AuthenticationException ("User should be authenticated or sessionId provided");
         }
         return shoppingCartService.getShoppingCart(sessionId);
     }
+
+    /*
+        @GetMapping
+    public ShoppingCartResponseDto getShoppingCart(@CookieValue(name = "sessionId", required = false) String sessionId,
+                                                   HttpServletResponse response) {
+        String finalSessionId = resolveSessionId(sessionId);
+        return shoppingCartService.getShoppingCart(finalSessionId);
+    }
+     */
 
     @PutMapping("/cart-items/{id}")
     @Operation(summary = "Update a cart item by ID")
