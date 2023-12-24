@@ -24,4 +24,5 @@ public class GlassesRequestDto {
     private String imageUrl;
     private String imageUrlSecond;
     private Set<CategoryResponseDto> categories;
+    private String coverImage;
 }

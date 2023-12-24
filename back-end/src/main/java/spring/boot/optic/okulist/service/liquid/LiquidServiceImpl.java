@@ -11,6 +11,7 @@ import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import spring.boot.optic.okulist.dto.glasses.GlassesResponseDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidRequestDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidResponseDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidSearchParameter;
@@ -40,7 +41,18 @@ public class LiquidServiceImpl implements LiquidService {
         Liquid liquid = liquidRepository.findById(id).orElseThrow(
                 () -> new EntityNotFoundException("Can't found Liquid with ID: " + id)
         );
-        return liquidMapper.toDto(liquid);
+
+        LiquidResponseDto result = liquidMapper.toDto(liquid);
+
+        List<LiquidResponseDto.Variations> variation = liquidRepository.findAllByIdentifier(liquid.getIdentifier())
+                .stream()
+                .filter(variations -> ! variations.getId().equals(liquid.getId()))
+                .map(LiquidResponseDto.Variations::new)
+                .toList();
+
+        result.setVariations(variation);
+
+        return result;
     }
 
     @Override

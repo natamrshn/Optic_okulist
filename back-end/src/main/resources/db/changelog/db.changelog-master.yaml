@@ -75,3 +75,5 @@ databaseChangeLog:
       file: db/changelog/changes/37-chg-cart-items-table.yaml
   - include:
       file: db/changelog/changes/38-chg-users-table.yaml
+  - include:
+      file: db/changelog/changes/39-chg-product-table.yaml
