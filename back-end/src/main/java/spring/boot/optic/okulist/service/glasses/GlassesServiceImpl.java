@@ -41,7 +41,9 @@ public class GlassesServiceImpl implements GlassesService {
 
         GlassesResponseDto result = glassesMapper.toDto(glasses);
 
-        List<GlassesResponseDto.Variation> variations = glassesRepository.findAllByModelAndManufacturer(glasses.getModel(), glasses.getManufacturer())
+        List<GlassesResponseDto.Variation> variations = glassesRepository
+                .findAllByModelAndManufacturer(glasses.getModel(),
+                        glasses.getManufacturer())
                 .stream()
                 .filter(variation -> ! variation.getId().equals(glasses.getId()))
                 .map(GlassesResponseDto.Variation::new)

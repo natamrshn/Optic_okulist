@@ -11,7 +11,6 @@ import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import spring.boot.optic.okulist.dto.glasses.GlassesResponseDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidRequestDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidResponseDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidSearchParameter;

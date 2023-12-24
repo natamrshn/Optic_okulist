@@ -21,8 +21,16 @@ public class AuthenticationService {
         );
 
         String token = jwtUtil.generateToken(authentication.getName());
-        Long userId = authentication.getPrincipal()
-                .getClass() == RegisteredUser.class ? ((RegisteredUser) authentication.getPrincipal()).getId() : null;
+        Long userId = (authentication.getPrincipal()
+                instanceof RegisteredUser) ? ((RegisteredUser) authentication.getPrincipal()).getId() : null;
         return new UserLoginResponseDto(userId, token);
     }
+
+    /*
+    private String resolveSessionId(Authentication authentication) {
+        // Дістаємо sessionId з токену
+        String token = jwtUtil.extractTokenFromAuthentication(authentication);
+        return jwtUtil.extractSessionIdFromToken(token);
+    }
+    */
 }

@@ -21,7 +21,7 @@ public class GlassesResponseDto {
     private String imageUrl;
     private String imageUrlSecond;
     private Set<CategoryResponseDto> categories;
-    List<Variation> variations;
+    private List<Variation> variations;
 
     @Data
     @NoArgsConstructor
