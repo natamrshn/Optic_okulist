@@ -7,5 +7,10 @@ databaseChangeLog:
             tableName: products
             columns:
               - column:
-                  name: color_url
+                  name: "cover_image"
                   type: varchar(255)
+                  constraints:
+                    nullable: false
+                  defaultValue: false
+
+
