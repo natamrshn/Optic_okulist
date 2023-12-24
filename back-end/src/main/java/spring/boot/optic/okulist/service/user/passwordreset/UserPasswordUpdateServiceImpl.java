@@ -12,7 +12,6 @@ import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.exception.VerificationCodeMismatchException;
 import spring.boot.optic.okulist.mapper.UserMapper;
 import spring.boot.optic.okulist.model.RegisteredUser;
-import spring.boot.optic.okulist.model.user.User;
 import spring.boot.optic.okulist.repository.UserRepository;
 import spring.boot.optic.okulist.service.emailsender.EmailService;
 

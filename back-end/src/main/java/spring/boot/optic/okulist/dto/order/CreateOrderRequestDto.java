@@ -10,5 +10,5 @@ public class CreateOrderRequestDto {
     private String sessionId;
     private Long phoneNumber;
     private String firstName;
-    private String LastName;
+    private String lastName;
 }

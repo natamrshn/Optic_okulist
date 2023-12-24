@@ -18,7 +18,6 @@ import spring.boot.optic.okulist.dto.order.CreateOrderRequestDto;
 import spring.boot.optic.okulist.dto.order.OrderResponseDto;
 import spring.boot.optic.okulist.dto.order.UpdateOrderRequestDto;
 import spring.boot.optic.okulist.model.Order;
-import spring.boot.optic.okulist.model.RegisteredUser;
 import spring.boot.optic.okulist.model.user.User;
 import spring.boot.optic.okulist.service.order.OrderService;
 import spring.boot.optic.okulist.service.user.UserService;

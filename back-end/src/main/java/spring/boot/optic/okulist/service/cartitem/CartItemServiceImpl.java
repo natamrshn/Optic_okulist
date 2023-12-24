@@ -3,7 +3,6 @@ package spring.boot.optic.okulist.service.cartitem;
 import jakarta.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -13,10 +12,8 @@ import spring.boot.optic.okulist.dto.shoppingcartitems.ShoppingCartItemsRequestD
 import spring.boot.optic.okulist.dto.shoppingcartitems.UpdateQuantityDto;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.mapper.CartItemMapper;
-import spring.boot.optic.okulist.model.RegisteredUser;
 import spring.boot.optic.okulist.model.ShoppingCart;
 import spring.boot.optic.okulist.model.ShoppingCartItem;
-import spring.boot.optic.okulist.model.user.TemporaryUser;
 import spring.boot.optic.okulist.model.user.User;
 import spring.boot.optic.okulist.repository.ProductRepository;
 import spring.boot.optic.okulist.repository.ShoppingCartItemRepository;
