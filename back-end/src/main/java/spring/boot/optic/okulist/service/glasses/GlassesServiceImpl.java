@@ -38,7 +38,18 @@ public class GlassesServiceImpl implements GlassesService {
         Glasses glasses = glassesRepository.findById(id).orElseThrow(
                 () -> new EntityNotFoundException("Can't found Glasses with ID: " + id)
         );
-        return glassesMapper.toDto(glasses);
+
+        GlassesResponseDto result = glassesMapper.toDto(glasses);
+
+        List<GlassesResponseDto.Variation> variations = glassesRepository.findAllByModelAndManufacturer(glasses.getModel(), glasses.getManufacturer())
+                .stream()
+                .filter(variation -> ! variation.getId().equals(glasses.getId()))
+                .map(GlassesResponseDto.Variation::new)
+                .toList();
+
+        result.setVariations(variations);
+
+        return result;
     }
 
     @Override

@@ -15,4 +15,6 @@ public interface GlassesRepository extends JpaRepository<Glasses, Long> {
             String color, String name, BigDecimal price, String identifier,
             String description, String imageUrl, String imageUrlSecond
     );
+
+    List<Glasses> findAllByModelAndManufacturer(String model, String manufacturer);
 }
