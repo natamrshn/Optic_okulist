@@ -31,6 +31,7 @@ public class GlassesResponseDto {
 
         public Variation(Glasses glasses) {
             this.id = glasses.getId();
+            this.coverImage = glasses.getCoverImage();
         }
     }
 }
