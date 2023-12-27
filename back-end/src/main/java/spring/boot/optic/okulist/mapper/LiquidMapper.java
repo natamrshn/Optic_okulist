@@ -1,5 +1,6 @@
 package spring.boot.optic.okulist.mapper;
 
+import java.util.List;
 import java.util.stream.Collectors;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
@@ -36,5 +37,12 @@ public interface LiquidMapper {
         categoryResponseDto.setId(category.getId());
         categoryResponseDto.setName(category.getName());
         return categoryResponseDto;
+    }
+
+    default LiquidResponseDto.Variations mapLiquidVariationToDto(Liquid liquidVariation) {
+        LiquidResponseDto.Variations variations = new LiquidResponseDto.Variations();
+        variations.setId(liquidVariation.getId());
+        variations.setCoverImage(liquidVariation.getCoverImage());
+        return variations;
     }
 }

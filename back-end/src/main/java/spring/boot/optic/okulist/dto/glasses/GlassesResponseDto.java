@@ -28,10 +28,5 @@ public class GlassesResponseDto {
     public static class Variation {
         private Long id;
         private String coverImage;
-
-        public Variation(Glasses glasses) {
-            this.id = glasses.getId();
-            this.coverImage = glasses.getCoverImage();
-        }
     }
 }
