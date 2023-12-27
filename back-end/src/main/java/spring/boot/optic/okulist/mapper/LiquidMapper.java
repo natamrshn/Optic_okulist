@@ -1,6 +1,5 @@
 package spring.boot.optic.okulist.mapper;
 
-import java.util.List;
 import java.util.stream.Collectors;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;

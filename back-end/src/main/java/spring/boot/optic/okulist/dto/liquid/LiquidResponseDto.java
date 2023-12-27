@@ -3,13 +3,9 @@ package spring.boot.optic.okulist.dto.liquid;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;
-
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
-import spring.boot.optic.okulist.model.Liquid;
 
 @Data
 public class LiquidResponseDto {

@@ -51,7 +51,6 @@ public class ShoppingCartController {
         return shoppingCartService.getShoppingCart(sessionId);
     }
 
-
     @PutMapping("/cart-items/{id}")
     @Operation(summary = "Update a cart item by ID")
     public CartItemResponseDto update(@RequestBody @Valid UpdateQuantityDto updateQuantityDto,

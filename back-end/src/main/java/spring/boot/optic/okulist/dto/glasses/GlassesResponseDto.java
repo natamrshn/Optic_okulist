@@ -6,7 +6,6 @@ import java.util.Set;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
-import spring.boot.optic.okulist.model.Glasses;
 
 @Data
 public class GlassesResponseDto {
