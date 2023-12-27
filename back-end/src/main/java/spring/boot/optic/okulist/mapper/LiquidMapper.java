@@ -37,4 +37,11 @@ public interface LiquidMapper {
         categoryResponseDto.setName(category.getName());
         return categoryResponseDto;
     }
+
+    default LiquidResponseDto.Variations mapLiquidVariationToDto(Liquid liquidVariation) {
+        LiquidResponseDto.Variations variations = new LiquidResponseDto.Variations();
+        variations.setId(liquidVariation.getId());
+        variations.setCoverImage(liquidVariation.getCoverImage());
+        return variations;
+    }
 }

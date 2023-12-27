@@ -6,7 +6,6 @@ import java.util.Set;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
-import spring.boot.optic.okulist.model.Glasses;
 
 @Data
 public class GlassesResponseDto {
@@ -28,10 +27,5 @@ public class GlassesResponseDto {
     public static class Variation {
         private Long id;
         private String coverImage;
-
-        public Variation(Glasses glasses) {
-            this.id = glasses.getId();
-            this.coverImage = glasses.getCoverImage();
-        }
     }
 }

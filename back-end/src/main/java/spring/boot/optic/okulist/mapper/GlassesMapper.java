@@ -35,4 +35,11 @@ public interface GlassesMapper {
                 })
                 .collect(Collectors.toSet()));
     }
+
+    default GlassesResponseDto.Variation mapLiquidVariationToDto(Glasses glassesVariation) {
+        GlassesResponseDto.Variation variations = new GlassesResponseDto.Variation();
+        variations.setId(glassesVariation.getId());
+        variations.setCoverImage(glassesVariation.getCoverImage());
+        return variations;
+    }
 }

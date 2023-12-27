@@ -141,29 +141,4 @@ public class UserServiceImpl implements UserService {
         }
         return user;
     }
-
-    /*
-     private final AuthenticationService authenticationService;
-
-    private String resolveSessionId(String sessionIdFromCookie) {
-        if (sessionIdFromCookie != null) {
-            return sessionIdFromCookie;
-        }
-
-        // Якщо cookie sessionId відсутня, можливо користувач аутентифікований
-        // Спробуйте отримати sessionId з аутентифікаційного токену
-        String sessionIdFromToken = authenticationService.extractSessionIdFromToken();
-        if (sessionIdFromToken != null) {
-            return sessionIdFromToken;
-        }
-
-        // Якщо немає куки та аутентифікації, створіть новий sessionId
-        String newSessionId = userService.createTemporarySession();
-        Cookie sessionIdCookie = new Cookie("sessionId", newSessionId);
-        sessionIdCookie.setMaxAge(-1);  // Закриття браузера
-        sessionIdCookie.setPath("/");
-        response.addCookie(sessionIdCookie);
-        return newSessionId;
-    }
- */
 }

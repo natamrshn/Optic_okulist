@@ -6,7 +6,6 @@ import java.util.Set;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
-import spring.boot.optic.okulist.model.Liquid;
 
 @Data
 public class LiquidResponseDto {
@@ -19,17 +18,12 @@ public class LiquidResponseDto {
     private String imageUrl;
     private String imageUrlSecond;
     private Set<CategoryResponseDto> categories;
-    private List<LiquidResponseDto.Variations> variations;
+    private List<Variations> variations;
 
     @Data
     @NoArgsConstructor
     public static class Variations {
         private Long id;
         private String coverImage;
-
-        public Variations(Liquid liquid) {
-            this.id = liquid.getId();
-            this.coverImage = liquid.getCoverImage();
-        }
     }
 }

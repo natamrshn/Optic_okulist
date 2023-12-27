@@ -46,7 +46,7 @@ public class LiquidServiceImpl implements LiquidService {
         List<LiquidResponseDto.Variations> variation = liquidRepository.findAllByIdentifier(liquid.getIdentifier())
                 .stream()
                 .filter(variations -> ! variations.getId().equals(liquid.getId()))
-                .map(LiquidResponseDto.Variations::new)
+                .map(liquidMapper::mapLiquidVariationToDto)
                 .toList();
 
         result.setVariations(variation);
