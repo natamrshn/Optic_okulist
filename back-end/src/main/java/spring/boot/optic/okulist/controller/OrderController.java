@@ -46,7 +46,6 @@ public class OrderController {
         return orderService.addOrder(user.getId(), requestDto);
     }
 
-    //@PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping
     @Operation(summary = "Get all orders", description = "Get a list of all available orders")
     public List<OrderResponseDto> findAllUserOrders(@RequestParam(required = false) String sessionId,
