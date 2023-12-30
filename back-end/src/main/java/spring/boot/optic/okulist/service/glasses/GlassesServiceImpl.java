@@ -46,7 +46,7 @@ public class GlassesServiceImpl implements GlassesService {
                         glasses.getManufacturer())
                 .stream()
                 .filter(variation -> ! variation.getId().equals(glasses.getId()))
-                .map(glassesMapper::mapLiquidVariationToDto)
+                .map(glassesMapper::mapGlassesVariationToDto)
                 .toList();
 
         result.setVariations(variations);

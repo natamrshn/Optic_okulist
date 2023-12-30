@@ -19,4 +19,5 @@ public class Glasses extends Product {
     private String color;
     private String model;
     private String manufacturer;
+    private String coverImage;
 }

@@ -7,5 +7,6 @@ import spring.boot.optic.okulist.dto.product.ProductResponseDto;
 public class CartItemResponseDto {
     private Long id;
     private ProductResponseDto product;
+    private LenseConfigDto lenseConfig;
     private int quantity;
 }
