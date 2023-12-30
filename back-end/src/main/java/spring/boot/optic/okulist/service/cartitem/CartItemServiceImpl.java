@@ -8,10 +8,12 @@ import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.shoppingcartitems.CartItemResponseDto;
+import spring.boot.optic.okulist.dto.shoppingcartitems.LenseConfigDto;
 import spring.boot.optic.okulist.dto.shoppingcartitems.ShoppingCartItemsRequestDto;
 import spring.boot.optic.okulist.dto.shoppingcartitems.UpdateQuantityDto;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.mapper.CartItemMapper;
+import spring.boot.optic.okulist.model.LenseItemConfig;
 import spring.boot.optic.okulist.model.ShoppingCart;
 import spring.boot.optic.okulist.model.ShoppingCartItem;
 import spring.boot.optic.okulist.model.user.User;
@@ -37,9 +39,10 @@ public class CartItemServiceImpl implements CartItemService {
         ShoppingCartItem cartItem = new ShoppingCartItem();
         cartItem.setProduct(productRepository.getById(cartItemRequestDto.getProductId()));
         cartItem.setQuantity(cartItemRequestDto.getQuantity());
-
+        LenseConfigDto lenseConfigDto = cartItemRequestDto.getLenseConfig();
+        LenseItemConfig lenseConfig = cartItemMapper.toLenseItemConfig(lenseConfigDto);
+        cartItem.setLenseConfig(lenseConfig);
         User user = userService.getUserOrCreateNew(cartItemRequestDto.getSessionId());
-
         setShoppingCartAndCartItems(user, cartItem);
         return cartItemMapper.toDto(cartItemRepository.save(cartItem));
     }
