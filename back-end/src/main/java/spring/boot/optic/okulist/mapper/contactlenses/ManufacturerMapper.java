@@ -1,5 +1,6 @@
 package spring.boot.optic.okulist.mapper.contactlenses;
 
+import java.util.Collections;
 import java.util.List;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
@@ -25,22 +26,28 @@ public interface ManufacturerMapper {
     ManufacturerResponseDto toDto(Manufacturer manufacturer);
 
     default List<Long> mapColorsToIds(List<Color> colors) {
-        return colors.stream()
-                .map(Color::getId)
-                .toList();
+        if(colors != null) {
+            return colors.stream()
+                    .map(Color::getId)
+                    .toList();
+        }
+        return Collections.emptyList();
     }
 
     default List<Long> mapSpheresToIds(List<Sphere> spheres) {
-        return spheres.stream()
-                .map(Sphere::getId)
-                .toList();
+        if (spheres != null) {
+            return spheres.stream()
+                    .map(Sphere::getId)
+                    .toList();
+        }
+        return Collections.emptyList();
     }
 
     @AfterMapping
     default void addColorAndSphereIds(Manufacturer manufacturer,
                                       @MappingTarget ManufacturerResponseDto dto) {
-        dto.setColorsId(mapColorsToIds(manufacturer.getColors()));
-        dto.setSphereId(mapSpheresToIds(manufacturer.getSpheres()));
+            dto.setColorsId(mapColorsToIds(manufacturer.getColors()));
+            dto.setSphereId(mapSpheresToIds(manufacturer.getSpheres()));
     }
 
     Manufacturer toModel(ManufacturerRequestDto manufacturerRequestDto);
