@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: chg-glasses-table
+      id: chg-liquid-table
       author: hlib13
       changes:
         - addColumn:
-            tableName: glasses
+            tableName: liquids
             columns:
               - column:
                   name: "cover_image"
@@ -12,5 +12,4 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                   defaultValue: false
-
 
