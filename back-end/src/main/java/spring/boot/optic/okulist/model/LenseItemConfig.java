@@ -3,7 +3,7 @@ package spring.boot.optic.okulist.model;
 import lombok.Data;
 
 @Data
-public class LenseItemConfig { //TODO: check fields type and integrate it to mappers/services
+public class LenseItemConfig {
     private String color;
     private String cylinder;
     private String degree;
