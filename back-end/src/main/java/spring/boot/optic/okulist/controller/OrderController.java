@@ -1,6 +1,7 @@
 package spring.boot.optic.okulist.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,7 @@ import spring.boot.optic.okulist.model.user.User;
 import spring.boot.optic.okulist.service.order.OrderService;
 import spring.boot.optic.okulist.service.user.UserService;
 
+@Tag(name = "OrderController", description = "Endpoints for managing orders products")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/orders")

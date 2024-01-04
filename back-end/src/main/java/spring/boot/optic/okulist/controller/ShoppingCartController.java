@@ -35,8 +35,12 @@ public class ShoppingCartController {
 
     @PostMapping
     @Operation(summary = "add new item to a shopping cart")
-    public CartItemResponseDto addCartItem(@RequestBody @Valid
-                                           ShoppingCartItemsRequestDto cartItemRequestDto) {
+    public CartItemResponseDto addCartItem(@RequestBody @Valid ShoppingCartItemsRequestDto cartItemRequestDto,
+                                           @CookieValue("sessionId") String sessionId)
+    {
+        if (sessionId == null) {
+            throw new IllegalArgumentException("Session ID cannot be null");
+        }
         return shoppingCartService.addItem(cartItemRequestDto);
     }
 
