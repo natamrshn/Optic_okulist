@@ -1,6 +1,7 @@
 package spring.boot.optic.okulist.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -32,6 +33,8 @@ public class ProductController {
 
     @Operation(summary = "Update product by ID")
     @PutMapping("/{id}")
+    @ApiResponse(responseCode = "200", description = "Product updated successfully")
+    @ApiResponse(responseCode = "404", description = "Product not found")
     public ProductResponseDto updateProduct(@PathVariable Long id,
                                             @RequestBody ProductRequestDto productRequestDto) {
         logger.info("Updating product with ID: " + id);
@@ -43,6 +46,7 @@ public class ProductController {
                     + "various search parameters "
     )
     @GetMapping("/search")
+    @ApiResponse(responseCode = "200", description = "Products retrieved successfully")
     public List<ProductResponseDto> searchProduct(ProductSearchParameter searchParameters) {
         return productService.searchProductByParameters(searchParameters);
     }
@@ -51,6 +55,8 @@ public class ProductController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PreAuthorize("hasRole('ADMIN')")
+    @ApiResponse(responseCode = "204", description = "Product deleted successfully")
+    @ApiResponse(responseCode = "404", description = "Product not found")
     public void deleteProduct(@PathVariable Long id) {
         logger.info("Deleting product with ID: " + id);
         productService.deleteById(id);

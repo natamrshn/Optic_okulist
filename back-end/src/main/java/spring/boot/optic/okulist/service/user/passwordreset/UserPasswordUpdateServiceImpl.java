@@ -10,12 +10,15 @@ import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.user.UserPasswordUpdateRequestDto;
 import spring.boot.optic.okulist.dto.user.UserResponseDto;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
+import spring.boot.optic.okulist.exception.VerificationCodeCacheException;
 import spring.boot.optic.okulist.exception.VerificationCodeMismatchException;
 import spring.boot.optic.okulist.mapper.UserMapper;
 import spring.boot.optic.okulist.model.RegisteredUser;
 import spring.boot.optic.okulist.model.user.User;
 import spring.boot.optic.okulist.repository.UserRepository;
 import spring.boot.optic.okulist.service.emailsender.EmailService;
+
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -56,12 +59,24 @@ public class UserPasswordUpdateServiceImpl implements UserPasswordUpdateService 
 
     private String getVerificationCode(String email) {
         Cache cache = cacheManager.getCache("verificationCodes");
-        return cache.get(email, String.class);
+        if (cache != null) {
+            Cache.ValueWrapper valueWrapper = cache.get(email);
+            if (valueWrapper != null) {
+                return Objects.requireNonNull(valueWrapper.get()).toString();
+            }
+        }
+        throw new VerificationCodeCacheException("Cache is null or verification code not found for email: "
+                + email);
     }
 
     private void clearVerificationCode(String email) {
         Cache cache = cacheManager.getCache("verificationCodes");
-        cache.evict(email);
+        if (cache != null) {
+            cache.evict(email);
+        } else {
+            throw new VerificationCodeCacheException("Cache is null. Unable to clear verification code for email: "
+                    + email);
+        }
     }
 
     private RegisteredUser getUserByEmail(String email) {

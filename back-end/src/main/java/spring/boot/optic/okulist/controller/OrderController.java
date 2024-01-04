@@ -1,6 +1,8 @@
 package spring.boot.optic.okulist.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import java.util.List;
@@ -24,7 +26,7 @@ import spring.boot.optic.okulist.model.user.User;
 import spring.boot.optic.okulist.service.order.OrderService;
 import spring.boot.optic.okulist.service.user.UserService;
 
-@Tag(name = "OrderController", description = "Endpoints for managing orders products")
+@Tag(name = "OrderController", description = "Endpoints for managing orders of products")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/orders")
@@ -33,7 +35,12 @@ public class OrderController {
     private final UserService userService;
 
     @PostMapping
-    @Operation(summary = "Add order to repository", description = "Add valid order to repository")
+    @Operation(summary = "Add order to repository", description = "Add a valid order to the repository")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Order added successfully"),
+            @ApiResponse(responseCode = "400", description = "Bad request. Order not added"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized. Authentication required")
+    })
     public OrderResponseDto addOrder(Authentication authentication,
                                      @RequestBody @Valid CreateOrderRequestDto requestDto) {
         if ((authentication == null || !authentication.isAuthenticated())
@@ -50,6 +57,10 @@ public class OrderController {
 
     @GetMapping
     @Operation(summary = "Get all orders", description = "Get a list of all available orders")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "List of orders retrieved successfully"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized. Authentication required")
+    })
     public List<OrderResponseDto> findAllUserOrders(@RequestParam(required = false) String sessionId,
                                                     Authentication authentication) {
         if ((authentication == null || !authentication.isAuthenticated())
@@ -62,14 +73,25 @@ public class OrderController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/user/{userId}")
-    @Operation(summary = "Get order by userId", description = "Get available order by userId")
+    @Operation(summary = "Get orders by userId", description = "Get available orders by userId")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "List of orders retrieved successfully"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized. Authentication required"),
+            @ApiResponse(responseCode = "403", description = "Forbidden. Insufficient privileges")
+    })
     public List<OrderResponseDto> getByUserId(@PathVariable Long userId) {
         return orderService.getByUserId(userId);
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/{id}")
-    @Operation(summary = "Update order by id", description = "Update available order by id")
+    @Operation(summary = "Update order by id", description = "Update an available order by id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Order updated successfully"),
+            @ApiResponse(responseCode = "400", description = "Bad request. Order not updated"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized. Authentication required"),
+            @ApiResponse(responseCode = "403", description = "Forbidden. Insufficient privileges")
+    })
     public OrderResponseDto update(@PathVariable Long id,
                                    @RequestBody @Valid UpdateOrderRequestDto requestDto) {
         return orderService.updateOrderStatus(id, Order.Status
@@ -78,6 +100,13 @@ public class OrderController {
 
     @GetMapping("/logs")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @Operation(summary = "Get all orders sorted by date in descending order",
+            description = "Get a list of all orders sorted by date in descending order")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "List of orders retrieved successfully"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized. Authentication required"),
+            @ApiResponse(responseCode = "403", description = "Forbidden. Insufficient privileges")
+    })
     public List<Order> getAllOrdersSortedByDateDesc() {
         return orderService.findAllOrdersSortedByDateDesc();
     }

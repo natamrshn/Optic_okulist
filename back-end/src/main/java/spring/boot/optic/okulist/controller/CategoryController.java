@@ -1,6 +1,8 @@
 package spring.boot.optic.okulist.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import java.util.List;
@@ -34,23 +36,25 @@ public class CategoryController {
 
     @Operation(summary = "Create a Category",
             description = "Creates a new category for books in the library.")
+    @ApiResponse(responseCode = "201", description = "Category created successfully")
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
-    public CategoryResponseDto createCategory(@RequestBody
-                                              @Valid CategoryRequestDto categoryRequestDto) {
+    public CategoryResponseDto createCategory(@RequestBody @Valid CategoryRequestDto categoryRequestDto) {
         logger.info("Creating a new category.");
         return categoryService.save(categoryRequestDto);
     }
 
-    @Operation(summary = "Get All categories ",
+    @Operation(summary = "Get All categories",
             description = "Retrieves a list of all categories available for books.")
     @GetMapping
     public List<CategoryResponseDto> getAll(Pageable pageable) {
         return categoryService.findAll(pageable);
     }
 
-    @Operation(summary = "Get Category by ID",
-            description = "Retrieves a category by its unique identifier (ID).")
+    @Operation(summary = "Get Category by ID", description = "Retrieves a category by its unique identifier (ID).")
+    @ApiResponse(responseCode = "200", description = "Category retrieved successfully")
+    @ApiResponse(responseCode = "404", description = "Category not found")
+    @Parameter(name = "id", description = "ID of the category to be retrieved", required = true)
     @GetMapping("/{id}")
     public CategoryResponseDto getCategoryById(@PathVariable Long id) {
         logger.info("Retrieving category with ID: " + id);
@@ -58,10 +62,11 @@ public class CategoryController {
     }
 
     @Operation(summary = "Update a Category by its ID",
-            description = "Updates an existing category in the library"
-                    + " based on its unique identifier (ID).")
-    @PutMapping("/{id}")
+            description = "Updates an existing category in the library based on its unique identifier (ID).")
+    @ApiResponse(responseCode = "200", description = "Category updated successfully")
+    @ApiResponse(responseCode = "404", description = "Category not found")
     @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/{id}")
     public CategoryResponseDto updateCategory(@PathVariable Long id,
                                               @RequestBody CategoryRequestDto categoryRequestDto) {
         logger.info("Updating category with ID: " + id);
@@ -70,9 +75,11 @@ public class CategoryController {
 
     @Operation(summary = "Delete category by their ID",
             description = "Soft deletes a category from the library by its unique identifier (ID).")
-    @DeleteMapping("/{id}")
+    @ApiResponse(responseCode = "204", description = "Category deleted successfully")
+    @ApiResponse(responseCode = "404", description = "Category not found")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/{id}")
     public void deleteCategory(@PathVariable Long id) {
         logger.info("Deleting category with ID: " + id);
         categoryService.deleteById(id);
