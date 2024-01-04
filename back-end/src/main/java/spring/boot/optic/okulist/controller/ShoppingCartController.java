@@ -1,6 +1,7 @@
 package spring.boot.optic.okulist.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -34,10 +35,10 @@ public class ShoppingCartController {
     private final UserService userService;
 
     @PostMapping
-    @Operation(summary = "add new item to a shopping cart")
+    @Operation(summary = "Add new item to a shopping cart")
+    @ApiResponse(responseCode = "200", description = "Cart item added successfully")
     public CartItemResponseDto addCartItem(@RequestBody @Valid ShoppingCartItemsRequestDto cartItemRequestDto,
-                                           @CookieValue("sessionId") String sessionId)
-    {
+                                           @CookieValue("sessionId") String sessionId) {
         if (sessionId == null) {
             throw new IllegalArgumentException("Session ID cannot be null");
         }
@@ -46,6 +47,7 @@ public class ShoppingCartController {
 
     @GetMapping
     @Operation(summary = "Get shopping cart")
+    @ApiResponse(responseCode = "200", description = "Shopping cart retrieved successfully")
     public ShoppingCartResponseDto getShoppingCart(@CookieValue("sessionId") String sessionId,
                                                    Authentication authentication) {
         if (authentication == null || !authentication.isAuthenticated()) {
@@ -57,6 +59,8 @@ public class ShoppingCartController {
 
     @PutMapping("/cart-items/{id}")
     @Operation(summary = "Update a cart item by ID")
+    @ApiResponse(responseCode = "200", description = "Cart item updated successfully")
+    @ApiResponse(responseCode = "404", description = "Cart item not found")
     public CartItemResponseDto update(@RequestBody @Valid UpdateQuantityDto updateQuantityDto,
                                       @PathVariable Long id) {
         return cartItemService.update(updateQuantityDto, id);
@@ -64,6 +68,8 @@ public class ShoppingCartController {
 
     @DeleteMapping("/{cartItemId}")
     @Operation(summary = "Delete a cart item by ID")
+    @ApiResponse(responseCode = "204", description = "Cart item deleted successfully")
+    @ApiResponse(responseCode = "404", description = "Cart item not found")
     public void deleteCartItemById(@PathVariable Long cartItemId) {
         cartItemService.delete(cartItemId);
     }

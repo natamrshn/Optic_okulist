@@ -1,6 +1,7 @@
 package spring.boot.optic.okulist.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import java.util.ArrayList;
@@ -40,46 +41,54 @@ public class GlassesController {
             description = "Creates a new Glasses in shop list.")
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
+    @ApiResponse(responseCode = "201", description = "Glasses created successfully")
+    @ApiResponse(responseCode = "400", description = "Bad request. Invalid data provided.")
     public GlassesResponseDto creatGlasses(@RequestBody
-                                              @Valid GlassesRequestDto glassesRequestDto) {
+                                           @Valid GlassesRequestDto glassesRequestDto) {
         logger.info("Creating a new glasses.");
         return glassesService.save(glassesRequestDto);
     }
 
     @Operation(summary = "Get All glasses ")
     @GetMapping
+    @ApiResponse(responseCode = "200", description = "List of glasses retrieved successfully")
     public List<GlassesResponseDto> getAll(Pageable pageable) {
         return glassesService.findAll(pageable);
     }
 
     @Operation(summary = "Get Glasses by ID")
     @GetMapping("/{id}")
+    @ApiResponse(responseCode = "200", description = "Glasses retrieved successfully")
+    @ApiResponse(responseCode = "404", description = "Glasses not found")
     public GlassesResponseDto getGlassesById(@PathVariable Long id) {
-        logger.info("Retrieving category with ID: " + id);
+        logger.info("Retrieving glasses with ID: " + id);
         return glassesService.getById(id);
     }
 
     @Operation(summary = "Update Glasses by ID")
     @PutMapping("/{id}")
+    @ApiResponse(responseCode = "200", description = "Glasses updated successfully")
+    @ApiResponse(responseCode = "404", description = "Glasses not found")
     public GlassesResponseDto updateGlasses(@PathVariable Long id,
                                             @RequestBody GlassesRequestDto glassesRequestDto) {
-        logger.info("Updating category with ID: " + id);
+        logger.info("Updating glasses with ID: " + id);
         return glassesService.update(id, glassesRequestDto);
     }
 
     @Operation(summary = "Search for glass",
-            description = "Searches for glass in the store based on "
-                    + "various search parameters such as color, manufacturer, or model."
-    )
+            description = "Searches for glass in the store based on various search parameters"
+                    + " such as color, manufacturer, or model.")
     @GetMapping("/search")
+    @ApiResponse(responseCode = "200", description = "Glasses found successfully")
     public List<GlassesResponseDto> searchGlasses(GlassesSearchParameter searchParameters) {
         return glassesService.searchGlassesByParameters(searchParameters);
     }
 
     @Operation(summary = "Search for glasses",
-            description = "Searches for glasses in the store based "
-                    + "on various search parameters such as color, manufacturer or model.")
+            description = "Searches for glasses in the store based on "
+                    + "various search parameters such as color, manufacturer or model.")
     @GetMapping("/search-similiar")
+    @ApiResponse(responseCode = "200", description = "Glasses found successfully")
     public List<GlassesResponseDto> searchLiquidsWithSimiliarParams(
             GlassesSearchParameter searchParameters) {
         List<GlassesResponseDto> foundGlasses = glassesService
@@ -95,6 +104,8 @@ public class GlassesController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PreAuthorize("hasRole('ADMIN')")
+    @ApiResponse(responseCode = "204", description = "Glasses deleted successfully")
+    @ApiResponse(responseCode = "404", description = "Glasses not found")
     public void deleteGlasses(@PathVariable Long id) {
         logger.info("Deleting glasses with ID: " + id);
         glassesService.deleteById(id);

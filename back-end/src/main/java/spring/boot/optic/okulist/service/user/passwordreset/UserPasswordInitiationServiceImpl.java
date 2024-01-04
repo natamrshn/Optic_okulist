@@ -7,6 +7,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
+import spring.boot.optic.okulist.exception.VerificationCodeCacheException;
 import spring.boot.optic.okulist.model.user.User;
 import spring.boot.optic.okulist.repository.UserRepository;
 import spring.boot.optic.okulist.service.emailsender.EmailService;
@@ -25,9 +26,16 @@ public class UserPasswordInitiationServiceImpl implements UserPasswordInitiation
         String userEmail = authenticatedUser.getEmail();
         String verificationCode = generateVerificationCode();
         Cache cache = cacheManager.getCache("verificationCodes");
-        cache.put(userEmail, verificationCode);
+
+        if (cache != null) {
+            cache.put(userEmail, verificationCode);
+            System.out.println("Verification code stored in the cache for user " + userEmail);
+        } else {
+            throw new VerificationCodeCacheException("Cache is null. Unable to store verification code.");
+        }
+
         emailService.sendVerificationCodeEmail(userEmail, verificationCode);
-        System.out.println("Verification code generated for user " + userEmail);
+        System.out.println("Verification code sent via email to user " + userEmail);
     }
 
     @Override

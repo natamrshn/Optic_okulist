@@ -7,6 +7,5 @@ import spring.boot.optic.okulist.model.Order;
 
 @Mapper(config = MapperConfig.class)
 public interface TempUserOrderMapper {
-   // @Mapping(target = "shippingAddress", source = "shippingAddress")
     Order toModel(CreateOrderRequestDto createOrderRequestDto);
 }

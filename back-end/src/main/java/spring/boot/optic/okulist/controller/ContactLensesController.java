@@ -1,6 +1,7 @@
 package spring.boot.optic.okulist.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import java.util.List;
@@ -36,20 +37,25 @@ public class ContactLensesController {
             description = "Creates a new Lenses in shop list.")
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
+    @ApiResponse(responseCode = "201", description = "Lenses created successfully")
+    @ApiResponse(responseCode = "400", description = "Bad request. Invalid data provided.")
     public ContactLensesResponseDto creatLenses(@RequestBody
-                                           @Valid ContactLensesRequestDto contactLensesRequestDto) {
+                                                @Valid ContactLensesRequestDto contactLensesRequestDto) {
         logger.info("Creating a new lenses.");
         return contactLensesService.createContactLenses(contactLensesRequestDto);
     }
 
     @Operation(summary = "Get All lenses ")
     @GetMapping
+    @ApiResponse(responseCode = "200", description = "List of lenses retrieved successfully")
     public List<ContactLensesResponseDto> getAll(Pageable pageable) {
         return contactLensesService.findAll(pageable);
     }
 
     @Operation(summary = "Get Lenses by ID")
     @GetMapping("/{id}")
+    @ApiResponse(responseCode = "200", description = "Lenses retrieved successfully")
+    @ApiResponse(responseCode = "404", description = "Lenses not found")
     public ContactLensesResponseDto getLensesById(@PathVariable Long id) {
         logger.info("Retrieving category with ID: " + id);
         return contactLensesService.getById(id);
@@ -57,9 +63,11 @@ public class ContactLensesController {
 
     @Operation(summary = "Update Lenses by ID")
     @PutMapping("/{id}")
+    @ApiResponse(responseCode = "200", description = "Lenses updated successfully")
+    @ApiResponse(responseCode = "404", description = "Lenses not found")
     public ContactLensesResponseDto updateLenses(@PathVariable Long id,
-                                            @RequestBody
-                                            ContactLensesRequestDto contactLensesRequestDto) {
+                                                 @RequestBody
+                                                 ContactLensesRequestDto contactLensesRequestDto) {
         logger.info("Updating category with ID: " + id);
         return contactLensesService.update(id, contactLensesRequestDto);
     }
@@ -68,6 +76,8 @@ public class ContactLensesController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PreAuthorize("hasRole('ADMIN')")
+    @ApiResponse(responseCode = "204", description = "Lenses deleted successfully")
+    @ApiResponse(responseCode = "404", description = "Lenses not found")
     public void deleteLenses(@PathVariable Long id) {
         logger.info("Deleting lenses with ID: " + id);
         contactLensesService.deleteLensesById(id);

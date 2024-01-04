@@ -1,6 +1,7 @@
 package spring.boot.optic.okulist.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +29,8 @@ public class AuthController {
     private final AuthenticationService authenticationService;
 
     @Operation(summary = "Register", description = "Register")
+    @ApiResponse(responseCode = "200", description = "User registered successfully")
+    @ApiResponse(responseCode = "400", description = "Bad request. Registration failed.")
     @PostMapping("/register")
     public UserResponseDto register(@RequestBody @Valid UserRegistrationRequestDto requestDto)
             throws RegistrationException {
@@ -36,6 +39,8 @@ public class AuthController {
     }
 
     @Operation(summary = "Login", description = "Login")
+    @ApiResponse(responseCode = "200", description = "User logged in successfully")
+    @ApiResponse(responseCode = "401", description = "Unauthorized. Login failed.")
     @PostMapping("/login")
     public UserLoginResponseDto login(@RequestBody UserLoginRequestDto requestDto) {
         return authenticationService.authenticate(requestDto);

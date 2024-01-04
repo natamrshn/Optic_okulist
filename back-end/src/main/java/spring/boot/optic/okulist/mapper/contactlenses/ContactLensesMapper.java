@@ -15,7 +15,12 @@ import spring.boot.optic.okulist.dto.contactlenses.parameters.contactlenses.Cont
 import spring.boot.optic.okulist.dto.contactlenses.parameters.contactlenses.ContactLensesResponseDto;
 import spring.boot.optic.okulist.model.Category;
 import spring.boot.optic.okulist.model.lenses.ContactLenses;
-import spring.boot.optic.okulist.model.lenses.parameters.*;
+import spring.boot.optic.okulist.model.lenses.parameters.Color;
+import spring.boot.optic.okulist.model.lenses.parameters.Cylinder;
+import spring.boot.optic.okulist.model.lenses.parameters.Degree;
+import spring.boot.optic.okulist.model.lenses.parameters.Diopter;
+import spring.boot.optic.okulist.model.lenses.parameters.Manufacturer;
+import spring.boot.optic.okulist.model.lenses.parameters.Sphere;
 
 @Mapper(config = MapperConfig.class)
 public interface ContactLensesMapper {
@@ -52,20 +57,16 @@ public interface ContactLensesMapper {
                     .boxed()
                     .toList());
         }
-
         Diopter diopter = lensConfig.getDiopter();
         if (diopter != null) {
             contactLensesResponseDto.setDiopters(diopter.getRangeAsList());
         }
-
-
         List<Sphere> spheres = lensConfig.getSpheres();
         if (spheres != null) {
             contactLensesResponseDto.setSpheres(spheres.stream()
                     .map(value -> parseDouble(value.getBaseCurve().replaceAll("\\+", "")))
                     .toList());
         }
-
         contactLensesResponseDto.setCategories(mapCategoriesToDto(contactLenses
                 .getCategories()));
     }

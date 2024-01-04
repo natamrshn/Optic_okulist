@@ -26,7 +26,7 @@ public interface ManufacturerMapper {
     ManufacturerResponseDto toDto(Manufacturer manufacturer);
 
     default List<Long> mapColorsToIds(List<Color> colors) {
-        if(colors != null) {
+        if (colors != null) {
             return colors.stream()
                     .map(Color::getId)
                     .toList();
@@ -46,8 +46,8 @@ public interface ManufacturerMapper {
     @AfterMapping
     default void addColorAndSphereIds(Manufacturer manufacturer,
                                       @MappingTarget ManufacturerResponseDto dto) {
-            dto.setColorsId(mapColorsToIds(manufacturer.getColors()));
-            dto.setSphereId(mapSpheresToIds(manufacturer.getSpheres()));
+        dto.setColorsId(mapColorsToIds(manufacturer.getColors()));
+        dto.setSphereId(mapSpheresToIds(manufacturer.getSpheres()));
     }
 
     Manufacturer toModel(ManufacturerRequestDto manufacturerRequestDto);
