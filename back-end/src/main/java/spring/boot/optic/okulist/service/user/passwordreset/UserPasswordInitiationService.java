@@ -4,7 +4,7 @@ import spring.boot.optic.okulist.model.user.User;
 
 public interface UserPasswordInitiationService {
 
-    void initiatePasswordChange(Long userId);
+    void initiatePasswordChange();
 
     User getUserById(Long userId);
 

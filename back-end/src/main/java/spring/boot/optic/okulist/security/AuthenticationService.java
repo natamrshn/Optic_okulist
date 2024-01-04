@@ -25,12 +25,4 @@ public class AuthenticationService {
                 instanceof RegisteredUser) ? ((RegisteredUser) authentication.getPrincipal()).getId() : null;
         return new UserLoginResponseDto(userId, token);
     }
-
-    /*
-    private String resolveSessionId(Authentication authentication) {
-        // Дістаємо sessionId з токену
-        String token = jwtUtil.extractTokenFromAuthentication(authentication);
-        return jwtUtil.extractSessionIdFromToken(token);
-    }
-    */
 }
