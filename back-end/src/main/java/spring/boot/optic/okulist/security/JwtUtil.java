@@ -39,26 +39,6 @@ public class JwtUtil {
                 .compact();
     }
 
-    /*
-    public String generateToken(String username, String sessionId) {
-    Date now = new Date();
-    Date expirationDate = new Date(now.getTime() + expiration);
-    logger.info("Generated JWT token for user '{}' with sessionId '{}'", username, sessionId);
-    return Jwts.builder()
-            .setSubject(username)
-            .claim("sessionId", sessionId)  // add sessionId to token
-            .setIssuedAt(now)
-            .setExpiration(expirationDate)
-            .signWith(SignatureAlgorithm.HS256, secret)
-            .compact();
-}
-
-  public String extractSessionIdFromToken(String token) {
-        // Дістаємо sessionId з токену
-        return getClaimFromToken(token, claims -> claims.get("sessionId", String.class));
-    }
-     */
-
     public boolean isTokenValid(String token) {
         try {
             Jws<Claims> claimsJws = Jwts.parserBuilder()
