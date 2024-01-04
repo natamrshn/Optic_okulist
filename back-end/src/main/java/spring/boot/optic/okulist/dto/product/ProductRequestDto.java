@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 public class ProductRequestDto {
     @NotNull
-    private Long id; // can cause some issue
+    private Long id;
     @NotNull
     private String name;
     @Positive
