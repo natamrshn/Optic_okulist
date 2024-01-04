@@ -4,9 +4,9 @@ import spring.boot.optic.okulist.dto.user.UserPasswordUpdateRequestDto;
 import spring.boot.optic.okulist.dto.user.UserResponseDto;
 
 public interface UserPasswordUpdateService {
-    UserResponseDto updatePassword(Long userId, UserPasswordUpdateRequestDto updateRequestDto);
+    UserResponseDto updatePassword(UserPasswordUpdateRequestDto updateRequestDto);
 
-    void verifyCodeAndChangePassword(Long userId,
+    void verifyCodeAndChangePassword(String  email,
                                      String verificationCode,
                                      String newPassword);
 }

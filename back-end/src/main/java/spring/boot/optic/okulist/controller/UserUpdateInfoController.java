@@ -35,16 +35,15 @@ public class UserUpdateInfoController {
     }
 
     @PostMapping("/start")
-    public ResponseEntity<String> initiatePasswordChange(@RequestBody UserIdRequest request) {
-        initiationService.initiatePasswordChange(request.getUserId());
+    public ResponseEntity<String> initiatePasswordChange() {
+        initiationService.initiatePasswordChange();
         return ResponseEntity.ok("Password change initiated successfully.");
     }
 
     @PostMapping("/confirm")
     public ResponseEntity<UserResponseDto> confirmPasswordChange(
-            @RequestParam Long userId,
             @RequestBody UserPasswordUpdateRequestDto updateRequestDto) {
-        UserResponseDto responseDto = updateService.updatePassword(userId, updateRequestDto);
+        UserResponseDto responseDto = updateService.updatePassword(updateRequestDto);
         return ResponseEntity.ok(responseDto);
     }
 }

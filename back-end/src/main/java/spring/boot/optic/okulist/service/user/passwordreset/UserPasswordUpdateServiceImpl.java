@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.user.UserPasswordUpdateRequestDto;
@@ -12,6 +13,7 @@ import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.exception.VerificationCodeMismatchException;
 import spring.boot.optic.okulist.mapper.UserMapper;
 import spring.boot.optic.okulist.model.RegisteredUser;
+import spring.boot.optic.okulist.model.user.User;
 import spring.boot.optic.okulist.repository.UserRepository;
 import spring.boot.optic.okulist.service.emailsender.EmailService;
 
@@ -26,49 +28,49 @@ public class UserPasswordUpdateServiceImpl implements UserPasswordUpdateService 
     private final EmailService emailService;
 
     @Override
-    public UserResponseDto updatePassword(Long userId,
-                                          UserPasswordUpdateRequestDto updateRequestDto) {
-        verifyCodeAndChangePassword(userId, updateRequestDto.getVerificationCode(),
+    public UserResponseDto updatePassword(UserPasswordUpdateRequestDto updateRequestDto) {
+        String email = getEmailFromSecurityContext();
+        verifyCodeAndChangePassword(email, updateRequestDto.getVerificationCode(),
                 updateRequestDto.getPassword());
-        RegisteredUser user = getUserById(userId);
+        RegisteredUser user = getUserByEmail(email);
         UserResponseDto responseDto = userMapper.toDto(user);
-
-        // Send notification email
-        String userEmail = user.getEmail();
-        emailService.sendPasswordChangeConfirmation(userEmail);
-
+        emailService.sendPasswordChangeConfirmation(email);
         return responseDto;
     }
 
     @Override
-    public void verifyCodeAndChangePassword(Long userId, String verificationCode,
+    public void verifyCodeAndChangePassword(String email, String verificationCode,
                                             String newPassword) {
-        String storedCode = getVerificationCode(userId);
+        String storedCode = getVerificationCode(email);
+        System.out.println("Provided Code: " + verificationCode);
+        System.out.println("Stored Code: " + storedCode);
         if (storedCode != null && storedCode.equals(verificationCode)) {
-            RegisteredUser user = userRepository.findById(userId)
-                    .orElseThrow(() ->
-                            new EntityNotFoundException("User not found with id: " + userId));
+            RegisteredUser user = getUserByEmail(email);
             user.setPassword(passwordEncoder.encode(newPassword));
-            clearVerificationCode(userId);
+            clearVerificationCode(email);
             userRepository.save(user);
         } else {
             throw new VerificationCodeMismatchException("Invalid verification code");
         }
     }
 
-    private String getVerificationCode(Long userId) {
+    private String getVerificationCode(String email) {
         Cache cache = cacheManager.getCache("verificationCodes");
-        return (String) cache.get(userId, String.class);
+        return cache.get(email, String.class);
     }
 
-    private void clearVerificationCode(Long userId) {
+    private void clearVerificationCode(String email) {
         Cache cache = cacheManager.getCache("verificationCodes");
-        cache.evict(userId);
+        cache.evict(email);
     }
 
-    private RegisteredUser getUserById(Long userId) {
-        return userRepository.findById(userId)
+    private RegisteredUser getUserByEmail(String email) {
+        return userRepository.findByEmail(email)
                 .orElseThrow(() ->
-                        new EntityNotFoundException("User not found with id: " + userId));
+                        new EntityNotFoundException("User not found with email: " + email));
+    }
+
+    private String getEmailFromSecurityContext() {
+        return ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getEmail();
     }
 }

@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.model.user.User;
@@ -19,11 +20,14 @@ public class UserPasswordInitiationServiceImpl implements UserPasswordInitiation
     private final UserRepository userRepository;
 
     @Override
-    public void initiatePasswordChange(Long userId) {
+    public void initiatePasswordChange() {
+        User authenticatedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String userEmail = authenticatedUser.getEmail();
         String verificationCode = generateVerificationCode();
         Cache cache = cacheManager.getCache("verificationCodes");
-        cache.put(userId, verificationCode);
-        emailService.sendVerificationCodeEmail(getUserEmail(userId), verificationCode);
+        cache.put(userEmail, verificationCode);
+        emailService.sendVerificationCodeEmail(userEmail, verificationCode);
+        System.out.println("Verification code generated for user " + userEmail);
     }
 
     @Override

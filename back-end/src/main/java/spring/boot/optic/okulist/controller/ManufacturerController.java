@@ -44,3 +44,4 @@ public class ManufacturerController {
         manufacturerService.deleteManufacturer(manufacturerId);
     }
 }
+
