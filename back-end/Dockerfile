@@ -9,9 +9,9 @@ RUN rm application.jar
 # Copy extracted layers to the final image
 FROM openjdk:21-jdk-slim
 WORKDIR application
-COPY --from=builder application/dependencies/ ./dependencies
-COPY --from=builder application/spring-boot-loader/ ./spring-boot-loader
-COPY --from=builder application/snapshot-dependencies/ ./snapshot-dependencies
-COPY --from=builder application/application/ ./application
+COPY --from=builder application/dependencies/ ./
+COPY --from=builder application/spring-boot-loader/ ./
+COPY --from=builder application/snapshot-dependencies/ ./
+COPY --from=builder application/application/ ./
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
 EXPOSE 8080
