@@ -1,5 +1,6 @@
 package spring.boot.optic.okulist.service.user.passwordreset;
 
+import java.util.Objects;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
@@ -17,8 +18,6 @@ import spring.boot.optic.okulist.model.RegisteredUser;
 import spring.boot.optic.okulist.model.user.User;
 import spring.boot.optic.okulist.repository.UserRepository;
 import spring.boot.optic.okulist.service.emailsender.EmailService;
-
-import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
