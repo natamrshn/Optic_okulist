@@ -25,7 +25,7 @@ public interface GlassesMapper {
     @AfterMapping
     default void mapCategories(@MappingTarget GlassesResponseDto glassesResponseDto,
                                Glasses glasses) {
-        //glassesResponseDto.setName(glasses.getName()); #TODO
+        glassesResponseDto.setGlassesName(glasses.getName());
         glassesResponseDto.setCategories(glasses.getCategories().stream()
                 .map(category -> {
                     CategoryResponseDto categoryResponseDto = new CategoryResponseDto();
