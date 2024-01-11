@@ -7,6 +7,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,13 +28,13 @@ import spring.boot.optic.okulist.model.user.User;
 @Where(clause = "is_deleted = false")
 @DiscriminatorValue("registered")
 public class RegisteredUser extends User implements UserDetails {
-
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
-
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "user")
+    private Set<UserFavoriteProduct> favoriteProducts = new HashSet<>();
     @Column(name = "is_admin", nullable = false)
     private boolean isAdmin = false;
     @Column(name = "create_Permission", nullable = false)

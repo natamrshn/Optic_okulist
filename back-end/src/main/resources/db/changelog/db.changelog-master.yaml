@@ -79,3 +79,5 @@ databaseChangeLog:
       file: db/changelog/changes/39-chg-product-table.yaml
   - include:
       file: db/changelog/changes/40-chg-liquid-table.yaml
+  - include:
+      file: db/changelog/changes/42-user_favorite_products.yaml
