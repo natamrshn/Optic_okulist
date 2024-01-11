@@ -3,24 +3,32 @@ package spring.boot.optic.okulist.service.user.impl;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import spring.boot.optic.okulist.dto.product.ProductResponseDto;
 import spring.boot.optic.okulist.dto.user.UserRegistrationRequestDto;
 import spring.boot.optic.okulist.dto.user.UserResponseDto;
 import spring.boot.optic.okulist.dto.user.UserUpdateRequestDto;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.exception.RegistrationException;
+import spring.boot.optic.okulist.mapper.ProductMapper;
+import spring.boot.optic.okulist.mapper.UserFavoriteProductMapper;
 import spring.boot.optic.okulist.mapper.UserMapper;
+import spring.boot.optic.okulist.model.Product;
 import spring.boot.optic.okulist.model.RegisteredUser;
 import spring.boot.optic.okulist.model.Role;
+import spring.boot.optic.okulist.model.UserFavoriteProduct;
 import spring.boot.optic.okulist.model.user.TemporaryUser;
 import spring.boot.optic.okulist.model.user.User;
+import spring.boot.optic.okulist.repository.ProductRepository;
 import spring.boot.optic.okulist.repository.RoleRepository;
 import spring.boot.optic.okulist.repository.TemporaryUserRepository;
+import spring.boot.optic.okulist.repository.UserFavoriteProductRepository;
 import spring.boot.optic.okulist.repository.UserRepository;
 import spring.boot.optic.okulist.service.user.UserService;
 
@@ -30,9 +38,13 @@ import spring.boot.optic.okulist.service.user.UserService;
 public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
+    private final UserFavoriteProductRepository userFavoriteProductRepository;
     private final UserMapper userMapper;
     private final RoleRepository roleRepository;
     private final TemporaryUserRepository temporaryUserRepository;
+    private final ProductRepository productRepository;
+    private final UserFavoriteProductMapper userFavoriteProductMapper;
+    private final ProductMapper productMapper;
 
     public boolean isFirstUser() {
         return userRepository.count() == 0;
@@ -97,6 +109,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public Optional<RegisteredUser> getAuthenticated() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return userRepository.findByEmail(authentication.getName());
@@ -140,5 +153,40 @@ public class UserServiceImpl implements UserService {
                             new EntityNotFoundException("No temporary user found for session ID: " + sessionId));
         }
         return user;
+    }
+
+    @Override
+    @Transactional
+    public ProductResponseDto addFavouriteProduct(RegisteredUser user, Long productId) {
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> new EntityNotFoundException("Product not found with id: " + productId));
+        UserFavoriteProduct favoriteProduct = new UserFavoriteProduct();
+        favoriteProduct.setUser(user);
+        favoriteProduct.setProduct(product);
+        userFavoriteProductRepository.save(favoriteProduct);
+        return productMapper.toDto(product);
+    }
+
+    @Transactional
+    public Set<ProductResponseDto> getFavoriteProducts(Long userId) {
+        RegisteredUser user = userRepository.findById(userId)
+                .orElseThrow(() -> new EntityNotFoundException("User not found with id: " + userId));
+
+        return user.getFavoriteProducts().stream()
+                .map(UserFavoriteProduct::getProduct)
+                .map(productMapper::toDto)
+                .collect(Collectors.toSet());
+    }
+
+    @Transactional
+    public void deleteFavoriteProduct(Long userId, Long productId) {
+        RegisteredUser user = userRepository.findById(userId)
+                .orElseThrow(() -> new EntityNotFoundException("User not found with id: " + userId));
+
+        UserFavoriteProduct favoriteProduct = userFavoriteProductRepository.findByUserAndProduct_Id(user, productId)
+                .orElseThrow(() -> new EntityNotFoundException("Favorite product not found for user with id: " + userId
+                        + " and product id: " + productId));
+
+        userFavoriteProductRepository.delete(favoriteProduct);
     }
 }

@@ -1,6 +1,8 @@
 package spring.boot.optic.okulist.service.user;
 
 import java.util.Optional;
+import java.util.Set;
+import spring.boot.optic.okulist.dto.product.ProductResponseDto;
 import spring.boot.optic.okulist.dto.user.UserRegistrationRequestDto;
 import spring.boot.optic.okulist.dto.user.UserResponseDto;
 import spring.boot.optic.okulist.dto.user.UserUpdateRequestDto;
@@ -24,4 +26,10 @@ public interface UserService {
     User getUserOrCreateNew(String sessionId);
 
     User getUser(String sessionId);
+
+    ProductResponseDto addFavouriteProduct(RegisteredUser user, Long productId);
+
+    Set<ProductResponseDto> getFavoriteProducts(Long userId);
+
+    void deleteFavoriteProduct(Long userId, Long productId);
 }
