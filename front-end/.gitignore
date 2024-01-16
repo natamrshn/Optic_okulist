@@ -24,4 +24,4 @@ yarn-error.log*
 
 # trash and packages
 .parcel-cache/
-package.json
+package-lock.json
