@@ -1,0 +1,21 @@
+.icon {
+  height: 24px;
+  width: 24px;
+  background-size: contain;
+
+  &--basket {
+    background-image: url(./icons/basket.png);
+  }
+
+  &--search {
+    background-image: url(./icons/search.png);
+  }
+
+  &--menu {
+    background-image: url(./icons/menu.png);
+  }
+
+  &--close {
+    background-image: url(./icons/close.png);
+  }
+}
