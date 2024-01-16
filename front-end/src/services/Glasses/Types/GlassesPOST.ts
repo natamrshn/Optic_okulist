@@ -1,5 +1,5 @@
-import { Category } from "../Category";
-import { Variation } from "../Variation";
+import { Category } from "../../../Types/Category";
+import { Variation } from "../../../Types/Variation";
 
 export type GlassesPOSTRequest = {
   name: string;
