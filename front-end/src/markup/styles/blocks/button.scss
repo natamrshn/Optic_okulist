@@ -1,0 +1,50 @@
+.button {
+  display: flex;
+  width: 260px;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $button-background-color;
+  border-radius: 100px;
+
+  line-height: 48px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+
+  transition: background-color .3s;
+
+  &--product {
+    gap: 10px;
+    width: 190px;
+
+    &__icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &:hover {
+    background-color: $button-hover-background-color;
+    color: $button-hover-color;
+  }
+
+  &--redirect {
+    background-color: #fff;
+    color: $content-text-color;
+    border: 1px solid $content-text-color;
+
+    &--wrapper {
+      @include contentPadding;
+      margin-bottom: 52px;
+    }
+
+    &__icon {
+      margin-left: 8px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
