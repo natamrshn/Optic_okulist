@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+
+    &__image {
+      position: absolute;
+      width: 320px;
+      height: 568px;
+      z-index: -1;
+      object-fit: cover;
+      filter: blur(9px);
+    }
+  
+    @include onPhone(568px, 320px);
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      overflow: hidden;
+
+    }
+  }
+}
