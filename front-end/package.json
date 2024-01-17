@@ -1,6 +1,6 @@
 {
   "name": "front-end",
-  "source": "src/markup/index.html",
+  "source": "src/markup/pages/index.html",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -24,9 +24,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "front-start": "sass --watch --load-path=src ./src/markup/style.scss ./src/markup/style.css",
+    "front-start": "sass --watch --load-path=src ./src/markup/styles/style.scss ./src/markup/styles/style.css",
     "front-build": "parcel build --public-url=./",
-    "front-run": "parcel ./src/index.html"
+    "front-run": "parcel ./src/markup/pages/index.html"
   },
   "eslintConfig": {
     "extends": [
