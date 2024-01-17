@@ -286,16 +286,16 @@ table {
   background-size: contain;
 }
 .icon--basket {
-  background-image: url(./icons/basket.png);
+  background-image: url(../icons/basket.png);
 }
 .icon--search {
-  background-image: url(./icons/search.png);
+  background-image: url(../icons/search.png);
 }
 .icon--menu {
-  background-image: url(./icons/menu.png);
+  background-image: url(../icons/menu.png);
 }
 .icon--close {
-  background-image: url(./icons/close.png);
+  background-image: url(../icons/close.png);
 }
 
 .main__bottom {
