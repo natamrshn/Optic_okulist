@@ -10,3 +10,12 @@
     padding-inline: 30px;
   }
 }
+
+@mixin transitionAnimation {
+  transition: all $transition-time;
+  transform: translateX(-100%);
+
+  &:target {
+    transform: translateX(0);
+  }
+}
