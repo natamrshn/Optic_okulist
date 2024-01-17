@@ -37,7 +37,7 @@
 
   &__item {
     color: $footer-text-color;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 700;
   }
 
@@ -53,7 +53,7 @@
     text-decoration: none;
     color: $footer-link-color;
     text-align: center;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 600;
 
     &--phone {
@@ -61,7 +61,7 @@
     }
 
     &--top-margin {
-      margin-top: 24px;
+      margin-top: 1.5remp;
     }
   }
 }

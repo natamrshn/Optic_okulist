@@ -28,7 +28,7 @@ body {
   line-height: 1;
 }
 
-ol, ul {
+ol, ul, menu {
   list-style: none;
 }
 
@@ -61,6 +61,7 @@ table {
 
 .page {
   font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
   scroll-behavior: smooth;
 }
 .page__body {
@@ -137,13 +138,13 @@ table {
   margin: 0;
   text-align: center;
   color: #011B35;
-  font-size: 50px;
+  font-size: 3.125rem;
   font-weight: 700;
 }
 .header__content-text {
   margin: 4px 0 0;
   color: #011B35;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 300;
 }
 .header__content-bottom-text {
@@ -153,7 +154,7 @@ table {
   height: 79px;
   text-align: center;
   color: #0E0ADB;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
 }
 
@@ -229,7 +230,7 @@ table {
 .aside__link {
   text-decoration: none;
   color: #011B35;
-  font-size: 20px;
+  font-size: 1.25em;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -245,7 +246,7 @@ table {
   line-height: 48px;
   text-decoration: none;
   color: #fff;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 600;
   transition: background-color 0.3s;
 }
@@ -286,16 +287,16 @@ table {
   background-size: contain;
 }
 .icon--basket {
-  background-image: url(../icons/basket.png);
+  background-image: url(../icons/basket.svg);
 }
 .icon--search {
-  background-image: url(../icons/search.png);
+  background-image: url(../icons/search.svg);
 }
 .icon--menu {
-  background-image: url(../icons/menu.png);
+  background-image: url(../icons/menu.svg);
 }
 .icon--close {
-  background-image: url(../icons/close.png);
+  background-image: url(../icons/close.svg);
 }
 
 .main__bottom {
@@ -318,7 +319,7 @@ table {
 .action__title {
   margin: 24px 0 24px;
   color: #000;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -351,12 +352,12 @@ table {
 .content__title {
   margin: 16px 0 8px;
   color: #0E0ADB;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 800;
 }
 .content__text {
   margin: 0 0 24px;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
 }
 
@@ -365,7 +366,7 @@ table {
   display: flex;
   color: #fff;
   text-shadow: -1px -1px 0 rgba(14, 10, 219, 0.7490196078), 1px -1px 0 rgba(14, 10, 219, 0.7490196078), -1px 1px 0 rgba(14, 10, 219, 0.7490196078), 1px 1px 0 rgba(14, 10, 219, 0.7490196078);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 700;
   overflow: hidden;
 }
@@ -381,7 +382,7 @@ table {
   flex-direction: column;
   justify-content: center;
   color: #000;
-  font-size: 16px;
+  font-size: 1rem;
 }
 @media (max-width: 320px) {
   .product {
@@ -399,7 +400,7 @@ table {
 }
 .product__descripsion {
   margin: 8px 0 0;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
 }
 .product__name {
@@ -409,7 +410,7 @@ table {
 }
 .product__price {
   margin: 16px 0;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 700;
 }
 .product__buttons {
@@ -468,7 +469,7 @@ table {
 }
 .footer__item {
   color: #D8EFFB;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
 }
 .footer__nav {
@@ -482,14 +483,14 @@ table {
   text-decoration: none;
   color: #FAFEFD;
   text-align: center;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
 }
 .footer__nav-link--phone {
   color: #D8EFFB;
 }
 .footer__nav-link--top-margin {
-  margin-top: 24px;
+  margin-top: 1.5remp;
 }
 
 /*# sourceMappingURL=style.css.map */
