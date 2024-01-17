@@ -4,7 +4,7 @@
   justify-content: center;
   
   color: $content-text-color;
-  font-size: 16px;
+  font-size: 1rem;
 
   @include contentPadding;
 
@@ -21,7 +21,7 @@
 
   &__descripsion {
     margin: 8px 0 0;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
   }
 
@@ -33,7 +33,7 @@
 
   &__price {
     margin: 16px 0;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 700;
   }
 
