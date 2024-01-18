@@ -108,8 +108,17 @@ table {
   align-items: center;
 }
 @media (max-width: 320px) {
-  .header {
+  .header--main-page {
     height: 568px;
+    width: 320px;
+  }
+}
+.header--about-us-page {
+  background-color: #FAFEFD;
+}
+@media (max-width: 320px) {
+  .header--about-us-page {
+    height: 200px;
     width: 320px;
   }
 }
@@ -129,23 +138,21 @@ table {
   display: flex;
 }
 .header__title-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+}
+.header__title-wrapper--main-page {
   margin: 52px 0 48px;
-  width: 260px;
-  height: 82px;
+}
+.header__title-wrapper--about-us-page {
+  margin: 24px 0;
 }
 .header__content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 .header__content-title {
   margin: 0;
-  text-align: center;
   color: #011B35;
   font-size: 3.125rem;
   font-weight: 700;
@@ -158,6 +165,8 @@ table {
 }
 .header__content-bottom-text {
   display: block;
+}
+.header__content-bottom-text--main-page {
   margin-bottom: 52px;
   width: 260px;
   height: 79px;
@@ -165,6 +174,17 @@ table {
   color: #0E0ADB;
   font-size: 1rem;
   font-weight: 500;
+}
+.header__content-bottom-text--about-us-page {
+  margin-bottom: 32px;
+  color: #02101F;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+@media (max-width: 320px) {
+  .header__content-bottom-text {
+    padding-inline: 30px;
+  }
 }
 
 .nav {
@@ -308,10 +328,31 @@ table {
   background-image: url(../icons/close.svg);
 }
 
+.main--about-us-page {
+  background-color: #FAFEFD;
+}
+@media (max-width: 320px) {
+  .main--about-us-page {
+    padding-inline: 30px;
+  }
+}
 .main__bottom {
   height: 965px;
   padding: 18px 0;
   background-color: #D8EFFB;
+}
+.main__image--about-us-page {
+  margin-bottom: 16px;
+  width: 260px;
+  height: 128px;
+  border-radius: 8px;
+  box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
+}
+.main__image--about-us-page--second-image {
+  margin-bottom: 16px;
+}
+.main__text--about-us-page {
+  margin-bottom: 48px;
 }
 
 .action {
@@ -463,8 +504,11 @@ table {
     padding-inline: 30px;
   }
 }
-.footer--top-margin {
+.footer--top-margin--main-page {
   margin-top: -25px;
+}
+.footer--top-margin--about-us-page {
+  margin-top: 48px;
 }
 .footer__top-text {
   margin-bottom: 32px;
