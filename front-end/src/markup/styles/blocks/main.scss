@@ -5,6 +5,12 @@
     @include contentPadding;
   }
 
+  &--useful-page {
+    background-color: $main-useful-page-background-color;
+
+    @include contentPadding;
+  }
+
   &__bottom {
     height: 965px;
     padding: 18px 0;
@@ -19,7 +25,7 @@
       border-radius: 8px;
       box-shadow: $block-shadow;
       &--second-image {
-        margin-bottom: 16px;
+        margin-bottom: 1rem;
       }
     }
   }
@@ -27,6 +33,47 @@
   &__text {
     &--about-us-page {
       margin-bottom: 48px;
+    }
+
+    &--useful-page {
+      margin-bottom: 8px;
+      color: $main-useful-page-text-color;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 400;
+
+      &--not-centered {
+        margin-bottom: 8px;
+      }
+
+      &--last-title {
+        margin: 24px 0 48px;
+        color: $main-useful-page-text-color;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      &--second-text {
+        margin-bottom: 16px;
+        color: $main-useful-page-text-color;
+        font-size: 0.875rem;
+        font-weight: 300;
+
+        &--no-margin {
+          color: $main-useful-page-text-color;
+          font-size: 0.875rem;
+          font-weight: 300;
+        }
+      }
+
+      &--title {
+        margin-bottom: 8px;
+        color: $main-useful-page-title-color;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 500;
+      }
     }
   }
 }

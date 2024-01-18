@@ -116,11 +116,8 @@ table {
 .header--about-us-page {
   background-color: #FAFEFD;
 }
-@media (max-width: 320px) {
-  .header--about-us-page {
-    height: 200px;
-    width: 320px;
-  }
+.header--useful-page {
+  background-color: #FAFEFD;
 }
 .header__background-image {
   position: absolute;
@@ -144,6 +141,9 @@ table {
   margin: 52px 0 48px;
 }
 .header__title-wrapper--about-us-page {
+  margin: 24px 0;
+}
+.header__title-wrapper--useful-page {
   margin: 24px 0;
 }
 .header__content {
@@ -336,6 +336,14 @@ table {
     padding-inline: 30px;
   }
 }
+.main--useful-page {
+  background-color: #FAFEFD;
+}
+@media (max-width: 320px) {
+  .main--useful-page {
+    padding-inline: 30px;
+  }
+}
 .main__bottom {
   height: 965px;
   padding: 18px 0;
@@ -349,10 +357,45 @@ table {
   box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
 }
 .main__image--about-us-page--second-image {
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 .main__text--about-us-page {
   margin-bottom: 48px;
+}
+.main__text--useful-page {
+  margin-bottom: 8px;
+  color: #02101F;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.main__text--useful-page--not-centered {
+  margin-bottom: 8px;
+}
+.main__text--useful-page--last-title {
+  margin: 24px 0 48px;
+  color: #02101F;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.main__text--useful-page--second-text {
+  margin-bottom: 16px;
+  color: #02101F;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+.main__text--useful-page--second-text--no-margin {
+  color: #02101F;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+.main__text--useful-page--title {
+  margin-bottom: 8px;
+  color: #003B57;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .action {
