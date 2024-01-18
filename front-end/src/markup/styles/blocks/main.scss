@@ -1,7 +1,32 @@
 .main {
+  &--about-us-page {
+    background-color: $main-about-us-background-color;
+
+    @include contentPadding;
+  }
+
   &__bottom {
     height: 965px;
     padding: 18px 0;
     background-color: $main-background-color;
+  }
+
+  &__image {
+    &--about-us-page {
+      margin-bottom: 16px;
+      width: 260px;
+      height: 128px;
+      border-radius: 8px;
+      box-shadow: $block-shadow;
+      &--second-image {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  &__text {
+    &--about-us-page {
+      margin-bottom: 48px;
+    }
   }
 }

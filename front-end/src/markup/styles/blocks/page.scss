@@ -7,6 +7,10 @@
   font-size: 1rem;
   scroll-behavior: smooth;
 
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
   &__body {
     margin: 0;
   }
@@ -15,8 +19,19 @@
     position: fixed;
     top: 0;
     align-items: center;
+
     opacity: 0;
     pointer-events: none;
+
+    @include transitionAnimation;
+    @include onPhone(568px, 320px);
+
+    &:target {
+      position: fixed;
+      overflow-y: hidden;
+      opacity: 1;
+      pointer-events: all;
+    }
 
     &__image {
       position: absolute;
@@ -25,15 +40,6 @@
       z-index: -1;
       object-fit: cover;
       filter: blur(9px);
-    }
-  
-    @include onPhone(568px, 320px);
-
-    &:target {
-      opacity: 1;
-      pointer-events: all;
-      overflow: hidden;
-
     }
   }
 }
