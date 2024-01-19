@@ -8,7 +8,10 @@
 
   &--about-us-page {
     background-color: $header-about-us-background-color;
-    @include onPhone(200px, 320px); // we sholud change height later
+  }
+
+  &--useful-page {
+    background-color: $header-useful-page-background-color;
   }
 
   &__background-image {
@@ -37,6 +40,10 @@
     }
 
     &--about-us-page {
+      margin: 24px 0;
+    }
+
+    &--useful-page {
       margin: 24px 0;
     }
   }
