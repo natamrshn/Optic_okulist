@@ -5,6 +5,10 @@
     @include contentPadding;
   }
 
+  &--service-page {
+    @include contentPadding;
+  }
+
   &--useful-page {
     background-color: $main-useful-page-background-color;
 

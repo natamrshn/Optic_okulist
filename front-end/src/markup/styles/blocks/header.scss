@@ -2,6 +2,10 @@
   position: relative;
   align-items: center;
 
+  &--service-page {
+    @include onPhone(175px, 320px);
+  }
+
   &--main-page {
     @include onPhone(568px, 320px);
   }
@@ -45,6 +49,10 @@
 
     &--useful-page {
       margin: 24px 0;
+    }
+
+    &--service-page {
+
     }
   }
 
