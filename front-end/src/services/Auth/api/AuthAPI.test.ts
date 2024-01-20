@@ -1,13 +1,25 @@
 import { AuthAPI } from "./AuthAPI";
 
 describe('AuthAPI', () => {
-  const token = 'alalalala';
+  describe('setTokenToHeader()', () => {
+    beforeEach(() => {
+      AuthAPI.headers.Authorization = `Bearer token`
+    });
 
-  it('Should update token in headers', () => {
-    AuthAPI.setTokenToHeader(token);
+    test('Should update token in headers', () => {
+      const token = 'some token';
 
-    const result = AuthAPI.headers;
+      AuthAPI.setTokenToHeader(token);
+  
+      const result = AuthAPI.headers;
+  
+      expect(result.Authorization).toBe(`Bearer ${token}`)
+    })
 
-    expect(result.Authorization).toBe(`Bearer ${token}`)
+    test('Should throw error if token is false', () => {
+      const token = '';
+
+      expect(() => AuthAPI.setTokenToHeader(token)).toThrowError();
+    })
   })
 })
