@@ -47,4 +47,29 @@
       height: 24px;
     }
   }
+
+  &--answer {
+    width: 190px;
+    height: 40px;
+    margin-top: 24px;
+    background-color: $button-answer-background-color;
+    color: $button-answer-text-color;
+    border-radius: 100px;
+    border: 1px solid $button-answer-border-color;
+
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  &--feedback {
+    margin-bottom: 16px;
+    border-radius: 16px;
+    background-color: $feedback-button-background-color;
+    border: 1px solid $feedback-button-border-color;
+  }
+
+  &--feedback-send {
+    margin-bottom: 48px;
+    width: 190px;
+  }
 }
