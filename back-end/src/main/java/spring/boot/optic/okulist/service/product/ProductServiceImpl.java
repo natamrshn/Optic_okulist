@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.product.ProductRequestDto;
 import spring.boot.optic.okulist.dto.product.ProductResponseDto;
 import spring.boot.optic.okulist.dto.product.ProductSearchParameter;
+import spring.boot.optic.okulist.dto.product.UpdateProductRequestDto;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.mapper.ProductMapper;
 import spring.boot.optic.okulist.model.Product;
@@ -56,5 +57,16 @@ public class ProductServiceImpl implements ProductService {
 
     private String[] getNullPropertyNames(Object source) {
         return getStrings(source);
+    }
+
+    @Override
+    public ProductResponseDto updateProductStatus(Long id, UpdateProductRequestDto requestDto) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Can't find product by id: " + id));
+        Product.ProductStatus newStatus = requestDto.getProductStatus();
+        product.setStatus(newStatus);
+        Product updatedProduct = productRepository.save(product);
+        updatedProduct.setStatus(newStatus);
+        return productMapper.toDto(updatedProduct);
     }
 }

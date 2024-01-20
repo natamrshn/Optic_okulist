@@ -17,7 +17,6 @@ import spring.boot.optic.okulist.dto.user.UserUpdateRequestDto;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.exception.RegistrationException;
 import spring.boot.optic.okulist.mapper.ProductMapper;
-import spring.boot.optic.okulist.mapper.UserFavoriteProductMapper;
 import spring.boot.optic.okulist.mapper.UserMapper;
 import spring.boot.optic.okulist.model.Product;
 import spring.boot.optic.okulist.model.RegisteredUser;
@@ -43,7 +42,6 @@ public class UserServiceImpl implements UserService {
     private final RoleRepository roleRepository;
     private final TemporaryUserRepository temporaryUserRepository;
     private final ProductRepository productRepository;
-    private final UserFavoriteProductMapper userFavoriteProductMapper;
     private final ProductMapper productMapper;
 
     public boolean isFirstUser() {

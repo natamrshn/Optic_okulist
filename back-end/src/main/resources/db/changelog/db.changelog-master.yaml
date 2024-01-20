@@ -76,7 +76,7 @@ databaseChangeLog:
   - include:
       file: db/changelog/changes/38-chg-users-table.yaml
   - include:
-      file: db/changelog/changes/39-chg-product-table.yaml
+      file: db/changelog/changes/39-chg-glasses-table.yaml
   - include:
       file: db/changelog/changes/40-chg-liquid-table.yaml
   - include:

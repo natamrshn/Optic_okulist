@@ -14,6 +14,12 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
+                  name: "status"
+                  type: tinyint
+                  constraints:
+                    nullable: false
+                  defaultValue: 0
+              - column:
                   name: "name"
                   type: varchar(255)
                   constraints:

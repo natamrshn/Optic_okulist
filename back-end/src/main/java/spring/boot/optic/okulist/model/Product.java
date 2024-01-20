@@ -35,6 +35,8 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "status", nullable = false)
+    private Product.ProductStatus status;
     private String name;
     private BigDecimal price;
     private String identifier;
@@ -51,4 +53,9 @@ public class Product {
 
     @Column(name = "is_deleted", nullable = false)
     private boolean isDeleted = false;
+
+    public enum ProductStatus {
+        AVALIABLE,
+        PREORDER
+    }
 }
