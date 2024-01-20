@@ -7,14 +7,10 @@ export class AuthAPI {
   }
 
   static setTokenToHeader(token: string) {
-    try {
-      if (!token) {
-        throw new Error('You should give me a token. Not empty argument or undefined');
-      }
-  
-      this.headers.Authorization = `Bearer ${token}`;
-    } catch(error: any) {
-      console.log(error.message)
+    if (!token || token.length === 0) {
+      throw new Error('You should give me a token. Not empty argument or undefined');
     }
+
+    this.headers.Authorization = `Bearer ${token}`;
   }
 }
