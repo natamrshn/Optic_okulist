@@ -103,6 +103,67 @@ table {
   filter: blur(9px);
 }
 
+.contact {
+  position: fixed;
+  display: flex;
+  bottom: 50px;
+  right: 30px;
+  align-items: center;
+  justify-content: center;
+  background: url(../icons/contact/contact-background.svg);
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+  box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+.contact__icon-message {
+  width: 33.3333333333px;
+  height: 33.3333333333px;
+}
+.contact__icons-wrapper {
+  position: relative;
+}
+.contact__icons {
+  position: absolute;
+  bottom: 68.3333333333px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+.contact__icon-telegram {
+  opacity: 0;
+  transform: translateY(63.3333333333px);
+  width: 33.3333333333px;
+  height: 33.3333333333px;
+  transition: all 0.3s;
+  box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
+}
+.contact__icon-viber {
+  opacity: 0;
+  transform: translateY(113.3333333333px);
+  width: 33.3333333333px;
+  height: 33.3333333333px;
+  transition: all 0.3s;
+  box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
+}
+.contact__icon-instagram {
+  opacity: 0;
+  transform: translateY(163.3333333333px);
+  width: 33.3333333333px;
+  height: 33.3333333333px;
+  transition: all 0.3s;
+  box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
+}
+.contact:hover .contact__icon-telegram,
+.contact:hover .contact__icon-viber,
+.contact:hover .contact__icon-instagram {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .header {
   position: relative;
   align-items: center;
