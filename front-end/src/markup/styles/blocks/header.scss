@@ -18,6 +18,10 @@
     background-color: $header-useful-page-background-color;
   }
 
+  &--reviews-page {
+    background-color: $header-reviews-page-background-color;
+  }
+
   &__background-image {
     position: absolute;
     width: 320px;
@@ -51,8 +55,8 @@
       margin: 24px 0;
     }
 
-    &--service-page {
-
+    &--reviews-page {
+      margin: 24px 0;
     }
   }
 
