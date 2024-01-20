@@ -9,6 +9,7 @@ import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
 public class ProductResponseDto {
     private Long id;
     private String name;
+    private String status;
     private BigDecimal price;
     private String identifier;
     private String description;

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import spring.boot.optic.okulist.dto.product.ProductRequestDto;
 import spring.boot.optic.okulist.dto.product.ProductResponseDto;
 import spring.boot.optic.okulist.dto.product.ProductSearchParameter;
+import spring.boot.optic.okulist.dto.product.UpdateProductRequestDto;
 import spring.boot.optic.okulist.service.product.ProductService;
 
 @Tag(name = "Product Controller",
@@ -60,5 +61,15 @@ public class ProductController {
     public void deleteProduct(@PathVariable Long id) {
         logger.info("Deleting product with ID: " + id);
         productService.deleteById(id);
+    }
+
+    @Operation(summary = "Update product status by ID")
+    @PutMapping("/{id}/status")
+    @ApiResponse(responseCode = "200", description = "Product status updated successfully")
+    @ApiResponse(responseCode = "404", description = "Product not found")
+    public ProductResponseDto updateProductStatus(@PathVariable Long id,
+                                                  @RequestBody UpdateProductRequestDto requestDto) {
+        logger.info("Updating product status with ID: " + id);
+        return productService.updateProductStatus(id, requestDto);
     }
 }

@@ -7,13 +7,18 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import spring.boot.optic.okulist.dto.order.OrderResponseDto;
+import spring.boot.optic.okulist.dto.order.UpdateOrderRequestDto;
 import spring.boot.optic.okulist.dto.product.ProductRequestDto;
 import spring.boot.optic.okulist.dto.product.ProductResponseDto;
 import spring.boot.optic.okulist.dto.product.ProductSearchParameter;
+import spring.boot.optic.okulist.dto.product.UpdateProductRequestDto;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.mapper.ProductMapper;
+import spring.boot.optic.okulist.model.Order;
 import spring.boot.optic.okulist.model.Product;
 import spring.boot.optic.okulist.repository.ProductRepository;
+import spring.boot.optic.okulist.service.emailsender.EmailService;
 import spring.boot.optic.okulist.specification.product.builders.ProductSpecificationBuilder;
 
 @Service
@@ -56,5 +61,16 @@ public class ProductServiceImpl implements ProductService {
 
     private String[] getNullPropertyNames(Object source) {
         return getStrings(source);
+    }
+
+    @Override
+    public ProductResponseDto updateProductStatus(Long id, UpdateProductRequestDto requestDto) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Can't find product by id: " + id));
+        Product.ProductStatus newStatus = requestDto.getProductStatus();
+        product.setStatus(newStatus);
+        Product updatedProduct = productRepository.save(product);
+        updatedProduct.setStatus(newStatus);
+        return productMapper.toDto(updatedProduct);
     }
 }
