@@ -81,3 +81,7 @@ databaseChangeLog:
       file: db/changelog/changes/40-chg-liquid-table.yaml
   - include:
       file: db/changelog/changes/42-user_favorite_products.yaml
+  - include:
+      file: db/changelog/changes/43-create-address-table.yaml
+  - include:
+      file: db/changelog/changes/44-fill-address-table.yaml

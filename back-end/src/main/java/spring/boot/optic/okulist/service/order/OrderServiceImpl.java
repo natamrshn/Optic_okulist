@@ -9,12 +9,15 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import spring.boot.optic.okulist.dto.order.AddressDto;
 import spring.boot.optic.okulist.dto.order.CreateOrderRequestDto;
 import spring.boot.optic.okulist.dto.order.OrderResponseDto;
 import spring.boot.optic.okulist.dto.order.UpdateOrderRequestDto;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
+import spring.boot.optic.okulist.mapper.AddressMapper;
 import spring.boot.optic.okulist.mapper.OrderItemMapper;
 import spring.boot.optic.okulist.mapper.OrderMapper;
+import spring.boot.optic.okulist.model.Address;
 import spring.boot.optic.okulist.model.Order;
 import spring.boot.optic.okulist.model.OrderItem;
 import spring.boot.optic.okulist.model.ShoppingCart;
@@ -35,6 +38,8 @@ public class OrderServiceImpl implements OrderService {
     private final ShoppingCartManager manager;
     private final OrderItemMapper orderItemMapper;
     private final EmailService emailService;
+    private final AddressMapper addressMapper;
+    private final AddressService addressService;
 
     @Override
     public OrderResponseDto update(Long id, UpdateOrderRequestDto requestDto) {
@@ -70,12 +75,44 @@ public class OrderServiceImpl implements OrderService {
         ShoppingCart shoppingCart = shoppingCartRepository.getByUserId(authUser.getId())
                 .orElseGet(() -> manager.registerNewCart(authUser));
         Order order = new Order();
-        order.setShippingAddress(createOrderRequestDto.getShippingAddress());
+
+        // Встановлюємо значення для введення адреси користувачем
+        order.setManualAddressInput(createOrderRequestDto.isManualAddressInput()); // Змінено
+
+        // Викликаємо новий метод, який визначає адресу доставки
+        Address shippingAddress = determineShippingAddress(createOrderRequestDto); // Змінено
+        order.setShippingAddress(shippingAddress.getAddressLine1()); // Змінено, використовуйте необхідне поле з Address
+
+        // Встановлюємо значення для обраної адреси, якщо вона є
+        order.setChosenAddressId(createOrderRequestDto.getChosenAddressId());
+
         order.setOrderItems(getOrderItemsFromShoppingCart(shoppingCart, order));
         saveOrderForUser(order, authUser);
-        //clear shopping cart
+
+        // Очистити кошик після створення замовлення
         manager.clearCart(shoppingCart);
+
         return orderMapper.toDto(order);
+    }
+
+    private Address determineShippingAddress(CreateOrderRequestDto createOrderRequestDto) { // Змінено
+        if (createOrderRequestDto.isManualAddressInput()) {
+            // Якщо користувач вводить адресу самостійно, використовуйте його введення
+            Address manualAddress = new Address();
+            manualAddress.setAddressLine1(createOrderRequestDto.getShippingAddress());
+            return manualAddress;
+        } else {
+            // Якщо користувач не вводить адресу самостійно, використовуйте адресу магазину або інший механізм за замовчуванням
+            if (createOrderRequestDto.getChosenAddressId() != null) {
+                // Використовуємо обрану існуючу адресу
+                AddressDto chosenAddressDto = addressService.getById(createOrderRequestDto.getChosenAddressId());
+                return addressMapper.toEntity(chosenAddressDto);
+            } else {
+                // Використовуємо адресу магазину за замовчуванням
+                AddressDto defaultAddressDto = addressService.getDefaultAddress();
+                return addressMapper.toEntity(defaultAddressDto);
+            }
+        }
     }
 
     private void saveOrderForUser(Order order, User user) {

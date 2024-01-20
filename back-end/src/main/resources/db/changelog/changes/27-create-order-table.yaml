@@ -44,6 +44,13 @@ databaseChangeLog:
                   defaultValueBoolean: false
                   constraints:
                     nullable: false
+              - column:
+                  name: chosen_address_id
+                  type: BIGINT
+              - column:
+                  name: is_manual_address_input
+                  type: boolean
+                  defaultValueBoolean: false
         - addForeignKeyConstraint:
             baseTableName: "orders"
             baseColumnNames: "user_id"

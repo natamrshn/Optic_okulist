@@ -46,6 +46,10 @@ public class Order {
     private LocalDateTime orderDate;
     @Column(name = "shipping_address", nullable = false)
     private String shippingAddress;
+    @Column(name = "is_manual_address_input", nullable = false)
+    private boolean isManualAddressInput;
+    @Column(name = "chosen_address_id")
+    private Long chosenAddressId;
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
