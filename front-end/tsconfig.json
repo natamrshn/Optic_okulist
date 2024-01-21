@@ -4,7 +4,9 @@
     "paths": {
       "@services/*": ["src/services/*"],
       "@types/*": ["src/Types/*"],
-      "@pages/*": ["src/pages/*"]
+      "@pages/*": ["src/pages/*"],
+      "@contexts/*": ["src/contexts/*"],
+      "@utils/*": ["src/utils/*"]
     },
     "target": "es5",
     "lib": [
