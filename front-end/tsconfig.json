@@ -1,13 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "paths": {
-      "@services/*": ["src/services/*"],
-      "@types/*": ["src/Types/*"],
-      "@pages/*": ["src/pages/*"],
-      "@contexts/*": ["src/contexts/*"],
-      "@utils/*": ["src/utils/*"]
-    },
     "target": "es5",
     "lib": [
       "dom",
@@ -28,7 +21,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"]
 }
