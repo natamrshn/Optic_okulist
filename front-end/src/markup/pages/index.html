@@ -6,30 +6,30 @@
   <title>Окуліст</title>
   <link rel="icon" href="../icons/favicon.png">
   <link rel="stylesheet" href="../styles/style.css">
+  <script src="../scripts/main.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="page__body" id="page">
-  <div class="contact">
-    <div class="contact__icons-wrapper">
-      <img src="../icons/contact/message.svg" class="contact__icon-message">
+  <!-- #region feedback button -->
+  <div class="feedback-button">
+    <div class="feedback-button__icons">
+      <a href="#">
+        <img src="../icons/contact/instagram.svg" class="feedback-button__icon feedback-button__icon--instagram">
+      </a>
 
-      <div class="contact__icons">
-        <a href="">
-          <img src="../icons/contact/instagram.svg" class="contact__icon-instagram">
-        </a>
+      <a href="#">
+        <img src="../icons/contact/viber.svg" class="feedback-button__icon feedback-button__icon--viber">
+      </a>
 
-        <a href="">
-          <img src="../icons/contact/viber.svg" class="contact__icon-viber">
-        </a>
-
-        <a href="">
-          <img src="../icons/contact/telegram.svg" class="contact__icon-telegram">
-        </a>
-      </div>
+      <a href="#">
+        <img src="../icons/contact/telegram.svg" class="feedback-button__icon feedback-button__icon--telegram">
+      </a>
     </div>
+    <img src="../icons/contact/message.svg" class="feedback-button__icon-message" role="button" onclick="ContactsIcons.toggle()">
   </div>
+  <!-- #endregion -->
 
   <header class="header header--main-page">
     <img src="../images/header-background-image.png" class="header__background-image">
@@ -50,6 +50,7 @@
       </div>
     </nav>
     <!-- #endregion -->
+    
     <!-- #region бокове меню -->
     <aside class="aside page__menu" id="aside">
       <img src="../images/header-background-image.png" class="aside__background-image">
@@ -71,7 +72,7 @@
         </nav>
 
         <menu class="aside__links">
-          <a href="index.html" class="aside__link">
+          <a href="#" class="aside__link">
             <li>Головна</li>
           </a>
 
@@ -95,13 +96,26 @@
             <li>Відгуки</li>
           </a>
 
-          <a href="#" class="aside__link">
+          <a href="#" class="aside__link aside__link--margin-bottom">
             <li>Контакти</li>
           </a>
         </menu>
+
+        <div class="aside__buttons">
+          <a href="#" class="button button--aside">
+            Обране
+            <img src="../icons/favorite.svg">
+          </a>
+
+          <a href="#" class="button button--aside">
+            Кабінет
+            <img src="../icons/account.svg">
+          </a>
+        </div>
       </div>
     </aside>
     <!-- #endregion -->
+
     <!-- #region НАЧИНКА ХЕДЕРА (текст, кнопка) -->
     <div class="header__content">
       <div class="header__title-wrapper header__title-wrapper--main-page">
