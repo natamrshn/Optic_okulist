@@ -26,9 +26,19 @@
     }
   }
 
-  &:hover {
-    background-color: $button-hover-background-color;
-    color: $button-hover-color;
+  &--aside {
+    display: flex;
+    width: 120px;
+    height: 40px;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: 1px solid $aside-button-border-color;
+    border-radius: 100px;
+
+    color: $aside-text-color;
+    font-size: 0.875rem;
+    font-weight: 600;
   }
 
   &--redirect {

@@ -274,6 +274,9 @@ table {
   gap: 12px;
 }
 
+.aside {
+  z-index: 9999;
+}
 .aside__background-image {
   position: absolute;
   width: 320px;
@@ -322,10 +325,22 @@ table {
 }
 .aside__link {
   text-decoration: none;
-  color: #011B35;
+  color: #02101F;
   font-size: 1.25em;
   font-weight: 700;
   text-transform: uppercase;
+}
+.aside__link--margin-bottom {
+  margin-bottom: 32px;
+}
+.aside__buttons {
+  display: flex;
+  gap: 20px;
+}
+@media (max-width: 320px) {
+  .aside__buttons {
+    padding-inline: 30px;
+  }
 }
 
 .button {
@@ -351,9 +366,18 @@ table {
   width: 24px;
   height: 24px;
 }
-.button:hover {
-  background-color: #011B35;
-  color: #fff;
+.button--aside {
+  display: flex;
+  width: 120px;
+  height: 40px;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px solid #011B35;
+  border-radius: 100px;
+  color: #02101F;
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 .button--redirect {
   background-color: #fff;
