@@ -103,7 +103,7 @@ table {
   filter: blur(9px);
 }
 
-.contact {
+.feedback-button {
   position: fixed;
   display: flex;
   bottom: 50px;
@@ -114,54 +114,45 @@ table {
   background-size: cover;
   height: 50px;
   width: 50px;
-  box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
-  z-index: 10;
+  z-index: 999;
+  filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.25));
 }
-.contact__icon-message {
+.feedback-button:hover {
+  cursor: pointer;
+}
+.feedback-button__icon-message {
   width: 33.3333333333px;
   height: 33.3333333333px;
+  z-index: 999;
 }
-.contact__icons-wrapper {
-  position: relative;
-}
-.contact__icons {
+.feedback-button__icons {
   position: absolute;
   bottom: 68.3333333333px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   pointer-events: none;
+  gap: 15px;
 }
-.contact__icon-telegram {
+.feedback-button__icon {
   opacity: 0;
+  width: 33.3333333333px;
+  height: 33.3333333333px;
+  transition: all 0.3s;
+  filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.25));
+}
+.feedback-button__icon--telegram {
   transform: translateY(63.3333333333px);
-  width: 33.3333333333px;
-  height: 33.3333333333px;
-  transition: all 0.3s;
-  box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
 }
-.contact__icon-viber {
-  opacity: 0;
+.feedback-button__icon--viber {
   transform: translateY(113.3333333333px);
-  width: 33.3333333333px;
-  height: 33.3333333333px;
-  transition: all 0.3s;
-  box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
 }
-.contact__icon-instagram {
-  opacity: 0;
+.feedback-button__icon--instagram {
   transform: translateY(163.3333333333px);
-  width: 33.3333333333px;
-  height: 33.3333333333px;
-  transition: all 0.3s;
-  box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
 }
-.contact:hover .contact__icon-telegram,
-.contact:hover .contact__icon-viber,
-.contact:hover .contact__icon-instagram {
+.feedback-button__icon--show {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: all;
 }
 
 .header {

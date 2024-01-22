@@ -1,8 +1,8 @@
 $main-font-fize: 16px;
 $contact-background-size: 50px;
-$contact-icon-size: $contact-background-size / 1.5;
-$contact-icons-margin: $contact-icon-size + 35px;
-$contact-icon-default-position: $contact-icon-size + 30px;
+$contact-icon-size: calc($contact-background-size / 1.5);
+$contact-icons-margin: calc($contact-icon-size + 35px);
+$contact-icon-default-position: calc($contact-icon-size + 30px);
 $header-title-color: #011B35;
 $header-under-title-color: #011B35;
 $header-text-color: #0E0ADB;
