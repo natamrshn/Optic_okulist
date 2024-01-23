@@ -188,13 +188,6 @@ table {
   object-fit: cover;
   filter: blur(9px);
 }
-.header__logo-image {
-  width: 125px;
-  height: 40px;
-}
-.header__logo-link {
-  display: flex;
-}
 .header__title-wrapper {
   text-align: center;
 }
@@ -268,6 +261,13 @@ table {
     padding-inline: 30px;
   }
 }
+.nav__logo-link {
+  display: flex;
+}
+.nav__logo-image {
+  width: 125px;
+  height: 40px;
+}
 .nav__icons {
   display: flex;
   align-items: center;
@@ -300,13 +300,6 @@ table {
   .aside__nav {
     padding-inline: 30px;
   }
-}
-.aside__logo-link {
-  display: flex;
-}
-.aside__logo-image {
-  width: 125px;
-  height: 40px;
 }
 .aside__icons {
   display: flex;
@@ -420,21 +413,29 @@ table {
 }
 
 .icon {
+  display: block;
   height: 24px;
   width: 24px;
   background-size: contain;
+  background-repeat: no-repeat;
 }
 .icon--basket {
-  background-image: url(../icons/basket.svg);
+  background-image: url(../../icons/basket.svg);
 }
 .icon--search {
-  background-image: url(../icons/search.svg);
+  background-image: url(../../icons/search.svg);
 }
 .icon--menu {
-  background-image: url(../icons/menu.svg);
+  background-image: url(../../icons/menu.svg);
 }
 .icon--close {
-  background-image: url(../icons/close.svg);
+  background-image: url(../../icons/close.svg);
+}
+.icon--favorite {
+  background-image: url(../../icons/favorite.svg);
+}
+.icon--account {
+  background-image: url(../../icons/account.svg);
 }
 
 .main--about-us-page {
@@ -834,6 +835,16 @@ table {
   width: 16px;
   margin-right: 4px;
   background: url(../icons/reviews/star-unactive.svg) 50% no-repeat;
+}
+
+.background-image {
+  position: absolute;
+  width: 320px;
+  height: 568px;
+  background: url(../../images/header-background-image.png);
+  z-index: -1;
+  object-fit: cover;
+  filter: blur(9px);
 }
 
 /*# sourceMappingURL=style.css.map */

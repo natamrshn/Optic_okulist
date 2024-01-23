@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body class="page__body" id="page">
   <!-- #region feedback button -->
   <div class="feedback-button">
@@ -30,16 +31,16 @@
     <img src="../icons/contact/message.svg" class="feedback-button__icon-message" role="button" onclick="ContactsIcons.toggle()">
   </div>
   <!-- #endregion -->
-
+  
   <header class="header header--main-page">
-    <img src="../images/header-background-image.png" class="header__background-image">
-    <!--#region НАВІГАЦІЯ  -->
+    <div class="background-image"></div>
+    <!--#region navigation  -->
     <nav class="nav">
-      <a href="index.html" class="header__logo-link">
+      <a href="index.html" class="nav__logo-link">
         <img 
           src="../icons/nav-logo.png" 
           alt="Окуліст Логотип"
-          class="header__logo-image"
+          class="nav__logo-image"
         >
       </a>
 
@@ -51,69 +52,76 @@
     </nav>
     <!-- #endregion -->
     
-    <!-- #region бокове меню -->
-    <aside class="aside page__menu" id="aside">
-      <img src="../images/header-background-image.png" class="aside__background-image">
-      <div class="aside__content">
-        <nav class="aside__nav">
-          <a href="index.html" class="aside__logo-link">
+    <!-- #region aside menu -->
+      <aside class="aside page__menu" id="aside">
+        <div class="background-image"></div>
+
+      <!--#region navigation  -->
+        <nav class="nav">
+          <a href="index.html" class="nav__logo-link">
             <img 
               src="../icons/nav-logo.png" 
               alt="Окуліст Логотип"
-              class="aside__logo-image"
+              class="nav__logo-image"
             >
           </a>
-    
-          <div class="aside__icons">
+
+          <div class="nav__icons">
             <a href="#" class="icon icon--basket"></a>
             <a href="#" class="icon icon--search"></a>
             <a href="#" class="icon icon--close"></a>
           </div>
         </nav>
+      <!-- #endregion -->
 
-        <menu class="aside__links">
-          <a href="#" class="aside__link">
-            <li>Головна</li>
-          </a>
+        <!-- #region menu links -->
+          <menu class="aside__links">
+            <a href="#" class="aside__link">
+              <li>Головна</li>
+            </a>
 
-          <a href="about-us.html" class="aside__link">
-            <li>Про нас</li>
-          </a>
+            <a href="about-us.html" class="aside__link">
+              <li>Про нас</li>
+            </a>
 
-          <a href="service.html" class="aside__link">
-            <li>послуги</li>
-          </a>
+            <a href="service.html" class="aside__link">
+              <li>послуги</li>
+            </a>
 
-          <a href="useful.html" class="aside__link">
-            <li>корисне</li>
-          </a>
+            <a href="useful.html" class="aside__link">
+              <li>корисне</li>
+            </a>
 
-          <a href="#" class="aside__link">
-            <li>Каталог</li>
-          </a>
+            <a href="#" class="aside__link">
+              <li>Каталог</li>
+            </a>
 
-          <a href="reviews.html" class="aside__link">
-            <li>Відгуки</li>
-          </a>
+            <a href="reviews.html" class="aside__link">
+              <li>Відгуки</li>
+            </a>
 
-          <a href="#" class="aside__link aside__link--margin-bottom">
-            <li>Контакти</li>
-          </a>
-        </menu>
+            <a href="#" class="aside__link aside__link--margin-bottom">
+              <li>Контакти</li>
+            </a>
+          </menu>
+        <!-- #endregion -->
 
-        <div class="aside__buttons">
-          <a href="#" class="button button--aside">
-            Обране
-            <img src="../icons/favorite.svg">
-          </a>
+        <!-- #region menu buttons -->
+          <div class="aside__buttons">
+            <a href="#" class="button button--aside">
+              Обране
 
-          <a href="#" class="button button--aside">
-            Кабінет
-            <img src="../icons/account.svg">
-          </a>
-        </div>
-      </div>
-    </aside>
+              <div class="icon icon--favorite"></div>
+            </a>
+
+            <a href="#" class="button button--aside">
+              Кабінет
+              
+              <div class="icon icon--account"></div>
+            </a>
+          </div>
+        <!-- #endregion -->
+      </aside>
     <!-- #endregion -->
 
     <!-- #region НАЧИНКА ХЕДЕРА (текст, кнопка) -->
