@@ -20,6 +20,6 @@ public interface UserRepository extends JpaRepository<RegisteredUser, Long> {
     List<RegisteredUser> findUsersByRolesContainingAndIsDeletedFalse(Role role);
 
     @Query("SELECT u.email, u.firstName, u.lastName, u.phoneNumber FROM User u "
-            + "JOIN u.email c ON c.id = :email AND u.isDeleted = false")
+            + "WHERE u.email = :email AND u.isDeleted = false")
     Optional<User> findDetailsByEmail(@Param("email") String email);
-}
+    }
