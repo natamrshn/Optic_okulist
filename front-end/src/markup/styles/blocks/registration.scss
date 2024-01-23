@@ -7,14 +7,14 @@
 }
 
 .form-tab {
-  color: var(--Secondary-text, #696969);
-  font-size: 20px;
+  color: $form-tab-text-color;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
 .form-tab--active {
-  color: var(--Accent-colour, #011B35);
-  font-size: 20px;
+  color: $form-tab-active-text-color;
+  font-size:1.25rem;
   font-weight: 600;
 }
 
@@ -35,8 +35,8 @@
   flex-direction: column;
 
   &__label {
-  color: var(--Accent-colour, #011B35);
-  font-size: 14px;
+  color: $label-registration-text-color;
+  font-size: 0.875rem;
   font-weight: 300;
   }
 
@@ -45,13 +45,14 @@
     height: 48px;
     padding: 16px;
     border-radius: 16px;
-    border: 1px solid var(--Accent-colour, #011B35);
-    background: var(--Background, #FAFEFD);
+    border: 1px solid $input-registration-text-color;
+    background: $input-background;
   }
 
   &__input::placeholder {
-    color: #8A8A8A;
-    font-size: 16px;
+    width: 100%;
+    color: $input-placeholder-color;
+    font-size: 1rem;
     font-weight: 400;
   }
 }

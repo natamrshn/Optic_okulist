@@ -431,8 +431,21 @@ table {
   margin-top: 16px;
   color: var(--Main-text, #02101F);
   text-align: center;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
+}
+.button--forgot-password {
+  color: #02101F;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  background: transparent;
+  border-radius: 100px;
+  border: 1px solid #0E0ADB;
+  height: 40px;
+}
+.button--login {
+  height: 40px;
 }
 
 .icon {
@@ -967,14 +980,14 @@ table {
 }
 
 .form-tab {
-  color: var(--Secondary-text, #696969);
-  font-size: 20px;
+  color: #696969;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
 .form-tab--active {
-  color: var(--Accent-colour, #011B35);
-  font-size: 20px;
+  color: #011B35;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
@@ -999,8 +1012,8 @@ table {
   flex-direction: column;
 }
 .form-field__label {
-  color: var(--Accent-colour, #011B35);
-  font-size: 14px;
+  color: #011B35;
+  font-size: 0.875rem;
   font-weight: 300;
 }
 .form-field__input {
@@ -1008,12 +1021,13 @@ table {
   height: 48px;
   padding: 16px;
   border-radius: 16px;
-  border: 1px solid var(--Accent-colour, #011B35);
-  background: var(--Background, #FAFEFD);
+  border: 1px solid #011B35;
+  background: #FAFEFD;
 }
 .form-field__input::placeholder {
+  width: 100%;
   color: #8A8A8A;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
 }
 
