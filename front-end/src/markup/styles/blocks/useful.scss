@@ -1,0 +1,27 @@
+.useful {
+  color: $useful-text-color;
+
+  &__title {
+    margin-bottom: 8px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+
+    &--margin-top {
+      margin-top: 16px;
+    }
+
+    &--last-item-margin {
+      margin: 24px 0 48px;
+    }
+  }
+
+  &__text {
+    font-size: 0.875rem;
+    font-weight: 300;
+
+    &--margin-top {
+      margin-top: 8px;
+    }
+  }
+}

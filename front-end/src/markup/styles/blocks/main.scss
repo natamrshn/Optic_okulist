@@ -14,17 +14,4 @@
   &--reviews-page {
     @include contentPadding;
   }
-
-  &__image {
-    &--about-us-page {
-      margin-bottom: 16px;
-      width: 260px;
-      height: 128px;
-      border-radius: 8px;
-      box-shadow: $block-shadow;
-      &--second-image {
-        margin-bottom: 1rem;
-      }
-    }
-  }
 }

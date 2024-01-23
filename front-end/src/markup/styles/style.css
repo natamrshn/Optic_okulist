@@ -421,16 +421,6 @@ table {
     padding-inline: 30px;
   }
 }
-.main__image--about-us-page {
-  margin-bottom: 16px;
-  width: 260px;
-  height: 128px;
-  border-radius: 8px;
-  box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
-}
-.main__image--about-us-page--second-image {
-  margin-bottom: 1rem;
-}
 
 .action {
   display: flex;
@@ -790,6 +780,29 @@ table {
 }
 .description__text--margin-bottom {
   margin-bottom: 42px;
+}
+
+.useful {
+  color: #02101F;
+}
+.useful__title {
+  margin-bottom: 8px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.useful__title--margin-top {
+  margin-top: 16px;
+}
+.useful__title--last-item-margin {
+  margin: 24px 0 48px;
+}
+.useful__text {
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+.useful__text--margin-top {
+  margin-top: 8px;
 }
 
 /*# sourceMappingURL=style.css.map */
