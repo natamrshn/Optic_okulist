@@ -647,7 +647,7 @@ table {
     padding-inline: 30px;
   }
 }
-.footer--top-margin--main-page {
+.footer--top-margin {
   margin-top: -25px;
 }
 .footer--top-margin--about-us-page {
@@ -687,7 +687,6 @@ table {
 .footer__nav {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 8px;
 }
