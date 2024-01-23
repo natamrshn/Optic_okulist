@@ -187,4 +187,10 @@ public class UserServiceImpl implements UserService {
 
         userFavoriteProductRepository.delete(favoriteProduct);
     }
+
+    @Override
+    public UserResponseDto findDetailsByEmail(Authentication authentication) {
+        Optional<User> user = userRepository.findDetailsByEmail(authentication.getName());
+        return userMapper.toDto(user);
+    }
 }

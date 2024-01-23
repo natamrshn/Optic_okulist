@@ -58,8 +58,8 @@ public class AddressServiceImpl implements AddressService {
     public AddressDto getDefaultAddress() {
         Long defaultStoreId = 1L;
         Address defaultStoreAddress = addressRepository.findById(defaultStoreId)
-                .orElseThrow(() -> new EntityNotFoundException("Default store address not found with id: " + defaultStoreId));
+                .orElseThrow(() -> new EntityNotFoundException("Default store address not found with id: "
+                        + defaultStoreId));
         return addressMapper.toDto(defaultStoreAddress);
     }
-
 }

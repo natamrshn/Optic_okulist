@@ -4,6 +4,7 @@ import spring.boot.optic.okulist.dto.order.AddressDto;
 
 public interface AddressService {
     AddressDto getById(Long addressId);
+
     AddressDto getAvailablePickupAddress();
 
     AddressDto createAddress(AddressDto addressDto);
@@ -11,5 +12,6 @@ public interface AddressService {
     void deleteAddress(Long addressId);
 
     AddressDto updateAddressAvailability(Long addressId, boolean isAvailableForPickup);
+
     AddressDto getDefaultAddress();
 }

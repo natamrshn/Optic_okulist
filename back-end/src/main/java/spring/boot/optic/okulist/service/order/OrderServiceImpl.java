@@ -102,7 +102,8 @@ public class OrderServiceImpl implements OrderService {
             manualAddress.setAddressLine1(createOrderRequestDto.getShippingAddress());
             return manualAddress;
         } else {
-            // Якщо користувач не вводить адресу самостійно, використовуйте адресу магазину або інший механізм за замовчуванням
+            // Якщо користувач не вводить адресу самостійно,
+            // використовуйте адресу магазину або інший механізм за замовчуванням
             if (createOrderRequestDto.getChosenAddressId() != null) {
                 // Використовуємо обрану існуючу адресу
                 AddressDto chosenAddressDto = addressService.getById(createOrderRequestDto.getChosenAddressId());
