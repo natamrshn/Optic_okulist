@@ -63,6 +63,7 @@ table {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   scroll-behavior: smooth;
+  background-color: #FAFEFD;
 }
 .page:has(.page__menu:target) {
   overflow: hidden;
@@ -169,15 +170,6 @@ table {
     height: 568px;
     width: 320px;
   }
-}
-.header--about-us-page {
-  background-color: #FAFEFD;
-}
-.header--useful-page {
-  background-color: #FAFEFD;
-}
-.header--reviews-page {
-  background-color: #FAFEFD;
 }
 .header__background-image {
   position: absolute;
@@ -409,32 +401,20 @@ table {
   background-image: url(../../icons/account.svg);
 }
 
-.main--about-us-page {
-  background-color: #FAFEFD;
-}
 @media (max-width: 320px) {
   .main--about-us-page {
     padding-inline: 30px;
   }
-}
-.main--service-page {
-  background-color: #FAFEFD;
 }
 @media (max-width: 320px) {
   .main--service-page {
     padding-inline: 30px;
   }
 }
-.main--useful-page {
-  background-color: #FAFEFD;
-}
 @media (max-width: 320px) {
   .main--useful-page {
     padding-inline: 30px;
   }
-}
-.main--reviews-page {
-  background-color: #FAFEFD;
 }
 @media (max-width: 320px) {
   .main--reviews-page {
@@ -670,17 +650,30 @@ table {
 .service__image {
   width: 230px;
   height: 115px;
-  object-fit: cover;
   border-radius: 8px;
   box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
+}
+.service__image--first {
+  background: url(../../images/service/service_photo1.png);
+  background-size: cover;
+}
+.service__image--second {
+  background: url(../../images/service/service_photo2.png);
+  background-size: cover;
+}
+.service__image--third {
+  background: url(../../images/service/service_photo3.png);
+  background-size: cover;
+}
+.service__image--fourth {
+  background: url(../../images/service/service_photo4.png);
+  background-size: cover;
 }
 .service__text {
   margin-top: 8px;
   color: #0C0202;
   font-size: 1rem;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
 }
 
 .reviews {

@@ -1,25 +1,17 @@
 .main {
   &--about-us-page {
-    background-color: $main-about-us-background-color;
-
     @include contentPadding;
   }
 
   &--service-page {
-    background-color: $main-useful-page-background-color;
-
     @include contentPadding;
   }
 
   &--useful-page {
-    background-color: $main-useful-page-background-color;
-
     @include contentPadding;
   }
 
   &--reviews-page {
-    background-color: $body-reviews-page-background-color;
-
     @include contentPadding;
   }
 
