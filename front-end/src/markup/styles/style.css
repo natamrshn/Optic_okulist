@@ -434,30 +434,12 @@ table {
   }
 }
 .main--reviews-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: #FAFEFD;
 }
 @media (max-width: 320px) {
   .main--reviews-page {
     padding-inline: 30px;
   }
-}
-.main--reviews-page__feedback {
-  position: relative;
-  margin: 32px 0 0;
-  color: #201F22;
-  font-size: 0.875rem;
-  font-weight: 300;
-}
-.main--reviews-page__feedback-text {
-  margin-bottom: 7px;
-}
-.main--reviews-page__icon {
-  position: absolute;
-  top: 31px;
-  left: 16px;
 }
 .main__image--about-us-page {
   margin-bottom: 16px;
@@ -701,23 +683,27 @@ table {
   line-height: normal;
 }
 
-.review {
-  width: 275px;
+.reviews {
+  width: 260px;
   flex-direction: column;
 }
-.review--margin-bottom {
-  margin-bottom: 48px;
-}
-.review__border-text {
-  padding: 12px 16px 16px;
-  margin-bottom: 8px;
-  border-radius: 16px;
-  border: 1px solid #0E0ADB;
-}
-.review__text {
+.reviews__text {
   color: #02101F;
   font-size: 0.875rem;
   font-weight: 300;
+}
+.reviews--margin-bottom {
+  margin-bottom: 32px;
+}
+.reviews--margin-bottom-last-component {
+  margin-bottom: 48px;
+}
+
+.review {
+  padding: 14px 10px;
+  margin-bottom: 8px;
+  border-radius: 16px;
+  border: 1px solid #0E0ADB;
 }
 
 .person {
@@ -726,9 +712,22 @@ table {
   height: 48px;
   align-items: center;
 }
-.person__photo {
-  width: 49px;
+.person__icon {
+  width: 48px;
   height: 48px;
+}
+.person__icon--first-person {
+  background: url(../../icons/reviews/person1.png);
+  background-size: contain;
+}
+.person__icon--second-person {
+  background: url(../../icons/reviews/person2.png);
+  background-size: contain;
+}
+.person__icon--third-person {
+  background: url(../../icons/reviews/person3.png);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .person__name {
   white-space: nowrap;

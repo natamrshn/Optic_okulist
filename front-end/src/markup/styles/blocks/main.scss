@@ -18,31 +18,9 @@
   }
 
   &--reviews-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
     background-color: $body-reviews-page-background-color;
 
     @include contentPadding;
-
-    &__feedback {
-      position: relative;
-      margin: 32px 0 0;
-      color: $feedback-text-color;
-      font-size: 0.875rem;
-      font-weight: 300;
-    }
-
-    &__feedback-text {
-      margin-bottom: 7px;
-    }
-
-    &__icon {
-      position: absolute;
-      top: 31px;
-      left: 16px;
-    }
   }
 
   &__image {

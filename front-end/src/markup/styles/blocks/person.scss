@@ -4,9 +4,25 @@
   height: 48px;
   align-items: center;
 
-  &__photo {
-    width: 49px;
+  &__icon {
+    width: 48px;
     height: 48px;
+
+    &--first-person {
+      background: url(../../icons/reviews/person1.png);
+      background-size: contain;
+    }
+
+    &--second-person {
+      background: url(../../icons/reviews/person2.png);
+      background-size: contain;
+    }
+    
+    &--third-person {
+      background: url(../../icons/reviews/person3.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
   }
 
   &__name {

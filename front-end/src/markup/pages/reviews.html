@@ -31,14 +31,14 @@
   </div>
   <!-- #endregion -->
 
-  <header class="header header--reviews-page">
-    <!--#region НАВІГАЦІЯ  -->
+  <header class="header header--about-us-page">
+    <!--#region navigation  -->
     <nav class="nav">
-      <a href="index.html" class="header__logo-link">
+      <a href="index.html" class="nav__logo-link">
         <img 
           src="../icons/nav-logo.png" 
           alt="Окуліст Логотип"
-          class="header__logo-image"
+          class="nav__logo-image"
         >
       </a>
 
@@ -48,28 +48,31 @@
         <a href="#aside" class="icon icon--menu"></a>
       </div>
     </nav>
-    <!-- #endregion -->
-    
-    <!-- #region бокове меню -->
+  <!-- #endregion -->
+
+    <!-- #region aside menu -->
     <aside class="aside page__menu" id="aside">
-      <img src="../images/header-background-image.png" class="aside__background-image">
-      <div class="aside__content">
-        <nav class="aside__nav">
-          <a href="index.html" class="aside__logo-link">
+      <div class="background-image"></div>
+
+      <!--#region navigation  -->
+        <nav class="nav">
+          <a href="index.html" class="nav__logo-link">
             <img 
               src="../icons/nav-logo.png" 
               alt="Окуліст Логотип"
-              class="aside__logo-image"
+              class="nav__logo-image"
             >
           </a>
-    
-          <div class="aside__icons">
+
+          <div class="nav__icons">
             <a href="#" class="icon icon--basket"></a>
             <a href="#" class="icon icon--search"></a>
             <a href="#" class="icon icon--close"></a>
           </div>
         </nav>
+      <!-- #endregion -->
 
+      <!-- #region menu links -->
         <menu class="aside__links">
           <a href="index.html" class="aside__link">
             <li>Головна</li>
@@ -99,55 +102,53 @@
             <li>Контакти</li>
           </a>
         </menu>
+      <!-- #endregion -->
 
+      <!-- #region menu buttons -->
         <div class="aside__buttons">
           <a href="#" class="button button--aside">
             Обране
-            <img src="../icons/favorite.svg">
+
+            <div class="icon icon--favorite"></div>
           </a>
 
           <a href="#" class="button button--aside">
             Кабінет
-            <img src="../icons/account.svg">
+            
+            <div class="icon icon--account"></div>
           </a>
         </div>
-      </div>
+      <!-- #endregion -->
     </aside>
-    <!-- #endregion -->
+  <!-- #endregion -->
 
-    <!-- #region НАЧИНКА ХЕДЕРА (текст, кнопка) -->
-    <div class="header__content">
-      <div class="header__title-wrapper header__title-wrapper--reviews-page">
-        <p class="header__content-title">Відгуки</p>
+    <!-- #region header content -->
+      <div class="header__content">
+        <h1 class="header__content-title header__content-title--about-us-page">Відгуки</h1>
       </div>
-    </div>
-    <!-- #endregion -->
+      <!-- #endregion -->
   </header>
 
   <main class="main main--reviews-page">
-    <article class="review review--margin-bottom">
-      <div class="review__border-text">
-        <p class="review__text">
-          Нещодавно придбав нові 
-          окуляри з антибліковим 
-          покриттям, і різниця в зручності 
-          та якості зору була просто вражаючою. Окуляри дуже легкі 
-          та стильні, а антиблікове 
-          покриття дозволяє мені комфортно використовувати їх 
-          при роботі на комп’ютері або за 
-          кермом автомобіля в нічний час. 
-          Я бачу світ ясно та чітко, і це 
-          справді полегшує моє щоденне 
+    <section class="reviews reviews--margin-bottom">
+      <article class="review">
+        <p class="reviews__text">
+          Нещодавно придбав нові <br>
+          окуляри з антибліковим <br>
+          покриттям, і різниця в зручності <br>
+          та якості зору була просто вражаючою. Окуляри дуже легкі <br>
+          та стильні, а антиблікове  <br>
+          покриття дозволяє мені комфортно використовувати їх <br>
+          при роботі на комп’ютері або за <br>
+          кермом автомобіля в нічний час. <br>
+          Я бачу світ ясно та чітко, і це <br>
+          справді полегшує моє щоденне <br>
           життя!
         </p>
-      </div>
+      </article>
 
-      <div class="person">
-        <img 
-          src="../icons/reviews/person1.png" 
-          alt="Фото людини яка залишила відгук"
-          class="person__photo"
-        >
+      <article class="person">
+        <div class="person__icon person__icon--first-person"></div>
 
         <div class="person__name-and-rate">
           <p class="person__name">Nazarko Lesiv</p>  
@@ -160,25 +161,32 @@
             <div class="stars__star-active"></div>
           </div>
         </div>
-      </div>
+      </article>
+    </section>
 
-      <a href="#" class="button button--answer">Відповісти</a>
-    </article>
-
-    <article class="review review--margin-bottom">
-      <div class="review__border-text">
-        <p class="review__text">
-          Я дуже задоволена відвідуванням цього магазину. У них великий вибір окулярів для всіх смаків і потреб. Персонал був дуже ввічливим і професійним, допомігши мені знайти пару ідеальних окулярів, які підходять моєму обличчю.
-          Мої окуляри були готові дуже швидко. Ціни були розумними та мали відмінну якість за свої гроші. Я б із задоволенням рекомендувала цей магазин усім, хто шукає нові окуляри чи контактні лінзи.
+    <section class="reviews reviews--margin-bottom">
+      <article class="review">
+        <p class="reviews__text">
+          Я дуже задоволена <br>
+          відвідуванням цього магазину. У <br>
+          них великий вибір окулярів для <br>
+          всіх смаків і потреб. Персонал <br>
+          був дуже ввічливим і <br>
+          професійним, допомігши мені <br>
+          знайти пару ідеальних окулярів, <br>
+          які підходять моєму обличчю. <br>
+          Мої окуляри були готові дуже <br>
+          швидко. Ціни були розумними <br>
+          та мали відмінну якість за свої <br>
+          гроші. Я б із задоволенням <br>
+          рекомендувала цей магазин <br>
+          усім, хто шукає нові окуляри чи <br>
+          контактні лінзи.
         </p>
-      </div>
+      </article>
 
-      <div class="person">
-        <img 
-          src="../icons/reviews/person2.png" 
-          alt="Фото людини яка залишила відгук"
-          class="person__photo"
-        >
+      <article class="person">
+        <div class="person__icon person__icon--second-person"></div>
 
         <div class="person__name-and-rate">
           <p class="person__name">Валя Пікуляк</p>  
@@ -191,28 +199,29 @@
             <div class="stars__star-unactive"></div>
           </div>
         </div>
-      </div>
+      </article>
+    </section>
 
-      <a href="#" class="button button--answer">Відповісти</a>
-    </article>
-
-    <article class="review">
-      <div class="review__border-text">
-        <p class="review__text">
-          Через наслідки роботи почав просідати зір. Колеги порадили цю оптику ,аргументуючи професійністю персоналу.
-          І це дійсно правда. Прийшовши я отримав весь спектр перевірки зору. <br>
+    <section class="reviews reviews--margin-bottom-last-component">
+      <article class="review">
+        <p class="reviews__text">
+          Через наслідки роботи почав <br>
+          просідати зір. Колеги порадили <br>
+          цю оптику ,аргументуючи <br>
+          професійністю персоналу. <br>
+          І це дійсно правда. Прийшовши <br>
+          я отримав весь спектр <br>
+          перевірки зору. <br>
           Рекомендую однозначно. <br>
-          Привітний,знаючий свою справу персонал. <br>
-          Також окуляри ціна-якість,я задоволений.
+          Привітний,знаючий свою справу <br>
+          персонал. <br>
+          Також окуляри ціна-якість,я <br>
+          задоволений.
         </p>
-      </div>
+      </article>
 
-      <div class="person">
-        <img 
-          src="../icons/reviews/person3.png" 
-          alt="Фото людини яка залишила відгук"
-          class="person__photo"
-        >
+      <article class="person">
+        <div class="person__icon person__icon--third-person"></div>
 
         <div class="person__name-and-rate">
           <p class="person__name">Сергій Дмитрів</p>  
@@ -225,21 +234,8 @@
             <div class="stars__star-unactive"></div>
           </div>
         </div>
-      </div>
-
-      <a href="#" class="button button--answer">Відповісти</a>
-    </article>
-
-
-    <!-- переробити в textarea з з анімацією відкриття -->
-    <div class="main--reviews-page__feedback">
-      <p class="main--reviews-page__feedback-text">Висловись тут</p>
-      <a href="#" class="button button--feedback">
-        <img src="../icons/plus.svg" class="main--reviews-page__icon">
-      </a>
-      
-      <a href="#" class="button button--feedback-send">Відправити</a>
-    </div>
+      </article>
+    </section>
   </main>
 
   <footer class="footer">
@@ -253,7 +249,7 @@
           footer__nav-link 
           footer__nav-link--phone 
           footer__nav-link--margin-top
-        " 
+        "
         href="tel:380669492676"
       >
         +38 (066) 949-26-76
@@ -289,11 +285,11 @@
 
     <menu class="footer__menu">
       <div class="footer__menu--top">
-        <a href="index.html" class="footer__link">
+        <a href="#page" class="footer__link">
           <li class="footer__item">Головна</li>
         </a>
   
-        <a href="#page" class="footer__link">
+        <a href="about-us.html" class="footer__link">
           <li class="footer__item">Про нас</li>
         </a>
   
@@ -307,7 +303,7 @@
           <li class="footer__item">Каталог</li>
         </a>
   
-        <a href="#page" class="footer__link">
+        <a href="reviews.html" class="footer__link">
           <li class="footer__item">Відгуки</li>
         </a>
   
