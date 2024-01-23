@@ -316,20 +316,14 @@ table {
   align-items: center;
   background-color: #0E0ADB;
   border-radius: 100px;
-  line-height: 48px;
   text-decoration: none;
   color: #fff;
   font-size: 1em;
   font-weight: 600;
-  transition: background-color 0.3s;
 }
 .button--product {
   gap: 10px;
   width: 190px;
-}
-.button--product__icon {
-  width: 24px;
-  height: 24px;
 }
 .button--aside {
   display: flex;
@@ -345,22 +339,19 @@ table {
   font-weight: 600;
 }
 .button--redirect {
-  background-color: #fff;
+  background: none;
   color: #000;
   border: 1px solid #000;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 .button--redirect--wrapper {
-  margin-bottom: 52px;
+  margin-bottom: 48px;
 }
 @media (max-width: 320px) {
   .button--redirect--wrapper {
     padding-inline: 30px;
   }
-}
-.button--redirect__icon {
-  margin-left: 8px;
-  width: 24px;
-  height: 24px;
 }
 .button--answer {
   width: 190px;
@@ -393,6 +384,9 @@ table {
 }
 .icon--basket {
   background-image: url(../../icons/basket.svg);
+}
+.icon--basket-white {
+  background-image: url(../../icons/basket-white.svg);
 }
 .icon--search {
   background-image: url(../../icons/search.svg);
@@ -588,7 +582,6 @@ table {
 .product {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   color: #000;
   font-size: 1rem;
 }
@@ -601,19 +594,18 @@ table {
   margin: 24px 0 32px;
 }
 .product__image {
+  background: url(../../images/products/product-img.png);
+  background-size: contain;
+  width: 260px;
   height: 190px;
-  object-fit: cover;
   border-radius: 8px;
   box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
 }
 .product__descripsion {
   margin: 8px 0 0;
-  font-size: 1rem;
   font-weight: 400;
 }
 .product__name {
-  margin: 0;
-  color: #000;
   font-weight: 500;
 }
 .product__price {
@@ -635,13 +627,6 @@ table {
   height: 40px;
   border: 3px solid #0E0ADB;
   border-radius: 50%;
-}
-.favorite__link {
-  display: flex;
-}
-.favorite__icon {
-  width: 24px;
-  height: 24px;
 }
 
 .footer {

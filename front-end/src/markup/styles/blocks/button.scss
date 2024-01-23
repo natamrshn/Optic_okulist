@@ -4,26 +4,16 @@
   height: 48px;
   justify-content: center;
   align-items: center;
-
   background-color: $button-background-color;
   border-radius: 100px;
-
-  line-height: 48px;
   text-decoration: none;
   color: #fff;
   font-size: 1em;
   font-weight: 600;
 
-  transition: background-color .3s;
-
   &--product {
     gap: 10px;
     width: 190px;
-
-    &__icon {
-      width: 24px;
-      height: 24px;
-    }
   }
 
   &--aside {
@@ -42,19 +32,15 @@
   }
 
   &--redirect {
-    background-color: #fff;
+    background: none;
     color: $content-text-color;
     border: 1px solid $content-text-color;
+    font-size: 0.875rem;
+    font-weight: 500;
 
     &--wrapper {
       @include contentPadding;
-      margin-bottom: 52px;
-    }
-
-    &__icon {
-      margin-left: 8px;
-      width: 24px;
-      height: 24px;
+      margin-bottom: 48px;
     }
   }
 
