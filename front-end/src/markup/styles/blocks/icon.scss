@@ -25,11 +25,17 @@
     background-image: url(../icons/close.svg);
   }
 
+
   &--favorite {
     background-image: url(../icons/favorite.svg);
   }
 
   &--account {
     background-image: url(../icons/account.svg);
+  }
+
+  &--socials {
+    width: 48px;
+    height: 48px;
   }
 }

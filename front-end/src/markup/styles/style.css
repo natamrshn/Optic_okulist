@@ -171,6 +171,20 @@ table {
     width: 320px;
   }
 }
+
+.header--about-us-page {
+  background-color: #FAFEFD;
+}
+.header--useful-page {
+  background-color: #FAFEFD;
+}
+.header--reviews-page {
+  background-color: #FAFEFD;
+}
+.header--contacts-page {
+  background-color: #FAFEFD;
+}
+
 .header__background-image {
   position: absolute;
   width: 320px;
@@ -371,6 +385,32 @@ table {
   margin-bottom: 48px;
   width: 190px;
 }
+.button--call-margin {
+  margin-top: 16px;
+}
+.button--show-on-map {
+  background: transparent;
+  border-radius: 100px;
+  border: 1px solid var(--Accent-colour, #011B35);
+  margin-top: 16px;
+  color: var(--Main-text, #02101F);
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.button--forgot-password {
+  color: #02101F;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  background: transparent;
+  border-radius: 100px;
+  border: 1px solid #0E0ADB;
+  height: 40px;
+}
+.button--login {
+  height: 40px;
+}
 
 .icon {
   display: block;
@@ -394,8 +434,17 @@ table {
 .icon--close {
   background-image: url(../icons/close.svg);
 }
+
 .icon--favorite {
   background-image: url(../icons/favorite.svg);
+
+.icon--socials {
+  width: 48px;
+  height: 48px;
+}
+
+.main--about-us-page {
+  background-color: #FAFEFD;
 }
 .icon--account {
   background-image: url(../icons/account.svg);
@@ -416,6 +465,17 @@ table {
     padding-inline: 30px;
   }
 }
+
+.main--contacts-page {
+  background-color: #FAFEFD;
+}
+.main--reviews-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FAFEFD;
+}
+
 @media (max-width: 320px) {
   .main--reviews-page {
     padding-inline: 30px;
@@ -803,6 +863,164 @@ table {
 }
 .useful__text--margin-top {
   margin-top: 8px;
+
+@media (max-width: 320px) {
+  .contacts {
+    padding-inline: 30px;
+  }
+}
+.contacts__title {
+  margin: 24px auto;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+.contacts__subtitle {
+  margin: 24px 0 32px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.contacts__salon {
+  margin: 32px 0 24px;
+  font-size: 1.25rem;
+}
+
+.card {
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid #011B35;
+  background: #D8eFFB;
+}
+.card--margin-inline {
+  margin-inline: 14px;
+}
+.card--margin-bottom {
+  margin-bottom: 62px;
+}
+.card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+.card__icon--contacts {
+  width: 50px;
+  height: 48px;
+}
+.card__location {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+}
+.card__location-text {
+  color: #02101F;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.card__phone {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+}
+.card__phone-text {
+  color: #02101F;
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+.card__text {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  color: #02101F;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.card__photo {
+  border-radius: 8px;
+  border: 1px solid #011B35;
+}
+.card__message-us {
+  margin-top: 32px;
+  color: #0C0202;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+@media (max-width: 320px) {
+  .card__message-us {
+    padding-inline: 30px;
+  }
+}
+.card__social {
+  margin-top: 24px;
+  margin-bottom: 48px;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-tabs {
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-tab {
+  color: #696969;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.form-tab--active {
+  color: #011B35;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.form-container {
+  display: none;
+}
+
+.form-container.active {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+@media (max-width: 320px) {
+  .form-container.active {
+    padding-inline: 30px;
+  }
+}
+
+.form-field {
+  display: flex;
+  gap: 7px;
+  flex-direction: column;
+}
+.form-field__label {
+  color: #011B35;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+.form-field__input {
+  width: 100%;
+  height: 48px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid #011B35;
+  background: #FAFEFD;
+}
+.form-field__input::placeholder {
+  width: 100%;
+  color: #8A8A8A;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=style.css.map */

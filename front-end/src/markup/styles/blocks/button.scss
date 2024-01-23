@@ -68,4 +68,34 @@
     margin-bottom: 48px;
     width: 190px;
   }
+
+  &--call-margin {
+    margin-top: 16px;
+  }
+
+  &--show-on-map {
+    background: transparent;
+    border-radius: 100px;
+    border: 1px solid var(--Accent-colour, #011B35);
+    margin-top: 16px;
+    color: var(--Main-text, #02101F);
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  &--forgot-password{
+    color: $forgot-password-button-text;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    background: transparent;
+    border-radius: 100px;
+    border: 1px solid $forgot-password-button-border;
+    height: 40px;
+  }
+
+  &--login {
+    height: 40px;
+  }
 }
