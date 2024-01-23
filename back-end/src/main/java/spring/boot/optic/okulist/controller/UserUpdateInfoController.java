@@ -56,13 +56,11 @@ public class UserUpdateInfoController {
         UserResponseDto responseDto = updateService.updatePassword(updateRequestDto);
         return ResponseEntity.ok(responseDto);
     }
-/*
     @GetMapping("/account")
     @Operation(summary = "Get in my account")
     @ApiResponse(responseCode = "200", description = "Personal info of user getted")
     public UserResponseDto getAuthInfo(Authentication authentication) {
-        return userService.getAuthenticatedUser();
+        return userService.findDetailsByEmail(authentication);
     }
 
- */
 }
