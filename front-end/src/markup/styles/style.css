@@ -193,10 +193,15 @@ table {
   align-items: center;
 }
 .header__content-title {
-  margin: 100px 0 4px;
   color: #011B35;
   font-size: 3.125rem;
   font-weight: 700;
+}
+.header__content-title--main-page {
+  margin: 100px 0 4px;
+}
+.header__content-title--about-us-page {
+  margin: 24px 0 24px;
 }
 .header__content-text {
   margin-bottom: 48px;
@@ -463,44 +468,6 @@ table {
 }
 .main__image--about-us-page--second-image {
   margin-bottom: 1rem;
-}
-.main__text--about-us-page {
-  margin-bottom: 48px;
-}
-.main__text--useful-page {
-  margin-bottom: 8px;
-  color: #02101F;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 400;
-}
-.main__text--useful-page--not-centered {
-  margin-bottom: 8px;
-}
-.main__text--useful-page--last-title {
-  margin: 24px 0 48px;
-  color: #02101F;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 700;
-}
-.main__text--useful-page--second-text {
-  margin-bottom: 16px;
-  color: #02101F;
-  font-size: 0.875rem;
-  font-weight: 300;
-}
-.main__text--useful-page--second-text--no-margin {
-  color: #02101F;
-  font-size: 0.875rem;
-  font-weight: 300;
-}
-.main__text--useful-page--title {
-  margin-bottom: 8px;
-  color: #003B57;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 500;
 }
 
 .action {
@@ -805,6 +772,32 @@ table {
 .assortment {
   padding: 18px 0;
   background-color: #D8EFFB;
+}
+
+.description__image {
+  display: block;
+  width: 260px;
+  height: 128px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
+}
+.description__image--first {
+  background: url(../../images/header/about-us-header-img.png);
+  background-size: contain;
+}
+.description__image--second {
+  background: url(../../images/header/about-us-header-img-2.png);
+  background-size: contain;
+}
+.description__text {
+  margin-bottom: 32px;
+  color: #02101F;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+.description__text--margin-bottom {
+  margin-bottom: 42px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,31 @@
+.description {
+  &__image {
+    display: block;
+    width: 260px;
+    height: 128px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    box-shadow: $content-box-shadow;
+
+    &--first {
+      background: url(../../images/header/about-us-header-img.png);
+      background-size: contain;
+    }
+
+    &--second {
+      background: url(../../images/header/about-us-header-img-2.png);
+      background-size: contain;
+    }
+  }
+
+  &__text {
+    margin-bottom: 32px;
+    color: $description-text-color;
+    font-size: 0.875rem;
+    font-weight: 300;
+
+    &--margin-bottom {
+      margin-bottom: 42px;
+    }
+  }
+}

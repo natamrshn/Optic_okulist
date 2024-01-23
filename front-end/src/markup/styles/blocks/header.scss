@@ -37,10 +37,17 @@
   }
 
   &__content-title {
-    margin: 100px 0 4px;
     color: $header-title-color;
     font-size: 3.125rem;
     font-weight: 700;
+
+    &--main-page {
+      margin: 100px 0 4px;
+    }
+
+    &--about-us-page {
+      margin: 24px 0 24px;
+    }
   }
 
   &__content-text {
