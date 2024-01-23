@@ -1,38 +1,54 @@
+import React from "react";
 import { ConfirmCodeRequest } from "./Types/IConfirm";
 import { LoginRequest } from "./Types/ILogin";
-import { RegistrationRequest } from "./Types/IRegistration";
+import { RegistrationRequest, RegistrationResponse } from "./Types/IRegistration";
 import { UserUpdateRequest } from "./Types/IUserUpdate";
+import { AuthAPI } from "./api/AuthAPI";
+
+interface Setters {
+  setError: React.Dispatch<React.SetStateAction<string>>;
+  setUserData: React.Dispatch<React.SetStateAction<RegistrationResponse>>;
+}
 
 export class AuthService {
-  static registrate(userFields: RegistrationRequest) {
+  static async registrate(userFields: RegistrationRequest, token: string, setters: Setters) {
+    const { setError, setUserData } = setters;
+
     try {
+      AuthAPI.setTokenToHeader(token);
+      const response = await AuthAPI.registrate(userFields);
 
-    } catch (error) {
-
+      if (response.status === 200) {
+        setUserData(await response.json());
+      } else {
+        setError('Bad request. Registration failed');
+      }
+    } catch (error: any) {
+      console.log(error.message);
     }
   }
 
   static login(userFields: LoginRequest) {
     try {
 
-    } catch (error) {
-      
+    } catch (error: any) {
+      console.log(error.message);
     }
   }
 
   static confirmCode(userFields: ConfirmCodeRequest) {
     try {
 
-    } catch (error) {
-      
+    } catch (error: any) {
+      console.log(error.message);
     }
   }
 
   static updateData(userFields: UserUpdateRequest) {
     try {
 
-    } catch (error) {
-      
+    } catch (error: any) {
+      console.log(error.message);
     }
   }
 

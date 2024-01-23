@@ -1,6 +1,6 @@
 # This is a frontend of online shop  
 
-## How to run React project?
+## How to run the React project?
  - Download Node.js [here](https://nodejs.org/en/download) if you don't have one
  - In your terminal run `npm i` or `npm install`
  - And run `npm start`
