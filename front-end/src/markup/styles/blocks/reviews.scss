@@ -1,0 +1,18 @@
+.reviews {
+  width: 260px;
+  flex-direction: column;
+
+  &__text {
+    color: $review-text-color;
+    font-size: 0.875rem;
+    font-weight: 300;
+  }
+
+  &--margin-bottom {
+    margin-bottom: 32px;
+  }
+
+  &--margin-bottom-last-component {
+    margin-bottom: 48px;
+  }
+}

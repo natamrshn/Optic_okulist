@@ -16,17 +16,34 @@
   &__image {
     width: 230px;
     height: 115px;
-    object-fit: cover;
     border-radius: 8px;
     box-shadow: $product-box-shadow;
+
+    &--first {
+      background: url(../images/service/service_photo1.png);
+      background-size: cover;
+    }
+
+    &--second {
+      background: url(../images/service/service_photo2.png);
+      background-size: cover;
+    }
+
+    &--third {
+      background: url(../images/service/service_photo3.png);
+      background-size: cover;
+    }
+
+    &--fourth {
+      background: url(../images/service/service_photo4.png);
+      background-size: cover;
+    }
   }
 
   &__text {
     margin-top: 8px;
     color: $service-text-color;
     font-size: 1rem;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
   }
 }

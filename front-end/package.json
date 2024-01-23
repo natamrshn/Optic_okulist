@@ -26,9 +26,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "front-start": "sass --watch --load-path=src ./src/markup/styles/style.scss ./src/markup/styles/style.css",
-    "front-build": "parcel build --public-url=./",
-    "front-run": "parcel ./src/markup/pages/index.html"
+    "fstart": "sass --watch --load-path=src ./src/markup/styles/style.scss ./src/markup/styles/style.css",
+    "fbuild": "parcel build --public-url=./",
+    "frun": "parcel ./src/markup/pages/index.html --open"
   },
   "eslintConfig": {
     "extends": [
