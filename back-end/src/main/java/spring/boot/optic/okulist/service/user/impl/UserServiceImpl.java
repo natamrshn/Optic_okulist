@@ -190,7 +190,23 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponseDto findDetailsByEmail(Authentication authentication) {
-        Optional<User> user = userRepository.findDetailsByEmail(authentication.getName());
-        return userMapper.toDto(user);
+        User user = userRepository.findDetailsByEmail(authentication.getName())
+                .orElse(null);
+
+        return user != null ? userMapper.toDtoUser(user) : null;
     }
+
+    /*
+    public UserResponseDto findDetailsByEmail1(Authentication authentication) {
+        User user = userRepository.findDetailsByEmail(authentication.getName())
+                .orElse(null);
+
+        if (user != null) {
+            return userMapper.toDtoUser(user);
+        } else {
+            throw new EntityNotFoundException("User not found by email: " + authentication.getName());
+        }
+    }
+
+     */
 }
