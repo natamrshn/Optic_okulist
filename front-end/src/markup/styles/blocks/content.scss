@@ -7,7 +7,7 @@
   @include contentPadding;
 
   &__image {
-    background: url(../../images/action-image.png);
+    background: url(../images/action-image.png);
     background-size: contain;
     width: 260px;
     height: 128px;
@@ -17,7 +17,7 @@
     &--second {
       width: 260px;
       margin-top: 8px;
-      background: url(../../images/action-image-continue.png);
+      background: url(../images/action-image-continue.png);
       background-size: contain;
       height: 340px;
       border-radius: 8px;
