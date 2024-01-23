@@ -180,6 +180,9 @@ table {
 .header--reviews-page {
   background-color: #FAFEFD;
 }
+.header--contacts-page {
+  background-color: #FAFEFD;
+}
 .header__background-image {
   position: absolute;
   width: 320px;
@@ -418,6 +421,19 @@ table {
   margin-bottom: 48px;
   width: 190px;
 }
+.button--call-margin {
+  margin-top: 16px;
+}
+.button--show-on-map {
+  background: transparent;
+  border-radius: 100px;
+  border: 1px solid var(--Accent-colour, #011B35);
+  margin-top: 16px;
+  color: var(--Main-text, #02101F);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+}
 
 .icon {
   height: 24px;
@@ -435,6 +451,10 @@ table {
 }
 .icon--close {
   background-image: url(../icons/close.svg);
+}
+.icon--socials {
+  width: 48px;
+  height: 48px;
 }
 
 .main--about-us-page {
@@ -460,6 +480,9 @@ table {
   .main--useful-page {
     padding-inline: 30px;
   }
+}
+.main--contacts-page {
+  background-color: #FAFEFD;
 }
 .main--reviews-page {
   display: flex;
@@ -834,6 +857,105 @@ table {
   width: 16px;
   margin-right: 4px;
   background: url(../icons/reviews/star-unactive.svg) 50% no-repeat;
+}
+
+@media (max-width: 320px) {
+  .contacts {
+    padding-inline: 30px;
+  }
+}
+.contacts__title {
+  margin: 24px auto;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+.contacts__subtitle {
+  margin: 24px 0 32px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.contacts__salon {
+  margin: 32px 0 24px;
+  font-size: 1.25rem;
+}
+
+.card {
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid #011B35;
+  background: #D8eFFB;
+}
+.card--margin-inline {
+  margin-inline: 14px;
+}
+.card--margin-bottom {
+  margin-bottom: 62px;
+}
+.card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+.card__icon--contacts {
+  width: 50px;
+  height: 48px;
+}
+.card__location {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+}
+.card__location-text {
+  color: #02101F;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.card__phone {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+}
+.card__phone-text {
+  color: #02101F;
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+.card__text {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  color: #02101F;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.card__photo {
+  border-radius: 8px;
+  border: 1px solid #011B35;
+}
+.card__message-us {
+  margin-top: 32px;
+  color: #0C0202;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+@media (max-width: 320px) {
+  .card__message-us {
+    padding-inline: 30px;
+  }
+}
+.card__social {
+  margin-top: 24px;
+  margin-bottom: 48px;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */

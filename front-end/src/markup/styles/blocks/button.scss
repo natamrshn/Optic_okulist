@@ -82,4 +82,19 @@
     margin-bottom: 48px;
     width: 190px;
   }
+
+  &--call-margin {
+    margin-top: 16px;
+  }
+
+  &--show-on-map {
+    background: transparent;
+    border-radius: 100px;
+    border: 1px solid var(--Accent-colour, #011B35);
+    margin-top: 16px;
+    color: var(--Main-text, #02101F);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+  }
 }
