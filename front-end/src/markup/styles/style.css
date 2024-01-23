@@ -157,7 +157,6 @@ table {
 
 .header {
   position: relative;
-  align-items: center;
 }
 @media (max-width: 320px) {
   .header--service-page {
@@ -188,55 +187,28 @@ table {
   object-fit: cover;
   filter: blur(9px);
 }
-.header__title-wrapper {
-  text-align: center;
-}
-.header__title-wrapper--main-page {
-  margin: 52px 0 48px;
-}
-.header__title-wrapper--about-us-page {
-  margin: 24px 0;
-}
-.header__title-wrapper--useful-page {
-  margin: 24px 0;
-}
-.header__title-wrapper--reviews-page {
-  margin: 24px 0;
-}
 .header__content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .header__content-title {
-  margin: 0;
+  margin: 100px 0 4px;
   color: #011B35;
   font-size: 3.125rem;
   font-weight: 700;
 }
 .header__content-text {
-  margin: 4px 0 0;
+  margin-bottom: 48px;
   color: #011B35;
   font-size: 0.875rem;
   font-weight: 300;
 }
 .header__content-bottom-text {
-  display: block;
-}
-.header__content-bottom-text--main-page {
-  margin-bottom: 52px;
-  width: 260px;
-  height: 79px;
   text-align: center;
   color: #0E0ADB;
   font-size: 1rem;
   font-weight: 500;
-}
-.header__content-bottom-text--about-us-page {
-  margin-bottom: 32px;
-  color: #02101F;
-  font-size: 0.875rem;
-  font-weight: 300;
 }
 @media (max-width: 320px) {
   .header__content-bottom-text {
@@ -488,11 +460,6 @@ table {
   top: 31px;
   left: 16px;
 }
-.main__bottom {
-  height: 965px;
-  padding: 18px 0;
-  background-color: #D8EFFB;
-}
 .main__image--about-us-page {
   margin-bottom: 16px;
   width: 260px;
@@ -574,14 +541,18 @@ table {
   }
 }
 .content__image {
+  background: url(../../images/action-image.png);
+  background-size: contain;
   width: 260px;
   height: 128px;
-  object-fit: cover;
   border-radius: 8px;
   box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
 }
 .content__image--second {
+  width: 260px;
   margin-top: 8px;
+  background: url(../../images/action-image-continue.png);
+  background-size: contain;
   height: 340px;
   border-radius: 8px;
   box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
@@ -593,7 +564,7 @@ table {
   font-weight: 800;
 }
 .content__text {
-  margin: 0 0 24px;
+  margin-bottom: 24px;
   font-size: 1rem;
   font-weight: 400;
 }
@@ -845,6 +816,11 @@ table {
   z-index: -1;
   object-fit: cover;
   filter: blur(9px);
+}
+
+.assortment {
+  padding: 18px 0;
+  background-color: #D8EFFB;
 }
 
 /*# sourceMappingURL=style.css.map */

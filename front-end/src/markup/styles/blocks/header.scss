@@ -1,6 +1,5 @@
 .header {
   position: relative;
-  align-items: center;
 
   &--service-page {
     @include onPhone(175px, 320px);
@@ -31,26 +30,6 @@
     filter: blur(9px);
   }
 
-  &__title-wrapper {
-    text-align: center;
-
-    &--main-page {
-      margin: 52px 0 48px;
-    }
-
-    &--about-us-page {
-      margin: 24px 0;
-    }
-
-    &--useful-page {
-      margin: 24px 0;
-    }
-
-    &--reviews-page {
-      margin: 24px 0;
-    }
-  }
-
   &__content {
     display: flex;
     flex-direction: column;
@@ -58,41 +37,24 @@
   }
 
   &__content-title {
-    margin: 0;
-
+    margin: 100px 0 4px;
     color: $header-title-color;
     font-size: 3.125rem;
     font-weight: 700;
   }
 
   &__content-text {
-    margin: 4px 0 0;
-
+    margin-bottom: 48px;
     color: $header-under-title-color;
     font-size: 0.875rem;
     font-weight: 300;
   }
 
   &__content-bottom-text {
-    display: block;
-
-    &--main-page {
-      margin-bottom: 52px;
-      width: 260px;
-      height: 79px;
-
-      text-align: center;
-      color: $header-text-color;
-      font-size: 1rem;
-      font-weight: 500;
-    }
-
-    &--about-us-page {
-      margin-bottom: 32px;
-      color: $header-about-us-content-text-color;
-      font-size: 0.875rem;
-      font-weight: 300;
-    }
+    text-align: center;
+    color: $header-text-color;
+    font-size: 1rem;
+    font-weight: 500;
 
     @include contentPadding;
   }
