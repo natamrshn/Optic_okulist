@@ -13,7 +13,7 @@ interface Setters {
 }
 
 export class AuthService {
-  static async registrate(userFields: RegistrationRequest, token: string, setters: Setters) {
+  static async registrate(userFields: RegistrationRequest, setters: Setters) {
     const { setError, setUserData } = setters;
 
     try {
@@ -29,7 +29,7 @@ export class AuthService {
     }
   }
 
-  static async login(userFields: LoginRequest, token: string, setters: Setters) {
+  static async login(userFields: LoginRequest, setters: Setters) {
     const { setError, setUserData } = setters;
 
     try {
@@ -81,5 +81,9 @@ export class AuthService {
     }
   }
 
-  // ask about user/start endpoint
+  static async initPasswordChanging(token: string) {
+    AuthAPI.setTokenToHeader(token);
+
+    const response = AuthAPI.initPasswordChanging();
+  }
 }
