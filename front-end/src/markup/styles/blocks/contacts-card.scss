@@ -1,0 +1,62 @@
+.contacts-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid $card-contacts-page-border;
+  background: $main-contacts-page-card-background-color;
+
+  &--margin-bottom {
+    margin-bottom: 24px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__adress {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: $contacts-text-color;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 300;
+  }
+
+  &__phone-text {
+    text-decoration: none;
+    color: $primary-contacts-page-text-color;
+    font-size: 0.875rem;
+    font-weight: 300;
+    }
+
+  &__text {
+    margin: 32px 0;
+    color: $primary-contacts-page-text-color;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  &__map {
+    width: 220px;
+    height: 130px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    border: 1px solid $card-contacts-page-border;
+  }
+
+  &__social {
+    margin-top: 24px;
+    margin-bottom: 48px;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items:center;
+  }
+}
