@@ -4,7 +4,7 @@ import { Variation } from "../../../Types/Variation";
 export interface LiquidGETRequest { 
   page: number;
   size: number;
-  sort: Array<string>;
+  sort: string[];
 }
 
 export interface LiquidGETResponse { 
@@ -15,7 +15,7 @@ export interface LiquidGETResponse {
   description: string;
   identifier: string;
   imageUrl: string;
-  imageUrlSecond: string;
-  categories: Array<Category>;
-  variations: Array<Variation>;
+  imageUrlSecond?: string;
+  categories: Category[];
+  variations: Variation[];
 }

@@ -8,10 +8,10 @@ export interface LiquidPOSTRequest {
   description: string;
   identifier: string;
   imageUrl: string;
-  imageUrlSecond: string;
-  categories: Array<Category>;
+  imageUrlSecond?: string;
+  categories: Category[];
   coverImage: string;
-};
+}
 
 
 export interface LiquidPOSTResponse {
@@ -22,7 +22,7 @@ export interface LiquidPOSTResponse {
   description: string;
   identifier: string;
   imageUrl: string;
-  imageUrlSecond: string;
-  categories: Array<Category>;
-  variations: Array<Variation>;
+  imageUrlSecond?: string;
+  categories: Category[];
+  variations: Variation[];
 }

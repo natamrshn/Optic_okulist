@@ -25,7 +25,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
+
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+
     "fstart": "sass --watch --load-path=src ./src/markup/styles/style.scss ./src/markup/styles/style.css",
     "fbuild": "parcel build --public-url=./",
     "frun": "parcel ./src/markup/pages/index.html --open"
@@ -33,7 +36,8 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:storybook/recommended"
     ]
   },
   "browserslist": {
@@ -49,9 +53,23 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.10",
+    "@storybook/addon-interactions": "^7.6.10",
+    "@storybook/addon-links": "^7.6.10",
+    "@storybook/addon-onboarding": "^1.0.11",
+    "@storybook/blocks": "^7.6.10",
+    "@storybook/preset-create-react-app": "^7.6.10",
+    "@storybook/react": "^7.6.10",
+    "@storybook/react-webpack5": "^7.6.10",
+    "@storybook/test": "^7.6.10",
     "@typescript-eslint/parser": "^5.62.0",
     "babel-plugin-module-resolver": "^5.0.0",
     "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.29.1"
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-storybook": "^0.6.15",
+    "process": "^0.11.10",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.6.10",
+    "webpack": "^5.90.0"
   }
 }

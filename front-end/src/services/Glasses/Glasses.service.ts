@@ -1,17 +1,21 @@
 export class GlassesService {
-  static getAll() {
+  static async getAll() {
 
   }
 
-  static getByID() {
+  static async getByID() {
 
   }
 
-  static create() {
+  static async create() {
 
   }
 
-  static update() {
+  static async update() {
     
+  }
+
+  static async delete() {
+
   }
 }

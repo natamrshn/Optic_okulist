@@ -47,8 +47,22 @@ export class AuthService {
     }
   }
 
-  static async updateGood(token: string, setters: Setters) {
+  static async updateGood( updatedGood: CartItem, token: string, setters: Setters) {
+    const { setGoodsInCart } = setters;
+
     try {
+      CartAPI.setTokenToHeader(token);
+
+      const response = await CartAPI.updateGood(updatedGood.quantity, updatedGood.productId);
+
+      if (response.status === 200) {
+        // success
+      }
+
+      if (response.status === 404) {
+        throw new Error('Item of the cart was not found');
+      }
+
 
     } catch (error: any) {
       console.log(error.message);
@@ -56,8 +70,20 @@ export class AuthService {
   }
 
   static async removeGood(goodID: CartItem['productId'], token: string, setters: Setters) {
-    try {
+    const { setGoodsInCart } = setters;
 
+    try {
+      CartAPI.setTokenToHeader(token);
+
+      const response = await CartAPI.deleteGood(goodID);
+
+      if (response.status === 200) {
+        // remove the good from the goodlist
+      }
+
+      if (response.status === 404) {
+        throw new Error('Item of the cart was not found')
+      }
     } catch (error: any) {
       console.log(error.message);
     }
