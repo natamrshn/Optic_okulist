@@ -38,4 +38,30 @@
     width: 48px;
     height: 48px;
   }
+
+  &--location {
+    background-image: url(../icons/location.svg);
+    width: 50px;
+    height: 50px;
+  }
+
+  &--phone {
+    background-image: url(../icons/phone.svg);
+    width: 50px;
+    height: 50px;
+  }
+
+  &--contacts-telegram {
+    background-image: url(../icons/contact/telegram.svg);
+    width: 48px;
+    height: 48px;
+    background-repeat: no-repeat;
+  }
+
+  &--contacts-viber {
+    background-image: url(../icons/contact/viber.svg);
+    width: 48px;
+    height: 48px;
+    background-repeat: no-repeat;
+  }
 }

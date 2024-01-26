@@ -171,20 +171,15 @@ table {
     width: 320px;
   }
 }
-
 .header--about-us-page {
   background-color: #FAFEFD;
 }
 .header--useful-page {
   background-color: #FAFEFD;
 }
-.header--reviews-page {
-  background-color: #FAFEFD;
-}
 .header--contacts-page {
   background-color: #FAFEFD;
 }
-
 .header__background-image {
   position: absolute;
   width: 320px;
@@ -226,6 +221,13 @@ table {
     padding-inline: 30px;
   }
 }
+.header__content-bottom-text--strong {
+  font-weight: 800;
+}
+.header__logo-image {
+  width: 125px;
+  height: 40px;
+}
 
 .nav {
   padding: 16px 8px;
@@ -246,8 +248,6 @@ table {
 }
 .nav__logo-link {
   display: flex;
-}
-.nav__logo-image {
   width: 125px;
   height: 40px;
 }
@@ -434,20 +434,37 @@ table {
 .icon--close {
   background-image: url(../icons/close.svg);
 }
-
 .icon--favorite {
   background-image: url(../icons/favorite.svg);
-
+}
+.icon--account {
+  background-image: url(../icons/account.svg);
+}
 .icon--socials {
   width: 48px;
   height: 48px;
 }
-
-.main--about-us-page {
-  background-color: #FAFEFD;
+.icon--location {
+  background-image: url(../icons/location.svg);
+  width: 50px;
+  height: 50px;
 }
-.icon--account {
-  background-image: url(../icons/account.svg);
+.icon--phone {
+  background-image: url(../icons/phone.svg);
+  width: 50px;
+  height: 50px;
+}
+.icon--contacts-telegram {
+  background-image: url(../icons/contact/telegram.svg);
+  width: 48px;
+  height: 48px;
+  background-repeat: no-repeat;
+}
+.icon--contacts-viber {
+  background-image: url(../icons/contact/viber.svg);
+  width: 48px;
+  height: 48px;
+  background-repeat: no-repeat;
 }
 
 @media (max-width: 320px) {
@@ -465,17 +482,9 @@ table {
     padding-inline: 30px;
   }
 }
-
 .main--contacts-page {
   background-color: #FAFEFD;
 }
-.main--reviews-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #FAFEFD;
-}
-
 @media (max-width: 320px) {
   .main--reviews-page {
     padding-inline: 30px;
@@ -863,6 +872,7 @@ table {
 }
 .useful__text--margin-top {
   margin-top: 8px;
+}
 
 @media (max-width: 320px) {
   .contacts {
@@ -870,19 +880,35 @@ table {
   }
 }
 .contacts__title {
-  margin: 24px auto;
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 .contacts__subtitle {
   margin: 24px 0 32px;
   font-size: 1.5rem;
   font-weight: 600;
 }
-.contacts__salon {
+.contacts__text {
   margin: 32px 0 24px;
   font-size: 1.25rem;
+  font-weight: 600;
+}
+.contacts__salon {
+  color: var(--Titles, #0C0202);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 24px 0 16px;
+}
+.contacts__contact-us {
+  color: #0C0202;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.contacts__icons {
+  margin: 24px 0 48px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
 }
 
 .card {
@@ -968,7 +994,7 @@ table {
   gap: 48px;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 .form-tab {
