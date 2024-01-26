@@ -221,6 +221,9 @@ table {
     padding-inline: 30px;
   }
 }
+.header__content-bottom-text--strong {
+  font-weight: 800;
+}
 .header__logo-image {
   width: 125px;
   height: 40px;

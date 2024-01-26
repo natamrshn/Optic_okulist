@@ -64,6 +64,9 @@
     font-weight: 500;
 
     @include contentPadding;
+    &--strong {
+      font-weight: 800;
+    }
   }
 
   &__logo-image {
