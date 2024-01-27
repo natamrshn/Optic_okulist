@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   margin: 20px 0;
+  grid-column: 1 / -1;
 }
 
 .form-tab {
@@ -23,21 +24,22 @@
 }
 
 .form-container.active {
-  @include contentPadding;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  grid-column: 1 / -1;
 }
 
 .form-field {
   display: flex;
   gap: 7px;
   flex-direction: column;
+  
 
   &__label {
-  color: $label-registration-text-color;
-  font-size: 0.875rem;
-  font-weight: 300;
+    color: $label-registration-text-color;
+    font-size: 0.875rem;
+    font-weight: 300;
   }
 
   &__input {

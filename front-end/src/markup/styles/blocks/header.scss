@@ -1,14 +1,6 @@
 .header {
   position: relative;
 
-  &--service-page {
-    @include onPhone(175px, 320px);
-  }
-
-  &--main-page {
-    @include onPhone(568px, 320px);
-  }
-
   &--about-us-page {
     background-color: $header-about-us-background-color;
   }

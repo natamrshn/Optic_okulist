@@ -1,5 +1,4 @@
 .nav {
-  @include onPhone(90px, 320px);
   @include contentPadding;
 
   padding: 16px 8px;
