@@ -30,6 +30,8 @@ build/
 
 ### VS Code ###
 .vscode/
+**/package-lock.json
+**/dist
 
 ### Mac OS ###
 .DS_Store

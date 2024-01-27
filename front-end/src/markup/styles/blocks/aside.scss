@@ -1,5 +1,6 @@
 .aside {
   z-index: 9999;
+  
   &__background-image {
     position: absolute;
     width: 320px;
@@ -16,15 +17,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  &__logo-link {
-    display: flex;
-  }
-
-  &__logo-image {
-    width: 125px;
-    height: 40px;
   }
 
   &__icons {

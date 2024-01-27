@@ -70,81 +70,87 @@
     </nav>
     <!-- #endregion -->
 
-    <!-- #region бокове меню -->
+    <!-- #region aside menu -->
     <aside class="aside page__menu"
            id="aside">
-      <img src="../images/header-background-image.png"
-           class="aside__background-image">
-      <div class="aside__content">
-        <nav class="aside__nav">
-          <a href="index.html"
-             class="aside__logo-link">
-            <img src="../icons/nav-logo.png"
-                 alt="Окуліст Логотип"
-                 class="aside__logo-image">
-          </a>
-
-          <div class="aside__icons">
-            <a href="#"
-               class="icon icon--basket"></a>
-            <a href="#"
-               class="icon icon--search"></a>
-            <a href="#"
-               class="icon icon--close"></a>
-          </div>
-        </nav>
-
-        <menu class="aside__links">
-          <a href="index.html"
-             class="aside__link">
-            <li>Головна</li>
-          </a>
-
-          <a href="about-us.html"
-             class="aside__link">
-            <li>Про нас</li>
-          </a>
-
-          <a href="service.html"
-             class="aside__link">
-            <li>послуги</li>
-          </a>
-
-          <a href="useful.html"
-             class="aside__link">
-            <li>корисне</li>
-          </a>
-
+      <div class="background-image"></div>
+    
+      <!--#region navigation  -->
+      <nav class="nav">
+        <a href="index.html"
+           class="nav__logo-link">
+          <img src="../icons/nav-logo.png"
+               alt="Окуліст Логотип"
+               class="nav__logo-image">
+        </a>
+    
+        <div class="nav__icons">
           <a href="#"
-             class="aside__link">
-            <li>Каталог</li>
-          </a>
-
-          <a href="reviews.html"
-             class="aside__link">
-            <li>Відгуки</li>
-          </a>
-
+             class="icon icon--basket"></a>
           <a href="#"
-             class="aside__link aside__link--margin-bottom">
-            <li>Контакти</li>
-          </a>
-        </menu>
-
-        <div class="aside__buttons">
+             class="icon icon--search"></a>
           <a href="#"
-             class="button button--aside">
-            Обране
-            <img src="../icons/favorite.svg">
-          </a>
-
-          <a href="#"
-             class="button button--aside">
-            Кабінет
-            <img src="../icons/account.svg">
-          </a>
+             class="icon icon--close"></a>
         </div>
+      </nav>
+      <!-- #endregion -->
+    
+      <!-- #region menu links -->
+      <menu class="aside__links">
+        <a href="index.html"
+           class="aside__link">
+          <li>Головна</li>
+        </a>
+    
+        <a href="about-us.html"
+           class="aside__link">
+          <li>Про нас</li>
+        </a>
+    
+        <a href="service.html"
+           class="aside__link">
+          <li>послуги</li>
+        </a>
+    
+        <a href="useful.html"
+           class="aside__link">
+          <li>корисне</li>
+        </a>
+    
+        <a href="#"
+           class="aside__link">
+          <li>Каталог</li>
+        </a>
+    
+        <a href="reviews.html"
+           class="aside__link">
+          <li>Відгуки</li>
+        </a>
+    
+        <a href="#"
+           class="aside__link aside__link--margin-bottom">
+          <li>Контакти</li>
+        </a>
+      </menu>
+      <!-- #endregion -->
+    
+      <!-- #region menu buttons -->
+      <div class="aside__buttons">
+        <a href="#"
+           class="button button--aside">
+          Обране
+    
+          <div class="icon icon--favorite"></div>
+        </a>
+    
+        <a href="registration.html"
+           class="button button--aside">
+          Кабінет
+    
+          <div class="icon icon--account"></div>
+        </a>
       </div>
+      <!-- #endregion -->
     </aside>
     <!-- #endregion -->
 
@@ -165,7 +171,7 @@
         виникли питання:
       </h3>
 
-      <h4 class="contacts__salon">Наші салони</h4>
+      <h4 class="contacts__salon">Наші салони:</h4>
     </div>
 
     <div class="card card--margin-inline card--margin-bottom">
@@ -420,7 +426,7 @@
           <li class="footer__item">Відгуки</li>
         </a>
 
-        <a href="#page"
+        <a href="contacts.html"
            class="footer__link">
           <li class="footer__item">Контакти</li>
         </a>

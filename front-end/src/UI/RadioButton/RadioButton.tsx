@@ -1,14 +1,14 @@
 import React, { ReactNode } from 'react';
-import './Button.scss';
+import './RadioRadioButton.scss';
 import classNames from "classnames";
 
-export interface ButtonProps {
+interface Props {
   callback: () => void;
   children: ReactNode;
   isSecondary?: boolean;
 }
 
-export const Button: React.FC<ButtonProps> = ({ callback, children, isSecondary = false }) => {
+export const RadioButton: React.FC<Props> = ({ callback, children, isSecondary = false }) => {
   return (
     <button
       onClick={callback}

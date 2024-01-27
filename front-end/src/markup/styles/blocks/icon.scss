@@ -1,10 +1,16 @@
 .icon {
+  display: block;
   height: 24px;
   width: 24px;
   background-size: contain;
+  background-repeat: no-repeat;
 
   &--basket {
     background-image: url(../icons/basket.svg);
+  }
+
+  &--basket-white {
+    background-image: url(../icons/basket-white.svg);
   }
 
   &--search {
@@ -19,8 +25,43 @@
     background-image: url(../icons/close.svg);
   }
 
+
+  &--favorite {
+    background-image: url(../icons/favorite.svg);
+  }
+
+  &--account {
+    background-image: url(../icons/account.svg);
+  }
+
   &--socials {
     width: 48px;
     height: 48px;
+  }
+
+  &--location {
+    background-image: url(../icons/location.svg);
+    width: 50px;
+    height: 50px;
+  }
+
+  &--phone {
+    background-image: url(../icons/phone.svg);
+    width: 50px;
+    height: 50px;
+  }
+
+  &--contacts-telegram {
+    background-image: url(../icons/contact/telegram.svg);
+    width: 48px;
+    height: 48px;
+    background-repeat: no-repeat;
+  }
+
+  &--contacts-viber {
+    background-image: url(../icons/contact/viber.svg);
+    width: 48px;
+    height: 48px;
+    background-repeat: no-repeat;
   }
 }

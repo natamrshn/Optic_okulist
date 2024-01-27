@@ -30,15 +30,15 @@
     <img src="../icons/contact/message.svg" class="feedback-button__icon-message" role="button" onclick="ContactsIcons.toggle()">
   </div>
   <!-- #endregion -->
-
-  <header class="header header--about-us-page">
-    <!--#region НАВІГАЦІЯ  -->
+  
+  <header class="header">
+  <!--#region navigation  -->
     <nav class="nav">
-      <a href="index.html" class="header__logo-link">
+      <a href="index.html" class="nav__logo-link">
         <img 
           src="../icons/nav-logo.png" 
           alt="Окуліст Логотип"
-          class="header__logo-image"
+          class="nav__logo-image"
         >
       </a>
 
@@ -48,28 +48,31 @@
         <a href="#aside" class="icon icon--menu"></a>
       </div>
     </nav>
-    <!-- #endregion -->
-   
-    <!-- #region бокове меню -->
+  <!-- #endregion -->
+
+  <!-- #region aside menu -->
     <aside class="aside page__menu" id="aside">
-      <img src="../images/header-background-image.png" class="aside__background-image">
-      <div class="aside__content">
-        <nav class="aside__nav">
-          <a href="index.html" class="aside__logo-link">
+      <div class="background-image"></div>
+
+      <!--#region navigation  -->
+        <nav class="nav">
+          <a href="index.html" class="nav__logo-link">
             <img 
               src="../icons/nav-logo.png" 
               alt="Окуліст Логотип"
-              class="aside__logo-image"
+              class="nav__logo-image"
             >
           </a>
-    
-          <div class="aside__icons">
+
+          <div class="nav__icons">
             <a href="#" class="icon icon--basket"></a>
             <a href="#" class="icon icon--search"></a>
             <a href="#" class="icon icon--close"></a>
           </div>
         </nav>
+      <!-- #endregion -->
 
+      <!-- #region menu links -->
         <menu class="aside__links">
           <a href="index.html" class="aside__link">
             <li>Головна</li>
@@ -95,68 +98,68 @@
             <li>Відгуки</li>
           </a>
 
-          <a href="#" class="aside__link aside__link--margin-bottom">
+          <a href="contacts.html" class="aside__link aside__link--margin-bottom">
             <li>Контакти</li>
           </a>
         </menu>
+      <!-- #endregion -->
 
+      <!-- #region menu buttons -->
         <div class="aside__buttons">
           <a href="#" class="button button--aside">
             Обране
-            <img src="../icons/favorite.svg">
+
+            <div class="icon icon--favorite"></div>
           </a>
 
           <a href="#" class="button button--aside">
             Кабінет
-            <img src="../icons/account.svg">
+            
+            <div class="icon icon--account"></div>
           </a>
         </div>
-      </div>
+      <!-- #endregion -->
     </aside>
-    <!-- #endregion -->
+  <!-- #endregion -->
 
-    <!-- #region НАЧИНКА ХЕДЕРА (текст, кнопка) -->
+    <!-- #region header content -->
     <div class="header__content">
-      <div class="header__title-wrapper header__title-wrapper--about-us-page">
-        <p class="header__content-title">Про нас</p>
-      </div>
+      <h1 class="header__content-title header__content-title--about-us-page">Про нас</h1>
     </div>
     <!-- #endregion -->
   </header>
 
   <main class="main main--about-us-page">
-    <img 
-      src="../images/header/about-us-header-img.png" 
-      alt="Окуляри"
-      class="main__image--about-us-page"
-    >
+    <section class="about-us">
+      <article class="description">
+        <div class="description__image description__image--first"></div>
 
-    <p class="main__content-bottom-text header__content-bottom-text--about-us-page">
-      <b>«Мережа оптик «ОКУЛІСТ»</b> - це 
-      оптика з кваліфікованим лікарем, 
-      та власною лабораторією для 
-      виготовлення окулярів.
-      В основу роботи покладена 
-      сучасна європейська діагностика 
-      порушень зору, яка включає в себе 
-      оцінку по 9 тестах.
-    </p>
+        <p class="description__text">
+          <strong>«Мережа оптик «ОКУЛІСТ»</strong> - це 
+          оптика з кваліфікованим лікарем, 
+          та власною лабораторією для 
+          виготовлення окулярів.
+          В основу роботи покладена 
+          сучасна європейська діагностика 
+          порушень зору, яка включає в себе 
+          оцінку по 9 тестах.
+        </p>
+      </article>
 
-    <img 
-      src="../images/header/about-us-header-img-2.png" 
-      alt="Окуляри"
-      class="main__image--about-us-page header__image--about-us-page--second-image"
-    >
+      <article class="description">
+        <div class="description__image description__image--second"></div>
 
-    <p class="main__text--about-us-page">
-      <b>Окуляри - в цьому ми теж не звичайні.</b>
-      <br> <br>
-      ✅ Перед оформленням проводиться дворівневий контроль відповідності оправи для певного замовлення та відповідності з технічними характеристиками обраних окулярних лінз.
-      <br> <br>
-      ✅ Контактні лінзи для забезпечення всіх сучасних запитів людей.
-      <br> <br>
-      ✅ Сферичні, астигматичні, мультифокальні, кольорові та нічні лінзи для контролю короткозорості.
-    </p>
+      <p class="description__text description__text--margin-bottom">
+        <b>Окуляри - в цьому ми теж не звичайні.</b>
+        <br> <br>
+        ✅ Перед оформленням проводиться дворівневий контроль відповідності оправи для певного замовлення та відповідності з технічними характеристиками обраних окулярних лінз.
+        <br> <br>
+        ✅ Контактні лінзи для забезпечення всіх сучасних запитів людей.
+        <br> <br>
+        ✅ Сферичні, астигматичні, мультифокальні, кольорові та нічні лінзи для контролю короткозорості.
+      </p>
+      </article>
+    </section>
   </main>
 
   <footer class="footer">
@@ -228,7 +231,7 @@
           <li class="footer__item">Відгуки</li>
         </a>
   
-        <a href="#" class="footer__link">
+        <a href="contacts.html" class="footer__link">
           <li class="footer__item">Контакти</li>
         </a>
       </div>

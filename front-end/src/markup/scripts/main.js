@@ -1,10 +1,10 @@
-const constactIcons = document.querySelectorAll('.feedback-button__icon');
+const contactIcons = document.querySelectorAll('.feedback-button__icon');
 
 const ContactsIcons = {
   pressed: false,
 
   toggle() {
-    [...constactIcons].forEach(elem => elem.classList.toggle('feedback-button__icon--show'));
+    [...contactIcons].forEach(elem => elem.classList.toggle('feedback-button__icon--show'));
 
     this.pressed = !this.pressed;
   },

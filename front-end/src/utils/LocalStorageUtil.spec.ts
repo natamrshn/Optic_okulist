@@ -3,7 +3,7 @@ import { LocalStorage } from "./LocalStorageUtil";
 describe('LocalStorage', () => {
   describe('getToken', () => {
     test('Should return null', () => {
-      const token = '';
+      const token: string = '';
 
       localStorage.setItem('optic-okulist__token', token);
 
@@ -11,7 +11,7 @@ describe('LocalStorage', () => {
     });
 
     test('Should return non-empty token', () => {
-      const token = 'the secretToken';
+      const token: string = 'the secretToken';
 
       localStorage.setItem('optic-okulist__token', token);
 
@@ -21,8 +21,8 @@ describe('LocalStorage', () => {
 
   describe('setToken', () => {
     test('Should set non-empty token', () => {
-      const token = '';
-      const tokenToSet = 'the secret token'
+      const token: string = '';
+      const tokenToSet: string = 'the secret token'
 
       localStorage.setItem('optic-okulist__token', token);
 
@@ -31,8 +31,8 @@ describe('LocalStorage', () => {
     });
 
     test('Should throw error', () => {
-      const token = '';
-      const tokenToSet = ''
+      const token: string = '';
+      const tokenToSet: string = ''
 
       localStorage.setItem('optic-okulist__token', token);
 
