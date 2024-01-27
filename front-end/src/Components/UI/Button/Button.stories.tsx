@@ -1,9 +1,9 @@
-import {Meta, StoryObj} from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { Button, ButtonProps } from "./Button";
 import './Button.scss';
 
 const meta: Meta<ButtonProps> = {
-  title: 'UI/Button',
+  title: 'Components/UI/Button',
   component: Button,
 };
 

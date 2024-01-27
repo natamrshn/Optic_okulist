@@ -30,7 +30,7 @@ build/
 
 ### VS Code ###
 .vscode/
-**/package-lock.json
+./front-end/package-lock.json
 **/dist
 **/style.css
 **/style.css.map
