@@ -19,13 +19,15 @@
   &__menu {
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
     align-items: center;
 
     opacity: 0;
     pointer-events: none;
 
     @include transitionAnimation;
-    @include onPhone(568px, 320px);
 
     &:target {
       position: fixed;
@@ -36,8 +38,7 @@
 
     &__image {
       position: absolute;
-      width: 320px;
-      height: 568px;
+      width: 100%;
       z-index: -1;
       object-fit: cover;
       filter: blur(9px);

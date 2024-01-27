@@ -1,17 +1,14 @@
 .aside {
   z-index: 9999;
-  
   &__background-image {
     position: absolute;
-    width: 320px;
-    height: 568px;
+    width: 100%;
     z-index: -1;
     object-fit: cover;
     filter: blur(9px);
   }
 
   &__nav {
-    @include onPhone(90px, 320px);
     @include contentPadding;
 
     display: flex;

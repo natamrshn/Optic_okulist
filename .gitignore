@@ -32,6 +32,8 @@ build/
 .vscode/
 **/package-lock.json
 **/dist
+**/style.css
+**/style.css.map
 
 ### Mac OS ###
 .DS_Store

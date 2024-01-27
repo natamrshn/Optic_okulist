@@ -13,9 +13,14 @@
 
   &--contacts-page {
      background-color: $main-contacts-page-background-color;
+     @include pageGrid;
   }
 
   &--reviews-page {
     @include contentPadding;
+  }
+
+  &--form {
+    @include pageGrid;
   }
 }

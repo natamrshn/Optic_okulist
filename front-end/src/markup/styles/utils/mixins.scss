@@ -1,13 +1,21 @@
-@mixin onPhone($height, $width) {
-  @media (max-width: 320px) {
-    height: $height;
-    width: $width;
+@mixin onTablet {
+ @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+ @media (min-width: $desktop-min-width) {
+    @content;
   }
 }
 
 @mixin contentPadding {
-  @media (max-width: 320px) {
+  @media (min-width: 320px) {
     padding-inline: 30px;
+  }
+  @include onTablet {
+    padding-inline: 40px;
   }
 }
 
@@ -17,5 +25,18 @@
 
   &:target {
     transform: translateX(0);
+  }
+}
+
+@mixin pageGrid {
+  --columns: 4;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  @include contentPadding;
+
+  @include onTablet {
+    --columns: 6;
+    column-gap: 24px;
   }
 }
