@@ -1,0 +1,21 @@
+.input {
+  // styles for default state
+
+  &:focus {
+    // styles if the input is selected
+  }
+
+  &:disabled {
+    // styles if the input is disabled
+  }
+
+  &--error {
+    // styles if the input has an error
+    border-color: red;
+  }
+
+  &--filled {
+    // styles if the input contains symbols but not focused
+    border-color: lightblue;
+  }
+}
