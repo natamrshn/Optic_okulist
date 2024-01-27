@@ -2,8 +2,6 @@ package spring.boot.optic.okulist.service.user;
 
 import java.util.Optional;
 import java.util.Set;
-
-import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.Authentication;
 import spring.boot.optic.okulist.dto.product.ProductResponseDto;
 import spring.boot.optic.okulist.dto.user.UserRegistrationRequestDto;
