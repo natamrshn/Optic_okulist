@@ -1,6 +1,9 @@
 .service {
   width: 260px;
   padding: 16px;
+  margin: 0 auto;
+
+  grid-column: 1 / -1;
 
   border: 1px solid $service-border-color;
   border-radius: 24px;

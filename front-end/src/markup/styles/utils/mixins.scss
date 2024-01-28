@@ -11,9 +11,8 @@
 }
 
 @mixin contentPadding {
-  @media (min-width: 320px) {
-    padding-inline: 30px;
-  }
+  padding-inline: 30px;
+
   @include onTablet {
     padding-inline: 40px;
   }
