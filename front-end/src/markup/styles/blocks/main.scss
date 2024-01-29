@@ -1,4 +1,12 @@
 .main {
+  @include pageGrid;
+  justify-content: center;
+  
+  & > * {
+    grid-column: 1 / -1;
+  }
+
+
   &--about-us-page {
     @include contentPadding;
   }
