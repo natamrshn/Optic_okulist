@@ -6,23 +6,27 @@
     margin-bottom: 16px;
     border-radius: 8px;
     box-shadow: $content-box-shadow;
+    margin: 0 auto;
 
     &--first {
       background: url(../images/header/about-us-header-img.png);
       background-size: contain;
+      background-repeat: no-repeat;
     }
 
     &--second {
       background: url(../images/header/about-us-header-img-2.png);
       background-size: contain;
+      background-repeat: no-repeat;
     }
   }
 
   &__text {
-    margin-bottom: 32px;
+    margin: 16px 0 32px;
     color: $description-text-color;
     font-size: 0.875rem;
     font-weight: 300;
+    text-align: center;
 
     &--margin-bottom {
       margin-bottom: 42px;

@@ -1,0 +1,61 @@
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+
+  @include onTablet {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 62px; /* 129.167% */
+  }
+
+  @include onDesktop {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 78px; /* 121.875% */
+  }
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+
+  @include onTablet {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 46px; /* 127.778% */
+  }
+
+  @include onDesktop {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 70px; /* 125% */
+  }
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+
+  @include onTablet {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px; /* 125% */
+  }
+
+  @include onDesktop {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 42px; /* 123.529% */
+  }
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 600;
+
+  @include onDesktop {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 28px; /* 127.273% */
+  }
+}

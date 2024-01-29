@@ -1,6 +1,7 @@
 .reviews {
   width: 260px;
   flex-direction: column;
+  margin: 0 auto;
 
   &__text {
     color: $review-text-color;

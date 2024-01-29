@@ -4,13 +4,14 @@
   justify-content: center;
   align-items: center;
   margin: 20px 0;
-  grid-column: 1 / -1;
+  
 }
 
 .form-tab {
   color: $form-tab-text-color;
   font-size: 1.25rem;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .form-tab--active {
