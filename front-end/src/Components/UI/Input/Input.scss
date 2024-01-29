@@ -1,21 +1,38 @@
+@import '../../../Utils/variables';
+
 .input {
-  // styles for default state
+  padding: 16px;
+  border: 1px solid $--Accent-colour;
+  border-radius: 16px;
+  outline-color: transparent;
 
-  &:focus {
-    // styles if the input is selected
-  }
+  color: #8A8A8A;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
 
-  &:disabled {
-    // styles if the input is disabled
+  transition: color 0.2s linear, border-color 0.2s linear, outline-color 0.2s linear;
+
+  &--filled {
+    color: #02101F;
+    border-color: lightblue;
   }
 
   &--error {
-    // styles if the input has an error
-    border-color: red;
+    border-color: #FF0404;
+    outline: 1px solid #FF0404;
+    color: rgba(246, 8, 8, 0.30);
   }
 
-  &--filled {
-    // styles if the input contains symbols but not focused
-    border-color: lightblue;
+  &:disabled {
+    color: #EDEDED;
+    background-color: #F8F8F8;
+    border-color: #F8F8F8;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $--New-accent-colour;
+    color: #02101F;
   }
 }

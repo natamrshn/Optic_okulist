@@ -1,32 +1,57 @@
+@import '../../../Utils/variables';
+
 .button {
-  // styles for primary btn
+  padding: 16px;
+  min-width: 320px;
+  border-radius: 100px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+
+  color: $--Background;
+  background-color: $--New-accent-colour;
+  border: 1px solid $--New-accent-colour;
+
+  transition: color 0.2s linear, background-color 0.2s linear, border-color 0.2s linear;
 
   &:hover {
-    // styles for primary btn (on hover)
+    color: #fff;
+    background-color: $--Accent-colour;
+    border-color: $--Accent-colour;
   }
 
   &:disabled {
-    // styles for primary disabled btn
+    background-color: #E5E5E5;
+    border-color: #E5E5E5;
+    pointer-events: none;
   }
 
   &:active {
-    // styles for primary active btn (on click)
+    background-color: #050383;
+    border-color: #050383;
   }
 
 
   &--secondary {
-    // styles for secondary btn
+    background-color: #F0F0F0;
+    border-color: $--Accent-colour;
+    color: $--Main-text;
 
     &:hover {
-      // styles for secondary btn (on hover)
+      border-color: $--Accent-colour;
+      background-color: rgba(5, 0, 255, 0.3);
+      color: $--Background;
     }
 
     &:disabled {
-      // styles for secondary disabled btn
+      border-color: #C1C1C1;
+      color: #B7B7B7;
     }
 
     &:active {
-      // styles for secondary active btn tn (on click)
+      background-color: $--New-accent-colour;
+      border-color: #003B57;
     }
   }
 }
