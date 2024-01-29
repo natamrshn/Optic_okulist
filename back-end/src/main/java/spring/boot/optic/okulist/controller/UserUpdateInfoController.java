@@ -5,6 +5,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,5 +55,12 @@ public class UserUpdateInfoController {
             @RequestBody UserPasswordUpdateRequestDto updateRequestDto) {
         UserResponseDto responseDto = updateService.updatePassword(updateRequestDto);
         return ResponseEntity.ok(responseDto);
+    }
+
+    @GetMapping("/account")
+    @Operation(summary = "Get in my account")
+    @ApiResponse(responseCode = "200", description = "Personal info of user getted")
+    public UserResponseDto getAuthInfo(Authentication authentication) {
+        return userService.findDetailsByEmail(authentication);
     }
 }
