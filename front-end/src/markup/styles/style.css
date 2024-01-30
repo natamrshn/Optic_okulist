@@ -305,18 +305,28 @@ table {
   background-color: #0E0ADB;
   border-radius: 100px;
   text-decoration: none;
-  color: #fff;
+  color: var(--Background, #FAFEFD);
   font-size: 1em;
   font-weight: 600;
 }
+.button--secondary {
+  border: 1px solid var(--Accent-colour, #011B35);
+  color: var(--Main-text, #02101F);
+  font-size: 14px;
+  font-weight: 500;
+  background: transparent;
+}
 .button:hover {
   background-color: var(--Accent-colour, #011B35);
+  color: var(--Background, #FAFEFD);
 }
 .button:active {
   background-color: #050383;
+  color: var(--Background, #FAFEFD);
 }
 .button:disabled {
   background-color: #E5E5E5;
+  color: var(--Background, #FAFEFD);
 }
 .button--product {
   gap: 10px;
@@ -1027,7 +1037,6 @@ table {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  grid-column: 1/-1;
 }
 
 .form-field {
@@ -1058,6 +1067,7 @@ table {
 h1 {
   font-size: 40px;
   font-weight: 700;
+  margin: 0 auto;
 }
 @media (min-width: 834px) {
   h1 {
@@ -1077,6 +1087,7 @@ h1 {
 h2 {
   font-size: 32px;
   font-weight: 700;
+  margin: 0 auto;
 }
 @media (min-width: 834px) {
   h2 {
@@ -1096,6 +1107,7 @@ h2 {
 h3 {
   font-size: 24px;
   font-weight: 600;
+  margin: 0 auto;
 }
 @media (min-width: 834px) {
   h3 {
@@ -1115,6 +1127,7 @@ h3 {
 h4 {
   font-size: 20px;
   font-weight: 600;
+  margin: 0 auto;
 }
 @media (min-width: 1024px) {
   h4 {
@@ -1122,6 +1135,41 @@ h4 {
     font-weight: 600;
     line-height: 28px; /* 127.273% */
   }
+}
+
+.personal-cabinet__heading {
+  margin-top: 24px;
+}
+.personal-cabinet__buttons-slider {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  margin-top: 24px;
+}
+.personal-cabinet__buttons-slider::-webkit-scrollbar {
+  width: 0;
+}
+.personal-cabinet__buttons-slider .button {
+  min-width: 150px;
+  height: 38px;
+}
+.personal-cabinet__buttons-slider .button--active {
+  min-width: 120px;
+}
+.personal-cabinet__form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.personal-cabinet__form-wrapper--margin {
+  margin-top: 24px;
+}
+.personal-cabinet__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 32px 0 42px;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */
