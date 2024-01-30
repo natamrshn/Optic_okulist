@@ -5,30 +5,4 @@
   & > * {
     grid-column: 1 / -1;
   }
-
-
-  &--about-us-page {
-    @include contentPadding;
-  }
-
-  &--service-page {
-    @include contentPadding;
-  }
-
-  &--useful-page {
-    @include contentPadding;
-  }
-
-  &--contacts-page {
-     background-color: $main-contacts-page-background-color;
-     @include pageGrid;
-  }
-
-  &--reviews-page {
-    @include contentPadding;
-  }
-
-  &--form {
-    @include pageGrid;
-  }
 }
