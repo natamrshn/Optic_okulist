@@ -8,20 +8,31 @@
   background-color: $button-background-color;
   border-radius: 100px;
   text-decoration: none;
-  color: #fff;
+  color: var(--Background, #FAFEFD);
   font-size: 1em;
   font-weight: 600;
 
+  &--secondary {
+    border: 1px solid var(--Accent-colour, #011B35);
+    color: var(--Main-text, #02101F);
+    font-size: 14px;
+    font-weight: 500;
+    background: transparent;
+  }
+
   &:hover {
     background-color:var(--Accent-colour, #011B35);
+    color: var(--Background, #FAFEFD);
   }
 
   &:active {
-    background-color: #050383;;
+    background-color: #050383;
+    color: var(--Background, #FAFEFD);
   }  
   
   &:disabled {
     background-color: #E5E5E5;
+  color: var(--Background, #FAFEFD);
   }
 
   &--product {
