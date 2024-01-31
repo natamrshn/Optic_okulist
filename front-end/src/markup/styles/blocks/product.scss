@@ -26,10 +26,11 @@
 
   &__name {
     font-weight: 500;
+    margin-bottom: 16px;
   }
 
   &__price {
-    margin: 16px 0;
+    padding-top: 6px;
     font-size: 1.25rem;
     font-weight: 700;
   }
@@ -39,4 +40,48 @@
     align-items: center;
     justify-content: space-between;
   }
+
+  &__info-container {
+    display: flex;
+    gap: 28px;
+    padding-bottom: 16px;
+
+    & > p:not(:first-child) {
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      align-self: center;
+      // padding-bottom: 20px;
+
+      &::before {
+        content: '';
+        display: block;
+        position: relative;
+        left: -12px;
+        top: 10px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+    }
+
+    // align-items: center;
+  }
+
+  &__available {
+    color: #02C121;
+    &::before {
+      background-color: #02C121;
+    }
+  }
+
+  &__not-available {
+    color: #E69800;
+    &::before {
+      background-color: #E69800;
+    }
+  }
+
+
 }
