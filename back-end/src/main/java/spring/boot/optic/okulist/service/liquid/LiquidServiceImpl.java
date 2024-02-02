@@ -100,6 +100,25 @@ public class LiquidServiceImpl implements LiquidService {
     }
 
     @Override
+    public LiquidResponseDto findByIdentifier(String identifier) {
+        Liquid liquid = liquidRepository.findByIdentifier(identifier).orElseThrow(
+                () -> new EntityNotFoundException("Can't found Liquid with Identifier: " + identifier)
+        );
+
+        LiquidResponseDto result = liquidMapper.toDto(liquid);
+
+        List<LiquidResponseDto.Variations> variation = liquidRepository.findAllByIdentifier(liquid.getIdentifier())
+                .stream()
+                .filter(variations -> ! variations.getId().equals(liquid.getId()))
+                .map(liquidMapper::mapLiquidVariationToDto)
+                .toList();
+
+        result.setVariations(variation);
+
+        return result;
+    }
+
+    @Override
     public LiquidResponseDto update(Long id, LiquidRequestDto liquidRequestDto) {
         Liquid existingGlasses = liquidRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(

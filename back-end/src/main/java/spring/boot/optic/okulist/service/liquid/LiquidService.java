@@ -2,6 +2,7 @@ package spring.boot.optic.okulist.service.liquid;
 
 import java.util.List;
 import org.springframework.data.domain.Pageable;
+import spring.boot.optic.okulist.dto.glasses.GlassesResponseDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidRequestDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidResponseDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidSearchParameter;
@@ -20,5 +21,7 @@ public interface LiquidService {
     List<LiquidResponseDto> searchLiquidByParameters(LiquidSearchParameter searchParameters);
 
     List<LiquidResponseDto> findSimilar(LiquidSearchParameter liquidRequestDto);
+
+    LiquidResponseDto findByIdentifier(String identifier);
 
 }
