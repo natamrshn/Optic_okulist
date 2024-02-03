@@ -617,6 +617,12 @@ table {
 .product__image--small {
   width: 40px;
   height: 25px;
+  box-sizing: border-box;
+  border: 0.5px solid rgb(157, 195, 215);
+  border-radius: 8px;
+  /* Images */
+  box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
 }
 .product__descripsion {
   margin: 8px 0 0;
