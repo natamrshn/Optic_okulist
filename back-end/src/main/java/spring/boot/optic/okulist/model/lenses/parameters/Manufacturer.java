@@ -38,9 +38,9 @@ public class Manufacturer {
     private List<Color> colors;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "manufacturers_colors",
+    @JoinTable(name = "manufacturers_additions",
             joinColumns = @JoinColumn(name = "manufacturer_id"),
-            inverseJoinColumns = @JoinColumn(name = "color_id"))
+            inverseJoinColumns = @JoinColumn(name = "addition_id"))
     private List<Addition> additions;
 
     @OneToOne(fetch = FetchType.EAGER)

@@ -55,9 +55,10 @@ public interface ManufacturerMapper {
     }
     //Что это такое?)
     @AfterMapping
-    default void addColorAndSphereIds(Manufacturer manufacturer,
+    default void addColorAndAdditionAndSphereIds(Manufacturer manufacturer,
                                       @MappingTarget ManufacturerResponseDto dto) {
         dto.setColorsId(mapColorsToIds(manufacturer.getColors()));
+        dto.getAdditionsId(mapAdditionsToIds(manufacturer.getAdditions()));
         dto.setSphereId(mapSpheresToIds(manufacturer.getSpheres()));
     }
 

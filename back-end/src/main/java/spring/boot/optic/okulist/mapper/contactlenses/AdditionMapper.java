@@ -9,6 +9,7 @@ import spring.boot.optic.okulist.model.lenses.parameters.Addition;
 
 @Mapper(config = MapperConfig.class)
 public interface AdditionMapper {
+
     AdditionResponseDto toDto(Addition addition);
 
     Addition toModel(AdditionRequestDto additionRequestDto);
