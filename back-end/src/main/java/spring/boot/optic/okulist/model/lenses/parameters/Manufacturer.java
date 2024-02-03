@@ -37,6 +37,12 @@ public class Manufacturer {
             inverseJoinColumns = @JoinColumn(name = "color_id"))
     private List<Color> colors;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "manufacturers_colors",
+            joinColumns = @JoinColumn(name = "manufacturer_id"),
+            inverseJoinColumns = @JoinColumn(name = "color_id"))
+    private List<Addition> additions;
+
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cylinder_id")
     private Cylinder cylinder;

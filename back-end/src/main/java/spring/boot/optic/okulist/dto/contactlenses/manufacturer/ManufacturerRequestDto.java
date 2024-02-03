@@ -11,6 +11,7 @@ import lombok.Setter;
 public class ManufacturerRequestDto {
     private String name;
     private List<Long> colorsIds;
+    private List<Long> additionsIds;
     private Long cylinderId;
     private Long degreeId;
     private Long diopterId;

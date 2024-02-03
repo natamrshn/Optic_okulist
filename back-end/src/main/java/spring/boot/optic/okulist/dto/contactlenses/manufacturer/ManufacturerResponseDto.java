@@ -12,6 +12,7 @@ public class ManufacturerResponseDto {
     private Long id;
     private String name;
     private List<Long> colorsId;
+    private List<Long> additionsId;
     private Long cylinderId;
     private Long degreeId;
     private Long diopterId;
