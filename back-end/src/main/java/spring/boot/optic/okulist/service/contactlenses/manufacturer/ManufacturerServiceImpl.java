@@ -12,18 +12,9 @@ import spring.boot.optic.okulist.dto.contactlenses.manufacturer.ManufacturerRequ
 import spring.boot.optic.okulist.dto.contactlenses.manufacturer.ManufacturerResponseDto;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.mapper.contactlenses.ManufacturerMapper;
-import spring.boot.optic.okulist.model.lenses.parameters.Color;
-import spring.boot.optic.okulist.model.lenses.parameters.Cylinder;
-import spring.boot.optic.okulist.model.lenses.parameters.Degree;
-import spring.boot.optic.okulist.model.lenses.parameters.Diopter;
-import spring.boot.optic.okulist.model.lenses.parameters.Manufacturer;
-import spring.boot.optic.okulist.model.lenses.parameters.Sphere;
+import spring.boot.optic.okulist.model.lenses.parameters.*;
 import spring.boot.optic.okulist.repository.lenses.ManufacturerRepository;
-import spring.boot.optic.okulist.repository.lenses.paramsrepository.ColorRepository;
-import spring.boot.optic.okulist.repository.lenses.paramsrepository.CylinderRepository;
-import spring.boot.optic.okulist.repository.lenses.paramsrepository.DegreeRepository;
-import spring.boot.optic.okulist.repository.lenses.paramsrepository.DiopterRepository;
-import spring.boot.optic.okulist.repository.lenses.paramsrepository.SphereRepository;
+import spring.boot.optic.okulist.repository.lenses.paramsrepository.*;
 
 @Service
 @RequiredArgsConstructor
@@ -34,6 +25,7 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     private final DiopterRepository diopterRepository;
     private final SphereRepository sphereRepository;
     private final ColorRepository colorRepository;
+    private final AdditionRepository additionRepository;
     private final CylinderRepository cylinderRepository;
 
     @Override
@@ -63,6 +55,30 @@ public class ManufacturerServiceImpl implements ManufacturerService {
             }
 
             manufacturer.setColors(colors);
+        }
+
+        List<Long> requestedAdditions = manufacturerRequestDto.getAdditionsIds();
+        if (requestedAdditions != null && !requestedAdditions.isEmpty()) {
+            List<Addition> additions = requestedAdditions.stream()
+                    .map(additionRepository::findById)
+                    .filter(Optional::isPresent)
+                    .map(Optional::get)
+                    .toList();
+
+            if (additions.size() != requestedAdditions.size()) {
+                Set<Long> foundIds = additions.stream()
+                        .map(Addition::getId)
+                        .collect(toSet());
+
+                List<Long> notFoundIds = requestedAdditions.stream()
+                        .filter(id -> !foundIds.contains(id))
+                        .toList();
+
+                throw new EntityNotFoundException("Not all lens additions were found. "
+                        + "Haven't found additions with ids: " + notFoundIds);
+            }
+
+            manufacturer.setAdditions(additions);
         }
 
         if (manufacturerRequestDto.getCylinderId() != null) {

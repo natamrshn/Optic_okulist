@@ -52,6 +52,7 @@ public class ContactLensesController {
         return contactLensesService.findAll(pageable);
     }
 
+    /*
     @Operation(summary = "Get Lenses by ID")
     @GetMapping("/{id}")
     @ApiResponse(responseCode = "200", description = "Lenses retrieved successfully")
@@ -60,6 +61,7 @@ public class ContactLensesController {
         logger.info("Retrieving category with ID: " + id);
         return contactLensesService.getById(id);
     }
+    */
 
     @Operation(summary = "Update Lenses by ID")
     @PutMapping("/{id}")
@@ -81,5 +83,14 @@ public class ContactLensesController {
     public void deleteLenses(@PathVariable Long id) {
         logger.info("Deleting lenses with ID: " + id);
         contactLensesService.deleteLensesById(id);
+    }
+
+    @Operation(summary = "Get Lenses by ID")
+    @GetMapping("/{identifier}")
+    @ApiResponse(responseCode = "200", description = "Lenses retrieved successfully")
+    @ApiResponse(responseCode = "404", description = "Lenses not found")
+    public ContactLensesResponseDto getLensesByIdentifier(@PathVariable String identifier) {
+        logger.info("Retrieving category with Identifier: " + identifier);
+        return contactLensesService.findByIdentifier(identifier);
     }
 }

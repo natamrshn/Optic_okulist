@@ -19,5 +19,5 @@ public interface GlassesService {
 
     List<GlassesResponseDto> searchGlassesByParameters(GlassesSearchParameter searchParameters);
 
-    List<GlassesResponseDto> findSimilar(GlassesSearchParameter glassesRequestDto);
+    GlassesResponseDto findByIdentifier(String identifier);
 }

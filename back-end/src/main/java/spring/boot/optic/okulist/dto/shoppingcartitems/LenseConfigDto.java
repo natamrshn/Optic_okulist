@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class LenseConfigDto {
     private String color;
+    private String addition;
     private String cylinder;
     private String degree;
     private String diopter;

@@ -9,12 +9,14 @@ import org.mapstruct.MappingTarget;
 import spring.boot.optic.okulist.config.MapperConfig;
 import spring.boot.optic.okulist.dto.contactlenses.manufacturer.ManufacturerRequestDto;
 import spring.boot.optic.okulist.dto.contactlenses.manufacturer.ManufacturerResponseDto;
+import spring.boot.optic.okulist.model.lenses.parameters.Addition;
 import spring.boot.optic.okulist.model.lenses.parameters.Color;
 import spring.boot.optic.okulist.model.lenses.parameters.Manufacturer;
 import spring.boot.optic.okulist.model.lenses.parameters.Sphere;
 
 @Mapper(config = MapperConfig.class,
         uses = {ColorMapper.class,
+                AdditionMapper.class,
                 CylinderMapper.class,
                 DegreeMapper.class,
                 DiopterMapper.class})
@@ -34,6 +36,15 @@ public interface ManufacturerMapper {
         return Collections.emptyList();
     }
 
+    default List<Long> mapAdditionsToIds(List<Addition> additions) {
+        if (additions != null) {
+            return additions.stream()
+                    .map(Addition::getId)
+                    .toList();
+        }
+        return Collections.emptyList();
+    }
+
     default List<Long> mapSpheresToIds(List<Sphere> spheres) {
         if (spheres != null) {
             return spheres.stream()
@@ -42,11 +53,12 @@ public interface ManufacturerMapper {
         }
         return Collections.emptyList();
     }
-
+    //Что это такое?)
     @AfterMapping
-    default void addColorAndSphereIds(Manufacturer manufacturer,
+    default void addColorAndAdditionAndSphereIds(Manufacturer manufacturer,
                                       @MappingTarget ManufacturerResponseDto dto) {
         dto.setColorsId(mapColorsToIds(manufacturer.getColors()));
+        dto.getAdditionsId(mapAdditionsToIds(manufacturer.getAdditions()));
         dto.setSphereId(mapSpheresToIds(manufacturer.getSpheres()));
     }
 

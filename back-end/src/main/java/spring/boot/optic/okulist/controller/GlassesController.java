@@ -4,10 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -56,6 +53,7 @@ public class GlassesController {
         return glassesService.findAll(pageable);
     }
 
+    /*
     @Operation(summary = "Get Glasses by ID")
     @GetMapping("/{id}")
     @ApiResponse(responseCode = "200", description = "Glasses retrieved successfully")
@@ -64,6 +62,7 @@ public class GlassesController {
         logger.info("Retrieving glasses with ID: " + id);
         return glassesService.getById(id);
     }
+    */
 
     @Operation(summary = "Update Glasses by ID")
     @PutMapping("/{id}")
@@ -84,22 +83,6 @@ public class GlassesController {
         return glassesService.searchGlassesByParameters(searchParameters);
     }
 
-    @Operation(summary = "Search for glasses",
-            description = "Searches for glasses in the store based on "
-                    + "various search parameters such as color, manufacturer or model.")
-    @GetMapping("/search-similiar")
-    @ApiResponse(responseCode = "200", description = "Glasses found successfully")
-    public List<GlassesResponseDto> searchLiquidsWithSimiliarParams(
-            GlassesSearchParameter searchParameters) {
-        List<GlassesResponseDto> foundGlasses = glassesService
-                .searchGlassesByParameters(searchParameters);
-        List<GlassesResponseDto> similarGlasses = glassesService
-                .findSimilar(searchParameters);
-        Set<GlassesResponseDto> combinedSet = new HashSet<>(foundGlasses);
-        combinedSet.addAll(similarGlasses);
-        return new ArrayList<>(combinedSet);
-    }
-
     @Operation(summary = "Delete glasses by their ID")
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
@@ -109,5 +92,14 @@ public class GlassesController {
     public void deleteGlasses(@PathVariable Long id) {
         logger.info("Deleting glasses with ID: " + id);
         glassesService.deleteById(id);
+    }
+
+    @Operation(summary = "Get Glasses by identifier")
+    @GetMapping("/{identifier}")
+    @ApiResponse(responseCode = "200", description = "Glasses retrieved successfully")
+    @ApiResponse(responseCode = "404", description = "Glasses not found")
+    public GlassesResponseDto getGlassesByIdentifier(@PathVariable String identifier) {
+        logger.info("Retrieving glasses with Identifier: " + identifier);
+        return glassesService.findByIdentifier(identifier);
     }
 }

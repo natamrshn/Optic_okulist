@@ -189,6 +189,6 @@ public class UserServiceImpl implements UserService {
     }
 
     public UserResponseDto findDetailsByEmail(Authentication authentication) {
-            return userMapper.toDtoUser(userRepository.getByEmail(authentication.getName()));
+        return userMapper.toDtoUser(userRepository.getByEmail(authentication.getName()));
     }
 }
