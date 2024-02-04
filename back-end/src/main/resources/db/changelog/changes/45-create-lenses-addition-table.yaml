@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-lenses-addition-table
+      author: Hlib13
+      changes:
+        - createTable:
+            tableName: "lenses_addition"
+            columns:
+              - column:
+                  name: "id"
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: "addition"
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
