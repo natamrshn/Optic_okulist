@@ -1,5 +1,6 @@
 package spring.boot.optic.okulist.repository;
 
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.domain.Specification;
@@ -14,4 +15,6 @@ public interface GlassesRepository extends JpaRepository<Glasses, Long> {
     List<Glasses> findAllByModelAndManufacturer(String model, String manufacturer);
 
     Optional<Glasses> findByIdentifier(String identifier);
+
+    List<Glasses> findAllByOrderByIdDesc(Pageable pageable);
 }

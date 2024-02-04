@@ -5,6 +5,8 @@ import org.springframework.data.domain.Pageable;
 import spring.boot.optic.okulist.dto.liquid.LiquidRequestDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidResponseDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidSearchParameter;
+import spring.boot.optic.okulist.model.Glasses;
+import spring.boot.optic.okulist.model.Liquid;
 
 public interface LiquidService {
     List<LiquidResponseDto> findAll(Pageable pageable);
@@ -23,4 +25,5 @@ public interface LiquidService {
 
     LiquidResponseDto findByIdentifier(String identifier);
 
+    List<LiquidResponseDto> findAllByOrderByIdDesc(Pageable pageable);
 }

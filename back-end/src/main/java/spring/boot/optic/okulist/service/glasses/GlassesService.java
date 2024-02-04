@@ -9,6 +9,8 @@ import spring.boot.optic.okulist.dto.glasses.GlassesSearchParameter;
 public interface GlassesService {
     List<GlassesResponseDto> findAll(Pageable pageable);
 
+    List<GlassesResponseDto> findAllByOrderByGlassesIdDesc(Pageable pageable);
+
     GlassesResponseDto getById(Long id);
 
     GlassesResponseDto save(GlassesRequestDto glassesRequestDto);

@@ -50,7 +50,7 @@ public class GlassesController {
     @GetMapping
     @ApiResponse(responseCode = "200", description = "List of glasses retrieved successfully")
     public List<GlassesResponseDto> getAll(Pageable pageable) {
-        return glassesService.findAll(pageable);
+        return glassesService.findAllByOrderByGlassesIdDesc(pageable);
     }
 
     /*

@@ -49,7 +49,7 @@ public class ContactLensesController {
     @GetMapping
     @ApiResponse(responseCode = "200", description = "List of lenses retrieved successfully")
     public List<ContactLensesResponseDto> getAll(Pageable pageable) {
-        return contactLensesService.findAll(pageable);
+        return contactLensesService.findAllByOrderByIdDesc(pageable);
     }
 
     /*
