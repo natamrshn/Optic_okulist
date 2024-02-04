@@ -85,3 +85,10 @@ databaseChangeLog:
       file: db/changelog/changes/43-create-address-table.yaml
   - include:
       file: db/changelog/changes/44-fill-address-table.yaml
+  - include:
+      file: db/changelog/changes/45-create-lenses-addition-table.yaml
+  - include:
+      file: db/changelog/changes/46-chg-cart-items-table.yaml
+  - include:
+      file: db/changelog/changes/47-create-manufacturers_additions-table.yaml
+

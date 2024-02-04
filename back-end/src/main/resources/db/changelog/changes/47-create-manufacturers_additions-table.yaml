@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: redesign-manufacturers-connections
+      author: Hlib13
+      changes:
+        - createTable:
+            tableName: manufacturers_additions
+            columns:
+              - column:
+                  name: manufacturer_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: addition_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false

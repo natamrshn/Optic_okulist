@@ -33,6 +33,14 @@ public class GlassesServiceImpl implements GlassesService {
     }
 
     @Override
+    public List<GlassesResponseDto> findAllByOrderByGlassesIdDesc(Pageable pageable) {
+        return glassesRepository.findAllByOrderByIdDesc(pageable)
+                .stream()
+                .map(glassesMapper::toDto)
+                .toList();
+    }
+
+    @Override
     public GlassesResponseDto getById(Long id) {
         Glasses glasses = glassesRepository.findById(id).orElseThrow(
                 () -> new EntityNotFoundException("Can't found Glasses with ID: " + id)

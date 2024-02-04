@@ -53,12 +53,12 @@ public interface ManufacturerMapper {
         }
         return Collections.emptyList();
     }
-    //Что это такое?)
+
     @AfterMapping
     default void addColorAndAdditionAndSphereIds(Manufacturer manufacturer,
                                       @MappingTarget ManufacturerResponseDto dto) {
         dto.setColorsId(mapColorsToIds(manufacturer.getColors()));
-        dto.getAdditionsId(mapAdditionsToIds(manufacturer.getAdditions()));
+        dto.setAdditionsId(mapAdditionsToIds(manufacturer.getAdditions()));
         dto.setSphereId(mapSpheresToIds(manufacturer.getSpheres()));
     }
 

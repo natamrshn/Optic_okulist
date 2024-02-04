@@ -82,6 +82,14 @@ public class ContactLensesServiceImpl implements ContactLensesService {
         return contactLensesMapper.toDto(lenses);
     }
 
+    @Override
+    public List<ContactLensesResponseDto> findAllByOrderByIdDesc(Pageable pageable) {
+        return contactLensesRepository.findAllByOrderByIdDesc(pageable)
+                .stream()
+                .map(contactLensesMapper::toDto)
+                .toList();
+    }
+
     private String[] getNullPropertyNames(Object source) {
         return getStrings(source);
     }

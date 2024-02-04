@@ -12,9 +12,20 @@ import spring.boot.optic.okulist.dto.contactlenses.manufacturer.ManufacturerRequ
 import spring.boot.optic.okulist.dto.contactlenses.manufacturer.ManufacturerResponseDto;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.mapper.contactlenses.ManufacturerMapper;
-import spring.boot.optic.okulist.model.lenses.parameters.*;
+import spring.boot.optic.okulist.model.lenses.parameters.Addition;
+import spring.boot.optic.okulist.model.lenses.parameters.Color;
+import spring.boot.optic.okulist.model.lenses.parameters.Cylinder;
+import spring.boot.optic.okulist.model.lenses.parameters.Degree;
+import spring.boot.optic.okulist.model.lenses.parameters.Diopter;
+import spring.boot.optic.okulist.model.lenses.parameters.Manufacturer;
+import spring.boot.optic.okulist.model.lenses.parameters.Sphere;
 import spring.boot.optic.okulist.repository.lenses.ManufacturerRepository;
-import spring.boot.optic.okulist.repository.lenses.paramsrepository.*;
+import spring.boot.optic.okulist.repository.lenses.paramsrepository.AdditionRepository;
+import spring.boot.optic.okulist.repository.lenses.paramsrepository.ColorRepository;
+import spring.boot.optic.okulist.repository.lenses.paramsrepository.CylinderRepository;
+import spring.boot.optic.okulist.repository.lenses.paramsrepository.DegreeRepository;
+import spring.boot.optic.okulist.repository.lenses.paramsrepository.DiopterRepository;
+import spring.boot.optic.okulist.repository.lenses.paramsrepository.SphereRepository;
 
 @Service
 @RequiredArgsConstructor

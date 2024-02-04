@@ -4,7 +4,8 @@ import java.util.List;
 import org.springframework.data.domain.Pageable;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.contactlenses.ContactLensesRequestDto;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.contactlenses.ContactLensesResponseDto;
-import spring.boot.optic.okulist.dto.glasses.GlassesResponseDto;
+import spring.boot.optic.okulist.dto.liquid.LiquidResponseDto;
+import spring.boot.optic.okulist.model.lenses.ContactLenses;
 
 public interface ContactLensesService {
     ContactLensesResponseDto createContactLenses(ContactLensesRequestDto contactLensesRequestDto);
@@ -18,4 +19,6 @@ public interface ContactLensesService {
     void deleteLensesById(Long lensesId);
 
     ContactLensesResponseDto findByIdentifier(String identifier);
+
+    List<ContactLensesResponseDto> findAllByOrderByIdDesc(Pageable pageable);
 }

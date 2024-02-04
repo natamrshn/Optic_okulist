@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import spring.boot.optic.okulist.dto.contactlenses.parameters.addition.AdditionRequestDto;
+import spring.boot.optic.okulist.dto.contactlenses.parameters.addition.AdditionResponseDto;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.color.ColorRequestDto;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.color.ColorResponseDto;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.cylinder.CylinderRequestDto;
@@ -25,6 +27,7 @@ import spring.boot.optic.okulist.dto.contactlenses.parameters.diopter.DiopterReq
 import spring.boot.optic.okulist.dto.contactlenses.parameters.diopter.DiopterResponseDto;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.sphere.SphereRequestDto;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.sphere.SphereResponseDto;
+import spring.boot.optic.okulist.service.contactlenses.params.addition.AdditionService;
 import spring.boot.optic.okulist.service.contactlenses.params.color.ColorService;
 import spring.boot.optic.okulist.service.contactlenses.params.cylinder.CylinderService;
 import spring.boot.optic.okulist.service.contactlenses.params.degree.DegreeService;
@@ -36,6 +39,7 @@ import spring.boot.optic.okulist.service.contactlenses.params.sphere.SphereServi
 @RequestMapping("/parameters")
 public class ParametersController {
     private final ColorService colorService;
+    private final AdditionService additionService;
     private final CylinderService cylinderService;
     private final DegreeService degreeService;
     private final DiopterService diopterService;
@@ -76,6 +80,43 @@ public class ParametersController {
     })
     public ColorResponseDto getColorById(@PathVariable Long id) {
         return colorService.getColorById(id);
+    }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PostMapping("/create-addition")
+    @Operation(summary = "Create addition", description = "Create a new addition")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Addition created successfully"),
+            @ApiResponse(responseCode = "400", description = "Bad request. Invalid data provided"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized. Authentication required")
+    })
+    public ResponseEntity<AdditionResponseDto> createAddition(@RequestBody
+                                                        @Valid AdditionRequestDto additionRequestDto) {
+        AdditionResponseDto createdAddition = additionService.createAddition(additionRequestDto);
+        return new ResponseEntity<>(createdAddition, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/getAll-Additions")
+    @Operation(summary = "Get all Additions", description = "Get a list of all available Additions")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Colors retrieved successfully"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized. Authentication required")
+    })
+    public ResponseEntity<List<AdditionResponseDto>> getAllAdditions() {
+        List<AdditionResponseDto> allAdditions = additionService.getAllAdditions();
+        return ResponseEntity.ok(allAdditions);
+    }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping("/additions/{id}")
+    @Operation(summary = "Get addition by ID", description = "Get available Addition by ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Addition retrieved successfully"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized. Authentication required"),
+            @ApiResponse(responseCode = "404", description = "Addition not found")
+    })
+    public AdditionResponseDto getAdditionById(@PathVariable Long id) {
+        return additionService.getAdditionById(id);
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
