@@ -2,6 +2,8 @@ package spring.boot.optic.okulist.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -36,7 +38,8 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "status", nullable = false)
-    private Product.ProductStatus status;
+    @Enumerated(EnumType.STRING)
+    private Product.ProductStatus status = Product.ProductStatus.AVALIABLE; // Set a default value
     private String name;
     private BigDecimal price;
     private String identifier;
