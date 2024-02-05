@@ -66,7 +66,9 @@ public class ManufacturerServiceImpl implements ManufacturerService {
 
     private void processAdditions(List<Long> requestedAdditions, Manufacturer manufacturer) {
         if (requestedAdditions != null && !requestedAdditions.isEmpty()) {
-            List<Addition> additions = findByIdList(additionRepository, requestedAdditions, Addition.class, "Additions");
+            List<Addition> additions =
+                    findByIdList(additionRepository, requestedAdditions,
+                            Addition.class, "Additions");
             manufacturer.setAdditions(additions);
         }
     }
@@ -87,19 +89,22 @@ public class ManufacturerServiceImpl implements ManufacturerService {
 
     private void setDiopter(Long diopterId, Manufacturer manufacturer) {
         if (diopterId != null) {
-            Diopter diopter = findById(diopterRepository, diopterId, Diopter.class, "Diopter");
+            Diopter diopter = findById(diopterRepository,
+                    diopterId, Diopter.class, "Diopter");
             manufacturer.setDiopter(diopter);
         }
     }
 
     private void processSpheres(List<Long> requestedSpheres, Manufacturer manufacturer) {
         if (requestedSpheres != null && !requestedSpheres.isEmpty()) {
-            List<Sphere> spheres = findByIdList(sphereRepository, requestedSpheres, Sphere.class, "Spheres");
+            List<Sphere> spheres = findByIdList(sphereRepository, requestedSpheres,
+                    Sphere.class, "Spheres");
             manufacturer.setSpheres(spheres);
         }
     }
 
-    private <T> List<T> findByIdList(JpaRepository<T, Long> repository, List<Long> ids, Class<T> entityClass, String entityName) {
+    private <T> List<T> findByIdList(JpaRepository<T, Long> repository,
+                                     List<Long> ids, Class<T> entityClass, String entityName) {
         List<T> entities = ids.stream()
                 .map(repository::findById)
                 .filter(Optional::isPresent)
@@ -121,15 +126,18 @@ public class ManufacturerServiceImpl implements ManufacturerService {
                     .filter(id -> !foundIds.contains(id))
                     .toList();
 
-            throw new EntityNotFoundException("Not all " + entityName + " were found. Haven't found " + entityName + " with ids: " + notFoundIds);
+            throw new EntityNotFoundException("Not all "
+                    + entityName + " were found. Haven't found "
+                    + entityName + " with ids: " + notFoundIds);
         }
-
         return entities;
     }
 
-    private <T> T findById(JpaRepository<T, Long> repository, Long id, Class<T> entityClass, String entityName) {
+    private <T> T findById(JpaRepository<T, Long> repository,
+                           Long id, Class<T> entityClass, String entityName) {
         return repository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException(entityClass.getSimpleName() + " not found with ID: " + id));
+                .orElseThrow(() -> new EntityNotFoundException(entityClass.getSimpleName()
+                        + " not found with ID: " + id));
     }
 
     @Override
@@ -146,7 +154,6 @@ public class ManufacturerServiceImpl implements ManufacturerService {
                 .map(manufacturerMapper::toDto)
                 .collect(Collectors.toList());
     }
-
 
     @Override
     public void deleteManufacturer(Long manufacturerId) {

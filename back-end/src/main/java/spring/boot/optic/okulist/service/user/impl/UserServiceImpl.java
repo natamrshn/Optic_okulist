@@ -108,7 +108,6 @@ public class UserServiceImpl implements UserService {
         user.setRoles(defaultUserRoleSet);
     }
 
-
     @Override
     public UserResponseDto update(Long userId, UserUpdateRequestDto updateRequestDto) {
         RegisteredUser user = userRepository.findById(userId)

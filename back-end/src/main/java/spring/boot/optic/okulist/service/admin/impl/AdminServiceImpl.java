@@ -1,10 +1,6 @@
 package spring.boot.optic.okulist.service.admin.impl;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;

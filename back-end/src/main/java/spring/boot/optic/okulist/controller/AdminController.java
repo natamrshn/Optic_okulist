@@ -3,9 +3,7 @@ package spring.boot.optic.okulist.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-
 import java.util.List;
-
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,7 +12,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import spring.boot.optic.okulist.dto.admin.AdminIdsRequestDto;
 import spring.boot.optic.okulist.dto.admin.UserRoleChangeRequestDto;
@@ -85,7 +82,8 @@ public class AdminController {
     @PreAuthorize("hasRole('MAIN_ADMIN')")
     public ResponseEntity<String> updatePermissionsByRole(
             @RequestBody UserRoleChangeRequestDto requestDto) {
-        adminService.updatePermissionsByRole(requestDto.getUserEmail(), Role.RoleName.valueOf(String.valueOf(requestDto.getNewRoleName())));
+        adminService.updatePermissionsByRole(requestDto.getUserEmail(),
+                Role.RoleName.valueOf(String.valueOf(requestDto.getNewRoleName())));
         return ResponseEntity.ok("User permissions updated successfully");
     }
 }

@@ -1,8 +1,7 @@
 package spring.boot.optic.okulist.service.admin;
 
-import spring.boot.optic.okulist.model.Role;
-
 import java.util.List;
+import spring.boot.optic.okulist.model.Role;
 
 public interface AdminService {
     void grantPermissionsToAdmins();
