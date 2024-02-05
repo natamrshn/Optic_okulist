@@ -23,4 +23,8 @@ public interface OrderService {
     OrderResponseDto updateOrderStatus(Long orderId, Order.Status status);
 
     List<Order> findAllOrdersSortedByDateDesc();
+
+    List<OrderResponseDto> findByUserEmail(String email);
+
+    List<OrderResponseDto> findAllByUserPhoneNumber(Long number);
 }

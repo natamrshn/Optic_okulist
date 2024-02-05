@@ -63,6 +63,22 @@ public class OrderServiceImpl implements OrderService {
         return orderRepository.findAllOrdersSortedByDateDesc();
     }
 
+    @Override
+    public List<OrderResponseDto> findByUserEmail(String email) {
+        return orderRepository.findAllByUserEmail(email)
+                .stream()
+                .map(orderMapper::toDto)
+                .toList();
+    }
+
+    @Override
+    public List<OrderResponseDto> findAllByUserPhoneNumber(Long number) {
+        return orderRepository.findAllByUserPhoneNumber(number)
+                .stream()
+                .map(orderMapper::toDto)
+                .toList();
+    }
+
     private Order getOrderById(Long orderId) {
         return orderRepository.findById(orderId).orElseThrow(() ->
                 new EntityNotFoundException("can't find order by id: " + orderId));
