@@ -1,6 +1,10 @@
 package spring.boot.optic.okulist.service.admin.impl;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
@@ -64,5 +68,27 @@ public class AdminServiceImpl implements AdminService {
             specificAdmin.setDeletePermission(false);
         }
         userRepository.saveAll(specificAdmins);
+    }
+
+    @Override
+    public void updatePermissionsByRole(String userEmail, Role.RoleName newRoleName) {
+        RegisteredUser user = userRepository.findByEmail(userEmail)
+                .orElseThrow(() -> new EntityNotFoundException("User not found with email: " + userEmail));
+
+        // Оновлення інших полів за потреби
+        if (newRoleName == Role.RoleName.MAIN_ADMIN || newRoleName == Role.RoleName.ADMIN) {
+            user.setAdmin(true);
+            user.setCreatePermission(true);
+            user.setUpdatePermission(true);
+            user.setDeletePermission(true);
+        } else {
+            // Скидання інших полів, якщо роль не є ADMIN чи MAIN_ADMIN
+            user.setAdmin(false);
+            user.setCreatePermission(false);
+            user.setUpdatePermission(false);
+            user.setDeletePermission(false);
+        }
+
+        userRepository.save(user);
     }
 }

@@ -16,7 +16,6 @@ import spring.boot.optic.okulist.dto.liquid.LiquidResponseDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidSearchParameter;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.mapper.LiquidMapper;
-import spring.boot.optic.okulist.model.Glasses;
 import spring.boot.optic.okulist.model.Liquid;
 import spring.boot.optic.okulist.repository.LiquidRepository;
 import spring.boot.optic.okulist.specification.liquid.builders.LiquidSpecificationBuilder;
