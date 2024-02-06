@@ -11,7 +11,6 @@ import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -62,8 +61,8 @@ public class LiquidController {
     @Operation(summary = "Get All liquids ")
     @GetMapping
     @ApiResponse(responseCode = "200", description = "List of liquids retrieved successfully")
-    public List<LiquidResponseDto> getAllLiquids(Pageable pageable) {
-        return liquidService.findAllByOrderByIdDesc(pageable);
+    public List<LiquidResponseDto> getAllLiquids() {
+        return liquidService.findAll();
     }
 
     /* @Operation(summary = "Get liquid by ID")

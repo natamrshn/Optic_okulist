@@ -3,7 +3,6 @@ package spring.boot.optic.okulist.repository;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -21,6 +20,4 @@ public interface LiquidRepository extends JpaRepository<Liquid, Long> {
     List<Liquid> findAllByIdentifier(String identifier);
 
     Optional<Liquid> findByIdentifier(String identifier);
-
-    List<Liquid> findAllByOrderByIdDesc(Pageable pageable);
 }

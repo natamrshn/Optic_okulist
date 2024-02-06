@@ -8,7 +8,6 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -49,8 +48,8 @@ public class GlassesController {
     @Operation(summary = "Get All glasses ")
     @GetMapping
     @ApiResponse(responseCode = "200", description = "List of glasses retrieved successfully")
-    public List<GlassesResponseDto> getAll(Pageable pageable) {
-        return glassesService.findAllByOrderByGlassesIdDesc(pageable);
+    public List<GlassesResponseDto> getAll() {
+        return glassesService.findAll();
     }
 
     /*
