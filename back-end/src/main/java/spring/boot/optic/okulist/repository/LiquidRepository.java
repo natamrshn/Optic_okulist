@@ -21,6 +21,4 @@ public interface LiquidRepository extends JpaRepository<Liquid, Long> {
     List<Liquid> findAllByIdentifier(String identifier);
 
     Optional<Liquid> findByIdentifier(String identifier);
-
-    List<Liquid> findAllByOrderByIdDesc(Pageable pageable);
 }

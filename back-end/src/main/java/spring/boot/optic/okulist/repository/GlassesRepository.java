@@ -16,5 +16,4 @@ public interface GlassesRepository extends JpaRepository<Glasses, Long> {
 
     Optional<Glasses> findByIdentifier(String identifier);
 
-    List<Glasses> findAllByOrderByIdDesc(Pageable pageable);
 }

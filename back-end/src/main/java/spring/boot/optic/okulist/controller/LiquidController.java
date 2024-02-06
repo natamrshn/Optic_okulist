@@ -62,8 +62,8 @@ public class LiquidController {
     @Operation(summary = "Get All liquids ")
     @GetMapping
     @ApiResponse(responseCode = "200", description = "List of liquids retrieved successfully")
-    public List<LiquidResponseDto> getAllLiquids(Pageable pageable) {
-        return liquidService.findAllByOrderByIdDesc(pageable);
+    public List<LiquidResponseDto> getAllLiquids() {
+        return liquidService.findAll();
     }
 
     /* @Operation(summary = "Get liquid by ID")

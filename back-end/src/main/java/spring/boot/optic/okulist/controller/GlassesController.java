@@ -49,8 +49,8 @@ public class GlassesController {
     @Operation(summary = "Get All glasses ")
     @GetMapping
     @ApiResponse(responseCode = "200", description = "List of glasses retrieved successfully")
-    public List<GlassesResponseDto> getAll(Pageable pageable) {
-        return glassesService.findAllByOrderByGlassesIdDesc(pageable);
+    public List<GlassesResponseDto> getAll() {
+        return glassesService.findAll();
     }
 
     /*

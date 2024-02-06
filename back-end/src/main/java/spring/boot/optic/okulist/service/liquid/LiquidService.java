@@ -7,7 +7,7 @@ import spring.boot.optic.okulist.dto.liquid.LiquidResponseDto;
 import spring.boot.optic.okulist.dto.liquid.LiquidSearchParameter;
 
 public interface LiquidService {
-    List<LiquidResponseDto> findAll(Pageable pageable);
+    List<LiquidResponseDto> findAll();
 
     LiquidResponseDto getById(Long id);
 
@@ -22,6 +22,4 @@ public interface LiquidService {
     List<LiquidResponseDto> findSimilar(LiquidSearchParameter liquidRequestDto);
 
     LiquidResponseDto findByIdentifier(String identifier);
-
-    List<LiquidResponseDto> findAllByOrderByIdDesc(Pageable pageable);
 }

@@ -28,7 +28,7 @@ public class LiquidServiceImpl implements LiquidService {
     private final LiquidSpecificationBuilder specificationBuilder;
 
     @Override
-    public List<LiquidResponseDto> findAll(Pageable pageable) {
+    public List<LiquidResponseDto> findAll() {
         return liquidRepository.findAll()
                 .stream()
                 .map(liquidMapper::toDto)
@@ -116,14 +116,6 @@ public class LiquidServiceImpl implements LiquidService {
         result.setVariations(variation);
 
         return result;
-    }
-
-    @Override
-    public List<LiquidResponseDto> findAllByOrderByIdDesc(Pageable pageable) {
-        return liquidRepository.findAllByOrderByIdDesc(pageable)
-                .stream()
-                .map(liquidMapper::toDto)
-                .toList();
     }
 
     @Override
