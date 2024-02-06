@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.liquid.LiquidRequestDto;
@@ -28,7 +27,7 @@ public class LiquidServiceImpl implements LiquidService {
     private final LiquidSpecificationBuilder specificationBuilder;
 
     @Override
-    public List<LiquidResponseDto> findAll(Pageable pageable) {
+    public List<LiquidResponseDto> findAll() {
         return liquidRepository.findAll()
                 .stream()
                 .map(liquidMapper::toDto)

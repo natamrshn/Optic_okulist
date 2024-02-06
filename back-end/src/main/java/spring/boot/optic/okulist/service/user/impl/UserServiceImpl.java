@@ -44,8 +44,8 @@ public class UserServiceImpl implements UserService {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
 
-    public boolean isFirstUser() {
-        return userRepository.count() == 0;
+    public boolean isNthUser(int n) {
+        return userRepository.count() == n;
     }
 
     @Override
@@ -54,38 +54,58 @@ public class UserServiceImpl implements UserService {
         if (userRepository.findByEmail(requestDto.getEmail()).isPresent()) {
             throw new RegistrationException("Unable to complete registration");
         }
+
+        RegisteredUser user = createUserFromRequest(requestDto);
+        assignUserRoles(user);
+
+        return userMapper.toDto(userRepository.save(user));
+    }
+
+    private RegisteredUser createUserFromRequest(UserRegistrationRequestDto requestDto) {
         RegisteredUser user = new RegisteredUser();
         user.setEmail(requestDto.getEmail());
         user.setPassword(passwordEncoder.encode(requestDto.getPassword()));
         user.setFirstName(requestDto.getFirstName());
         user.setLastName(requestDto.getLastName());
         user.setPhoneNumber(requestDto.getPhoneNumber());
-        if (isFirstUser()) {
-            // Перший користувач отримує адміністраторські права
-            Role mainAdminRole = roleRepository.findRoleByName(Role.RoleName.MAIN_ADMIN)
-                    .orElseThrow(() -> new RegistrationException("Can't find role by name"));
-            Set<Role> mainAdminRoleSet = new HashSet<>();
-            mainAdminRoleSet.add(mainAdminRole);
-            user.setRoles(mainAdminRoleSet);
-            user.setCreatePermission(true);
-            user.setUpdatePermission(true);
-            user.setDeletePermission(true);
-        } else if (user.getEmail().equals("admin2@example.com")) {
-            // Другий користувач завжди отримує адміністраторські права
-            Role adminRole = roleRepository.findRoleByName(Role.RoleName.ADMIN)
-                    .orElseThrow(() -> new RegistrationException("Can't find role by name"));
-            Set<Role> adminRoleSet = new HashSet<>();
-            adminRoleSet.add(adminRole);
-            user.setRoles(adminRoleSet);
+        return user;
+    }
+
+    private void assignUserRoles(RegisteredUser user) throws RegistrationException {
+        if (isNthUser(1)) {
+            assignMainAdminRoles(user);
+        } else if (isNthUser(2) || isNthUser(3)) {
+            assignAdminRoles(user);
         } else {
-            // Інші користувачі отримують звичайні права користувача
-            Role userRole = roleRepository.findRoleByName(Role.RoleName.USER)
-                    .orElseThrow(() -> new RegistrationException("Can't find role by name"));
-            Set<Role> defaultUserRoleSet = new HashSet<>();
-            defaultUserRoleSet.add(userRole);
-            user.setRoles(defaultUserRoleSet);
+            assignDefaultUserRoles(user);
         }
-        return userMapper.toDto(userRepository.save(user));
+    }
+
+    private void assignMainAdminRoles(RegisteredUser user) throws RegistrationException {
+        Role mainAdminRole = roleRepository.findRoleByName(Role.RoleName.MAIN_ADMIN)
+                .orElseThrow(() -> new RegistrationException("Can't find role by name"));
+        Set<Role> mainAdminRoleSet = new HashSet<>();
+        mainAdminRoleSet.add(mainAdminRole);
+        user.setRoles(mainAdminRoleSet);
+        user.setCreatePermission(true);
+        user.setUpdatePermission(true);
+        user.setDeletePermission(true);
+    }
+
+    private void assignAdminRoles(RegisteredUser user) throws RegistrationException {
+        Role adminRole = roleRepository.findRoleByName(Role.RoleName.ADMIN)
+                .orElseThrow(() -> new RegistrationException("Can't find role by name"));
+        Set<Role> adminRoleSet = new HashSet<>();
+        adminRoleSet.add(adminRole);
+        user.setRoles(adminRoleSet);
+    }
+
+    private void assignDefaultUserRoles(RegisteredUser user) throws RegistrationException {
+        Role userRole = roleRepository.findRoleByName(Role.RoleName.USER)
+                .orElseThrow(() -> new RegistrationException("Can't find role by name"));
+        Set<Role> defaultUserRoleSet = new HashSet<>();
+        defaultUserRoleSet.add(userRole);
+        user.setRoles(defaultUserRoleSet);
     }
 
     @Override

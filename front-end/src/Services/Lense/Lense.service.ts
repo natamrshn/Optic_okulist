@@ -1,17 +1,13 @@
+import { LenseAPI } from "./api/LenseAPI";
+
 export class LenseService {
   static getAll() {
-
+    return LenseAPI.getAll();
   }
 
-  static getByID() {
+  static getByID() {}
 
-  }
+  static create() {}
 
-  static create() {
-
-  }
-
-  static update() {
-    
-  }
+  static update() {}
 }

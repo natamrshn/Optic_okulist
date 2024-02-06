@@ -49,19 +49,8 @@ public class ContactLensesController {
     @GetMapping
     @ApiResponse(responseCode = "200", description = "List of lenses retrieved successfully")
     public List<ContactLensesResponseDto> getAll(Pageable pageable) {
-        return contactLensesService.findAll(pageable);
+        return contactLensesService.findAllByOrderByIdDesc(pageable);
     }
-
-    /*
-    @Operation(summary = "Get Lenses by ID")
-    @GetMapping("/{id}")
-    @ApiResponse(responseCode = "200", description = "Lenses retrieved successfully")
-    @ApiResponse(responseCode = "404", description = "Lenses not found")
-    public ContactLensesResponseDto getLensesById(@PathVariable Long id) {
-        logger.info("Retrieving category with ID: " + id);
-        return contactLensesService.getById(id);
-    }
-    */
 
     @Operation(summary = "Update Lenses by ID")
     @PutMapping("/{id}")

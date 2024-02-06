@@ -1,6 +1,20 @@
-import './AuthPage.scss';
-import { AuthService } from '../../Services/Auth/Auth.service';
+import { FC, useState } from "react";
+import "./AuthPage.scss";
+import { Login } from "./components/Login";
+import { Registration } from "./components/Registration";
 
-export const AuthPage: React.FC = () => {
-  return <></>
+enum Pages {
+  REGISTRATION,
+  LOGIN,
 }
+
+export const AuthPage: FC = () => {
+  const [currentPage, setCurrentPage] = useState<Pages>(Pages.LOGIN);
+
+  return (
+    <div className="authPage">
+      {currentPage === Pages.LOGIN && <Login />}
+      {currentPage === Pages.REGISTRATION && <Registration />}
+    </div>
+  );
+};

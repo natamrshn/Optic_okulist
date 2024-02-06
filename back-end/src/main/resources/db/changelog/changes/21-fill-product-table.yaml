@@ -8,7 +8,7 @@ databaseChangeLog:
             columns:
               - column: { name: "name", value: "Classic Black Glasses" }
               - column: { name: "price", value: 49.99 }
-              - column: { name: "status", value: 1 }
+              - column: { name: "status", value: AVALIABLE }
               - column: { name: "identifier", value: "CLB001" }
               - column: { name: "description", value: "Timeless black glasses" }
               - column: { name: "is_deleted", value: 0 }
@@ -19,7 +19,7 @@ databaseChangeLog:
             columns:
               - column: { name: "name", value: "Elegant Brown Glasses" }
               - column: { name: "price", value: 59.99 }
-              - column: { name: "status", value: 1 }
+              - column: { name: "status", value: AVALIABLE }
               - column: { name: "identifier", value: "EBG002" }
               - column: { name: "description", value: "Sophisticated brown glasses" }
               - column:
@@ -34,7 +34,7 @@ databaseChangeLog:
             columns:
               - column: { name: "name", value: "Sporty Red Glasses" }
               - column: { name: "price", value: 69.99 }
-              - column: { name: "status", value: 1 }
+              - column: { name: "status", value: AVALIABLE }
               - column: { name: "identifier", value: "SRG003" }
               - column: { name: "description", value: "Dynamic red sports glasses" }
               - column:
@@ -49,7 +49,7 @@ databaseChangeLog:
             columns:
               - column: { name: "name", value: "Sample Liquid" }
               - column: { name: "price", value: 22.53 }  # Adjust as needed
-              - column: { name: "status", value: 1 }
+              - column: { name: "status", value: AVALIABLE }
               - column: { name: "identifier", value: "LIQ78h" }  # Adjust as needed
               - column: { name: "description", value: "Example liquid" }  # Adjust as needed
               - column:

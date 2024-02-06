@@ -2,19 +2,32 @@ package spring.boot.optic.okulist.service.contactlenses.manufacturer;
 
 import static java.util.stream.Collectors.toSet;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.contactlenses.manufacturer.ManufacturerRequestDto;
 import spring.boot.optic.okulist.dto.contactlenses.manufacturer.ManufacturerResponseDto;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.mapper.contactlenses.ManufacturerMapper;
-import spring.boot.optic.okulist.model.lenses.parameters.*;
+import spring.boot.optic.okulist.model.lenses.parameters.Addition;
+import spring.boot.optic.okulist.model.lenses.parameters.Color;
+import spring.boot.optic.okulist.model.lenses.parameters.Cylinder;
+import spring.boot.optic.okulist.model.lenses.parameters.Degree;
+import spring.boot.optic.okulist.model.lenses.parameters.Diopter;
+import spring.boot.optic.okulist.model.lenses.parameters.Manufacturer;
+import spring.boot.optic.okulist.model.lenses.parameters.Sphere;
 import spring.boot.optic.okulist.repository.lenses.ManufacturerRepository;
-import spring.boot.optic.okulist.repository.lenses.paramsrepository.*;
+import spring.boot.optic.okulist.repository.lenses.paramsrepository.AdditionRepository;
+import spring.boot.optic.okulist.repository.lenses.paramsrepository.ColorRepository;
+import spring.boot.optic.okulist.repository.lenses.paramsrepository.CylinderRepository;
+import spring.boot.optic.okulist.repository.lenses.paramsrepository.DegreeRepository;
+import spring.boot.optic.okulist.repository.lenses.paramsrepository.DiopterRepository;
+import spring.boot.optic.okulist.repository.lenses.paramsrepository.SphereRepository;
 
 @Service
 @RequiredArgsConstructor
@@ -33,107 +46,104 @@ public class ManufacturerServiceImpl implements ManufacturerService {
             ManufacturerRequestDto manufacturerRequestDto) {
         Manufacturer manufacturer = manufacturerMapper.toModel(manufacturerRequestDto);
 
-        List<Long> requestedColors = manufacturerRequestDto.getColorsIds();
-        if (requestedColors != null && !requestedColors.isEmpty()) {
-            List<Color> colors = requestedColors.stream()
-                    .map(colorRepository::findById)
-                    .filter(Optional::isPresent)
-                    .map(Optional::get)
-                    .toList();
-
-            if (colors.size() != requestedColors.size()) {
-                Set<Long> foundIds = colors.stream()
-                        .map(Color::getId)
-                        .collect(toSet());
-
-                List<Long> notFoundIds = requestedColors.stream()
-                        .filter(id -> !foundIds.contains(id))
-                        .toList();
-
-                throw new EntityNotFoundException("Not all lens colors were found. "
-                        + "Haven't found colors with ids: " + notFoundIds);
-            }
-
-            manufacturer.setColors(colors);
-        }
-
-        List<Long> requestedAdditions = manufacturerRequestDto.getAdditionsIds();
-        if (requestedAdditions != null && !requestedAdditions.isEmpty()) {
-            List<Addition> additions = requestedAdditions.stream()
-                    .map(additionRepository::findById)
-                    .filter(Optional::isPresent)
-                    .map(Optional::get)
-                    .toList();
-
-            if (additions.size() != requestedAdditions.size()) {
-                Set<Long> foundIds = additions.stream()
-                        .map(Addition::getId)
-                        .collect(toSet());
-
-                List<Long> notFoundIds = requestedAdditions.stream()
-                        .filter(id -> !foundIds.contains(id))
-                        .toList();
-
-                throw new EntityNotFoundException("Not all lens additions were found. "
-                        + "Haven't found additions with ids: " + notFoundIds);
-            }
-
-            manufacturer.setAdditions(additions);
-        }
-
-        if (manufacturerRequestDto.getCylinderId() != null) {
-            Cylinder cylinder = cylinderRepository.findById(manufacturerRequestDto.getCylinderId())
-                    .orElseThrow(() -> new EntityNotFoundException("Cylinder not found with ID: "
-                            + manufacturerRequestDto.getCylinderId()));
-            manufacturer.setCylinder(cylinder);
-        }
-        if (manufacturerRequestDto.getDegreeId() != null) {
-            Degree degree = degreeRepository.findById(manufacturerRequestDto.getDegreeId())
-                    .orElseThrow(() -> new EntityNotFoundException("Degree not found with ID: "
-                            + manufacturerRequestDto.getDegreeId()));
-            manufacturer.setDegree(degree);
-        }
-
-        if (manufacturerRequestDto.getDiopterId() != null) {
-            Diopter diopter = diopterRepository.findById(manufacturerRequestDto.getDiopterId())
-                    .orElseThrow(() -> new EntityNotFoundException("Diopter not found with ID: "
-                            + manufacturerRequestDto.getDiopterId()));
-            manufacturer.setDiopter(diopter);
-        }
-
-        List<Long> requestedSpheres = manufacturerRequestDto.getSpheresIds();
-        if (requestedSpheres != null && !requestedSpheres.isEmpty()) {
-            List<Sphere> spheres = requestedSpheres.stream()
-                    .map(sphereRepository::findById)
-                    .filter(Optional::isPresent)
-                    .map(Optional::get)
-                    .toList();
-
-            if (spheres.size() != requestedSpheres.size()) {
-                Set<Long> foundIds = spheres.stream()
-                        .map(Sphere::getId)
-                        .collect(toSet());
-
-                List<Long> notFoundIds = requestedSpheres.stream()
-                        .filter(id -> !foundIds.contains(id))
-                        .toList();
-
-                throw new EntityNotFoundException("Not all lens spheres were found. "
-                        + "Haven't found spheres with ids: " + notFoundIds);
-            }
-
-            manufacturer.setSpheres(spheres);
-        }
+        processColors(manufacturerRequestDto.getColorsIds(), manufacturer);
+        processAdditions(manufacturerRequestDto.getAdditionsIds(), manufacturer);
+        setCylinder(manufacturerRequestDto.getCylinderId(), manufacturer);
+        setDegree(manufacturerRequestDto.getDegreeId(), manufacturer);
+        setDiopter(manufacturerRequestDto.getDiopterId(), manufacturer);
+        processSpheres(manufacturerRequestDto.getSpheresIds(), manufacturer);
 
         Manufacturer savedManufacturer = manufacturerRepository.save(manufacturer);
         return manufacturerMapper.toDto(savedManufacturer);
     }
 
+    private void processColors(List<Long> requestedColors, Manufacturer manufacturer) {
+        if (requestedColors != null && !requestedColors.isEmpty()) {
+            List<Color> colors = findByIdList(colorRepository, requestedColors, Color.class, "Colors");
+            manufacturer.setColors(colors);
+        }
+    }
+
+    private void processAdditions(List<Long> requestedAdditions, Manufacturer manufacturer) {
+        if (requestedAdditions != null && !requestedAdditions.isEmpty()) {
+            List<Addition> additions =
+                    findByIdList(additionRepository, requestedAdditions,
+                            Addition.class, "Additions");
+            manufacturer.setAdditions(additions);
+        }
+    }
+
+    private void setCylinder(Long cylinderId, Manufacturer manufacturer) {
+        if (cylinderId != null) {
+            Cylinder cylinder = findById(cylinderRepository, cylinderId, Cylinder.class, "Cylinder");
+            manufacturer.setCylinder(cylinder);
+        }
+    }
+
+    private void setDegree(Long degreeId, Manufacturer manufacturer) {
+        if (degreeId != null) {
+            Degree degree = findById(degreeRepository, degreeId, Degree.class, "Degree");
+            manufacturer.setDegree(degree);
+        }
+    }
+
+    private void setDiopter(Long diopterId, Manufacturer manufacturer) {
+        if (diopterId != null) {
+            Diopter diopter = findById(diopterRepository,
+                    diopterId, Diopter.class, "Diopter");
+            manufacturer.setDiopter(diopter);
+        }
+    }
+
+    private void processSpheres(List<Long> requestedSpheres, Manufacturer manufacturer) {
+        if (requestedSpheres != null && !requestedSpheres.isEmpty()) {
+            List<Sphere> spheres = findByIdList(sphereRepository, requestedSpheres,
+                    Sphere.class, "Spheres");
+            manufacturer.setSpheres(spheres);
+        }
+    }
+
+    private <T> List<T> findByIdList(JpaRepository<T, Long> repository,
+                                     List<Long> ids, Class<T> entityClass, String entityName) {
+        List<T> entities = ids.stream()
+                .map(repository::findById)
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .toList();
+
+        if (entities.size() != ids.size()) {
+            Set<Long> foundIds = entities.stream()
+                    .map(entity -> {
+                        try {
+                            return (Long) entity.getClass().getMethod("getId").invoke(entity);
+                        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+                            throw new RuntimeException(e);
+                        }
+                    })
+                    .collect(toSet());
+
+            List<Long> notFoundIds = ids.stream()
+                    .filter(id -> !foundIds.contains(id))
+                    .toList();
+
+            throw new EntityNotFoundException("Not all "
+                    + entityName + " were found. Haven't found "
+                    + entityName + " with ids: " + notFoundIds);
+        }
+        return entities;
+    }
+
+    private <T> T findById(JpaRepository<T, Long> repository,
+                           Long id, Class<T> entityClass, String entityName) {
+        return repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(entityClass.getSimpleName()
+                        + " not found with ID: " + id));
+    }
+
     @Override
     public ManufacturerResponseDto getManufacturerById(Long manufacturerId) {
         Manufacturer manufacturer = manufacturerRepository.findById(manufacturerId)
-                .orElseThrow(() -> new RuntimeException("Manufacturer not found with id: "
-                        + manufacturerId));
+                .orElseThrow(() -> new EntityNotFoundException("Manufacturer not found with id: " + manufacturerId));
         return manufacturerMapper.toDto(manufacturer);
     }
 

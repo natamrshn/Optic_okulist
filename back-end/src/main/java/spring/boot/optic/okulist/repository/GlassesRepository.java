@@ -14,4 +14,5 @@ public interface GlassesRepository extends JpaRepository<Glasses, Long> {
     List<Glasses> findAllByModelAndManufacturer(String model, String manufacturer);
 
     Optional<Glasses> findByIdentifier(String identifier);
+
 }

@@ -1,6 +1,17 @@
 import { Category } from "../../../Types/Category";
 
-export interface LenseGetResponse {
+export interface LensePutRequest {
+  lensConfigurationId: number;
+  categories: Category[];
+  name: string;
+  price: number;
+  identifier: string;
+  description: string;
+  imageUrl: string;
+  imageUrlSecond: string;
+}
+
+export interface LensePutResponse {
   id: number;
   colors: string[];
   cylinders: number[];

@@ -1,5 +1,6 @@
 package spring.boot.optic.okulist.service.contactlenses.params.addition;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.contactlenses.parameters.addition.AdditionRequestDto;
@@ -7,8 +8,6 @@ import spring.boot.optic.okulist.dto.contactlenses.parameters.addition.AdditionR
 import spring.boot.optic.okulist.mapper.contactlenses.AdditionMapper;
 import spring.boot.optic.okulist.model.lenses.parameters.Addition;
 import spring.boot.optic.okulist.repository.lenses.paramsrepository.AdditionRepository;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor

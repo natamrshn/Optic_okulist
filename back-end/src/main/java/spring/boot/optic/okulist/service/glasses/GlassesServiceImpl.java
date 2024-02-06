@@ -5,7 +5,6 @@ import static spring.boot.optic.okulist.service.liquid.LiquidServiceImpl.getStri
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.glasses.GlassesRequestDto;
@@ -25,7 +24,7 @@ public class GlassesServiceImpl implements GlassesService {
     private final GlassesSpecificationBuilder glassesSpecificationBuilder;
 
     @Override
-    public List<GlassesResponseDto> findAll(Pageable pageable) {
+    public List<GlassesResponseDto> findAll() {
         return glassesRepository.findAll()
                 .stream()
                 .map(glassesMapper::toDto)
