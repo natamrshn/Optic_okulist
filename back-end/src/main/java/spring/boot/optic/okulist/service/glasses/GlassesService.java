@@ -1,7 +1,6 @@
 package spring.boot.optic.okulist.service.glasses;
 
 import java.util.List;
-import org.springframework.data.domain.Pageable;
 import spring.boot.optic.okulist.dto.glasses.GlassesRequestDto;
 import spring.boot.optic.okulist.dto.glasses.GlassesResponseDto;
 import spring.boot.optic.okulist.dto.glasses.GlassesSearchParameter;

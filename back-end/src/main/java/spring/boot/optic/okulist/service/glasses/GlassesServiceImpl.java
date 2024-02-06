@@ -5,7 +5,6 @@ import static spring.boot.optic.okulist.service.liquid.LiquidServiceImpl.getStri
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.glasses.GlassesRequestDto;

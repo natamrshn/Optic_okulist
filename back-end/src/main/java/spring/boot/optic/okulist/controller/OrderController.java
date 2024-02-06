@@ -109,12 +109,12 @@ public class OrderController {
     }
 
     @GetMapping("/{number}")
-    @Operation(summary = "Get all user orders by number", description = "Get a list of all user orders by number for admin")
+    @Operation(summary = "Get all user orders by number",
+            description = "Get a list of all user orders by number for admin")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "List of orders retrieved successfully"),
-            @ApiResponse(responseCode = "401", description = "Unauthorized. Authentication required")
-    })
-    public List<OrderResponseDto> findAllUserOrdersByNumber(@PathVariable Long number ) {
+            @ApiResponse(responseCode = "401", description = "Unauthorized. Authentication required")})
+    public List<OrderResponseDto> findAllUserOrdersByNumber(@PathVariable Long number) {
         return orderService.findAllByUserPhoneNumber(number);
     }
 }
