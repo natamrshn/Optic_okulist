@@ -7,16 +7,14 @@ interface Setters {
   setGoodsInCart: Dispatch<SetStateAction<Cart[]>>;
 }
 
-export class AuthService {
-  static async getGoods(token: string, setters: Setters) {
-    const { setGoodsInCart } = setters;
-
+export class CartService {
+  static async getGoods(token: string) {
     try {
-      const response= await CartAPI.getGoods();
+      const response = await CartAPI.getGoods();
       CartAPI.setTokenToHeader(token);
 
       if (response.status === 200) {
-        setGoodsInCart(await response.json())
+        return await response.json();
       }
     } catch (error: any) {
       console.log(error.message);
@@ -34,7 +32,7 @@ export class AuthService {
       if (response.status === 200) {
         const addedGood: Cart = await response.json();
 
-        setGoodsInCart(goods => {
+        setGoodsInCart((goods) => {
           const newListGoods = [...goods];
 
           newListGoods.push(addedGood);
@@ -47,29 +45,38 @@ export class AuthService {
     }
   }
 
-  static async updateGood( updatedGood: CartItem, token: string, setters: Setters) {
+  static async updateGood(
+    updatedGood: CartItem,
+    token: string,
+    setters: Setters
+  ) {
     const { setGoodsInCart } = setters;
 
     try {
       CartAPI.setTokenToHeader(token);
 
-      const response = await CartAPI.updateGood(updatedGood.quantity, updatedGood.productId);
+      const response = await CartAPI.updateGood(
+        updatedGood.quantity,
+        updatedGood.productId
+      );
 
       if (response.status === 200) {
         // success
       }
 
       if (response.status === 404) {
-        throw new Error('Item of the cart was not found');
+        throw new Error("Item of the cart was not found");
       }
-
-
     } catch (error: any) {
       console.log(error.message);
     }
   }
 
-  static async removeGood(goodID: CartItem['productId'], token: string, setters: Setters) {
+  static async removeGood(
+    goodID: CartItem["productId"],
+    token: string,
+    setters: Setters
+  ) {
     const { setGoodsInCart } = setters;
 
     try {
@@ -82,7 +89,7 @@ export class AuthService {
       }
 
       if (response.status === 404) {
-        throw new Error('Item of the cart was not found')
+        throw new Error("Item of the cart was not found");
       }
     } catch (error: any) {
       console.log(error.message);

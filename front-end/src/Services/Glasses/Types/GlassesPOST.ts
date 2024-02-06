@@ -2,7 +2,7 @@ import { Category } from "../../../Types/Category";
 import { Variation } from "../../../Types/Variation";
 
 export type GlassesPOSTRequest = {
-  name: string;
+  glassesName: string;
   price: number;
   description: string;
   identifier: string;
@@ -15,10 +15,9 @@ export type GlassesPOSTRequest = {
   categories: Array<Category>;
 };
 
-
 export type GlassesPOSTResponse = {
   id: number;
-  name: string;
+  glassesName: string;
   price: number;
   description: string;
   identifier: string;
@@ -29,4 +28,4 @@ export type GlassesPOSTResponse = {
   imageUrlSecond: string;
   categories: Array<Category>;
   variations: Array<Variation>;
-}
+};
