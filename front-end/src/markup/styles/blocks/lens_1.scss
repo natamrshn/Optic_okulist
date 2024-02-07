@@ -1,0 +1,161 @@
+.lenses {
+  &__top-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+
+    
+    &--new {
+      border: 1px solid rgb(2, 16, 31);
+      border-radius: 100px;
+      width: 120px;
+      color: rgb(2, 16, 31);
+      font-size: 11px;
+      font-weight: 300;
+      line-height: 13px;
+      text-align: center;
+      background: transparent;
+      padding: 8px;
+    }
+
+    &--old {
+      border: 1px solid rgb(14, 10, 219);
+      border-radius: 100px;
+      width: 120px;
+      color: rgb(14, 10, 219);
+      font-size: 11px;
+      font-weight: 300;
+      line-height: 13px;
+      text-align: center;
+      background: transparent;
+      padding: 8px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  &__item-card-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 24px;
+
+    img {
+      width: 120px;
+      height: 84px;
+      box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+    }
+  }
+
+  &__item-card--descr {
+    color: rgb(2, 16, 31);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+
+  &__count-button {
+    border: 1px solid rgb(1, 27, 53);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    width: 120px;
+    gap: 17px;
+    justify-content: space-around;
+    padding: 8px;
+    margin-top: 24px;
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__price {
+    color: rgb(12, 2, 2);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-top: 24px;
+  }
+
+  &__enter-cabinet {
+    margin-top: 32px;
+  }
+
+  &__label {
+    margin-top: 24px;
+  }
+
+  &__input {
+    margin-top: 7px;
+  }
+
+  &__cabinet-button {
+    margin-top: 24px;
+    &--margin {
+      margin-bottom: 42px;
+    }
+  }
+
+  &__delivery {
+    margin-top: 24px;
+  }
+
+  &__delivery-info {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 16px;
+
+    &--margin{
+      margin-top: 8px;
+    }
+
+    &--radio {
+      width: 18px;
+      height: 18px;
+      border-radius:50%;
+      border: 2px solid #000;
+    }
+
+    &--text {
+      color: rgb(0, 0, 0);
+      font-family: Montserrat;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 17px;
+      text-align: center;
+    }
+  }
+
+  &__paid-margin{
+    margin-top: 24px;
+  }
+
+
+
+  &__fill-data {
+    color: rgb(0, 0, 0);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-top: 24px;
+  }
+}

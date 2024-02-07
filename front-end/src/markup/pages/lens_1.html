@@ -1,0 +1,275 @@
+<!-- Якщо зареєстрований клієнт не війшов в кабінет -->
+<!DOCTYPE html>
+<html lang="uk"
+      class="page">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Окуліст</title>
+  <link rel="icon"
+        href="../icons/favicon.png">
+  <link rel="stylesheet"
+        href="../styles/style.css">
+  <script src="../scripts/main.js"
+          defer></script>
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="page__body"
+      id="page">
+  <!-- #region feedback button -->
+  <div class="feedback-button">
+    <div class="feedback-button__icons">
+      <a href="#">
+        <img src="../icons/contact/instagram.svg"
+             class="feedback-button__icon feedback-button__icon--instagram">
+      </a>
+
+      <a href="#">
+        <img src="../icons/contact/viber.svg"
+             class="feedback-button__icon feedback-button__icon--viber">
+      </a>
+
+      <a href="#">
+        <img src="../icons/contact/telegram.svg"
+             class="feedback-button__icon feedback-button__icon--telegram">
+      </a>
+    </div>
+    <img src="../icons/contact/message.svg"
+         class="feedback-button__icon-message"
+         role="button"
+         onclick="ContactsIcons.toggle()">
+  </div>
+  <!-- #endregion -->
+
+  <header class="header ">
+    <!--#region НАВІГАЦІЯ  -->
+    <nav class="nav">
+      <a href="index.html"
+         class="header__logo-link">
+        <img src="../icons/nav-logo.png"
+             alt="Окуліст Логотип"
+             class="header__logo-image">
+      </a>
+
+      <div class="nav__icons">
+        <a href="#"
+           class="icon icon--basket"></a>
+        <a href="#"
+           class="icon icon--search"></a>
+        <a href="#aside"
+           class="icon icon--menu"></a>
+      </div>
+    </nav>
+    <!-- #endregion -->
+
+    <!-- #region aside menu -->
+    <aside class="aside page__menu"
+           id="aside">
+      <div class="background-image"></div>
+
+      <!--#region navigation  -->
+      <nav class="nav">
+        <a href="index.html"
+           class="nav__logo-link">
+          <img src="../icons/nav-logo.png"
+               alt="Окуліст Логотип"
+               class="nav__logo-image">
+        </a>
+
+        <div class="nav__icons">
+          <a href="#"
+             class="icon icon--basket"></a>
+          <a href="#"
+             class="icon icon--search"></a>
+          <a href="#"
+             class="icon icon--close"></a>
+        </div>
+      </nav>
+      <!-- #endregion -->
+
+      <!-- #region menu links -->
+      <menu class="aside__links">
+        <a href="index.html"
+           class="aside__link">
+          <li>Головна</li>
+        </a>
+
+        <a href="about-us.html"
+           class="aside__link">
+          <li>Про нас</li>
+        </a>
+
+        <a href="service.html"
+           class="aside__link">
+          <li>послуги</li>
+        </a>
+
+        <a href="useful.html"
+           class="aside__link">
+          <li>корисне</li>
+        </a>
+
+        <a href="catalog.html"
+           class="aside__link">
+          <li>Каталог</li>
+        </a>
+
+        <a href="reviews.html"
+           class="aside__link">
+          <li>Відгуки</li>
+        </a>
+
+        <a href="contacts.html"
+           class="aside__link aside__link--margin-bottom">
+          <li>Контакти</li>
+        </a>
+      </menu>
+      <!-- #endregion -->
+
+      <!-- #region menu buttons -->
+      <div class="aside__buttons">
+        <a href="#"
+           class="button button--aside">
+          Обране
+
+          <div class="icon icon--favorite"></div>
+        </a>
+
+        <a href="#page"
+           class="button button--aside">
+          Кабінет
+
+          <div class="icon icon--account"></div>
+        </a>
+      </div>
+      <!-- #endregion -->
+    </aside>
+    <!-- #endregion -->
+  </header>
+
+  <main class="main lenses">
+    <div class="lenses__top-buttons">
+      <button class="lenses__top-buttons lenses__top-buttons--new">Я новий покупець</button>
+      <button class="lenses__top-buttons lenses__top-buttons--old">Я постійний клієнт</button>
+    </div>
+
+    <h3 class="lenses__title">Оформлення замовлення</h3>
+
+    <div class="lenses__item-card">
+
+      <div class=" lenses__item-card-wrapper">
+        <img src="../images/products/lenses-liquid.png"
+             alt="lenses__liquid"
+             class="lenses__item-card--img">
+
+        <p>Бренд: I-Fresh <br>
+          Обʼєм: 100 мл</p>
+      </div>
+
+
+      <p class="lenses__item-card--descr">Розчин для лінз I-Fresh</p>
+
+      <button class="lenses__count-button">
+        <img src="../icons/plus.svg"
+             alt="plus">
+        <p>1</p>
+        <img src="../icons/minus.svg"
+             alt="minus">
+      </button>
+
+
+    </div>
+
+    <div class="lenses__price">Сума до сплати: 130 грн</div>
+    <h4 class="lenses__enter-cabinet">Вхід в кабінет</h4>
+
+
+    <label class="form-field__label lenses__label"
+           for="email">
+      Email:
+    </label>
+
+    <input class="form-field__input lenses__input"
+           type="email"
+           id="email"
+           name="email"
+           required
+           placeholder="example.ua@gmail.com">
+
+    <label class="form-field__label lenses__label"
+           for="loginPassword">
+      Пароль:
+    </label>
+    <input class="form-field__input lenses__input"
+           type="password"
+           id="loginPassword"
+           name="loginPassword"
+           required>
+
+    <a href="personal-cabinet.html"
+       class="button button--login lenses__cabinet-button">
+      Увійти
+    </a>
+    <a href="#"
+       class="button button--forgot-password lenses__cabinet-button">
+      Забули пароль?
+    </a>
+
+    <h4 class="lenses__delivery">Доставка:</h4>
+
+    <div class="lenses__delivery-info">
+      <div class="lenses__delivery-info--radio"></div>
+      <p class="lenses__delivery-info--text">Новою поштою</p>
+    </div>
+
+    <div class="lenses__delivery-info lenses__delivery-info--margin">
+      <div class="lenses__delivery-info--radio"></div>
+      <p class="lenses__delivery-info--text">Самовивіз з магазину</p>
+    </div>
+
+    <label class="form-field__label lenses__label"
+           for="city">
+      Місто
+    </label>
+    <input class="form-field__input lenses__input"
+           type="text"
+           id="city"
+           name="city"
+           required
+           placeholder="Запоріжжя">
+
+
+    <label class="form-field__label lenses__label"
+          for="postOffice">
+      Відділення Нової пошти
+    </label>
+    <input class="form-field__input lenses__input"
+          type="text"
+          id="postOffice"
+          name="postOffice"
+          required
+          placeholder="34">
+
+    <h4 class="lenses__paid-margin">Оплата:</h4>
+    <div class="lenses__delivery-info">
+      <div class="lenses__delivery-info--radio"></div>
+      <p class="lenses__delivery-info--text">Новою поштою</p>
+    </div>
+
+    <a href="personal-cabinet.html"
+       class="button button--login lenses__cabinet-button lenses__cabinet-button--margin">
+      Замовити
+    </a>
+  </main>
+</body>
+
+</html>
