@@ -67,3 +67,14 @@ function changeImage(imageNumber) {
     });
   }
 }
+
+const eyesSimilarButton = document.querySelector('.product__lens-type--eyes-similar--button');
+const checkMark = document.querySelector('.product__lens-type--eyes-similar--button--check-mark');
+
+if (eyesSimilarButton) {
+  eyesSimilarButton.addEventListener('click', () => {
+      eyesSimilarButton.classList.toggle('active')
+      checkMark.classList.toggle('hidden')
+    }
+  )
+}
