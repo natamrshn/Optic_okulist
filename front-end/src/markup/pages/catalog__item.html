@@ -166,15 +166,31 @@
   <main class="main product">
 
     <div class="product__item ">
-      <div class="product__image"></div>
+      <div class="product__image product__image--1"></div>
+      <div class="product__image product__image--2 hidden"></div>
+
 
       <div class="product__ellipse--wrapper">
         <div class="product__ellipse"></div>
         <div class="product__ellipse product__ellipse--gray"></div>
       </div>
 
-      <img src="../images/products/product-img.png" alt="image-product-small" class="product__image--small">
-      <img src="../images/products/product-hover-img.png" alt="image-product-small" class="product__image--small">
+      <div class="product__image--small--container">
+        <div 
+          class="product__image--small product__image--small--1 choosed" 
+          onclick="changeImage(1)"
+        ></div>
+        <div 
+          class="product__image--small product__image--small--2" 
+          onclick="changeImage(2)"
+        ></div>
+      </div>
+
+      <!-- <img 
+        src="../images/products/product-hover-img.png" 
+        alt="image-product-small" 
+        class="product__image--small"
+      > -->
 
       <p class="product__descripsion">Окуляри для зору жіночі</p>
       <p class="product__name">Verse 20176 blueblocker</p>
@@ -182,6 +198,77 @@
       <div class="product__info-container">
         <p class="product__price">1200 грн</p>
         <p class="product__available">В наявності</p>
+      </div>
+
+      <div class="product__lens-type">
+        <div class="product__lens-type--title">Введіть свої параметри</div>
+
+        <div class="product__lens-type--eyes-similar">
+          <div class="product__lens-type--eyes-similar--button">
+            <img 
+              src="../images/products/check-mark.svg"
+              class="product__lens-type--eyes-similar--button--check-mark hidden"
+            >
+          </div>
+          <div class="product__lens-type--eyes-similar--text">У мене однакові очі</div>
+        </div>
+
+        <div class="product__lens-type--line"></div>
+        <p class="product__lens-type--title ">Ліве око</p>
+
+        <div class="product__lens-type--container">
+          <div class="product__lens-type--container--type">
+            <p class="product__lens-type--container--type--text">Базова кривизна (BC)</p>
+            <div class="product__lens-type--container--type--button">
+              <p>8.7</p>
+              <img 
+                src="../images/products/check-selector.svg"
+                class="product__lens-type--container--type--button--selector"
+              >
+            </div>
+          </div>
+
+          <div class="product__lens-type--container--type">
+            <p class="product__lens-type--container--type--text">Діоптрійність (Sph)</p>
+            <div class="product__lens-type--container--type--button">
+              <p></p>
+              <img 
+                src="../images/products/check-selector.svg"
+                class="product__lens-type--container--type--button--selector"
+              >
+            </div>
+          </div>
+
+          <div class="product__lens-type--container--type">
+            <p class="product__lens-type--container--type--text">Циліндр (Cyl)</p>
+            <div class="product__lens-type--container--type--button">
+              <p></p>
+              <img 
+                src="../images/products/check-selector.svg"
+                class="product__lens-type--container--type--button--selector"
+              >
+            </div>
+          </div>
+
+          <div class="product__lens-type--container--type">
+            <p class="product__lens-type--container--type--text">Вісь (AXE)</p>
+            <div class="product__lens-type--container--type--button">
+              <p></p>
+              <img 
+                src="../images/products/check-selector.svg"
+                class="product__lens-type--container--type--button--selector"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="product__lens-type--line"></div>
+
+        <div class="product__lens-type--package">
+          <div class="product__lens-type--package--title">Тип упаковки</div>
+
+          <div class="product__lens-type--package--count">Кількість</div>
+        </div>
       </div>
 
       <div class="product-colors">

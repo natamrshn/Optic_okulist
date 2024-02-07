@@ -35,3 +35,46 @@ function showForm(formName) {
   const selectedTab = document.querySelector(`.form-tab[data-form="${formName}"]`);
   selectedTab.classList.add('form-tab--active');
 }
+
+function changeImage(imageNumber) {
+  const productImageSmall = document.querySelectorAll('.product__image--small');
+  const productEllipses = document.querySelectorAll('.product__ellipse');
+  let isChanged = true;
+  const clickedImage = document.querySelector(`.product__image--small--${imageNumber}`);
+
+  if (clickedImage.classList.contains('choosed')) {
+    isChanged = false;
+  } else {
+    productImageSmall.forEach(image => {
+      image.classList.remove('choosed');
+    });
+
+    clickedImage.classList.add('choosed');
+  }
+
+  const productImage = document.querySelectorAll('.product__image');
+  productImage.forEach(image => {
+    if (image.classList.contains(`product__image--${imageNumber}`)) {
+      image.classList.remove('hidden');
+    } else {
+      image.classList.add('hidden');
+    }
+  });
+
+  if (isChanged === true) {
+    productEllipses.forEach(ellipse => {
+      ellipse.classList.toggle('product__ellipse--gray');
+    });
+  }
+}
+
+const eyesSimilarButton = document.querySelector('.product__lens-type--eyes-similar--button');
+const checkMark = document.querySelector('.product__lens-type--eyes-similar--button--check-mark');
+
+if (eyesSimilarButton) {
+  eyesSimilarButton.addEventListener('click', () => {
+      eyesSimilarButton.classList.toggle('active')
+      checkMark.classList.toggle('hidden')
+    }
+  )
+}
