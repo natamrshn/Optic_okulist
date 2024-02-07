@@ -10,6 +10,7 @@ import spring.boot.optic.okulist.dto.category.CategoryResponseDto;
 public class ContactLensesResponseDto {
     private Long id;
     private List<String> colors;
+    private List<String> additions;
     private List<Double> cylinders;
     private List<Integer> degrees;
     private List<Double> diopters;

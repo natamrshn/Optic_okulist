@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import spring.boot.optic.okulist.dto.order.CreateOrderRequestDto;
 import spring.boot.optic.okulist.dto.order.OrderResponseDto;
@@ -61,14 +61,11 @@ public class OrderController {
             @ApiResponse(responseCode = "200", description = "List of orders retrieved successfully"),
             @ApiResponse(responseCode = "401", description = "Unauthorized. Authentication required")
     })
-    public List<OrderResponseDto> findAllUserOrders(@RequestParam(required = false) String sessionId,
-                                                    Authentication authentication) {
-        if ((authentication == null || !authentication.isAuthenticated())
-                && sessionId == null) {
+    public List<OrderResponseDto> findAllUserOrders(@Autowired Authentication authentication) {
+        if ((authentication == null || !authentication.isAuthenticated())) {
             throw new AuthenticationException("User should be authenticated or sessionId provided");
         }
-        User user = userService.getUser(sessionId);
-        return orderService.getByUserId(user.getId());
+        return orderService.findByUserEmail(authentication.getName());
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -107,7 +104,17 @@ public class OrderController {
             @ApiResponse(responseCode = "401", description = "Unauthorized. Authentication required"),
             @ApiResponse(responseCode = "403", description = "Forbidden. Insufficient privileges")
     })
-    public List<Order> getAllOrdersSortedByDateDesc() {
-        return orderService.findAllOrdersSortedByDateDesc();
+    public List<OrderResponseDto> getAllOrders() {
+        return orderService.findAll();
+    }
+
+    @GetMapping("/{number}")
+    @Operation(summary = "Get all user orders by number",
+            description = "Get a list of all user orders by number for admin")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "List of orders retrieved successfully"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized. Authentication required")})
+    public List<OrderResponseDto> findAllUserOrdersByNumber(@PathVariable Long number) {
+        return orderService.findAllByUserPhoneNumber(number);
     }
 }

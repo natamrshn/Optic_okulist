@@ -74,6 +74,22 @@ public class ContactLensesServiceImpl implements ContactLensesService {
         contactLensesRepository.save(lenses);
     }
 
+    @Override
+    public ContactLensesResponseDto findByIdentifier(String identifier) {
+        ContactLenses lenses = contactLensesRepository.findByIdentifier(identifier).orElseThrow(
+                () -> new EntityNotFoundException("Can't found lenses with Identifier: " + identifier)
+        );
+        return contactLensesMapper.toDto(lenses);
+    }
+
+    @Override
+    public List<ContactLensesResponseDto> findAllByOrderByIdDesc(Pageable pageable) {
+        return contactLensesRepository.findAllByOrderByIdDesc(pageable)
+                .stream()
+                .map(contactLensesMapper::toDto)
+                .toList();
+    }
+
     private String[] getNullPropertyNames(Object source) {
         return getStrings(source);
     }

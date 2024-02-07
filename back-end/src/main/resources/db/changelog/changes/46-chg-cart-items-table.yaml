@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-lense-config-columns-to-cart-items
+      author: Hlib13
+      changes:
+        - addColumn:
+            tableName: cart_items
+            columns:
+              - column:
+                  name: addition
+                  type: varchar(255)
+                  constraints:
+                    nullable: true

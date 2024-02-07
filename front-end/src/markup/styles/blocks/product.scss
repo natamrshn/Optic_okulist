@@ -17,6 +17,17 @@
     height: 190px;
     border-radius: 8px;
     box-shadow: $product-box-shadow;
+
+    &--small {
+      width: 40px;
+      height: 25px;
+      box-sizing: border-box;
+      border: 0.5px solid rgb(157, 195, 215);
+      border-radius: 8px;
+      /* Images */
+      box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.2);
+    }
   }
 
   &__descripsion {
@@ -26,10 +37,11 @@
 
   &__name {
     font-weight: 500;
+    margin-bottom: 16px;
   }
 
   &__price {
-    margin: 16px 0;
+    padding-top: 6px;
     font-size: 1.25rem;
     font-weight: 700;
   }
@@ -38,5 +50,229 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  &__info-container {
+    display: flex;
+    gap: 28px;
+    padding-bottom: 16px;
+
+    & > p:not(:first-child) {
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      align-self: center;
+      // padding-bottom: 20px;
+
+      &::before {
+        content: '';
+        display: block;
+        position: relative;
+        left: -12px;
+        top: 10px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+    }
+
+    // align-items: center;
+  }
+
+  &__available {
+    color: #02C121;
+    &::before {
+      background-color: #02C121;
+    }
+  }
+
+  &__not-available {
+    color: #E69800;
+    &::before {
+      background-color: #E69800;
+    }
+  }
+
+  &__item {
+    margin: 0 auto;
+  }
+
+  &__ellipse--wrapper {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0 5px;
+  }
+
+  &__ellipse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #000;
+
+    &--gray {
+      background-color: #696969;
+    }
+  }
+
+  &-colors {
+    display: flex;
+    gap: 16px;
+    padding: 8px;
+    width: 190px;
+    
+    &__color {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #000;
+
+      &--gray {
+        background-color: #CDCDCD;
+      }
+
+      &--yellow {
+        background-color: #FBFFCA;
+      }
+
+      &--violet {
+        background-color: #D9D3FF;
+      }
+    }
+  }
+
+  &__quantity {
+    display: flex;
+    gap: 23px;
+    justify-content: space-around;
+    align-items: center;
+    width: 190px;
+    height: 42px;
+
+    border: 1px solid rgb(105, 105, 105);
+    border-radius: 100px;
+
+    &--text {
+      color: rgb(2, 16, 31);
+      font-family: Montserrat;
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 17px;
+      text-align: center;
+    }
+
+    &--margin {
+      margin: 16px 0 24px;
+    }
+  }
+
+  &__delivery {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: left;
+
+    &--payment {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    &--margin {
+      margin-top: 32px ;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+    width: 0;
+    }
+
+    &--margin {
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+
+    &--title {
+      color: rgb(105, 105, 105);
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 20px;
+      letter-spacing: 0%;
+      text-align: center;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    &--title-active {
+      color: rgb(0, 0, 0);
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 20px;
+      letter-spacing: 0%;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  &__features {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color:  #02101F;
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 17px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+
+  &__overwiev {
+    color:  #02101F;
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 17px;
+    text-align: left;
+    margin-top: 32px;
+
+    &--text {
+      margin-top: 8px;
+    }
+  }
+
+  &__feedback {
+    margin-top: 32px;
+
+    &--text {
+      margin-top: 8px;
+      color: rgb(105, 105, 105);
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 17px;
+      text-align: left;
+    }
+  }
+
+  &__give-feedback{
+    margin-top: 24px;
+    width: 190px;
+    height: 48px;
+  }
+
+  &__questions-and-answers{
+    margin-top: 32px;
+
+    &--button {
+      margin-top: 16px;
+      width: 190px;
+      height: 48px;
+      margin-bottom: 48px;
+    }
   }
 }

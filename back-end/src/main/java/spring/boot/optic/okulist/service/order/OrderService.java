@@ -18,9 +18,13 @@ public interface OrderService {
 
     List<OrderResponseDto> findAllOrders(Long id, Pageable pageable);
 
-    OrderResponseDto getByOrderIdAndOrderItemId(Long orderId, Long orderItemsId);
+    public OrderResponseDto getByOrderIdAndOrderItemId(Long orderId, Long orderItemsId);
 
     OrderResponseDto updateOrderStatus(Long orderId, Order.Status status);
 
-    List<Order> findAllOrdersSortedByDateDesc();
+    List<OrderResponseDto> findByUserEmail(String email);
+
+    List<OrderResponseDto> findAllByUserPhoneNumber(Long number);
+
+    List<OrderResponseDto> findAll();
 }

@@ -37,22 +37,22 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void deleteById(Long id) {
-        Product product = productRepository.findById(id).orElseThrow(
-                () -> new EntityNotFoundException("Can't found product with ID :" + id)
-        );
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Can't found product with ID :" + id));
         product.setDeleted(true);
         productRepository.save(product);
     }
 
     @Override
     public ProductResponseDto update(Long id, ProductRequestDto productRequestDto) {
-        Product existingProduct = productRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException(
-                        "Can't find product with ID: " + id));
-        BeanUtils.copyProperties(productRequestDto, existingProduct,
-                getNullPropertyNames(productRequestDto));
-        Product updatedProduct = productRepository.save(existingProduct);
-        return productMapper.toDto(updatedProduct);
+        productRepository.findById(id).ifPresent(existingProduct -> {
+            BeanUtils.copyProperties(productRequestDto, existingProduct,
+                    getNullPropertyNames(productRequestDto));
+            productRepository.save(existingProduct);
+        });
+        return productRepository.findById(id)
+                .map(productMapper::toDto)
+                .orElseThrow(() -> new EntityNotFoundException("Can't find product with ID: " + id));
     }
 
     private String[] getNullPropertyNames(Object source) {
@@ -63,10 +63,8 @@ public class ProductServiceImpl implements ProductService {
     public ProductResponseDto updateProductStatus(Long id, UpdateProductRequestDto requestDto) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Can't find product by id: " + id));
-        Product.ProductStatus newStatus = requestDto.getProductStatus();
-        product.setStatus(newStatus);
+        product.setStatus(requestDto.getProductStatus());
         Product updatedProduct = productRepository.save(product);
-        updatedProduct.setStatus(newStatus);
         return productMapper.toDto(updatedProduct);
     }
 }

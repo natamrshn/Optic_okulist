@@ -3,10 +3,8 @@ package spring.boot.optic.okulist.service.glasses;
 import static spring.boot.optic.okulist.service.liquid.LiquidServiceImpl.getStrings;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.glasses.GlassesRequestDto;
@@ -26,7 +24,7 @@ public class GlassesServiceImpl implements GlassesService {
     private final GlassesSpecificationBuilder glassesSpecificationBuilder;
 
     @Override
-    public List<GlassesResponseDto> findAll(Pageable pageable) {
+    public List<GlassesResponseDto> findAll() {
         return glassesRepository.findAll()
                 .stream()
                 .map(glassesMapper::toDto)
@@ -61,23 +59,24 @@ public class GlassesServiceImpl implements GlassesService {
     }
 
     @Override
-    public List<GlassesResponseDto> findSimilar(GlassesSearchParameter glassesRequestDto) {
-        Glasses referenceGlasses = glassesMapper.toModelSearchParam(glassesRequestDto);
-
-        List<Glasses> similarGlasses = glassesRepository
-                .findByColorIgnoreCaseAndNameAndPriceAndIdentifierAndDescriptionAndImageUrlAndImageUrlSecond(
-                referenceGlasses.getColor(),
-                referenceGlasses.getName(),
-                referenceGlasses.getPrice(),
-                referenceGlasses.getIdentifier(),
-                referenceGlasses.getDescription(),
-                referenceGlasses.getImageUrl(),
-                referenceGlasses.getImageUrlSecond()
+    public GlassesResponseDto findByIdentifier(String identifier) {
+        Glasses glasses = glassesRepository.findByIdentifier(identifier).orElseThrow(
+                () -> new EntityNotFoundException("Can't found Glasses with ID: " + identifier)
         );
 
-        return similarGlasses.stream()
-                .map(glassesMapper::toDto)
-                .collect(Collectors.toList());
+        GlassesResponseDto result = glassesMapper.toDto(glasses);
+
+        List<GlassesResponseDto.Variation> variations = glassesRepository
+                .findAllByModelAndManufacturer(glasses.getModel(),
+                        glasses.getManufacturer())
+                .stream()
+                .filter(variation -> ! variation.getId().equals(glasses.getId()))
+                .map(glassesMapper::mapGlassesVariationToDto)
+                .toList();
+
+        result.setVariations(variations);
+
+        return result;
     }
 
     @Override

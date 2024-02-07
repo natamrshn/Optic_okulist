@@ -29,11 +29,12 @@
   }
 
   &__content-title {
-    color: $header-title-color;
     font-size: 3.125rem;
     font-weight: 700;
-
+    color: #0C0202;
+    
     &--main-page {
+      color: $header-title-color;
       margin: 100px 0 4px;
     }
 

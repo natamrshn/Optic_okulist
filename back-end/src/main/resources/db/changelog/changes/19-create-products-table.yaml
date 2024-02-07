@@ -15,10 +15,10 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: "status"
-                  type: tinyint
+                  type: varchar(255)
                   constraints:
                     nullable: false
-                  defaultValue: 0
+                  defaultValue: "AVALIABLE"
               - column:
                   name: "name"
                   type: varchar(255)

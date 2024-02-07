@@ -64,4 +64,22 @@
     height: 48px;
     background-repeat: no-repeat;
   }
+
+  &--payment {
+    background-image: url(../icons/card.svg);
+    width: 23px;
+    height: 12px;
+  }
+
+  &--speed {
+    background-image: url(../icons/box.svg);
+    width: 23px;
+    height: 12px;
+  }
+
+  &--truck {
+    background-image: url(../icons/truck.svg);
+    width: 23px;
+    height: 12px;
+  }
 }

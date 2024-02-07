@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.liquid.LiquidRequestDto;
@@ -28,7 +27,7 @@ public class LiquidServiceImpl implements LiquidService {
     private final LiquidSpecificationBuilder specificationBuilder;
 
     @Override
-    public List<LiquidResponseDto> findAll(Pageable pageable) {
+    public List<LiquidResponseDto> findAll() {
         return liquidRepository.findAll()
                 .stream()
                 .map(liquidMapper::toDto)
@@ -97,6 +96,25 @@ public class LiquidServiceImpl implements LiquidService {
         return similarLiquids.stream()
                 .map(liquidMapper::toDto)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public LiquidResponseDto findByIdentifier(String identifier) {
+        Liquid liquid = liquidRepository.findByIdentifier(identifier).orElseThrow(
+                () -> new EntityNotFoundException("Can't found Liquid with Identifier: " + identifier)
+        );
+
+        LiquidResponseDto result = liquidMapper.toDto(liquid);
+
+        List<LiquidResponseDto.Variations> variation = liquidRepository.findAllByIdentifier(liquid.getIdentifier())
+                .stream()
+                .filter(variations -> ! variations.getId().equals(liquid.getId()))
+                .map(liquidMapper::mapLiquidVariationToDto)
+                .toList();
+
+        result.setVariations(variation);
+
+        return result;
     }
 
     @Override

@@ -15,4 +15,8 @@ public interface ContactLensesService {
     ContactLensesResponseDto update(Long id, ContactLensesRequestDto contactLensesRequestDto);
 
     void deleteLensesById(Long lensesId);
+
+    ContactLensesResponseDto findByIdentifier(String identifier);
+
+    List<ContactLensesResponseDto> findAllByOrderByIdDesc(Pageable pageable);
 }
