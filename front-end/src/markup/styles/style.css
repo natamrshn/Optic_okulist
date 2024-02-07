@@ -1460,6 +1460,8 @@ h4 {
   flex-direction: row;
   gap: 20px;
   margin: 0 auto;
+  justify-content: center;
+  align-items: center;
 }
 .lenses__top-buttons--new {
   border: 1px solid rgb(2, 16, 31);
@@ -1489,15 +1491,17 @@ h4 {
   text-align: center;
   margin-top: 16px;
 }
-.lenses__item-card--wrapper {
+.lenses__item-card-wrapper {
   display: flex;
   align-items: center;
   gap: 20px;
   margin-top: 24px;
 }
-.lenses__item-card--wrapper img {
+.lenses__item-card-wrapper img {
   width: 120px;
   height: 84px;
+  box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
 }
 .lenses__item-card--descr {
   color: rgb(2, 16, 31);
@@ -1576,6 +1580,16 @@ h4 {
   text-align: center;
 }
 .lenses__paid-margin {
+  margin-top: 24px;
+}
+.lenses__fill-data {
+  color: rgb(0, 0, 0);
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0%;
+  text-align: left;
   margin-top: 24px;
 }
 
