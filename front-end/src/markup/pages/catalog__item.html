@@ -166,15 +166,31 @@
   <main class="main product">
 
     <div class="product__item ">
-      <div class="product__image"></div>
+      <div class="product__image product__image--1"></div>
+      <div class="product__image product__image--2 hidden"></div>
+
 
       <div class="product__ellipse--wrapper">
         <div class="product__ellipse"></div>
         <div class="product__ellipse product__ellipse--gray"></div>
       </div>
 
-      <img src="../images/products/product-img.png" alt="image-product-small" class="product__image--small">
-      <img src="../images/products/product-hover-img.png" alt="image-product-small" class="product__image--small">
+      <div class="product__image--small--container">
+        <div 
+          class="product__image--small product__image--small--1 choosed" 
+          onclick="changeImage(1)"
+        ></div>
+        <div 
+          class="product__image--small product__image--small--2" 
+          onclick="changeImage(2)"
+        ></div>
+      </div>
+
+      <!-- <img 
+        src="../images/products/product-hover-img.png" 
+        alt="image-product-small" 
+        class="product__image--small"
+      > -->
 
       <p class="product__descripsion">Окуляри для зору жіночі</p>
       <p class="product__name">Verse 20176 blueblocker</p>
