@@ -5,6 +5,19 @@ import { LensePostRequest, LensePostResponse } from "../Types/LensePOST";
 
 export class LenseAPI {
   static lenses_url = BACKEND_URL + "/contact-lenses";
+  static headers = {
+    Authorization: `Bearer token`,
+  };
+
+  static setTokenToHeader(token: string) {
+    if (!token || token.length === 0) {
+      throw new Error(
+        "You should give me a token. Not empty argument or undefined"
+      );
+    }
+
+    this.headers.Authorization = `Bearer ${token}`;
+  }
 
   static async getAll(): Promise<LenseGetResponse[]> {
     return fetch(this.lenses_url).then((response) => response.json());
