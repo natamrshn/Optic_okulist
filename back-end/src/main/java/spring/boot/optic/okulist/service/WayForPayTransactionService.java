@@ -1,8 +1,8 @@
 package spring.boot.optic.okulist.service;
 
-import spring.boot.optic.okulist.dto.payment.TransactionListRequestDTO;
-import spring.boot.optic.okulist.dto.payment.TransactionListResponseDTO;
+import spring.boot.optic.okulist.dto.payment.TransactionListRequestDto;
+import spring.boot.optic.okulist.dto.payment.TransactionListResponseDto;
 
 public interface WayForPayTransactionService {
-    TransactionListResponseDTO getTransactionList(TransactionListRequestDTO requestDTO);
+    TransactionListResponseDto getTransactionList(TransactionListRequestDto requestDto);
 }

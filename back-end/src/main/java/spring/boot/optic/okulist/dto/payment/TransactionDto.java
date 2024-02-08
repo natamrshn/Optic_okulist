@@ -3,7 +3,7 @@ package spring.boot.optic.okulist.dto.payment;
 import lombok.Data;
 
 @Data
-public class TransactionDTO {
+public class TransactionDto {
     private String transactionType;
     private String orderReference;
     private String createdDate;

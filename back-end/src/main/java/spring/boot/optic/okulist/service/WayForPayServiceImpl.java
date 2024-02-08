@@ -1,6 +1,7 @@
 package spring.boot.optic.okulist.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
 import lombok.RequiredArgsConstructor;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -12,7 +13,6 @@ import org.springframework.stereotype.Service;
 import spring.boot.optic.okulist.dto.payment.WayForPayRequestDto;
 import spring.boot.optic.okulist.dto.payment.WayForPayResponseDto;
 import spring.boot.optic.okulist.exception.WayForPayApiException;
-import java.io.IOException;
 
 @Service
 @RequiredArgsConstructor

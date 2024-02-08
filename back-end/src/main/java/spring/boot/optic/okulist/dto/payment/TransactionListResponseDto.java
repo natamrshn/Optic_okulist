@@ -1,12 +1,11 @@
 package spring.boot.optic.okulist.dto.payment;
 
+import java.util.List;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
-public class TransactionListResponseDTO {
+public class TransactionListResponseDto {
     private String reason;
     private int reasonCode;
-    private List<TransactionDTO> transactionList;
+    private List<TransactionDto> transactionlList;
 }

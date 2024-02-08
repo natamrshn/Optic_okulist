@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import spring.boot.optic.okulist.dto.payment.TransactionListRequestDTO;
-import spring.boot.optic.okulist.dto.payment.TransactionListResponseDTO;
+import spring.boot.optic.okulist.dto.payment.TransactionListRequestDto;
+import spring.boot.optic.okulist.dto.payment.TransactionListResponseDto;
 import spring.boot.optic.okulist.dto.payment.WayForPayRequestDto;
 import spring.boot.optic.okulist.dto.payment.WayForPayResponseDto;
 import spring.boot.optic.okulist.service.WayForPayService;
@@ -39,7 +39,7 @@ public class WayForPayController {
     }
 
     @PostMapping("/transactions")
-    public TransactionListResponseDTO getTransactions(@RequestBody TransactionListRequestDTO requestDTO) {
-        return transactionService.getTransactionList(requestDTO);
+    public TransactionListResponseDto getTransactions(@RequestBody TransactionListRequestDto requestDto) {
+        return transactionService.getTransactionList(requestDto);
     }
 }
