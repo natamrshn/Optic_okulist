@@ -14,6 +14,7 @@ import { ContactsPage } from "./Pages/ContactsPage";
 import { LocalStorage } from "./Utils/LocalStorageUtil";
 
 import { AuthContext } from "./Contexts/AuthContext";
+import { SocialMediaButtons } from "./Components/Common/SocialMediaButtons";
 
 function App() {
   const [token, setToken] = useState(LocalStorage.getToken() || "");
@@ -22,6 +23,8 @@ function App() {
     <div className="App">
       <AuthContext.Provider value={{ token, setToken }}>
         <Header />
+
+        <SocialMediaButtons />
 
         <Router>
           <Routes>
