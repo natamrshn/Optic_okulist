@@ -1,4 +1,4 @@
-<!-- Якщо зареєстрований клієнт не війшов в кабінет -->
+<!--Самовивіз з магазину (незареєстрований юзер) -->
 <!DOCTYPE html>
 <html lang="uk"
       class="page">
@@ -158,8 +158,8 @@
 
   <main class="main lenses">
     <div class="lenses__top-buttons">
-      <button class="lenses__top-buttons lenses__top-buttons--new">Я новий покупець</button>
-      <button class="lenses__top-buttons lenses__top-buttons--old">Я постійний клієнт</button>
+      <button class="lenses__top-buttons lenses__top-buttons--old">Я новий покупець</button>
+      <button class="lenses__top-buttons lenses__top-buttons--new">Я постійний клієнт</button>
     </div>
 
     <h3 class="lenses__title">Оформлення замовлення</h3>
@@ -190,8 +190,31 @@
     </div>
 
     <div class="lenses__price">Сума до сплати: 130 грн</div>
-    <h4 class="lenses__enter-cabinet">Вхід в кабінет</h4>
+    <h4 class="lenses__enter-cabinet">Заповніть форму:</h4>
+    <p class="lenses__fill-data">Ваші контактні дані:</p>
 
+    <label class="form-field__label lenses__label"
+           for="name-surname">
+      Прізвище та імʼя
+    </label>
+
+    <input class="form-field__input lenses__input"
+           type="text"
+           id="name-surname"
+           name="name-surname"
+           required
+           placeholder="Іван Шевченко">
+
+    <label class="form-field__label lenses__label"
+           for="phone">
+      Номер телефону
+    </label>
+    <input class="form-field__input lenses__input"
+           type="text"
+           id="phone"
+           name="phone"
+           placeholder="+38 (000) 00 00 000"
+           required>
 
     <label class="form-field__label lenses__label"
            for="email">
@@ -205,24 +228,6 @@
            required
            placeholder="example.ua@gmail.com">
 
-    <label class="form-field__label lenses__label"
-           for="loginPassword">
-      Пароль:
-    </label>
-    <input class="form-field__input lenses__input"
-           type="password"
-           id="loginPassword"
-           name="loginPassword"
-           required>
-
-    <a href="personal-cabinet.html"
-       class="button button--login lenses__cabinet-button">
-      Увійти
-    </a>
-    <a href="#"
-       class="button button--forgot-password lenses__cabinet-button">
-      Забули пароль?
-    </a>
 
     <h4 class="lenses__delivery">Доставка:</h4>
 
@@ -236,28 +241,8 @@
       <p class="lenses__delivery-info--text">Самовивіз з магазину</p>
     </div>
 
-    <label class="form-field__label lenses__label"
-           for="city">
-      Місто
-    </label>
-    <input class="form-field__input lenses__input"
-           type="text"
-           id="city"
-           name="city"
-           required
-           placeholder="Запоріжжя">
-
-
-    <label class="form-field__label lenses__label"
-          for="postOffice">
-      Відділення Нової пошти
-    </label>
-    <input class="form-field__input lenses__input"
-          type="text"
-          id="postOffice"
-          name="postOffice"
-          required
-          placeholder="34">
+    <label class="form-field__label lenses__label">Адреса магазину</label>
+    <select></select>
 
     <h4 class="lenses__paid-margin">Оплата:</h4>
     <div class="lenses__delivery-info">
