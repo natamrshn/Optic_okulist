@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
-import './MainPage.scss';
+import { FC, useEffect } from "react";
+import "./MainPage.scss";
 
-export const MainPage: React.FC = () => {
+export const MainPage: FC = () => {
   useEffect(() => {
-    document.title = 'Окуліст - головна'
-  }, [])
+    document.title = "Окуліст - головна";
+  }, []);
 
-  return <></>;
-}
+  return <div className="main">Here will be a description of this shop</div>;
+};
