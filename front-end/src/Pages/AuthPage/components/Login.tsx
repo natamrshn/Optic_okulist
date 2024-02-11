@@ -38,7 +38,7 @@ export const Login: FC = () => {
   };
 
   const RedirectToRecoveryPageHandler = () => {
-    // Here I need to redirect to page where user can reset its password
+    // Here I need to redirect to a page where user can reset its password
   };
 
   return (
