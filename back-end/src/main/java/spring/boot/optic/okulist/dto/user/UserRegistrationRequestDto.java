@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 import spring.boot.optic.okulist.validation.user.email.EmailValidation;
 import spring.boot.optic.okulist.validation.user.password.FieldMatch;
+import spring.boot.optic.okulist.validation.user.password.PasswordValidation;
 
 @Data
 @FieldMatch(
@@ -16,9 +17,11 @@ public class UserRegistrationRequestDto {
     @EmailValidation
     private String email;
     @NotNull
+    @PasswordValidation
     @Size(min = 6, max = 100)
     private String password;
     @NotNull
+    @PasswordValidation
     @Size(min = 6, max = 100)
     private String repeatPassword;
     @NotNull

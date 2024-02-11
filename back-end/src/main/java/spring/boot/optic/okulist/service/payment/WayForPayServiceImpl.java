@@ -1,4 +1,4 @@
-package spring.boot.optic.okulist.service;
+package spring.boot.optic.okulist.service.payment;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
