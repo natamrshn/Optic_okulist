@@ -3,13 +3,26 @@ import { LiquidGETResponse } from "../Types/LiquidGET";
 import { LiquidPOSTRequest, LiquidPOSTResponse } from "../Types/LiquidPOST";
 import { LiquidPutRequest, LiquidPutResponse } from "../Types/LiquidPUT";
 
-interface LiquidParams {
+export interface LiquidParams {
   volume: number;
   name: string;
 }
 
 export class LiquidAPI {
   static url_liquid = BACKEND_URL + "/liquid";
+  static headers = {
+    Authorization: `Bearer token`,
+  };
+
+  static setTokenToHeader(token: string) {
+    if (!token || token.length === 0) {
+      throw new Error(
+        "You should give me a token. Not empty argument or undefined"
+      );
+    }
+
+    this.headers.Authorization = `Bearer ${token}`;
+  }
 
   static async getAll(): Promise<LiquidGETResponse[]> {
     return fetch(this.url_liquid).then((response) => response.json());

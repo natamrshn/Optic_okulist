@@ -13,6 +13,11 @@ export const AuthPage: FC = () => {
 
   return (
     <div className="authPage">
+      <button onClick={() => setCurrentPage(Pages.REGISTRATION)}>
+        Registration
+      </button>
+      <button onClick={() => setCurrentPage(Pages.LOGIN)}>Login</button>
+
       {currentPage === Pages.LOGIN && <Login />}
       {currentPage === Pages.REGISTRATION && <Registration />}
     </div>

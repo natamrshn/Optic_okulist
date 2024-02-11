@@ -25,3 +25,5 @@ yarn-error.log*
 
 # trash and packages
 .parcel-cache/
+src/markup/styles/styles.css
+src/markup/styles/styles.css.map

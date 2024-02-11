@@ -1,4 +1,4 @@
 export interface Variation {
-  id: number,
+  id: number;
   coverImage: string;
-};
+}

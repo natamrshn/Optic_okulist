@@ -14,19 +14,24 @@ import { ContactsPage } from "./Pages/ContactsPage";
 import { LocalStorage } from "./Utils/LocalStorageUtil";
 
 import { AuthContext } from "./Contexts/AuthContext";
-import { SocialMediaButtons } from "./Components/Common/SocialMediaButtons";
+import { AuthPage } from "./Pages/AuthPage";
+import { AsideMenu } from "./Components/Common/AsideMenu";
 
 function App() {
   const [token, setToken] = useState(LocalStorage.getToken() || "");
+  const [menuIsOpened, setMenuIsOpened] = useState<boolean>(false);
 
   return (
     <div className="App">
       <AuthContext.Provider value={{ token, setToken }}>
         <Header />
 
-        <SocialMediaButtons />
-
         <Router>
+          {menuIsOpened && (
+            <AsideMenu closeMenu={() => setMenuIsOpened(false)} />
+          )}
+          <button onClick={() => setMenuIsOpened((prev) => !prev)}>Menu</button>
+
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/about-us" element={<AboutUsPage />} />
@@ -34,6 +39,7 @@ function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/contacts" element={<UsefulArticlesPage />} />
             <Route path="/useful-articles" element={<ContactsPage />} />
+            <Route path="/authorization" element={<AuthPage />} />
           </Routes>
         </Router>
       </AuthContext.Provider>
