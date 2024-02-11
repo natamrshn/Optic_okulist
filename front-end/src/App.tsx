@@ -16,6 +16,7 @@ import { LocalStorage } from "./Utils/LocalStorageUtil";
 import { AuthContext } from "./Contexts/AuthContext";
 import { AuthPage } from "./Pages/AuthPage";
 import { AsideMenu } from "./Components/Common/AsideMenu";
+import { CatalogPage } from "./Pages/CatalogPage";
 
 function App() {
   const [token, setToken] = useState(LocalStorage.getToken() || "");
@@ -37,6 +38,7 @@ function App() {
             <Route path="/about-us" element={<AboutUsPage />} />
             <Route path="/reviews" element={<ReviewsPage />} />
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/catalog" element={<CatalogPage />} />
             <Route path="/contacts" element={<UsefulArticlesPage />} />
             <Route path="/useful-articles" element={<ContactsPage />} />
             <Route path="/authorization" element={<AuthPage />} />
