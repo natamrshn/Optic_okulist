@@ -1,4 +1,4 @@
-package spring.boot.optic.okulist.service;
+package spring.boot.optic.okulist.service.payment;
 
 import spring.boot.optic.okulist.dto.payment.WayForPayRequestDto;
 import spring.boot.optic.okulist.dto.payment.WayForPayResponseDto;

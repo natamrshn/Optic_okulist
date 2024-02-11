@@ -1,4 +1,4 @@
-package spring.boot.optic.okulist.service;
+package spring.boot.optic.okulist.service.payment;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -71,14 +71,14 @@ public class AdminServiceImpl implements AdminService {
         RegisteredUser user = userRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new EntityNotFoundException("User not found with email: " + userEmail));
 
-        // Оновлення інших полів за потреби
+        // Update other fields if that's necessary
         if (newRoleName == Role.RoleName.MAIN_ADMIN || newRoleName == Role.RoleName.ADMIN) {
             user.setAdmin(true);
             user.setCreatePermission(true);
             user.setUpdatePermission(true);
             user.setDeletePermission(true);
         } else {
-            // Скидання інших полів, якщо роль не є ADMIN чи MAIN_ADMIN
+            // revoke permits if the role doesnt match admin/ main admin
             user.setAdmin(false);
             user.setCreatePermission(false);
             user.setUpdatePermission(false);

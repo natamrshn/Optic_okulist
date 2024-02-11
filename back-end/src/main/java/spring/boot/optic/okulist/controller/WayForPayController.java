@@ -12,8 +12,8 @@ import spring.boot.optic.okulist.dto.payment.TransactionListRequestDto;
 import spring.boot.optic.okulist.dto.payment.TransactionListResponseDto;
 import spring.boot.optic.okulist.dto.payment.WayForPayRequestDto;
 import spring.boot.optic.okulist.dto.payment.WayForPayResponseDto;
-import spring.boot.optic.okulist.service.WayForPayService;
-import spring.boot.optic.okulist.service.WayForPayTransactionService;
+import spring.boot.optic.okulist.service.payment.WayForPayService;
+import spring.boot.optic.okulist.service.payment.WayForPayTransactionService;
 
 @RestController
 @RequestMapping("/wayforpay")
