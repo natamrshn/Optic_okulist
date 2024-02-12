@@ -23,7 +23,7 @@ public class ContactLensesServiceImpl implements ContactLensesService {
     private final ContactLensesMapper contactLensesMapper;
     private final ManufacturerRepository manufacturerRepository;
 
-    @Override
+  /*  @Override
     public ContactLensesResponseDto createContactLenses(
             ContactLensesRequestDto contactLensesRequestDto) {
         ContactLenses lenses = contactLensesMapper.toModel(contactLensesRequestDto);
@@ -33,6 +33,49 @@ public class ContactLensesServiceImpl implements ContactLensesService {
                         + contactLensesRequestDto.getLensConfigurationId()));
         lenses.setLensConfiguration(manufacturer);
         lenses = contactLensesRepository.save(lenses);
+        return contactLensesMapper.toDto(lenses);
+    }
+
+   */
+
+    // try this one instead of previous
+
+    @Override
+    public ContactLensesResponseDto createContactLenses(
+            ContactLensesRequestDto contactLensesRequestDto) {
+        // Step 1: Map DTO to entity
+        ContactLenses lenses = mapDtoToEntity(contactLensesRequestDto);
+
+        // Step 2: Set lens configuration
+        setLensConfiguration(lenses, contactLensesRequestDto);
+
+        // Step 3: Save lenses
+        lenses = saveContactLenses(lenses);
+
+        // Step 4: Map entity to DTO and return
+        return mapEntityToDto(lenses);
+    }
+
+    // Method to map DTO to entity
+    private ContactLenses mapDtoToEntity(ContactLensesRequestDto contactLensesRequestDto) {
+        return contactLensesMapper.toModel(contactLensesRequestDto);
+    }
+
+    // Method to set lens configuration
+    private void setLensConfiguration(ContactLenses lenses, ContactLensesRequestDto requestDto) {
+        Manufacturer manufacturer = manufacturerRepository.findById(requestDto.getLensConfigurationId())
+                .orElseThrow(() -> new EntityNotFoundException("Configuration not found with ID: "
+                        + requestDto.getLensConfigurationId()));
+        lenses.setLensConfiguration(manufacturer);
+    }
+
+    // Method to save lenses
+    private ContactLenses saveContactLenses(ContactLenses lenses) {
+        return contactLensesRepository.save(lenses);
+    }
+
+    // Method to map entity to DTO
+    private ContactLensesResponseDto mapEntityToDto(ContactLenses lenses) {
         return contactLensesMapper.toDto(lenses);
     }
 
