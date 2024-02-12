@@ -66,16 +66,6 @@ public class LiquidController {
         return liquidService.findAllByOrderByIdDesc(pageable);
     }
 
-    /* @Operation(summary = "Get liquid by ID")
-    @GetMapping("/{id}")
-    @ApiResponse(responseCode = "200", description = "Liquid retrieved successfully")
-    @ApiResponse(responseCode = "404", description = "Liquid not found")
-    public LiquidResponseDto getLiquidsById(@PathVariable Long id) {
-        logger.info("Retrieving liquid with ID: " + id);
-        return liquidService.getById(id);
-    }
-    */
-
     @Operation(summary = "Search for liquid",
             description = "Searches for liquid in the store based on various search parameters such as volume or name.")
     @GetMapping("/search")

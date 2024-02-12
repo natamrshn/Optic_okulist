@@ -1,5 +1,6 @@
 package spring.boot.optic.okulist.service.liquid;
 
+import jakarta.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -41,8 +42,12 @@ public class LiquidServiceImpl implements LiquidService {
                 () -> new EntityNotFoundException("Can't found Liquid with ID: " + id)
         );
 
-        LiquidResponseDto result = liquidMapper.toDto(liquid);
+        return getLiquidResponseDto(liquid);
+    }
 
+    @NotNull
+    private LiquidResponseDto getLiquidResponseDto(Liquid liquid) {
+        LiquidResponseDto result = liquidMapper.toDto(liquid);
         List<LiquidResponseDto.Variations> variation = liquidRepository.findAllByIdentifier(liquid.getIdentifier())
                 .stream()
                 .filter(variations -> ! variations.getId().equals(liquid.getId()))
@@ -105,17 +110,7 @@ public class LiquidServiceImpl implements LiquidService {
                 () -> new EntityNotFoundException("Can't found Liquid with Identifier: " + identifier)
         );
 
-        LiquidResponseDto result = liquidMapper.toDto(liquid);
-
-        List<LiquidResponseDto.Variations> variation = liquidRepository.findAllByIdentifier(liquid.getIdentifier())
-                .stream()
-                .filter(variations -> ! variations.getId().equals(liquid.getId()))
-                .map(liquidMapper::mapLiquidVariationToDto)
-                .toList();
-
-        result.setVariations(variation);
-
-        return result;
+        return getLiquidResponseDto(liquid);
     }
 
     @Override

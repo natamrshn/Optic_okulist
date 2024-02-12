@@ -19,7 +19,6 @@ import spring.boot.optic.okulist.repository.lenses.ManufacturerRepository;
 @Service
 @RequiredArgsConstructor
 public class ContactLensesServiceImpl implements ContactLensesService {
-
     private final ContactLensesRepository contactLensesRepository;
     private final ContactLensesMapper contactLensesMapper;
     private final ManufacturerRepository manufacturerRepository;

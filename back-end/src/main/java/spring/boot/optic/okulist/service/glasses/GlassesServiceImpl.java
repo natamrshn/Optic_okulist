@@ -2,6 +2,7 @@ package spring.boot.optic.okulist.service.glasses;
 
 import static spring.boot.optic.okulist.service.liquid.LiquidServiceImpl.getStrings;
 
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -46,19 +47,7 @@ public class GlassesServiceImpl implements GlassesService {
                 () -> new EntityNotFoundException("Can't found Glasses with ID: " + id)
         );
 
-        GlassesResponseDto result = glassesMapper.toDto(glasses);
-
-        List<GlassesResponseDto.Variation> variations = glassesRepository
-                .findAllByModelAndManufacturer(glasses.getModel(),
-                        glasses.getManufacturer())
-                .stream()
-                .filter(variation -> ! variation.getId().equals(glasses.getId()))
-                .map(glassesMapper::mapGlassesVariationToDto)
-                .toList();
-
-        result.setVariations(variations);
-
-        return result;
+        return getGlassesResponseDto(glasses);
     }
 
     @Override
@@ -73,6 +62,11 @@ public class GlassesServiceImpl implements GlassesService {
                 () -> new EntityNotFoundException("Can't found Glasses with ID: " + identifier)
         );
 
+        return getGlassesResponseDto(glasses);
+    }
+
+    @NotNull
+    private GlassesResponseDto getGlassesResponseDto(Glasses glasses) {
         GlassesResponseDto result = glassesMapper.toDto(glasses);
 
         List<GlassesResponseDto.Variation> variations = glassesRepository
