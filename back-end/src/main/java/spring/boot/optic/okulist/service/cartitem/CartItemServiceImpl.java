@@ -3,6 +3,7 @@ package spring.boot.optic.okulist.service.cartitem;
 import jakarta.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +15,7 @@ import spring.boot.optic.okulist.dto.shoppingcartitems.UpdateQuantityDto;
 import spring.boot.optic.okulist.exception.EntityNotFoundException;
 import spring.boot.optic.okulist.mapper.CartItemMapper;
 import spring.boot.optic.okulist.model.LenseItemConfig;
+import spring.boot.optic.okulist.model.Product;
 import spring.boot.optic.okulist.model.ShoppingCart;
 import spring.boot.optic.okulist.model.ShoppingCartItem;
 import spring.boot.optic.okulist.model.user.User;
@@ -36,15 +38,46 @@ public class CartItemServiceImpl implements CartItemService {
     @Override
     @Transactional
     public CartItemResponseDto save(ShoppingCartItemsRequestDto cartItemRequestDto) {
-        ShoppingCartItem cartItem = new ShoppingCartItem();
-        cartItem.setProduct(productRepository.getById(cartItemRequestDto.getProductId()));
-        cartItem.setQuantity(cartItemRequestDto.getQuantity());
-        LenseConfigDto lenseConfigDto = cartItemRequestDto.getLenseConfig();
-        LenseItemConfig lenseConfig = cartItemMapper.toLenseItemConfig(lenseConfigDto);
-        cartItem.setLenseConfig(lenseConfig);
-        User user = userService.getUserOrCreateNew(cartItemRequestDto.getSessionId());
+        ShoppingCartItem cartItem = createShoppingCartItem(cartItemRequestDto);
+        User user = getUser(cartItemRequestDto.getSessionId());
         setShoppingCartAndCartItems(user, cartItem);
         return cartItemMapper.toDto(cartItemRepository.save(cartItem));
+    }
+
+    private ShoppingCartItem createShoppingCartItem(ShoppingCartItemsRequestDto cartItemRequestDto) {
+        validateCartItemRequestDto(cartItemRequestDto);
+
+        ShoppingCartItem cartItem = new ShoppingCartItem();
+        cartItem.setProduct(fetchProduct(cartItemRequestDto.getProductId()));
+        cartItem.setQuantity(cartItemRequestDto.getQuantity());
+        LenseItemConfig lenseConfig = mapLenseConfig(cartItemRequestDto.getLenseConfig());
+        cartItem.setLenseConfig(lenseConfig);
+        return cartItem;
+    }
+
+    private void validateCartItemRequestDto(ShoppingCartItemsRequestDto cartItemRequestDto) {
+        Objects.requireNonNull(cartItemRequestDto, "cartItemRequestDto must not be null");
+        Objects.requireNonNull(cartItemRequestDto.getProductId(), "Product ID must not be null");
+    }
+
+    private Product fetchProduct(Long productId) {
+        try {
+            return productRepository.getById(productId);
+        } catch (Exception e) {
+            throw new RuntimeException("Error fetching product details", e);
+        }
+    }
+
+    private LenseItemConfig mapLenseConfig(LenseConfigDto lenseConfigDto) {
+        try {
+            return cartItemMapper.toLenseItemConfig(lenseConfigDto);
+        } catch (Exception e) {
+            throw new RuntimeException("Error mapping lens configuration", e);
+        }
+    }
+
+    private User getUser(String sessionId) {
+        return userService.getUserOrCreateNew(sessionId);
     }
 
     @Override
