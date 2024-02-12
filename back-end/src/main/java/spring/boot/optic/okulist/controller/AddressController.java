@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import spring.boot.optic.okulist.dto.order.AddressDto;
-import spring.boot.optic.okulist.service.order.AddressService;
+import spring.boot.optic.okulist.service.order.address.AddressService;
 
 @RestController
 @RequestMapping("/addresses")

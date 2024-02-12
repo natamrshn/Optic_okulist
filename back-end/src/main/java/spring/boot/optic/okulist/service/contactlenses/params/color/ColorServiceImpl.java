@@ -12,7 +12,6 @@ import spring.boot.optic.okulist.repository.lenses.paramsrepository.ColorReposit
 @Service
 @RequiredArgsConstructor
 public class ColorServiceImpl implements ColorService {
-
     private final ColorRepository colorRepository;
     private final ColorMapper colorMapper;
 

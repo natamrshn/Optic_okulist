@@ -1,4 +1,4 @@
-package spring.boot.optic.okulist.service.order;
+package spring.boot.optic.okulist.service.order.address;
 
 import spring.boot.optic.okulist.dto.order.AddressDto;
 
