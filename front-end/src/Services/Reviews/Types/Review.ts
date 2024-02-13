@@ -7,7 +7,7 @@ enum StarRating {
   FIVE = "FIVE",
 }
 
-interface Reviewer {
+export interface Reviewer {
   profilePhotoUrl: string;
   displayName: string;
   isAnonymous: boolean;
