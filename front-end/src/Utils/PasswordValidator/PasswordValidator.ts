@@ -6,7 +6,7 @@ export function PasswordValidator(password: string) {
     containsCapitalizeLetter: false,
   };
 
-  let trimmedPassword = password.replaceAll(" ", "");
+  const trimmedPassword = password.replaceAll(" ", "");
 
   // if password is empty, we set "false" to all flags. There's nothing to validate
   if (trimmedPassword.length === 0) {
