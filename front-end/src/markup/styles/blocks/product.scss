@@ -185,6 +185,14 @@
     border: 1px solid rgb(105, 105, 105);
     border-radius: 100px;
 
+    .product__lens-type--package & {
+      margin-top: 16px;
+      width: 120px;
+      height: 37px;
+      background-color: #fff;
+    }
+
+
     &--text {
       color: rgb(2, 16, 31);
       font-family: Montserrat;
@@ -320,6 +328,15 @@
       letter-spacing: 0%;
       text-align: center;
       margin-bottom: 16px;
+    }
+
+    &--eye-title {
+      margin-top: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 20px;
+      letter-spacing: 0%;
+      text-align: center;
     }
 
     &--eyes-similar {

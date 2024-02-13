@@ -129,7 +129,12 @@
       width: 18px;
       height: 18px;
       border-radius:50%;
-      border: 2px solid #000;
+      border: 2px solid #011B35;
+
+      &.active {
+        border-width: 5px;
+        background-color: #fff;
+      }
     }
 
     &--text {
