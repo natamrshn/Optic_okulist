@@ -19,7 +19,6 @@ import spring.boot.optic.okulist.repository.lenses.ManufacturerRepository;
 @Service
 @RequiredArgsConstructor
 public class ContactLensesServiceImpl implements ContactLensesService {
-
     private final ContactLensesRepository contactLensesRepository;
     private final ContactLensesMapper contactLensesMapper;
     private final ManufacturerRepository manufacturerRepository;
@@ -27,13 +26,28 @@ public class ContactLensesServiceImpl implements ContactLensesService {
     @Override
     public ContactLensesResponseDto createContactLenses(
             ContactLensesRequestDto contactLensesRequestDto) {
-        ContactLenses lenses = contactLensesMapper.toModel(contactLensesRequestDto);
-        Manufacturer manufacturer = manufacturerRepository.findById(contactLensesRequestDto
-                        .getLensConfigurationId())
+        ContactLenses lenses = mapDtoToEntity(contactLensesRequestDto);
+        setLensConfiguration(lenses, contactLensesRequestDto);
+        lenses = saveContactLenses(lenses);
+        return mapEntityToDto(lenses);
+    }
+
+    private ContactLenses mapDtoToEntity(ContactLensesRequestDto contactLensesRequestDto) {
+        return contactLensesMapper.toModel(contactLensesRequestDto);
+    }
+
+    private void setLensConfiguration(ContactLenses lenses, ContactLensesRequestDto requestDto) {
+        Manufacturer manufacturer = manufacturerRepository.findById(requestDto.getLensConfigurationId())
                 .orElseThrow(() -> new EntityNotFoundException("Configuration not found with ID: "
-                        + contactLensesRequestDto.getLensConfigurationId()));
+                        + requestDto.getLensConfigurationId()));
         lenses.setLensConfiguration(manufacturer);
-        lenses = contactLensesRepository.save(lenses);
+    }
+
+    private ContactLenses saveContactLenses(ContactLenses lenses) {
+        return contactLensesRepository.save(lenses);
+    }
+
+    private ContactLensesResponseDto mapEntityToDto(ContactLenses lenses) {
         return contactLensesMapper.toDto(lenses);
     }
 

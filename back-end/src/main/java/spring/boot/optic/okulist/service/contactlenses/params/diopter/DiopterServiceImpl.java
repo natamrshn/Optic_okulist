@@ -13,7 +13,6 @@ import spring.boot.optic.okulist.repository.lenses.paramsrepository.DiopterRepos
 @Service
 @RequiredArgsConstructor
 public class DiopterServiceImpl implements DiopterService {
-
     private final DiopterRepository diopterRepository;
     private final DiopterMapper diopterMapper;
 

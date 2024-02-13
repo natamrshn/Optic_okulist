@@ -13,7 +13,6 @@ import spring.boot.optic.okulist.repository.lenses.paramsrepository.DegreeReposi
 @Service
 @RequiredArgsConstructor
 public class DegreeServiceImpl implements DegreeService {
-
     private final DegreeRepository degreeRepository;
     private final DegreeMapper degreeMapper;
 

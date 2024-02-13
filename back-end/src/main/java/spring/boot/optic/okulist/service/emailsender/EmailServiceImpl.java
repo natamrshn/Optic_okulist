@@ -22,7 +22,6 @@ import spring.boot.optic.okulist.model.Order;
 @Service
 @RequiredArgsConstructor
 public class EmailServiceImpl implements EmailService {
-
     @Value("${mail.smtp.host}")
     private String smtpHost;
     @Value("${mail.smtp.port}")
