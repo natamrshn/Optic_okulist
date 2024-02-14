@@ -18,7 +18,6 @@ import spring.boot.optic.okulist.service.emailsender.EmailService;
 public class UserPasswordInitiationServiceImpl implements UserPasswordInitiationService {
     private final CacheManager cacheManager;
     private final EmailService emailService;
-    private final UserRepository userRepository;
 
     @Override
     public void initiatePasswordChange() {
@@ -36,17 +35,6 @@ public class UserPasswordInitiationServiceImpl implements UserPasswordInitiation
 
         emailService.sendVerificationCodeEmail(userEmail, verificationCode);
         System.out.println("Verification code sent via email to user " + userEmail);
-    }
-
-    @Override
-    public User getUserById(Long userId) {
-        return userRepository.findById(userId)
-                .orElseThrow(() ->
-                        new EntityNotFoundException("User not found with id: " + userId));
-    }
-
-    public String getUserEmail(Long userId) {
-        return getUserById(userId).getEmail();
     }
 
     @Override
