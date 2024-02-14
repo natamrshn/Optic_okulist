@@ -6,9 +6,5 @@ public interface UserPasswordInitiationService {
 
     void initiatePasswordChange();
 
-    User getUserById(Long userId);
-
-    String getUserEmail(Long userId);
-
     String generateVerificationCode();
 }
