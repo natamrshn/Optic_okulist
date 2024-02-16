@@ -94,41 +94,41 @@ public class OrderServiceImpl implements OrderService {
         ShoppingCart shoppingCart = shoppingCartRepository.getByUserId(authUser.getId())
                 .orElseGet(() -> manager.registerNewCart(authUser));
         Order order = new Order();
-
-        // Встановлюємо значення для введення адреси користувачем
-        order.setManualAddressInput(createOrderRequestDto.isManualAddressInput()); // Змінено
-
-        // Викликаємо новий метод, який визначає адресу доставки
-        Address shippingAddress = determineShippingAddress(createOrderRequestDto); // Змінено
-        order.setShippingAddress(shippingAddress.getAddressLine1()); // Змінено, використовуйте необхідне поле з Address
-
-        // Встановлюємо значення для обраної адреси, якщо вона є
+        order.setManualAddressInput(createOrderRequestDto.isManualAddressInput());
+        Address shippingAddress = determineShippingAddress(createOrderRequestDto);
+        order.setShippingAddress(shippingAddress.getAddressLine1());
         order.setChosenAddressId(createOrderRequestDto.getChosenAddressId());
-
         order.setOrderItems(getOrderItemsFromShoppingCart(shoppingCart, order));
         saveOrderForUser(order, authUser);
+        /*
+     // Initiate Liqpay payment
+        try {
+            LiqpayPaymentResponse paymentResponse = liqpayService.initiatePayment(order.getId(),
+            order.getTotal().toString());
+            // Redirect user to Liqpay checkout page using paymentResponse.data
+        } catch (Exception e) {
+            // Handle payment initiation errors
+        }
 
-        // Очистити кошик після створення замовлення
+        return orderMapper.toDto(order);
+    }
+    */
+
         manager.clearCart(shoppingCart);
 
         return orderMapper.toDto(order);
     }
 
-    private Address determineShippingAddress(CreateOrderRequestDto createOrderRequestDto) { // Змінено
+    private Address determineShippingAddress(CreateOrderRequestDto createOrderRequestDto) {
         if (createOrderRequestDto.isManualAddressInput()) {
-            // Якщо користувач вводить адресу самостійно, використовуйте його введення
             Address manualAddress = new Address();
             manualAddress.setAddressLine1(createOrderRequestDto.getShippingAddress());
             return manualAddress;
         } else {
-            // Якщо користувач не вводить адресу самостійно,
-            // використовуйте адресу магазину або інший механізм за замовчуванням
             if (createOrderRequestDto.getChosenAddressId() != null) {
-                // Використовуємо обрану існуючу адресу
                 AddressDto chosenAddressDto = addressService.getById(createOrderRequestDto.getChosenAddressId());
                 return addressMapper.toEntity(chosenAddressDto);
             } else {
-                // Використовуємо адресу магазину за замовчуванням
                 AddressDto defaultAddressDto = addressService.getDefaultAddress();
                 return addressMapper.toEntity(defaultAddressDto);
             }
