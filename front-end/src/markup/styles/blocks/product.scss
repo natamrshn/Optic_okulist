@@ -318,19 +318,6 @@
   &__lens-type {
     padding: 8px 15px 15px;
 
-    &--title {
-      margin-bottom: 16px;
-      margin-top: 8px;
-    }
-
-    &--eyes-similar {
-      margin-bottom: 16px;
-    }
-
-    &--line {
-      border: 1px solid rgb(248, 248, 248);
-    }
-
     &--container {      
       margin-block: 16px;
 
@@ -341,11 +328,8 @@
           line-height: 17px;
         }
 
-        &--button {
-          padding: 8px;
-        }
       }
-
+      
     }
 
     &--package {
@@ -364,6 +348,22 @@
     &--package-count {
       text-align: left;
       margin-top: 32px;
+    }
+
+    &--button {
+      width: 24px;
+      height: 24px;
+      border: 1px solid rgb(1, 27, 53);
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+      justify-content: center;
+      background-color: #D8EFFB;
+
+      &.active {
+        background: rgb(1, 27, 53);
+      } 
+
     }
   }
 }

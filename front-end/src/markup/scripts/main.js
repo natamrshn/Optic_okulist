@@ -68,8 +68,8 @@ function changeImage(imageNumber) {
   }
 }
 
-const eyesSimilarButton = document.querySelector('.product__lens-type--eyes-similar--button');
-const checkMark = document.querySelector('.product__lens-type--eyes-similar--button--check-mark');
+const eyesSimilarButton = document.querySelector('.eyes-params__button');
+const checkMark = document.querySelector('.eyes-params__check-mark');
 
 if (eyesSimilarButton) {
   eyesSimilarButton.addEventListener('click', () => {
