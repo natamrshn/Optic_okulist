@@ -12,17 +12,17 @@
 
   &__image {
     // background-size: contain;
-    background: url(../images/products/product-img.png) 0 0 / contain; 
+    background: url(../images/products/product-img.png) 0 0 / cover;
 
 
-    width: 260px;
+    width: 100%;
     height: 190px;
     border-radius: 8px;
     box-shadow: $product-box-shadow;
     transition: all 0.3s;
 
     &--2 {
-      background: url(../images/products/product-hover-img.png) 0 0 / contain; 
+      background: url(../images/products/product-hover-img.png) 0 0 / cover; 
     }
 
     &--small {
@@ -316,115 +316,33 @@
   }
 
   &__lens-type {
-    background-color: #D8EFFB;
-    border-radius: 16px;
-    border: 1px solid #0C0202;
     padding: 8px 15px 15px;
 
     &--title {
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 20px;
-      letter-spacing: 0%;
-      text-align: center;
       margin-bottom: 16px;
-    }
-
-    &--eye-title {
       margin-top: 8px;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 20px;
-      letter-spacing: 0%;
-      text-align: center;
     }
 
     &--eyes-similar {
-      text-align: center;
-      justify-content: center;
-      display: flex;
-      gap: 8px;
       margin-bottom: 16px;
-
-
-      &--button {
-        width: 24px;
-        height: 24px;
-        box-sizing: border-box;
-        border: 1px solid rgb(1, 27, 53);
-        border-radius: 5px;
-        cursor: pointer;
-
-        text-align: center;
-        justify-content: center;
-        display: flex;
-        user-select: none;
-
-        &.active {
-          background: rgb(1, 27, 53);
-        }
-
-        &--check-mark {
-          margin: auto;
-        }
-
-      }
-
-      &--text {
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 17px;
-        letter-spacing: 0%;
-        text-align: left;
-        margin-block: auto;
-      }
     }
 
     &--line {
       border: 1px solid rgb(248, 248, 248);
     }
 
-    &--title {
-      font-weight: 600;
-      text-align: center;
-      margin-top: 8px;
-    }
-
-    &--container {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
+    &--container {      
       margin-block: 16px;
 
-      font-size: 14px;
-      font-weight: 300;
-      line-height: 17px;
-      letter-spacing: 0%;
-
-
       &--type {
-        display: flex;
-        justify-content: space-between;
-        gap: 16px;
-        align-items: center;
         &--text {
+          font-size: 14px;
           font-weight: 300;
+          line-height: 17px;
         }
 
         &--button {
-          position: static;
-          min-width: 94px;
-          min-height: 37px;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
           padding: 8px;
-  
-          box-sizing: border-box;
-          border: 1px solid rgb(1, 27, 53);
-          border-radius: 100px;
-          background: rgb(255, 255, 255);
         }
       }
 
@@ -441,11 +359,11 @@
         letter-spacing: 0%;
         text-align: left;
       }
-      
-      &--count {
-        text-align: left;
-        margin-top: 32px;
-      }
+    }
+
+    &--package-count {
+      text-align: left;
+      margin-top: 32px;
     }
   }
 }

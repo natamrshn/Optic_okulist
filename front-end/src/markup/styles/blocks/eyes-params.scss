@@ -1,0 +1,83 @@
+.eyes-params {
+  background-color: #D8EFFB;
+  border-radius: 16px;
+  border: 1px solid #0C0202;
+
+  &__title {
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &__similar {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    gap: 8px;
+
+    &--button {
+      width: 24px;
+      height: 24px;
+      box-sizing: border-box;
+      border: 1px solid rgb(1, 27, 53);
+      border-radius: 5px;
+      cursor: pointer;
+
+      text-align: center;
+      justify-content: center;
+      display: flex;
+      user-select: none;
+
+      &.active {
+        background: rgb(1, 27, 53);
+      }      
+    }
+
+    &--check-mark {
+      margin: auto;
+    }
+
+    &--text {
+      font-size: 14px;
+      font-weight: 300;
+      margin-block: auto;
+    }
+  }
+
+  &__eye-title {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+  }
+}
+
+.eyes-values {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  &__type {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+
+    &--button {
+      min-width: 94px;
+      min-height: 37px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      box-sizing: border-box;
+      border: 1px solid rgb(1, 27, 53);
+      border-radius: 100px;
+      background: rgb(255, 255, 255);
+
+      font-size: 14px;
+      font-weight: 300;
+    }
+
+  }
+}
