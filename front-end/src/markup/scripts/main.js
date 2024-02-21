@@ -37,10 +37,10 @@ function showForm(formName) {
 }
 
 function changeImage(imageNumber) {
-  const productImageSmall = document.querySelectorAll('.product__image--small');
+  const productImageSmall = document.querySelectorAll('.product__small-image--item');
   const productEllipses = document.querySelectorAll('.product__ellipse');
   let isChanged = true;
-  const clickedImage = document.querySelector(`.product__image--small--${imageNumber}`);
+  const clickedImage = document.querySelector(`.product__small-image--${imageNumber}`);
 
   if (clickedImage.classList.contains('choosed')) {
     isChanged = false;

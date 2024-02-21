@@ -46,6 +46,26 @@
   &__line {
     border: 1px solid rgb(248, 248, 248);
   }
+
+  &__count-text {
+    text-align: left;
+  }
+
+  &__button {
+    width: 24px;
+    height: 24px;
+    border: 1px solid rgb(1, 27, 53);
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    justify-content: center;
+    background-color: #D8EFFB;
+
+    &.active {
+      background: rgb(1, 27, 53);
+    }
+  }
+
 }
 
 .eyes-values {
