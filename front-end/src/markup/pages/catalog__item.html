@@ -20,7 +20,7 @@
           crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
-  
+
 </head>
 
 <body class="page__body">
@@ -29,23 +29,27 @@
     <div class="feedback-button__icons">
       <a href="#">
         <img src="../icons/contact/instagram.svg"
-             class="feedback-button__icon feedback-button__icon--instagram">
+             class="feedback-button__icon feedback-button__icon--instagram"
+             alt="instagram">
       </a>
 
       <a href="#">
         <img src="../icons/contact/viber.svg"
-             class="feedback-button__icon feedback-button__icon--viber">
+             class="feedback-button__icon feedback-button__icon--viber"
+             alt="viber">
       </a>
 
       <a href="#">
         <img src="../icons/contact/telegram.svg"
-             class="feedback-button__icon feedback-button__icon--telegram">
+             class="feedback-button__icon feedback-button__icon--telegram"
+             alt="telegram">
       </a>
     </div>
     <img src="../icons/contact/message.svg"
          class="feedback-button__icon-message"
          role="button"
-         onclick="ContactsIcons.toggle()">
+         onclick="ContactsIcons.toggle()"
+         alt="messageIcon">
   </div>
   <!-- #endregion -->
 
@@ -163,9 +167,9 @@
 
   <main class="main product">
 
-    <div class="product__item ">
-      <div class="product__image product__image--1"></div>
-      <div class="product__image product__image--2 hidden"></div>
+    <div class="product__item">
+      <div class="product__image product__item-image product__image--1"></div>
+      <div class="product__image product__item-image product__image--2 hidden"></div>
 
 
       <div class="product__ellipse--wrapper">
@@ -173,22 +177,16 @@
         <div class="product__ellipse product__ellipse--gray"></div>
       </div>
 
-      <div class="product__image--small--container">
+      <div class="product__small-image">
         <div 
-          class="product__image--small product__image--small--1 choosed" 
+          class="product__small-image--item product__small-image--1 choosed" 
           onclick="changeImage(1)"
         ></div>
         <div 
-          class="product__image--small product__image--small--2" 
+          class="product__small-image--item product__small-image--2" 
           onclick="changeImage(2)"
         ></div>
       </div>
-
-      <!-- <img 
-        src="../images/products/product-hover-img.png" 
-        alt="image-product-small" 
-        class="product__image--small"
-      > -->
 
       <p class="product__descripsion">Окуляри для зору жіночі</p>
       <p class="product__name">Verse 20176 blueblocker</p>
@@ -198,74 +196,184 @@
         <p class="product__available">В наявності</p>
       </div>
 
-      <div class="product__lens-type">
-        <div class="product__lens-type--title">Введіть свої параметри</div>
+      <div class="eyes-params lens-type">
+        <p class="eyes-params__title lens-type__title">Введіть свої параметри</p>
 
-        <div class="product__lens-type--eyes-similar">
-          <div class="product__lens-type--eyes-similar--button">
+        <div class="eyes-params__similar lens-type__similar">
+          <button class="eyes-params__button lens-type__button">
             <img 
               src="../images/products/check-mark.svg"
-              class="product__lens-type--eyes-similar--button--check-mark hidden"
+              class="check-mark eyes-params__check-mark lens-type__check-mark hidden"
+              alt="check-mark"
             >
-          </div>
-          <div class="product__lens-type--eyes-similar--text">У мене однакові очі</div>
+          </button>
+          <p class="eyes-params__text lens-type__similar--text">У мене однакові очі</p>
         </div>
 
-        <div class="product__lens-type--line"></div>
-        <p class="product__lens-type--title ">Ліве око</p>
-
-        <div class="product__lens-type--container">
-          <div class="product__lens-type--container--type">
-            <p class="product__lens-type--container--type--text">Базова кривизна (BC)</p>
-            <div class="product__lens-type--container--type--button">
-              <p>8.7</p>
-              <img 
-                src="../images/products/check-selector.svg"
-                class="product__lens-type--container--type--button--selector"
-              >
+        <div class="eyes-params__left-eye lens-type__left-eye">
+          <div class="eyes-params__line lens-type__line"></div>
+          <p class="eyes-params__eye-title lens-type__eye-title">Ліве око</p>
+  
+          <div class="eyes-values lens-values">
+            <div class="eyes-values__type lens-values__type">
+              <p class="eyes-values__text lens-values__text">Базова кривизна (BC)</p>
+              <button class="eyes-values__button lens-values__button">
+                <p class="eyes-values__button--text lens-values__button--text">8.7</p>
+                <img 
+                  src="../images/products/check-selector.svg"
+                  class="check-selector eyes-values__check-selector lens-values__check-selector"
+                  alt="check-selector"
+                >
+              </button>
+            </div>
+  
+            <div class="eyes-values__type lens-values__type">
+              <p class="eyes-values__text lens-values__text">Діоптрійність (Sph)</p>
+              <button class="eyes-values__button lens-values__button">
+                <p></p>
+                <img 
+                  src="../images/products/check-selector.svg"
+                  class="check-selector eyes-values__check-selector lens-values__check-selector"
+                  alt="check-selector"
+                >
+              </button>
+            </div>
+  
+            <div class="eyes-values__type lens-values__type">
+              <p class="eyes-values__text lens-values__text">Циліндр (Cyl)</p>
+              <button class="eyes-values__button lens-values__button">
+                <p></p>
+                <img 
+                  src="../images/products/check-selector.svg"
+                  class="check-selector eyes-values__check-selector lens-values__check-selector"
+                  alt="check-selector"
+                >
+              </button>
+            </div>
+  
+            <div class="eyes-values__type lens-values__type">
+              <p class="eyes-values__text lens-values__text">Вісь (AXE)</p>
+              <button class="eyes-values__button lens-values__button">
+                <p></p>
+                <img 
+                  src="../images/products/check-selector.svg"
+                  class="check-selector eyes-values__check-selector lens-values__check-selector"
+                  alt="check-selector"
+                >
+              </button>
             </div>
           </div>
-
-          <div class="product__lens-type--container--type">
-            <p class="product__lens-type--container--type--text">Діоптрійність (Sph)</p>
-            <div class="product__lens-type--container--type--button">
-              <p></p>
-              <img 
-                src="../images/products/check-selector.svg"
-                class="product__lens-type--container--type--button--selector"
-              >
+  
+          <div class="eyes-params__line lens-type__line"></div>
+  
+          <div class="eyes-params__package lens-values__package">
+            <div class="eyes-params__package--title lens-values__package--title">Тип упаковки</div>
+  
+            <div class="lenses__delivery-info">
+              <div class="lenses__delivery-info--radio active"></div>
+              <p class="lenses__delivery-info--text">Одна упаковка</p>
             </div>
-          </div>
-
-          <div class="product__lens-type--container--type">
-            <p class="product__lens-type--container--type--text">Циліндр (Cyl)</p>
-            <div class="product__lens-type--container--type--button">
-              <p></p>
-              <img 
-                src="../images/products/check-selector.svg"
-                class="product__lens-type--container--type--button--selector"
-              >
+        
+            <div class="lenses__delivery-info lenses__delivery-info--margin">
+              <div class="lenses__delivery-info--radio"></div>
+              <p class="lenses__delivery-info--text">Одна лінза <span style="font-weight: 500;">(375 грн за шт)</span></p>
             </div>
-          </div>
-
-          <div class="product__lens-type--container--type">
-            <p class="product__lens-type--container--type--text">Вісь (AXE)</p>
-            <div class="product__lens-type--container--type--button">
-              <p></p>
-              <img 
-                src="../images/products/check-selector.svg"
-                class="product__lens-type--container--type--button--selector"
-              >
-            </div>
+  
+            <div class="eyes-params__count-text lens-type__count-text">Кількість</div>
+  
+            <button class="button--secondary lens-type__quantity-button">
+              <img src="../icons/plus.svg"
+                   alt="plus"
+                   class="icon">
+              <span class="product__quantity--text">2</span>
+              <img src="../icons/minus.svg"
+                   alt="minus"
+                   class="icon">
+            </button>
           </div>
         </div>
 
-        <div class="product__lens-type--line"></div>
-
-        <div class="product__lens-type--package">
-          <div class="product__lens-type--package--title">Тип упаковки</div>
-
-          <div class="product__lens-type--package--count">Кількість</div>
+        <div class="eyes-params__right-eye lens-type__right-eye">
+          <div class="eyes-params__line lens-type__line"></div>
+          <p class="eyes-params__eye-title lens-type__eye-title">Праве око</p>
+  
+          <div class="eyes-values lens-values">
+            <div class="eyes-values__type lens-values__type">
+              <p class="eyes-values__text lens-values__text">Базова кривизна (BC)</p>
+              <button class="eyes-values__button lens-values__button">
+                <p class="eyes-values__button--text lens-values__button--text">8.7</p>
+                <img 
+                  src="../images/products/check-selector.svg"
+                  class="check-selector eyes-values__check-selector lens-values__check-selector"
+                  alt="check-selector"
+                >
+              </button>
+            </div>
+  
+            <div class="eyes-values__type lens-values__type">
+              <p class="eyes-values__text lens-values__text">Діоптрійність (Sph)</p>
+              <button class="eyes-values__button lens-values__button">
+                <p></p>
+                <img 
+                  src="../images/products/check-selector.svg"
+                  class="check-selector eyes-values__check-selector lens-values__check-selector"
+                  alt="check-selector"
+                >
+              </button>
+            </div>
+  
+            <div class="eyes-values__type lens-values__type">
+              <p class="eyes-values__text lens-values__text">Циліндр (Cyl)</p>
+              <button class="eyes-values__button lens-values__button">
+                <p></p>
+                <img 
+                  src="../images/products/check-selector.svg"
+                  class="check-selector eyes-values__check-selector lens-values__check-selector"
+                  alt="check-selector"
+                >
+              </button>
+            </div>
+  
+            <div class="eyes-values__type lens-values__type">
+              <p class="eyes-values__text lens-values__text">Вісь (AXE)</p>
+              <button class="eyes-values__button lens-values__button">
+                <p></p>
+                <img 
+                  src="../images/products/check-selector.svg"
+                  class="check-selector eyes-values__check-selector lens-values__check-selector"
+                  alt="check-selector"
+                >
+              </button>
+            </div>
+          </div>
+  
+          <div class="eyes-params__line lens-type__line"></div>
+  
+          <div class="eyes-params__package lens-values__package">
+            <div class="eyes-params__package--title lens-values__package--title">Тип упаковки</div>
+  
+            <div class="lenses__delivery-info">
+              <div class="lenses__delivery-info--radio active"></div>
+              <p class="lenses__delivery-info--text">Одна упаковка</p>
+            </div>
+        
+            <div class="lenses__delivery-info lenses__delivery-info--margin">
+              <div class="lenses__delivery-info--radio"></div>
+              <p class="lenses__delivery-info--text">Одна лінза <span style="font-weight: 500;">(375 грн за шт)</span></p>
+            </div>
+  
+            <div class="eyes-params__count-text lens-type__count-text">Кількість</div>
+  
+            <button class="button--secondary lens-type__quantity-button">
+              <img src="../icons/plus.svg"
+                   alt="plus"
+                   class="icon">
+              <span class="product__quantity--text">2</span>
+              <img src="../icons/minus.svg"
+                   alt="minus"
+                   class="icon">
+            </button>
+          </div>
         </div>
       </div>
 
@@ -413,7 +521,7 @@
           <li class="footer__item">Про нас</li>
         </a>
 
-        <a href="#"
+        <a href="useful.html"
            class="footer__link">
           <li class="footer__item">Корисне</li>
         </a>

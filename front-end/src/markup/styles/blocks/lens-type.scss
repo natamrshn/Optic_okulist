@@ -1,0 +1,45 @@
+.lens-type {
+  padding: 8px 15px 15px;
+
+  &__quantity-button {
+    display: flex;
+    gap: 23px;
+    justify-content: space-around;
+    align-items: center;
+
+    border: 1px solid rgb(105, 105, 105);
+    border-radius: 100px;
+
+    margin-top: 16px;
+    width: 120px;
+    height: 37px;
+    background-color: #fff;
+  }
+
+  &__count-text {
+    margin-top: 24px;
+
+  }
+}
+
+.lens-values {
+  margin-block: 16px;
+
+  &__text {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 17px;
+  }
+
+  &__package {
+    margin-top: 22px;
+    margin-bottom: 16px;
+  }
+
+  &__package--title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: left;
+  }
+}

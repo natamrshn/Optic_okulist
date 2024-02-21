@@ -30,10 +30,10 @@ build/
 
 ### VS Code ###
 .vscode/
-./front-end/package-lock.json
+package-lock.json
 **/dist
-./front-end/src/markup/styles/style.css
-./front-end/src/markup/styles/style.css.map
+front-end/src/markup/styles/style.css
+front-end/src/markup/styles/style.css.map
 
 ### Mac OS ###
 .DS_Store
