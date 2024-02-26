@@ -37,7 +37,6 @@ public class GlassesServiceImpl implements GlassesService {
         Glasses glasses = glassesRepository.findById(id).orElseThrow(
                 () -> new EntityNotFoundException("Can't found Glasses with ID: " + id)
         );
-
         return getGlassesResponseDto(glasses);
     }
 
@@ -52,14 +51,12 @@ public class GlassesServiceImpl implements GlassesService {
         Glasses glasses = glassesRepository.findByIdentifier(identifier).orElseThrow(
                 () -> new EntityNotFoundException("Can't found Glasses with ID: " + identifier)
         );
-
         return getGlassesResponseDto(glasses);
     }
 
     @NotNull
     private GlassesResponseDto getGlassesResponseDto(Glasses glasses) {
         GlassesResponseDto result = glassesMapper.toDto(glasses);
-
         List<GlassesResponseDto.Variation> variations = glassesRepository
                 .findAllByModelAndManufacturer(glasses.getModel(),
                         glasses.getManufacturer())
@@ -67,9 +64,7 @@ public class GlassesServiceImpl implements GlassesService {
                 .filter(variation -> ! variation.getId().equals(glasses.getId()))
                 .map(glassesMapper::mapGlassesVariationToDto)
                 .toList();
-
         result.setVariations(variations);
-
         return result;
     }
 

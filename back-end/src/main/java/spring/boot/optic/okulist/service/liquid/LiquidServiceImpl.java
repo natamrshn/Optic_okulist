@@ -52,9 +52,7 @@ public class LiquidServiceImpl implements LiquidService {
                 .filter(variations -> ! variations.getId().equals(liquid.getId()))
                 .map(liquidMapper::mapLiquidVariationToDto)
                 .toList();
-
         result.setVariations(variation);
-
         return result;
     }
 
@@ -87,7 +85,6 @@ public class LiquidServiceImpl implements LiquidService {
     @Override
     public List<LiquidResponseDto> findSimilar(LiquidSearchParameter liquidRequestDto) {
         Liquid referenceLiquid = liquidMapper.toModelSearchParam(liquidRequestDto);
-
         List<Liquid> similarLiquids = liquidRepository
                 .findByVolumeNotAndPriceNotAndNameAndIdentifierAndDescriptionAndImageUrlAndImageUrlSecond(
                 referenceLiquid.getVolume(),
@@ -108,7 +105,6 @@ public class LiquidServiceImpl implements LiquidService {
         Liquid liquid = liquidRepository.findByIdentifier(identifier).orElseThrow(
                 () -> new EntityNotFoundException("Can't found Liquid with Identifier: " + identifier)
         );
-
         return getLiquidResponseDto(liquid);
     }
 

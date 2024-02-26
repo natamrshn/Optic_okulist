@@ -45,14 +45,12 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     public ManufacturerResponseDto createManufacturer(
             ManufacturerRequestDto manufacturerRequestDto) {
         Manufacturer manufacturer = manufacturerMapper.toModel(manufacturerRequestDto);
-
         processColors(manufacturerRequestDto.getColorsIds(), manufacturer);
         processAdditions(manufacturerRequestDto.getAdditionsIds(), manufacturer);
         setCylinder(manufacturerRequestDto.getCylinderId(), manufacturer);
         setDegree(manufacturerRequestDto.getDegreeId(), manufacturer);
         setDiopter(manufacturerRequestDto.getDiopterId(), manufacturer);
         processSpheres(manufacturerRequestDto.getSpheresIds(), manufacturer);
-
         Manufacturer savedManufacturer = manufacturerRepository.save(manufacturer);
         return manufacturerMapper.toDto(savedManufacturer);
     }
@@ -110,7 +108,6 @@ public class ManufacturerServiceImpl implements ManufacturerService {
                 .filter(Optional::isPresent)
                 .map(Optional::get)
                 .toList();
-
         if (entities.size() != ids.size()) {
             Set<Long> foundIds = entities.stream()
                     .map(entity -> {
@@ -121,11 +118,9 @@ public class ManufacturerServiceImpl implements ManufacturerService {
                         }
                     })
                     .collect(toSet());
-
             List<Long> notFoundIds = ids.stream()
                     .filter(id -> !foundIds.contains(id))
                     .toList();
-
             throw new EntityNotFoundException("Not all "
                     + entityName + " were found. Haven't found "
                     + entityName + " with ids: " + notFoundIds);
