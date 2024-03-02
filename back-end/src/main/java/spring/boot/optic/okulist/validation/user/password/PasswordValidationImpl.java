@@ -7,7 +7,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class PasswordValidationImpl implements ConstraintValidator<PasswordValidation,String> {
-    private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
+    private static final String PASSWORD_PATTERN =
+            "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=\\\\-_\\\\.,!?]).{8,}$";
     private static final Logger logger = LogManager.getLogger(PasswordValidationImpl.class);
 
     @Override
