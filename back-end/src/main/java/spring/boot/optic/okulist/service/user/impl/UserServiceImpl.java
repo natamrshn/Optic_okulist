@@ -5,7 +5,6 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -46,7 +45,6 @@ public class UserServiceImpl implements UserService {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
     private final JwtUtil jwtUtil;
-
 
     public boolean isNthUser(int n) {
         return userRepository.count() == n;
