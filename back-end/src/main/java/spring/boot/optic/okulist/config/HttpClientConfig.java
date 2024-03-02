@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 public class HttpClientConfig {
-    @Bean
+   /* @Bean
     public HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory() {
         return new HttpComponentsClientHttpRequestFactory();
     }
@@ -30,4 +30,6 @@ public class HttpClientConfig {
     public CloseableHttpClient closeableHttpClient() {
         return HttpClients.createDefault();
     }
+
+    */
 }
