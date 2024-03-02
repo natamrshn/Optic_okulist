@@ -29,6 +29,7 @@ import spring.boot.optic.okulist.repository.RoleRepository;
 import spring.boot.optic.okulist.repository.TemporaryUserRepository;
 import spring.boot.optic.okulist.repository.UserFavoriteProductRepository;
 import spring.boot.optic.okulist.repository.UserRepository;
+import spring.boot.optic.okulist.security.JwtUtil;
 import spring.boot.optic.okulist.service.user.UserService;
 
 @RequiredArgsConstructor
@@ -43,22 +44,24 @@ public class UserServiceImpl implements UserService {
     private final TemporaryUserRepository temporaryUserRepository;
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
+    private final JwtUtil jwtUtil;
 
     public boolean isNthUser(int n) {
         return userRepository.count() == n;
     }
 
-    @Override
     public UserResponseDto register(UserRegistrationRequestDto requestDto)
             throws RegistrationException {
         if (userRepository.findByEmail(requestDto.getEmail()).isPresent()) {
             throw new RegistrationException("Unable to complete registration");
         }
-
         RegisteredUser user = createUserFromRequest(requestDto);
         assignUserRoles(user);
-
-        return userMapper.toDto(userRepository.save(user));
+        String token = jwtUtil.generateToken(user.getEmail());
+        user = userRepository.save(user);
+        UserResponseDto userResponseDto = userMapper.toDto(user);
+        userResponseDto.setToken(token);
+        return userResponseDto;
     }
 
     private RegisteredUser createUserFromRequest(UserRegistrationRequestDto requestDto) {
