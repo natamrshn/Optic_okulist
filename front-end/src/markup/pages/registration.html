@@ -1,171 +1,180 @@
 <!DOCTYPE html>
 <html lang="uk" class="page">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-  <title>Окуліст</title>
-  <link rel="icon"
-        href="../icons/favicon.png">
-  <link rel="stylesheet"
-        href="../styles/style.css">
-  <script src="../scripts/main.js"
-          defer></script>
-  <link rel="preconnect"
-        href="https://fonts.googleapis.com">
-  <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Окуліст</title>
+    <link rel="icon" href="../icons/favicon.png" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <script src="../scripts/main.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
   <body class="page__body" id="page">
-  <!-- #region feedback button -->
-  <div class="feedback-button">
-    <div class="feedback-button__icons">
-      <a href="#">
-        <img src="../icons/contact/instagram.svg"
-             class="feedback-button__icon feedback-button__icon--instagram"
-             alt="instagram">
-      </a>
-  
-      <a href="#">
-        <img src="../icons/contact/viber.svg"
-             class="feedback-button__icon feedback-button__icon--viber"
-             alt="viber">
-      </a>
-  
-      <a href="#">
-        <img src="../icons/contact/telegram.svg"
-             class="feedback-button__icon feedback-button__icon--telegram"
-             alt="telegram">
-      </a>
-    </div>
-    <img src="../icons/contact/message.svg"
-         class="feedback-button__icon-message"
-         role="button"
-         onclick="ContactsIcons.toggle()"
-         alt="message_us">
-  </div>
-  <!-- #endregion -->
-
-  <header class="header ">
-    <!--#region НАВІГАЦІЯ  -->
-    <nav class="nav">
-      <a href="index.html"
-         class="header__logo-link">
-        <img src="../icons/nav-logo.png"
-             alt="Окуліст Логотип"
-             class="header__logo-image">
-      </a>
-  
-      <div class="nav__icons">
-        <a href="#"
-           class="icon icon--basket"></a>
-        <a href="#"
-           class="icon icon--search"></a>
-        <a href="#aside"
-           class="icon icon--menu"></a>
-      </div>
-    </nav>
-    <!-- #endregion -->
-  
-    <!-- #region aside menu -->
-    <aside class="aside page__menu"
-           id="aside">
-      <div class="background-image"></div>
-  
-      <!--#region navigation  -->
-      <nav class="nav">
-        <a href="index.html"
-           class="nav__logo-link">
-          <img src="../icons/nav-logo.png"
-               alt="Окуліст Логотип"
-               class="nav__logo-image">
+    <!-- #region feedback button -->
+    <div class="feedback-button">
+      <div class="feedback-button__icons">
+        <a href="#">
+          <img
+            src="../icons/contact/instagram.svg"
+            class="feedback-button__icon feedback-button__icon--instagram"
+            alt="instagram"
+          />
         </a>
-  
-        <div class="nav__icons">
-          <a href="#"
-             class="icon icon--basket"></a>
-          <a href="#"
-             class="icon icon--search"></a>
-          <a href="#"
-             class="icon icon--close"></a>
+
+        <a href="#">
+          <img
+            src="../icons/contact/viber.svg"
+            class="feedback-button__icon feedback-button__icon--viber"
+            alt="viber"
+          />
+        </a>
+
+        <a href="#">
+          <img
+            src="../icons/contact/telegram.svg"
+            class="feedback-button__icon feedback-button__icon--telegram"
+            alt="telegram"
+          />
+        </a>
+      </div>
+      <img
+        src="../icons/contact/message.svg"
+        class="feedback-button__icon-message"
+        role="button"
+        onclick="ContactsIcons.toggle()"
+        alt="message_us"
+      />
+    </div>
+    <!-- #endregion -->
+
+    <header class="header">
+      <nav class="nav">
+        <a href="index.html" class="nav__logo-link">
+          <img
+            src="../icons/nav-logo.png"
+            alt="Окуліст Логотип"
+            class="nav__logo-image"
+          />
+        </a>
+
+        <div class="nav__icon-wrapper">
+          <div class="nav__input">
+            <span class="icon__input-search"
+              ><i class="icon icon--search-input" aria-hidden="true"></i
+            ></span>
+            <input type="text" placeholder="Що шукаємо?" />
+            <span class="icon__input-plus"
+              ><i class="icon icon--plus-input" aria-hidden="true"></i
+            ></span>
+          </div>
+
+          <div class="nav__icons">
+            <a href="#" class="nav__icon nav__icon-account"></a>
+            <a href="#" class="nav__icon nav__icon-basket"></a>
+            <a href="#" class="nav__icon nav__icon-search"></a>
+            <a href="#aside" class="nav__icon nav__icon-menu"></a>
+            <a href="#" class="nav__icon nav__icon-favourite"></a>
+          </div>
         </div>
       </nav>
-      <!-- #endregion -->
-  
-      <!-- #region menu links -->
-      <menu class="aside__links">
-        <a href="index.html"
-           class="aside__link">
-          <li>Головна</li>
-        </a>
-  
-        <a href="about-us.html"
-           class="aside__link">
-          <li>Про нас</li>
-        </a>
-  
-        <a href="service.html"
-           class="aside__link">
-          <li>послуги</li>
-        </a>
-  
-        <a href="useful.html"
-           class="aside__link">
-          <li>корисне</li>
-        </a>
-  
-        <a href="catalog.html"
-           class="aside__link">
-          <li>Каталог</li>
-        </a>
-  
-        <a href="reviews.html"
-           class="aside__link">
-          <li>Відгуки</li>
-        </a>
-  
-        <a href="contacts.html"
-           class="aside__link aside__link--margin-bottom">
-          <li>Контакти</li>
-        </a>
-      </menu>
-      <!-- #endregion -->
-  
-      <!-- #region menu buttons -->
-      <div class="aside__buttons">
-        <a href="#"
-           class="button button--aside">
-          Обране
-  
-          <div class="icon icon--favorite"></div>
-        </a>
-  
-        <a href="#page"
-           class="button button--aside">
-          Кабінет
-  
-          <div class="icon icon--account"></div>
-        </a>
+
+      <div class="header__menu">
+        <a href="about-us.html">Про нас</a>
+        <a href="service.html">Послуги</a>
+        <a href="useful.html">Корисне</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="reviews.html">Відгуки</a>
+        <a href="contacts.html">Контакти</a>
       </div>
-      <!-- #endregion -->
-    </aside>
-    <!-- #endregion -->
-  </header>
+
+      <aside class="aside page__menu" id="aside">
+        <div class="background-image"></div>
+
+        <!--#region navigation  -->
+        <nav class="nav">
+          <a href="index.html" class="nav__logo-link">
+            <img
+              src="../icons/nav-logo.png"
+              alt="Окуліст Логотип"
+              class="nav__logo-image"
+            />
+          </a>
+
+          <div class="nav__icons">
+            <a href="#" class="icon icon--basket"></a>
+            <a href="#" class="icon icon--search"></a>
+            <a href="#" class="icon icon--close"></a>
+          </div>
+        </nav>
+        <!-- #endregion -->
+
+        <!-- #region menu links -->
+        <menu class="aside__links">
+          <a href="index.html" class="aside__link">
+            <li>Головна</li>
+          </a>
+
+          <a href="about-us.html" class="aside__link">
+            <li>Про нас</li>
+          </a>
+
+          <a href="service.html" class="aside__link">
+            <li>послуги</li>
+          </a>
+
+          <a href="useful.html" class="aside__link">
+            <li>корисне</li>
+          </a>
+
+          <a href="catalog.html" class="aside__link">
+            <li>Каталог</li>
+          </a>
+
+          <a href="reviews.html" class="aside__link">
+            <li>Відгуки</li>
+          </a>
+
+          <a
+            href="contacts.html"
+            class="aside__link aside__link--margin-bottom"
+          >
+            <li>Контакти</li>
+          </a>
+        </menu>
+        <!-- #endregion -->
+
+        <!-- #region menu buttons -->
+        <div class="aside__buttons">
+          <a href="#" class="button button--aside">
+            Обране
+
+            <div class="icon icon--favorite"></div>
+          </a>
+
+          <a href="registration.html" class="button button--aside">
+            Кабінет
+
+            <div class="icon icon--account"></div>
+          </a>
+        </div>
+        <!-- #endregion -->
+      </aside>
+    </header>
 
     <main class="main main--form">
-      <img 
+      <img
         src="../images/header-background-image.png"
         class="aside__background-image"
-      >
+      />
 
       <div class="form-tabs">
-
-        <div 
+        <div
           class="form-tab form-tab--active"
           data-form="register-form"
           onclick="showForm('register-form')"
@@ -174,7 +183,7 @@
           Реєстрація
         </div>
 
-        <div 
+        <div
           class="form-tab"
           data-form="login-form"
           onclick="showForm('login-form')"
@@ -185,61 +194,43 @@
       </div>
 
       <div class="form-container form-container--register-form active">
-          <!-- Форма реєстрації -->
+        <!-- Форма реєстрації -->
         <div class="form-field">
+          <label class="form-field__label" for="username"> Ім'я </label>
 
-          <label 
-            class="form-field__label"
-            for="username"
-          >
-            Ім'я
-          </label>
-
-          <input 
+          <input
             class="form-field__input"
             type="text"
             id="username"
             name="username"
             required
             placeholder="Марія"
-          >
+          />
         </div>
 
         <div class="form-field">
+          <label class="form-field__label" for="email"> Email: </label>
 
-          <label 
-            class="form-field__label"
-            for="email"
-          >
-            Email:
-          </label>
-          
-          <input 
+          <input
             class="form-field__input"
             type="email"
             id="email"
             name="email"
             required
             placeholder="example.ua@gmail.com"
-          >
+          />
         </div>
 
         <div class="form-field">
+          <label class="form-field__label" for="password"> Пароль </label>
 
-          <label 
-            class="form-field__label"
-            for="password"
-          >
-            Пароль
-          </label>
-
-          <input 
+          <input
             class="form-field__input"
             type="password"
             id="password"
             name="password"
             required
-          >
+          />
         </div>
 
         <a href="#" class="button button--login">Зареєструватись</a>
@@ -248,42 +239,33 @@
       <div class="form-container form-container--login-form">
         <!-- Форма входа -->
         <div class="form-field">
+          <label class="form-field__label" for="email"> Email: </label>
 
-          <label 
-            class="form-field__label"
-            for="email"
-          >
-            Email:
-          </label>
-
-          <input 
+          <input
             class="form-field__input"
             type="email"
             id="email"
             name="email"
             required
             placeholder="example.ua@gmail.com"
-          >
+          />
         </div>
 
         <div class="form-field">
-          <label 
-            class="form-field__label"
-            for="loginPassword"
-          >
-            Пароль:
-          </label>
-          <input 
+          <label class="form-field__label" for="loginPassword"> Пароль: </label>
+          <input
             class="form-field__input"
             type="password"
             id="loginPassword"
             name="loginPassword"
             required
-          >
+          />
         </div>
 
         <a href="personal-cabinet.html" class="button button--login">Увійти</a>
-        <a href="lens_7.html" class="button button--forgot-password">Забули пароль?</a>
+        <a href="lens_7.html" class="button button--forgot-password"
+          >Забули пароль?</a
+        >
       </div>
     </main>
   </body>

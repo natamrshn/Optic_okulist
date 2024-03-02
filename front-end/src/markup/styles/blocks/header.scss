@@ -1,5 +1,29 @@
 .header {
+  @include contentPadding;
+
   position: relative;
+
+  &__menu {
+    display: none;
+    @include onDesktop {
+      display: flex;
+      gap: 62px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 16px;
+      padding: 8px;
+
+      a {
+        color: #011b35;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 29px;
+        text-align: left;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+    }
+  }
 
   &--about-us-page {
     background-color: $header-about-us-background-color;
@@ -12,7 +36,7 @@
   &--contacts-page {
     background-color: $header-contacts-page-background-color;
   }
-  
+
   &__background-image {
     position: absolute;
     width: 320px;
@@ -31,8 +55,8 @@
   &__content-title {
     font-size: 3.125rem;
     font-weight: 700;
-    color: #0C0202;
-    
+    color: #0c0202;
+
     &--main-page {
       color: $header-title-color;
       margin: 100px 0 4px;

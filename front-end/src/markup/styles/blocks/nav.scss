@@ -10,11 +10,99 @@
     display: flex;
     width: 125px;
     height: 40px;
+
+    @include onTablet {
+      width: 250px;
+      height: 80px;
+    }
   }
 
   &__icons {
     display: flex;
     align-items: center;
     gap: 12px;
+    @include onTablet {
+      gap: 36px;
+    }
+  }
+
+  &__icon {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+  }
+
+  &__icon-account {
+    display: none;
+    @include onTablet {
+      display: block;
+      background-image: url(../icons/account.svg);
+    }
+  }
+
+  &__icon-basket {
+    background-image: url(../icons/basket.svg);
+  }
+
+  &__icon-search {
+    background-image: url(../icons/search.svg);
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__icon-favourite {
+    display: none;
+    @include onDesktop {
+      display: block;
+      background-image: url(../icons/favorite.svg);
+    }
+  }
+
+  &__icon-menu {
+    background-image: url(../icons/menu.svg);
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__input {
+    display: none;
+    position: relative;
+
+    @include onDesktop {
+      display: block;
+      input {
+        width: 306px;
+        padding: 16px;
+        border: 1px solid #011b35;
+        border-radius: 16px;
+      }
+
+      input::placeholder {
+        padding: 16px 54px 16px 50px;
+        color: #838383;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0%;
+        text-align: left;
+      }
+    }
   }
 }
+
