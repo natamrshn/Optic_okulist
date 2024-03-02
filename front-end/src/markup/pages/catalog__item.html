@@ -1,557 +1,592 @@
 <!DOCTYPE html>
-<html lang="uk"
-      class="page">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<html lang="uk" class="page">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Окуліст</title>
-    <link rel="icon"
-          href="../icons/favicon.png">
-    <link rel="stylesheet"
-          href="../styles/style.css">
-    <script src="../scripts/main.js"
-            defer></script>
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
+    <link rel="icon" href="../icons/favicon.png" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <script src="../scripts/main.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-</head>
+  <body class="page__body">
+    <!-- #region feedback button -->
+    <div class="feedback-button">
+      <div class="feedback-button__icons">
+        <a href="#">
+          <img
+            src="../icons/contact/instagram.svg"
+            class="feedback-button__icon feedback-button__icon--instagram"
+            alt="instagram"
+          />
+        </a>
 
-<body class="page__body">
-  <!-- #region feedback button -->
-  <div class="feedback-button">
-    <div class="feedback-button__icons">
-      <a href="#">
-        <img src="../icons/contact/instagram.svg"
-             class="feedback-button__icon feedback-button__icon--instagram"
-             alt="instagram">
-      </a>
+        <a href="#">
+          <img
+            src="../icons/contact/viber.svg"
+            class="feedback-button__icon feedback-button__icon--viber"
+            alt="viber"
+          />
+        </a>
 
-      <a href="#">
-        <img src="../icons/contact/viber.svg"
-             class="feedback-button__icon feedback-button__icon--viber"
-             alt="viber">
-      </a>
-
-      <a href="#">
-        <img src="../icons/contact/telegram.svg"
-             class="feedback-button__icon feedback-button__icon--telegram"
-             alt="telegram">
-      </a>
-    </div>
-    <img src="../icons/contact/message.svg"
-         class="feedback-button__icon-message"
-         role="button"
-         onclick="ContactsIcons.toggle()"
-         alt="messageIcon">
-  </div>
-  <!-- #endregion -->
-
-  <header class="header">
-    <!--#region navigation  -->
-    <nav class="nav">
-      <a href="index.html"
-         class="nav__logo-link">
-        <img src="../icons/nav-logo.png"
-             alt="Окуліст Логотип"
-             class="nav__logo-image">
-      </a>
-
-      <div class="nav__icons">
-        <a href="#"
-           class="icon icon--basket"></a>
-        <a href="#"
-           class="icon icon--search"></a>
-        <a href="#aside"
-           class="icon icon--menu"></a>
+        <a href="#">
+          <img
+            src="../icons/contact/telegram.svg"
+            class="feedback-button__icon feedback-button__icon--telegram"
+            alt="telegram"
+          />
+        </a>
       </div>
-    </nav>
+      <img
+        src="../icons/contact/message.svg"
+        class="feedback-button__icon-message"
+        role="button"
+        onclick="ContactsIcons.toggle()"
+        alt="messageIcon"
+      />
+    </div>
     <!-- #endregion -->
 
-    <!-- #region aside menu -->
-    <aside class="aside page__menu"
-           id="aside">
-      <div class="background-image"></div>
-
+    <header class="header">
       <!--#region navigation  -->
       <nav class="nav">
-        <a href="index.html"
-           class="nav__logo-link">
-          <img src="../icons/nav-logo.png"
-               alt="Окуліст Логотип"
-               class="nav__logo-image">
+        <a href="index.html" class="nav__logo-link">
+          <img
+            src="../icons/nav-logo.png"
+            alt="Окуліст Логотип"
+            class="nav__logo-image"
+          />
         </a>
 
         <div class="nav__icons">
-          <a href="#"
-             class="icon icon--basket"></a>
-          <a href="#"
-             class="icon icon--search"></a>
-          <a href="#"
-             class="icon icon--close"></a>
+          <a href="#" class="icon icon--basket"></a>
+          <a href="#" class="icon icon--search"></a>
+          <a href="#aside" class="icon icon--menu"></a>
         </div>
       </nav>
       <!-- #endregion -->
 
-      <!-- #region menu links -->
-      <menu class="aside__links">
-        <a href="index.html"
-           class="aside__link">
-          <li>Головна</li>
-        </a>
+      <!-- #region aside menu -->
+      <aside class="aside page__menu" id="aside">
+        <div class="background-image"></div>
 
-        <a href="about-us.html"
-           class="aside__link">
-          <li>Про нас</li>
-        </a>
+        <!--#region navigation  -->
+        <nav class="nav">
+          <a href="index.html" class="nav__logo-link">
+            <img
+              src="../icons/nav-logo.png"
+              alt="Окуліст Логотип"
+              class="nav__logo-image"
+            />
+          </a>
 
-        <a href="service.html"
-           class="aside__link">
-          <li>послуги</li>
-        </a>
+          <div class="nav__icons">
+            <a href="#" class="icon icon--basket"></a>
+            <a href="#" class="icon icon--search"></a>
+            <a href="#" class="icon icon--close"></a>
+          </div>
+        </nav>
+        <!-- #endregion -->
 
-        <a href="useful.html"
-           class="aside__link">
-          <li>корисне</li>
-        </a>
+        <!-- #region menu links -->
+        <menu class="aside__links">
+          <a href="index.html" class="aside__link">
+            <li>Головна</li>
+          </a>
 
-        <a href="catalog.html"
-           class="aside__link">
-          <li>Каталог</li>
-        </a>
+          <a href="about-us.html" class="aside__link">
+            <li>Про нас</li>
+          </a>
 
-        <a href="reviews.html"
-           class="aside__link">
-          <li>Відгуки</li>
-        </a>
+          <a href="service.html" class="aside__link">
+            <li>послуги</li>
+          </a>
 
-        <a href="contacts.html"
-           class="aside__link aside__link--margin-bottom">
-          <li>Контакти</li>
-        </a>
+          <a href="useful.html" class="aside__link">
+            <li>корисне</li>
+          </a>
+
+          <a href="catalog.html" class="aside__link">
+            <li>Каталог</li>
+          </a>
+
+          <a href="reviews.html" class="aside__link">
+            <li>Відгуки</li>
+          </a>
+
+          <a
+            href="contacts.html"
+            class="aside__link aside__link--margin-bottom"
+          >
+            <li>Контакти</li>
+          </a>
+        </menu>
+        <!-- #endregion -->
+
+        <!-- #region menu buttons -->
+        <div class="aside__buttons">
+          <a href="#" class="button button--aside">
+            Обране
+
+            <div class="icon icon--favorite"></div>
+          </a>
+
+          <a href="registration.html" class="button button--aside">
+            Кабінет
+
+            <div class="icon icon--account"></div>
+          </a>
+        </div>
+        <!-- #endregion -->
+      </aside>
+      <!-- #endregion -->
+
+      <!-- #region header content -->
+      <div class="header__content">
+        <h1 class="header__content-title header__content-title--about-us-page">
+          Каталог
+        </h1>
+      </div>
+      <!-- #endregion -->
+    </header>
+
+    <main class="main product">
+      <div class="product__item">
+        <div class="product__image product__item-image product__image--1"></div>
+        <div
+          class="product__image product__item-image product__image--2 hidden"
+        ></div>
+
+        <div class="product__ellipse--wrapper">
+          <div class="product__ellipse"></div>
+          <div class="product__ellipse product__ellipse--gray"></div>
+        </div>
+
+        <div class="product__small-image">
+          <div
+            class="product__small-image--item product__small-image--1 choosed"
+            onclick="changeImage(1)"
+          ></div>
+          <div
+            class="product__small-image--item product__small-image--2"
+            onclick="changeImage(2)"
+          ></div>
+        </div>
+
+        <p class="product__descripsion">Окуляри для зору жіночі</p>
+        <p class="product__name">Verse 20176 blueblocker</p>
+
+        <div class="product__info-container">
+          <p class="product__price">1200 грн</p>
+          <p class="product__available">В наявності</p>
+        </div>
+
+        <div class="eyes-params lens-type">
+          <p class="eyes-params__title lens-type__title">
+            Введіть свої параметри
+          </p>
+
+          <div class="eyes-params__similar lens-type__similar">
+            <button class="eyes-params__button lens-type__button">
+              <img
+                src="../images/products/check-mark.svg"
+                class="check-mark eyes-params__check-mark lens-type__check-mark hidden"
+                alt="check-mark"
+              />
+            </button>
+            <p class="eyes-params__text lens-type__similar--text">
+              У мене однакові очі
+            </p>
+          </div>
+
+          <div class="eyes-params__left-eye lens-type__left-eye">
+            <div class="eyes-params__line lens-type__line"></div>
+            <p class="eyes-params__eye-title lens-type__eye-title">Ліве око</p>
+
+            <div class="eyes-values lens-values">
+              <div class="eyes-values__type lens-values__type">
+                <p class="eyes-values__text lens-values__text">
+                  Базова кривизна (BC)
+                </p>
+                <button class="eyes-values__button lens-values__button">
+                  <p
+                    class="eyes-values__button--text lens-values__button--text"
+                  >
+                    8.7
+                  </p>
+                  <img
+                    src="../images/products/check-selector.svg"
+                    class="check-selector eyes-values__check-selector lens-values__check-selector"
+                    alt="check-selector"
+                  />
+                </button>
+              </div>
+
+              <div class="eyes-values__type lens-values__type">
+                <p class="eyes-values__text lens-values__text">
+                  Діоптрійність (Sph)
+                </p>
+                <button class="eyes-values__button lens-values__button">
+                  <p></p>
+                  <img
+                    src="../images/products/check-selector.svg"
+                    class="check-selector eyes-values__check-selector lens-values__check-selector"
+                    alt="check-selector"
+                  />
+                </button>
+              </div>
+
+              <div class="eyes-values__type lens-values__type">
+                <p class="eyes-values__text lens-values__text">Циліндр (Cyl)</p>
+                <button class="eyes-values__button lens-values__button">
+                  <p></p>
+                  <img
+                    src="../images/products/check-selector.svg"
+                    class="check-selector eyes-values__check-selector lens-values__check-selector"
+                    alt="check-selector"
+                  />
+                </button>
+              </div>
+
+              <div class="eyes-values__type lens-values__type">
+                <p class="eyes-values__text lens-values__text">Вісь (AXE)</p>
+                <button class="eyes-values__button lens-values__button">
+                  <p></p>
+                  <img
+                    src="../images/products/check-selector.svg"
+                    class="check-selector eyes-values__check-selector lens-values__check-selector"
+                    alt="check-selector"
+                  />
+                </button>
+              </div>
+            </div>
+
+            <div class="eyes-params__line lens-type__line"></div>
+
+            <div class="eyes-params__package lens-values__package">
+              <div
+                class="eyes-params__package--title lens-values__package--title"
+              >
+                Тип упаковки
+              </div>
+
+              <div class="lenses__delivery-info">
+                <div class="lenses__delivery-info--radio active"></div>
+                <p class="lenses__delivery-info--text">Одна упаковка</p>
+              </div>
+
+              <div class="lenses__delivery-info lenses__delivery-info--margin">
+                <div class="lenses__delivery-info--radio"></div>
+                <p class="lenses__delivery-info--text">
+                  Одна лінза
+                  <span style="font-weight: 500">(375 грн за шт)</span>
+                </p>
+              </div>
+
+              <div class="eyes-params__count-text lens-type__count-text">
+                Кількість
+              </div>
+
+              <button class="button--secondary lens-type__quantity-button">
+                <img src="../icons/plus.svg" alt="plus" class="icon" />
+                <span class="product__quantity--text">2</span>
+                <img src="../icons/minus.svg" alt="minus" class="icon" />
+              </button>
+            </div>
+          </div>
+
+          <div class="eyes-params__right-eye lens-type__right-eye">
+            <div class="eyes-params__line lens-type__line"></div>
+            <p class="eyes-params__eye-title lens-type__eye-title">Праве око</p>
+
+            <div class="eyes-values lens-values">
+              <div class="eyes-values__type lens-values__type">
+                <p class="eyes-values__text lens-values__text">
+                  Базова кривизна (BC)
+                </p>
+                <button class="eyes-values__button lens-values__button">
+                  <p
+                    class="eyes-values__button--text lens-values__button--text"
+                  >
+                    8.7
+                  </p>
+                  <img
+                    src="../images/products/check-selector.svg"
+                    class="check-selector eyes-values__check-selector lens-values__check-selector"
+                    alt="check-selector"
+                  />
+                </button>
+              </div>
+
+              <div class="eyes-values__type lens-values__type">
+                <p class="eyes-values__text lens-values__text">
+                  Діоптрійність (Sph)
+                </p>
+                <button class="eyes-values__button lens-values__button">
+                  <p></p>
+                  <img
+                    src="../images/products/check-selector.svg"
+                    class="check-selector eyes-values__check-selector lens-values__check-selector"
+                    alt="check-selector"
+                  />
+                </button>
+              </div>
+
+              <div class="eyes-values__type lens-values__type">
+                <p class="eyes-values__text lens-values__text">Циліндр (Cyl)</p>
+                <button class="eyes-values__button lens-values__button">
+                  <p></p>
+                  <img
+                    src="../images/products/check-selector.svg"
+                    class="check-selector eyes-values__check-selector lens-values__check-selector"
+                    alt="check-selector"
+                  />
+                </button>
+              </div>
+
+              <div class="eyes-values__type lens-values__type">
+                <p class="eyes-values__text lens-values__text">Вісь (AXE)</p>
+                <button class="eyes-values__button lens-values__button">
+                  <p></p>
+                  <img
+                    src="../images/products/check-selector.svg"
+                    class="check-selector eyes-values__check-selector lens-values__check-selector"
+                    alt="check-selector"
+                  />
+                </button>
+              </div>
+            </div>
+
+            <div class="eyes-params__line lens-type__line"></div>
+
+            <div class="eyes-params__package lens-values__package">
+              <div
+                class="eyes-params__package--title lens-values__package--title"
+              >
+                Тип упаковки
+              </div>
+
+              <div class="lenses__delivery-info">
+                <div class="lenses__delivery-info--radio active"></div>
+                <p class="lenses__delivery-info--text">Одна упаковка</p>
+              </div>
+
+              <div class="lenses__delivery-info lenses__delivery-info--margin">
+                <div class="lenses__delivery-info--radio"></div>
+                <p class="lenses__delivery-info--text">
+                  Одна лінза
+                  <span style="font-weight: 500">(375 грн за шт)</span>
+                </p>
+              </div>
+
+              <div class="eyes-params__count-text lens-type__count-text">
+                Кількість
+              </div>
+
+              <button class="button--secondary lens-type__quantity-button">
+                <img src="../icons/plus.svg" alt="plus" class="icon" />
+                <span class="product__quantity--text">2</span>
+                <img src="../icons/minus.svg" alt="minus" class="icon" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-colors">
+          <div class="product-colors__color"></div>
+          <div class="product-colors__color product-colors__color--gray"></div>
+          <div
+            class="product-colors__color product-colors__color--yellow"
+          ></div>
+          <div
+            class="product-colors__color product-colors__color--violet"
+          ></div>
+        </div>
+
+        <button
+          class="button--secondary product__quantity product__quantity--margin"
+        >
+          <img src="../icons/plus.svg" alt="plus" class="icon" />
+          <span class="product__quantity--text">Кількість</span>
+          <img src="../icons/minus.svg" alt="minus" class="icon" />
+        </button>
+
+        <div class="product__buttons">
+          <a href="#" class="button button--product">
+            <div class="icon icon--basket-white"></div>
+
+            У кошик
+          </a>
+
+          <a href="" class="favorite">
+            <div class="icon icon--favorite"></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="product__delivery product__delivery--margin">
+        <div class="product__delivery--payment">
+          <div class="icon icon--payment"></div>
+          <p>Оплата готівкою та безготівковим платежем</p>
+        </div>
+
+        <div class="product__delivery--payment">
+          <div class="icon icon--speed"></div>
+          <p>Відправляємо товар 5 днів на тиждень</p>
+        </div>
+
+        <div class="product__delivery--payment">
+          <div class="icon icon--truck"></div>
+          <p>Доставка здійснюється сервісом “Нова пошта”</p>
+        </div>
+      </div>
+
+      <div class="product__menu product__menu--margin">
+        <p class="product__menu--title product__menu--title-active">
+          Характеристики
+        </p>
+        <p class="product__menu--title">Опис</p>
+        <p class="product__menu--title">Відгуки</p>
+        <p class="product__menu--title">Питання та відповіді</p>
+      </div>
+
+      <div class="product__features">
+        <h4>Характеристики</h4>
+        <article class="product__features--text">
+          <b>Технологія BlueBlocker:</b> Окуляри оснащені фільтром, який
+          ефективно блокує шкідливе синє світло, випромінюване екранами
+          електронних пристроїв, таких як смартфони, планшети і комп'ютери. Це
+          допомагає зменшити напругу очей і запобігає втомі під час тривалого
+          перегляду.
+        </article>
+        <article class="product__features--text">
+          <b>Легкий і комфортний дизайн:</b> Виготовлені з високоякісних
+          матеріалів, оправа окулярів легка і міцна, забезпечуючи комфорт
+          носіння протягом усього дня.
+        </article>
+        <article class="product__features--text">
+          <b>Стильний зовнішній вигляд:</b> Verse 20176 BlueBlocker поєднує в
+          собі функціональність і модний дизайн. Їхні форми і кольорові рішення
+          створюють сучасний і елегантний образ.
+        </article>
+        <article class="product__features--text">
+          <b>Універсальний розмір:</b> Відмінно підходять для широкого спектру
+          розмірів обличчя, що робить їх варіантом для будь-якої людини.
+        </article>
+      </div>
+
+      <div class="product__overwiev">
+        <h4>Опис</h4>
+        <p class="product__overwiev--text">
+          Окуляри для зору Verse 20176 blueblocker комплектуються фірмовим
+          футляром та серветкою
+        </p>
+      </div>
+
+      <div class="product__feedback">
+        <h4>Відгуки</h4>
+        <p class="product__feedback--text">Поки відгуків немає</p>
+      </div>
+
+      <a href="#" class="product__give-feedback button">Залишити відгук</a>
+
+      <h4 class="product__questions-and-answers">Питання та відповіді</h4>
+
+      <a
+        href="#"
+        class="button button--secondary product__questions-and-answers--button"
+        >Поставити питання</a
+      >
+    </main>
+
+    <footer class="footer footer--top-margin">
+      <p class="footer__top-text">
+        кваліфіковані послуги та висока якість заради вашого ідеального зору
+      </p>
+
+      <p class="footer__our-salon">Наші салони:</p>
+
+      <div class="footer__nav">
+        <div class="footer__nav--text-wrapper">
+          <a
+            class="footer__nav-link footer__nav-link--phone footer__nav-link--margin-top"
+            href="tel:380669492676"
+          >
+            +38 (066) 949-26-76
+          </a>
+
+          <a
+            class="footer__nav-link"
+            href="https://maps.app.goo.gl/UJiXkaydDgSZFeRN8"
+            target="_blank"
+          >
+            м. Івано-Франківськ <br />
+            вул. Галицька, 64
+          </a>
+        </div>
+
+        <div class="footer__nav--text-wrapper">
+          <a
+            class="footer__nav-link footer__nav-link--phone footer__nav-link--margin-top"
+            href="tel:+380506087529"
+          >
+            +38 (050) 608-75-29
+          </a>
+
+          <a
+            class="footer__nav-link"
+            href="https://maps.app.goo.gl/cPizpoXS4ZtnP1bz6"
+            target="_blank"
+          >
+            м. Слов’янськ <br />
+            вул. Центральна 43
+          </a>
+        </div>
+      </div>
+
+      <menu class="footer__menu">
+        <div class="footer__menu--top">
+          <a href="#page" class="footer__link">
+            <li class="footer__item">Головна</li>
+          </a>
+
+          <a href="about-us.html" class="footer__link">
+            <li class="footer__item">Про нас</li>
+          </a>
+
+          <a href="useful.html" class="footer__link">
+            <li class="footer__item">Корисне</li>
+          </a>
+        </div>
+
+        <div class="footer__menu--bottom">
+          <a href="catalog.html" class="footer__link">
+            <li class="footer__item">Каталог</li>
+          </a>
+
+          <a href="reviews.html" class="footer__link">
+            <li class="footer__item">Відгуки</li>
+          </a>
+
+          <a href="#" class="footer__link">
+            <li class="footer__item">Контакти</li>
+          </a>
+        </div>
       </menu>
-      <!-- #endregion -->
 
-      <!-- #region menu buttons -->
-      <div class="aside__buttons">
-        <a href="#"
-           class="button button--aside">
-          Обране
-
-          <div class="icon icon--favorite"></div>
-        </a>
-
-        <a href="registration.html"
-           class="button button--aside">
-          Кабінет
-
-          <div class="icon icon--account"></div>
-        </a>
-      </div>
-      <!-- #endregion -->
-    </aside>
-    <!-- #endregion -->
-
-    <!-- #region header content -->
-    <div class="header__content">
-      <h1 class="header__content-title header__content-title--about-us-page">Каталог</h1>
-    </div>
-    <!-- #endregion -->
-  </header>
-
-  <main class="main product">
-
-    <div class="product__item">
-      <div class="product__image product__item-image product__image--1"></div>
-      <div class="product__image product__item-image product__image--2 hidden"></div>
-
-
-      <div class="product__ellipse--wrapper">
-        <div class="product__ellipse"></div>
-        <div class="product__ellipse product__ellipse--gray"></div>
-      </div>
-
-      <div class="product__small-image">
-        <div 
-          class="product__small-image--item product__small-image--1 choosed" 
-          onclick="changeImage(1)"
-        ></div>
-        <div 
-          class="product__small-image--item product__small-image--2" 
-          onclick="changeImage(2)"
-        ></div>
-      </div>
-
-      <p class="product__descripsion">Окуляри для зору жіночі</p>
-      <p class="product__name">Verse 20176 blueblocker</p>
-
-      <div class="product__info-container">
-        <p class="product__price">1200 грн</p>
-        <p class="product__available">В наявності</p>
-      </div>
-
-      <div class="eyes-params lens-type">
-        <p class="eyes-params__title lens-type__title">Введіть свої параметри</p>
-
-        <div class="eyes-params__similar lens-type__similar">
-          <button class="eyes-params__button lens-type__button">
-            <img 
-              src="../images/products/check-mark.svg"
-              class="check-mark eyes-params__check-mark lens-type__check-mark hidden"
-              alt="check-mark"
-            >
-          </button>
-          <p class="eyes-params__text lens-type__similar--text">У мене однакові очі</p>
-        </div>
-
-        <div class="eyes-params__left-eye lens-type__left-eye">
-          <div class="eyes-params__line lens-type__line"></div>
-          <p class="eyes-params__eye-title lens-type__eye-title">Ліве око</p>
-  
-          <div class="eyes-values lens-values">
-            <div class="eyes-values__type lens-values__type">
-              <p class="eyes-values__text lens-values__text">Базова кривизна (BC)</p>
-              <button class="eyes-values__button lens-values__button">
-                <p class="eyes-values__button--text lens-values__button--text">8.7</p>
-                <img 
-                  src="../images/products/check-selector.svg"
-                  class="check-selector eyes-values__check-selector lens-values__check-selector"
-                  alt="check-selector"
-                >
-              </button>
-            </div>
-  
-            <div class="eyes-values__type lens-values__type">
-              <p class="eyes-values__text lens-values__text">Діоптрійність (Sph)</p>
-              <button class="eyes-values__button lens-values__button">
-                <p></p>
-                <img 
-                  src="../images/products/check-selector.svg"
-                  class="check-selector eyes-values__check-selector lens-values__check-selector"
-                  alt="check-selector"
-                >
-              </button>
-            </div>
-  
-            <div class="eyes-values__type lens-values__type">
-              <p class="eyes-values__text lens-values__text">Циліндр (Cyl)</p>
-              <button class="eyes-values__button lens-values__button">
-                <p></p>
-                <img 
-                  src="../images/products/check-selector.svg"
-                  class="check-selector eyes-values__check-selector lens-values__check-selector"
-                  alt="check-selector"
-                >
-              </button>
-            </div>
-  
-            <div class="eyes-values__type lens-values__type">
-              <p class="eyes-values__text lens-values__text">Вісь (AXE)</p>
-              <button class="eyes-values__button lens-values__button">
-                <p></p>
-                <img 
-                  src="../images/products/check-selector.svg"
-                  class="check-selector eyes-values__check-selector lens-values__check-selector"
-                  alt="check-selector"
-                >
-              </button>
-            </div>
-          </div>
-  
-          <div class="eyes-params__line lens-type__line"></div>
-  
-          <div class="eyes-params__package lens-values__package">
-            <div class="eyes-params__package--title lens-values__package--title">Тип упаковки</div>
-  
-            <div class="lenses__delivery-info">
-              <div class="lenses__delivery-info--radio active"></div>
-              <p class="lenses__delivery-info--text">Одна упаковка</p>
-            </div>
-        
-            <div class="lenses__delivery-info lenses__delivery-info--margin">
-              <div class="lenses__delivery-info--radio"></div>
-              <p class="lenses__delivery-info--text">Одна лінза <span style="font-weight: 500;">(375 грн за шт)</span></p>
-            </div>
-  
-            <div class="eyes-params__count-text lens-type__count-text">Кількість</div>
-  
-            <button class="button--secondary lens-type__quantity-button">
-              <img src="../icons/plus.svg"
-                   alt="plus"
-                   class="icon">
-              <span class="product__quantity--text">2</span>
-              <img src="../icons/minus.svg"
-                   alt="minus"
-                   class="icon">
-            </button>
-          </div>
-        </div>
-
-        <div class="eyes-params__right-eye lens-type__right-eye">
-          <div class="eyes-params__line lens-type__line"></div>
-          <p class="eyes-params__eye-title lens-type__eye-title">Праве око</p>
-  
-          <div class="eyes-values lens-values">
-            <div class="eyes-values__type lens-values__type">
-              <p class="eyes-values__text lens-values__text">Базова кривизна (BC)</p>
-              <button class="eyes-values__button lens-values__button">
-                <p class="eyes-values__button--text lens-values__button--text">8.7</p>
-                <img 
-                  src="../images/products/check-selector.svg"
-                  class="check-selector eyes-values__check-selector lens-values__check-selector"
-                  alt="check-selector"
-                >
-              </button>
-            </div>
-  
-            <div class="eyes-values__type lens-values__type">
-              <p class="eyes-values__text lens-values__text">Діоптрійність (Sph)</p>
-              <button class="eyes-values__button lens-values__button">
-                <p></p>
-                <img 
-                  src="../images/products/check-selector.svg"
-                  class="check-selector eyes-values__check-selector lens-values__check-selector"
-                  alt="check-selector"
-                >
-              </button>
-            </div>
-  
-            <div class="eyes-values__type lens-values__type">
-              <p class="eyes-values__text lens-values__text">Циліндр (Cyl)</p>
-              <button class="eyes-values__button lens-values__button">
-                <p></p>
-                <img 
-                  src="../images/products/check-selector.svg"
-                  class="check-selector eyes-values__check-selector lens-values__check-selector"
-                  alt="check-selector"
-                >
-              </button>
-            </div>
-  
-            <div class="eyes-values__type lens-values__type">
-              <p class="eyes-values__text lens-values__text">Вісь (AXE)</p>
-              <button class="eyes-values__button lens-values__button">
-                <p></p>
-                <img 
-                  src="../images/products/check-selector.svg"
-                  class="check-selector eyes-values__check-selector lens-values__check-selector"
-                  alt="check-selector"
-                >
-              </button>
-            </div>
-          </div>
-  
-          <div class="eyes-params__line lens-type__line"></div>
-  
-          <div class="eyes-params__package lens-values__package">
-            <div class="eyes-params__package--title lens-values__package--title">Тип упаковки</div>
-  
-            <div class="lenses__delivery-info">
-              <div class="lenses__delivery-info--radio active"></div>
-              <p class="lenses__delivery-info--text">Одна упаковка</p>
-            </div>
-        
-            <div class="lenses__delivery-info lenses__delivery-info--margin">
-              <div class="lenses__delivery-info--radio"></div>
-              <p class="lenses__delivery-info--text">Одна лінза <span style="font-weight: 500;">(375 грн за шт)</span></p>
-            </div>
-  
-            <div class="eyes-params__count-text lens-type__count-text">Кількість</div>
-  
-            <button class="button--secondary lens-type__quantity-button">
-              <img src="../icons/plus.svg"
-                   alt="plus"
-                   class="icon">
-              <span class="product__quantity--text">2</span>
-              <img src="../icons/minus.svg"
-                   alt="minus"
-                   class="icon">
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-colors">
-        <div class="product-colors__color"></div>
-        <div class="product-colors__color product-colors__color--gray"></div>
-        <div class="product-colors__color product-colors__color--yellow"></div>
-        <div class="product-colors__color product-colors__color--violet"></div>
-      </div>
-
-      <button class="button--secondary product__quantity product__quantity--margin">
-        <img src="../icons/plus.svg"
-             alt="plus"
-             class="icon">
-        <span class="product__quantity--text">Кількість</span>
-        <img src="../icons/minus.svg"
-             alt="minus"
-             class="icon">
-      </button>
-
-      <div class="product__buttons">
-        <a href="#"
-           class="button button--product">
-          <div class="icon icon--basket-white"></div>
-
-          У кошик
-        </a>
-
-        <a href=""
-           class="favorite">
-          <div class="icon icon--favorite"></div>
-        </a>
-      </div>
-    </div>
-
-    <div class="product__delivery product__delivery--margin">
-      <div class="product__delivery--payment">
-        <div class="icon icon--payment"></div>
-        <p>Оплата готівкою та безготівковим платежем</p>
-      </div>
-
-      <div class="product__delivery--payment">
-        <div class="icon icon--speed"></div>
-        <p>Відправляємо товар 5 днів на тиждень</p>
-      </div>
-
-      <div class="product__delivery--payment">
-        <div class="icon icon--truck"></div>
-        <p>Доставка здійснюється сервісом “Нова пошта”</p>
-      </div>
-
-    </div>
-
-    <div class="product__menu product__menu--margin">
-      <p class="product__menu--title product__menu--title-active">Характеристики</p>
-      <p class="product__menu--title">Опис</p>
-      <p class="product__menu--title">Відгуки</p>
-      <p class="product__menu--title">Питання та відповіді</p>
-    </div>
-
-    <div class="product__features">
-      <h4>Характеристики</h4>
-      <article class="product__features--text">
-        <b>Технологія BlueBlocker:</b> Окуляри оснащені фільтром, який ефективно блокує шкідливе синє світло, випромінюване екранами
-        електронних пристроїв, таких як смартфони, планшети і комп'ютери. Це допомагає зменшити напругу очей і запобігає втомі
-        під час тривалого перегляду.
-      </article>
-      <article class="product__features--text">
-        <b>Легкий і комфортний дизайн:</b> Виготовлені з високоякісних матеріалів, оправа окулярів легка і міцна, забезпечуючи комфорт
-        носіння протягом усього дня.
-      </article>
-      <article class="product__features--text">
-        <b>Стильний зовнішній вигляд:</b> Verse 20176 BlueBlocker поєднує в собі функціональність і модний дизайн. Їхні форми і
-        кольорові рішення створюють сучасний і елегантний образ.
-      </article>
-      <article class="product__features--text">
-        <b>Універсальний розмір:</b>  Відмінно підходять для широкого спектру розмірів обличчя, що робить їх варіантом для будь-якої
-        людини.
-      </article>
-    </div>
-
-    <div class="product__overwiev">
-      <h4>Опис</h4>
-      <p class="product__overwiev--text">Окуляри для зору Verse 20176 blueblocker комплектуються фірмовим футляром та серветкою</p>
-    </div>
-
-    <div class="product__feedback">
-      <h4>Відгуки</h4>
-      <p class="product__feedback--text">Поки відгуків немає</p>
-    </div>
-
-    <a href="#" class="product__give-feedback button">Залишити відгук</a>
-
-    <h4 class="product__questions-and-answers">Питання та відповіді</h4>
-
-    <a href="#" class="button button--secondary product__questions-and-answers--button">Поставити питання</a>
-  </main>
-
-  <footer class="footer">
-    <p class="footer__top-text">кваліфіковані послуги та висока якість заради вашого ідеального зору</p>
-
-    <div class="footer__nav">
-      <p class="footer__nav--text">Наші салони:</p>
-
-      <a class="
-              footer__nav-link 
-              footer__nav-link--phone 
-              footer__nav-link--margin-top
-            "
-         href="tel:380669492676">
-        +38 (066) 949-26-76
+      <a href="#" class="footer__logo-link">
+        <img
+          src="../images/footer/footer-logo.png"
+          alt="ОКУЛІСТ мережа оптик"
+          class="footer__logo-img"
+        />
       </a>
-
-      <a class="footer__nav-link"
-         href="https://maps.app.goo.gl/UJiXkaydDgSZFeRN8"
-         target="_blank">
-        м. Івано-Франківськ <br> вул. Галицька, 64
-      </a>
-
-      <a class="
-              footer__nav-link 
-              footer__nav-link--phone
-              footer__nav-link--margin-top
-            "
-         href="tel:+380506087529">
-        +38 (050) 608-75-29
-      </a>
-
-      <a class="footer__nav-link"
-         href="https://maps.app.goo.gl/cPizpoXS4ZtnP1bz6"
-         target="_blank">
-        м. Слов’янськ <br> вул. Центральна 43
-      </a>
-    </div>
-
-    <menu class="footer__menu">
-      <div class="footer__menu--top">
-        <a href="index.html"
-           class="footer__link">
-          <li class="footer__item">Головна</li>
-        </a>
-
-        <a href="about-us.html"
-           class="footer__link">
-          <li class="footer__item">Про нас</li>
-        </a>
-
-        <a href="useful.html"
-           class="footer__link">
-          <li class="footer__item">Корисне</li>
-        </a>
-      </div>
-
-      <div class="footer__menu--bottom">
-        <a href="catalog.html"
-           class="footer__link">
-          <li class="footer__item">Каталог</li>
-        </a>
-
-        <a href="reviews.html"
-           class="footer__link">
-          <li class="footer__item">Відгуки</li>
-        </a>
-
-        <a href="contacts.html"
-           class="footer__link">
-          <li class="footer__item">Контакти</li>
-        </a>
-      </div>
-    </menu>
-
-    <a href="#"
-       class="footer__logo-link">
-      <img src="../images/footer/footer-logo.png"
-           alt="ОКУЛІСТ мережа оптик"
-           class="footer__logo-img">
-    </a>
-  </footer>
-</body>
-
+    </footer>
+  </body>
 </html>

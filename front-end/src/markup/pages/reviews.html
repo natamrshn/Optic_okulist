@@ -1,77 +1,88 @@
 <!DOCTYPE html>
 <html lang="uk" class="page">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Окуліст</title>
-  <link rel="icon" href="../icons/favicon.png">
-  <link rel="stylesheet" href="../styles/style.css">
-  <script src="../scripts/main.js" defer></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body class="page__body" id="page">
-  <!-- #region feedback button -->
-  <div class="feedback-button">
-    <div class="feedback-button__icons">
-      <a href="#">
-        <img src="../icons/contact/instagram.svg"
-             class="feedback-button__icon feedback-button__icon--instagram"
-             alt="instagram">
-      </a>
-  
-      <a href="#">
-        <img src="../icons/contact/viber.svg"
-             class="feedback-button__icon feedback-button__icon--viber"
-             alt="viber">
-      </a>
-  
-      <a href="#">
-        <img src="../icons/contact/telegram.svg"
-             class="feedback-button__icon feedback-button__icon--telegram"
-             alt="telegram">
-      </a>
-    </div>
-    <img src="../icons/contact/message.svg"
-         class="feedback-button__icon-message"
-         role="button"
-         onclick="ContactsIcons.toggle()"
-         alt="message_us">
-  </div>
-  <!-- #endregion -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Окуліст</title>
+    <link rel="icon" href="../icons/favicon.png" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <script src="../scripts/main.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="page__body" id="page">
+    <!-- #region feedback button -->
+    <div class="feedback-button">
+      <div class="feedback-button__icons">
+        <a href="#">
+          <img
+            src="../icons/contact/instagram.svg"
+            class="feedback-button__icon feedback-button__icon--instagram"
+            alt="instagram"
+          />
+        </a>
 
-  <header class="header header--about-us-page">
-    <!--#region navigation  -->
-    <nav class="nav">
-      <a href="index.html" class="nav__logo-link">
-        <img 
-          src="../icons/nav-logo.png" 
-          alt="Окуліст Логотип"
-          class="nav__logo-image"
-        >
-      </a>
+        <a href="#">
+          <img
+            src="../icons/contact/viber.svg"
+            class="feedback-button__icon feedback-button__icon--viber"
+            alt="viber"
+          />
+        </a>
 
-      <div class="nav__icons">
-        <a href="#" class="icon icon--basket"></a>
-        <a href="#" class="icon icon--search"></a>
-        <a href="#aside" class="icon icon--menu"></a>
+        <a href="#">
+          <img
+            src="../icons/contact/telegram.svg"
+            class="feedback-button__icon feedback-button__icon--telegram"
+            alt="telegram"
+          />
+        </a>
       </div>
-    </nav>
-  <!-- #endregion -->
+      <img
+        src="../icons/contact/message.svg"
+        class="feedback-button__icon-message"
+        role="button"
+        onclick="ContactsIcons.toggle()"
+        alt="message_us"
+      />
+    </div>
+    <!-- #endregion -->
 
-    <!-- #region aside menu -->
-    <aside class="aside page__menu" id="aside">
-      <div class="background-image"></div>
-
+    <header class="header header--about-us-page">
       <!--#region navigation  -->
+      <nav class="nav">
+        <a href="index.html" class="nav__logo-link">
+          <img
+            src="../icons/nav-logo.png"
+            alt="Окуліст Логотип"
+            class="nav__logo-image"
+          />
+        </a>
+
+        <div class="nav__icons">
+          <a href="#" class="icon icon--basket"></a>
+          <a href="#" class="icon icon--search"></a>
+          <a href="#aside" class="icon icon--menu"></a>
+        </div>
+      </nav>
+      <!-- #endregion -->
+
+      <!-- #region aside menu -->
+      <aside class="aside page__menu" id="aside">
+        <div class="background-image"></div>
+
+        <!--#region navigation  -->
         <nav class="nav">
           <a href="index.html" class="nav__logo-link">
-            <img 
-              src="../icons/nav-logo.png" 
+            <img
+              src="../icons/nav-logo.png"
               alt="Окуліст Логотип"
               class="nav__logo-image"
-            >
+            />
           </a>
 
           <div class="nav__icons">
@@ -80,9 +91,9 @@
             <a href="#" class="icon icon--close"></a>
           </div>
         </nav>
-      <!-- #endregion -->
+        <!-- #endregion -->
 
-      <!-- #region menu links -->
+        <!-- #region menu links -->
         <menu class="aside__links">
           <a href="index.html" class="aside__link">
             <li>Головна</li>
@@ -108,13 +119,16 @@
             <li>Відгуки</li>
           </a>
 
-          <a href="contacts.html" class="aside__link aside__link--margin-bottom">
+          <a
+            href="contacts.html"
+            class="aside__link aside__link--margin-bottom"
+          >
             <li>Контакти</li>
           </a>
         </menu>
-      <!-- #endregion -->
+        <!-- #endregion -->
 
-      <!-- #region menu buttons -->
+        <!-- #region menu buttons -->
         <div class="aside__buttons">
           <a href="#" class="button button--aside">
             Обране
@@ -124,212 +138,214 @@
 
           <a href="registration.html" class="button button--aside">
             Кабінет
-            
+
             <div class="icon icon--account"></div>
           </a>
         </div>
+        <!-- #endregion -->
+      </aside>
       <!-- #endregion -->
-    </aside>
-  <!-- #endregion -->
 
-    <!-- #region header content -->
+      <!-- #region header content -->
       <div class="header__content">
-        <h1 class="header__content-title header__content-title--about-us-page">Відгуки</h1>
+        <h1 class="header__content-title header__content-title--about-us-page">
+          Відгуки
+        </h1>
       </div>
       <!-- #endregion -->
-  </header>
+    </header>
 
-  <main class="main main--reviews-page">
-    <section class="reviews reviews--margin-bottom">
-      <article class="review">
-        <p class="reviews__text">
-          Нещодавно придбав нові <br>
-          окуляри з антибліковим <br>
-          покриттям, і різниця в зручності <br>
-          та якості зору була просто вражаючою. Окуляри дуже легкі <br>
-          та стильні, а антиблікове  <br>
-          покриття дозволяє мені комфортно використовувати їх <br>
-          при роботі на комп’ютері або за <br>
-          кермом автомобіля в нічний час. <br>
-          Я бачу світ ясно та чітко, і це <br>
-          справді полегшує моє щоденне <br>
-          життя!
-        </p>
-      </article>
+    <main class="main main--reviews-page">
+      <section class="reviews reviews--margin-bottom">
+        <article class="review">
+          <p class="reviews__text">
+            Нещодавно придбав нові <br />
+            окуляри з антибліковим <br />
+            покриттям, і різниця в зручності <br />
+            та якості зору була просто вражаючою. Окуляри дуже легкі <br />
+            та стильні, а антиблікове <br />
+            покриття дозволяє мені комфортно використовувати їх <br />
+            при роботі на комп’ютері або за <br />
+            кермом автомобіля в нічний час. <br />
+            Я бачу світ ясно та чітко, і це <br />
+            справді полегшує моє щоденне <br />
+            життя!
+          </p>
+        </article>
 
-      <article class="person">
-        <div class="person__icon person__icon--first-person"></div>
+        <article class="person">
+          <div class="person__icon person__icon--first-person"></div>
 
-        <div class="person__name-and-rate">
-          <p class="person__name">Nazarko Lesiv</p>  
+          <div class="person__name-and-rate">
+            <p class="person__name">Nazarko Lesiv</p>
 
-          <div class="stars">
-            <div class="stars__star-active"></div>
-            <div class="stars__star-active"></div>
-            <div class="stars__star-active"></div>
-            <div class="stars__star-active"></div>
-            <div class="stars__star-active"></div>
+            <div class="stars">
+              <div class="stars__star-active"></div>
+              <div class="stars__star-active"></div>
+              <div class="stars__star-active"></div>
+              <div class="stars__star-active"></div>
+              <div class="stars__star-active"></div>
+            </div>
           </div>
-        </div>
-      </article>
-    </section>
+        </article>
+      </section>
 
-    <section class="reviews reviews--margin-bottom">
-      <article class="review">
-        <p class="reviews__text">
-          Я дуже задоволена <br>
-          відвідуванням цього магазину. У <br>
-          них великий вибір окулярів для <br>
-          всіх смаків і потреб. Персонал <br>
-          був дуже ввічливим і <br>
-          професійним, допомігши мені <br>
-          знайти пару ідеальних окулярів, <br>
-          які підходять моєму обличчю. <br>
-          Мої окуляри були готові дуже <br>
-          швидко. Ціни були розумними <br>
-          та мали відмінну якість за свої <br>
-          гроші. Я б із задоволенням <br>
-          рекомендувала цей магазин <br>
-          усім, хто шукає нові окуляри чи <br>
-          контактні лінзи.
-        </p>
-      </article>
+      <section class="reviews reviews--margin-bottom">
+        <article class="review">
+          <p class="reviews__text">
+            Я дуже задоволена <br />
+            відвідуванням цього магазину. У <br />
+            них великий вибір окулярів для <br />
+            всіх смаків і потреб. Персонал <br />
+            був дуже ввічливим і <br />
+            професійним, допомігши мені <br />
+            знайти пару ідеальних окулярів, <br />
+            які підходять моєму обличчю. <br />
+            Мої окуляри були готові дуже <br />
+            швидко. Ціни були розумними <br />
+            та мали відмінну якість за свої <br />
+            гроші. Я б із задоволенням <br />
+            рекомендувала цей магазин <br />
+            усім, хто шукає нові окуляри чи <br />
+            контактні лінзи.
+          </p>
+        </article>
 
-      <article class="person">
-        <div class="person__icon person__icon--second-person"></div>
+        <article class="person">
+          <div class="person__icon person__icon--second-person"></div>
 
-        <div class="person__name-and-rate">
-          <p class="person__name">Валя Пікуляк</p>  
+          <div class="person__name-and-rate">
+            <p class="person__name">Валя Пікуляк</p>
 
-          <div class="stars">
-            <div class="stars__star-active"></div>
-            <div class="stars__star-active"></div>
-            <div class="stars__star-active"></div>
-            <div class="stars__star-active"></div>
-            <div class="stars__star-unactive"></div>
+            <div class="stars">
+              <div class="stars__star-active"></div>
+              <div class="stars__star-active"></div>
+              <div class="stars__star-active"></div>
+              <div class="stars__star-active"></div>
+              <div class="stars__star-unactive"></div>
+            </div>
           </div>
-        </div>
-      </article>
-    </section>
+        </article>
+      </section>
 
-    <section class="reviews reviews--margin-bottom-last-component">
-      <article class="review">
-        <p class="reviews__text">
-          Через наслідки роботи почав <br>
-          просідати зір. Колеги порадили <br>
-          цю оптику ,аргументуючи <br>
-          професійністю персоналу. <br>
-          І це дійсно правда. Прийшовши <br>
-          я отримав весь спектр <br>
-          перевірки зору. <br>
-          Рекомендую однозначно. <br>
-          Привітний,знаючий свою справу <br>
-          персонал. <br>
-          Також окуляри ціна-якість,я <br>
-          задоволений.
-        </p>
-      </article>
+      <section class="reviews reviews--margin-bottom-last-component">
+        <article class="review">
+          <p class="reviews__text">
+            Через наслідки роботи почав <br />
+            просідати зір. Колеги порадили <br />
+            цю оптику ,аргументуючи <br />
+            професійністю персоналу. <br />
+            І це дійсно правда. Прийшовши <br />
+            я отримав весь спектр <br />
+            перевірки зору. <br />
+            Рекомендую однозначно. <br />
+            Привітний,знаючий свою справу <br />
+            персонал. <br />
+            Також окуляри ціна-якість,я <br />
+            задоволений.
+          </p>
+        </article>
 
-      <article class="person">
-        <div class="person__icon person__icon--third-person"></div>
+        <article class="person">
+          <div class="person__icon person__icon--third-person"></div>
 
-        <div class="person__name-and-rate">
-          <p class="person__name">Сергій Дмитрів</p>  
+          <div class="person__name-and-rate">
+            <p class="person__name">Сергій Дмитрів</p>
 
-          <div class="stars">
-            <div class="stars__star-active"></div>
-            <div class="stars__star-active"></div>
-            <div class="stars__star-active"></div>
-            <div class="stars__star-active"></div>
-            <div class="stars__star-unactive"></div>
+            <div class="stars">
+              <div class="stars__star-active"></div>
+              <div class="stars__star-active"></div>
+              <div class="stars__star-active"></div>
+              <div class="stars__star-active"></div>
+              <div class="stars__star-unactive"></div>
+            </div>
           </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer footer--top-margin">
+      <p class="footer__top-text">
+        кваліфіковані послуги та висока якість заради вашого ідеального зору
+      </p>
+
+      <p class="footer__our-salon">Наші салони:</p>
+
+      <div class="footer__nav">
+        <div class="footer__nav--text-wrapper">
+          <a
+            class="footer__nav-link footer__nav-link--phone footer__nav-link--margin-top"
+            href="tel:380669492676"
+          >
+            +38 (066) 949-26-76
+          </a>
+
+          <a
+            class="footer__nav-link"
+            href="https://maps.app.goo.gl/UJiXkaydDgSZFeRN8"
+            target="_blank"
+          >
+            м. Івано-Франківськ <br />
+            вул. Галицька, 64
+          </a>
         </div>
-      </article>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <p class="footer__top-text">кваліфіковані послуги та висока якість заради вашого ідеального зору</p>
+        <div class="footer__nav--text-wrapper">
+          <a
+            class="footer__nav-link footer__nav-link--phone footer__nav-link--margin-top"
+            href="tel:+380506087529"
+          >
+            +38 (050) 608-75-29
+          </a>
 
-    <div class="footer__nav">
-      <p class="footer__nav--text">Наші салони:</p>
-      
-      <a 
-        class="
-          footer__nav-link 
-          footer__nav-link--phone 
-          footer__nav-link--margin-top
-        "
-        href="tel:380669492676"
-      >
-        +38 (066) 949-26-76
-      </a>
-
-      <a 
-        class="footer__nav-link" 
-        href="https://maps.app.goo.gl/UJiXkaydDgSZFeRN8"
-        target="_blank"
-      >
-        м. Івано-Франківськ <br> вул. Галицька, 64
-      </a>
-
-      <a 
-        class="
-          footer__nav-link 
-          footer__nav-link--phone
-          footer__nav-link--margin-top
-        " 
-        href="tel:+380506087529"
-      >
-        +38 (050) 608-75-29
-      </a>
-      
-      <a 
-        class="footer__nav-link" 
-        href="https://maps.app.goo.gl/cPizpoXS4ZtnP1bz6"
-        target="_blank"
-      >
-        м. Слов’янськ <br> вул. Центральна 43
-      </a>
-    </div>
-
-    <menu class="footer__menu">
-      <div class="footer__menu--top">
-        <a href="#page" class="footer__link">
-          <li class="footer__item">Головна</li>
-        </a>
-  
-        <a href="about-us.html" class="footer__link">
-          <li class="footer__item">Про нас</li>
-        </a>
-  
-        <a href="useful.html" class="footer__link">
-          <li class="footer__item">Корисне</li>
-        </a>
+          <a
+            class="footer__nav-link"
+            href="https://maps.app.goo.gl/cPizpoXS4ZtnP1bz6"
+            target="_blank"
+          >
+            м. Слов’янськ <br />
+            вул. Центральна 43
+          </a>
+        </div>
       </div>
 
-      <div class="footer__menu--bottom">
-        <a href="catalog.html" class="footer__link">
-          <li class="footer__item">Каталог</li>
-        </a>
-  
-        <a href="reviews.html" class="footer__link">
-          <li class="footer__item">Відгуки</li>
-        </a>
-  
-        <a href="contacts.html" class="footer__link">
-          <li class="footer__item">Контакти</li>
-        </a>
-      </div>
-    </menu>
+      <menu class="footer__menu">
+        <div class="footer__menu--top">
+          <a href="#page" class="footer__link">
+            <li class="footer__item">Головна</li>
+          </a>
 
-    <a href="#" class="footer__logo-link">
-      <img 
-        src="../images/footer/footer-logo.png" 
-        alt="ОКУЛІСТ мережа оптик"
-        class="footer__logo-img"
-      >
-    </a>
-  </footer>
-</body>
+          <a href="about-us.html" class="footer__link">
+            <li class="footer__item">Про нас</li>
+          </a>
+
+          <a href="useful.html" class="footer__link">
+            <li class="footer__item">Корисне</li>
+          </a>
+        </div>
+
+        <div class="footer__menu--bottom">
+          <a href="catalog.html" class="footer__link">
+            <li class="footer__item">Каталог</li>
+          </a>
+
+          <a href="reviews.html" class="footer__link">
+            <li class="footer__item">Відгуки</li>
+          </a>
+
+          <a href="#" class="footer__link">
+            <li class="footer__item">Контакти</li>
+          </a>
+        </div>
+      </menu>
+
+      <a href="#" class="footer__logo-link">
+        <img
+          src="../images/footer/footer-logo.png"
+          alt="ОКУЛІСТ мережа оптик"
+          class="footer__logo-img"
+        />
+      </a>
+    </footer>
+  </body>
 </html>
