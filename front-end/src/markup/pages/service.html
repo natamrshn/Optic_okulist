@@ -50,8 +50,7 @@
     </div>
     <!-- #endregion -->
 
-    <header class="header header--about-us-page">
-      <!--#region navigation  -->
+    <header class="header">
       <nav class="nav">
         <a href="index.html" class="nav__logo-link">
           <img
@@ -61,15 +60,36 @@
           />
         </a>
 
-        <div class="nav__icons">
-          <a href="#" class="icon icon--basket"></a>
-          <a href="#" class="icon icon--search"></a>
-          <a href="#aside" class="icon icon--menu"></a>
+        <div class="nav__icon-wrapper">
+          <div class="nav__input">
+            <span class="icon__input-search"
+              ><i class="icon icon--search-input" aria-hidden="true"></i
+            ></span>
+            <input type="text" placeholder="Що шукаємо?" />
+            <span class="icon__input-plus"
+              ><i class="icon icon--plus-input" aria-hidden="true"></i
+            ></span>
+          </div>
+
+          <div class="nav__icons">
+            <a href="#" class="nav__icon nav__icon-account"></a>
+            <a href="#" class="nav__icon nav__icon-basket"></a>
+            <a href="#" class="nav__icon nav__icon-search"></a>
+            <a href="#aside" class="nav__icon nav__icon-menu"></a>
+            <a href="#" class="nav__icon nav__icon-favourite"></a>
+          </div>
         </div>
       </nav>
-      <!-- #endregion -->
 
-      <!-- #region aside menu -->
+      <div class="header__menu">
+        <a href="about-us.html">Про нас</a>
+        <a href="service.html">Послуги</a>
+        <a href="useful.html">Корисне</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="reviews.html">Відгуки</a>
+        <a href="contacts.html">Контакти</a>
+      </div>
+
       <aside class="aside page__menu" id="aside">
         <div class="background-image"></div>
 
@@ -101,7 +121,7 @@
             <li>Про нас</li>
           </a>
 
-          <a href="#" class="aside__link">
+          <a href="service.html" class="aside__link">
             <li>послуги</li>
           </a>
 
@@ -142,15 +162,6 @@
         </div>
         <!-- #endregion -->
       </aside>
-      <!-- #endregion -->
-
-      <!-- #region header content -->
-      <div class="header__content">
-        <h1 class="header__content-title header__content-title--about-us-page">
-          Послуги
-        </h1>
-      </div>
-      <!-- #endregion -->
     </header>
 
     <main class="main main--service-page">

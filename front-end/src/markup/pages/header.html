@@ -43,14 +43,16 @@
           />
         </a>
       </div>
-      <div
-          class="feedback-button__icon feedback-button__icon--message-close"
-          role="button"
-          onclick="ContactsIcons.toggle()"
-      ></div>
+      <img
+        src="../icons/contact/message.svg"
+        class="feedback-button__icon-message"
+        role="button"
+        onclick="ContactsIcons.toggle()"
+        alt="message_us"
+      />
     </div>
     <!-- #endregion -->
-
+    <header class="header">
       <nav class="nav">
         <a href="index.html" class="nav__logo-link">
           <img
@@ -113,7 +115,7 @@
 
         <!-- #region menu links -->
         <menu class="aside__links">
-          <a href="index.html" class="aside__link">
+          <a href="#" class="aside__link">
             <li>Головна</li>
           </a>
 
@@ -163,75 +165,5 @@
         <!-- #endregion -->
       </aside>
     </header>
-
-    <main class="main personal-cabinet">
-      <h3 class="personal-cabinet__heading">Особистий кабінет</h3>
-
-      <div class="buttons-slider">
-        <a href="#" class="button button--active">Мої дані</a>
-        <a href="my_orders.html" class="button button--secondary"
-          >Мої замовлення</a
-        >
-        <a href="personal-cabinet.html" class="button button--secondary"
-          >Мої бонуси</a
-        >
-        <a href="personal-cabinet.html" class="button button--secondary"
-          >Обране</a
-        >
-      </div>
-
-      <div class="my-order">
-        <div class="my-order__icon">
-          <img src="../icons/delete.svg" alt="delete icon" />
-        </div>
-        <div class="my-order__image">
-          <img
-            src="../images/products/product-img.png"
-            alt="product-img"
-            class="my-order__image"
-          />
-        </div>
-        <div class="my-order__description">
-          <p class="my-order__text">Окуляри для зору Verse 20176 blueblocker</p>
-
-          <button class="lenses__count-button lenses__count-button--margin">
-            <img src="../icons/plus.svg" alt="plus" />
-
-            <p>1</p>
-
-            <img src="../icons/minus.svg" alt="minus" />
-          </button>
-
-          <p class="my-order__price">1200 грн</p>
-        </div>
-      </div>
-
-      <!-- Картка для обраного -->
-      <div class="my-order my-order--margin">
-        <div class="my-order__icon">
-          <img src="../icons/favourite full.svg" alt="favourite icon" />
-        </div>
-        <div class="my-order__image">
-          <img
-            src="../images/products/product-img.png"
-            alt="product-img"
-            class="my-order__image"
-          />
-        </div>
-        <div class="my-order__description">
-          <p class="my-order__text">Окуляри для зору Verse 20176 blueblocker</p>
-
-          <button class="lenses__count-button lenses__count-button--margin">
-            <img src="../icons/plus.svg" alt="plus" />
-
-            <p>1</p>
-
-            <img src="../icons/minus.svg" alt="minus" />
-          </button>
-
-          <p class="my-order__price">1200 грн</p>
-        </div>
-      </div>
-    </main>
   </body>
 </html>
