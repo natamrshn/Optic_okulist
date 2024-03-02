@@ -1,57 +1,68 @@
 <!DOCTYPE html>
 <html lang="uk" class="page">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Окуліст</title>
-  <link rel="icon" href="../icons/favicon.png">
-  <link rel="stylesheet" href="../styles/style.css">
-  <script src="../scripts/main.js" defer></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Окуліст</title>
+    <link rel="icon" href="../icons/favicon.png" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <script src="../scripts/main.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body class="page__body" id="page">
-  <!-- #region feedback button -->
-  <div class="feedback-button">
-    <div class="feedback-button__icons">
-      <a href="#">
-        <img src="../icons/contact/instagram.svg"
-             class="feedback-button__icon feedback-button__icon--instagram"
-             alt="instagram">
-      </a>
-  
-      <a href="#">
-        <img src="../icons/contact/viber.svg"
-             class="feedback-button__icon feedback-button__icon--viber"
-             alt="viber">
-      </a>
-  
-      <a href="#">
-        <img src="../icons/contact/telegram.svg"
-             class="feedback-button__icon feedback-button__icon--telegram"
-             alt="telegram">
-      </a>
+  <body class="page__body" id="page">
+    <!-- #region feedback button -->
+    <div class="feedback-button">
+      <div class="feedback-button__icons">
+        <a href="#">
+          <img
+            src="../icons/contact/instagram.svg"
+            class="feedback-button__icon feedback-button__icon--instagram"
+            alt="instagram"
+          />
+        </a>
+
+        <a href="#">
+          <img
+            src="../icons/contact/viber.svg"
+            class="feedback-button__icon feedback-button__icon--viber"
+            alt="viber"
+          />
+        </a>
+
+        <a href="#">
+          <img
+            src="../icons/contact/telegram.svg"
+            class="feedback-button__icon feedback-button__icon--telegram"
+            alt="telegram"
+          />
+        </a>
+      </div>
+      <img
+        src="../icons/contact/message.svg"
+        class="feedback-button__icon-message"
+        role="button"
+        onclick="ContactsIcons.toggle()"
+        alt="message_us"
+      />
     </div>
-    <img src="../icons/contact/message.svg"
-         class="feedback-button__icon-message"
-         role="button"
-         onclick="ContactsIcons.toggle()"
-         alt="message_us">
-  </div>
-  <!-- #endregion -->
-  
-  <header class="header">
-    <div class="background-image"></div>
-    <!--#region navigation  -->
+    <!-- #endregion -->
+
+    <header class="header">
+      <div class="background-image"></div>
+      <!--#region navigation  -->
       <nav class="nav">
         <a href="index.html" class="nav__logo-link">
-          <img 
-            src="../icons/nav-logo.png" 
+          <img
+            src="../icons/nav-logo.png"
             alt="Окуліст Логотип"
             class="nav__logo-image"
-          >
+          />
         </a>
 
         <div class="nav__icons">
@@ -59,21 +70,21 @@
           <a href="#" class="icon icon--search"></a>
           <a href="#aside" class="icon icon--menu"></a>
         </div>
-    </nav>
-    <!-- #endregion -->
-    
-    <!-- #region aside menu -->
+      </nav>
+      <!-- #endregion -->
+
+      <!-- #region aside menu -->
       <aside class="aside page__menu" id="aside">
         <div class="background-image"></div>
 
         <!--#region navigation  -->
         <nav class="nav">
           <a href="index.html" class="nav__logo-link">
-            <img 
-              src="../icons/nav-logo.png" 
+            <img
+              src="../icons/nav-logo.png"
               alt="Окуліст Логотип"
               class="nav__logo-image"
-            >
+            />
           </a>
 
           <div class="nav__icons">
@@ -82,247 +93,258 @@
             <a href="#" class="icon icon--close"></a>
           </div>
         </nav>
-      <!-- #endregion -->
+        <!-- #endregion -->
 
         <!-- #region menu links -->
-          <menu class="aside__links">
-            <a href="#" class="aside__link">
-              <li>Головна</li>
-            </a>
+        <menu class="aside__links">
+          <a href="#" class="aside__link">
+            <li>Головна</li>
+          </a>
 
-            <a href="about-us.html" class="aside__link">
-              <li>Про нас</li>
-            </a>
+          <a href="about-us.html" class="aside__link">
+            <li>Про нас</li>
+          </a>
 
-            <a href="service.html" class="aside__link">
-              <li>послуги</li>
-            </a>
+          <a href="service.html" class="aside__link">
+            <li>послуги</li>
+          </a>
 
-            <a href="useful.html" class="aside__link">
-              <li>корисне</li>
-            </a>
+          <a href="useful.html" class="aside__link">
+            <li>корисне</li>
+          </a>
 
-            <a href="catalog.html" class="aside__link">
-              <li>Каталог</li>
-            </a>
+          <a href="catalog.html" class="aside__link">
+            <li>Каталог</li>
+          </a>
 
-            <a href="reviews.html" class="aside__link">
-              <li>Відгуки</li>
-            </a>
+          <a href="reviews.html" class="aside__link">
+            <li>Відгуки</li>
+          </a>
 
-            <a href="contacts.html" class="aside__link aside__link--margin-bottom">
-              <li>Контакти</li>
-            </a>
-          </menu>
+          <a
+            href="contacts.html"
+            class="aside__link aside__link--margin-bottom"
+          >
+            <li>Контакти</li>
+          </a>
+        </menu>
         <!-- #endregion -->
 
         <!-- #region menu buttons -->
-          <div class="aside__buttons">
-            <a href="#" class="button button--aside">
-              Обране
+        <div class="aside__buttons">
+          <a href="#" class="button button--aside">
+            Обране
 
-              <div class="icon icon--favorite"></div>
-            </a>
+            <div class="icon icon--favorite"></div>
+          </a>
 
-            <a href="registration.html" class="button button--aside">
-              Кабінет
-              
-              <div class="icon icon--account"></div>
-            </a>
-          </div>
+          <a href="registration.html" class="button button--aside">
+            Кабінет
+
+            <div class="icon icon--account"></div>
+          </a>
+        </div>
         <!-- #endregion -->
       </aside>
-    <!-- #endregion -->
+      <!-- #endregion -->
 
-    <!-- #region header content -->
-    <div class="header__content">
-      <h1 class="header__content-title header__content-title--main-page">Окуліст</h1>
+      <!-- #region header content -->
+      <div class="header__content">
+        <h1 class="header__content-title header__content-title--main-page">
+          Окуліст
+        </h1>
 
-      <p class="header__content-text">мережа оптик</p>
+        <p class="header__content-text">мережа оптик</p>
 
-      <p class="header__content-bottom-text">
-        <span class="header__content-bottom-text--strong">Увага!</span> Надаємо безкоштовні 
-        лінзи військовослужбовцям 
-        та проводимо безкоштовні 
-        огляди для переселенців!
+        <p class="header__content-bottom-text">
+          <span class="header__content-bottom-text--strong">Увага!</span>
+          Надаємо безкоштовні лінзи військовослужбовцям та проводимо безкоштовні
+          огляди для переселенців!
+        </p>
+      </div>
+      <!-- #endregion -->
+    </header>
+
+    <main class="main main__main-page">
+      <section class="action">
+        <h2 class="action__title">Акційні пропозиції</h2>
+
+        <article class="content">
+          <div class="content__image"></div>
+
+          <div class="content__image--second"></div>
+
+          <h3 class="content__title">
+            3+1 на лінзи родини ТОТАЛ30 та 30+5 на лінзи лінійки Пресіжн
+          </h3>
+          <p class="content__text">
+            компанія Алкон в цей важкий час прийняла рішення продовжити
+            підтримку кінцевих користувачів <br />
+            завдяки акційній пропозиції 3+1 на лінзи родини ТОТАЛ30 <br />
+            та 30+5 на лінзи лінійки Пресіжн. Акція для кінцевого споживача
+            триватиме до кінця року: 3+1 для ТОТАЛ 30 (Сфера <br />
+            + Торика),30+5 Precision 1 (Сфера + Торика).
+          </p>
+        </article>
+      </section>
+
+      <section class="assortment">
+        <div class="animation">
+          <div class="animation__block">
+            <p class="animation__text">ШИРОКИЙ АСОРТИМЕНТ ОКУЛЯРІВ</p>
+          </div>
+
+          <div class="animation__block">
+            <p class="animation__text">ШИРОКИЙ АСОРТИМЕНТ ОКУЛЯРІВ</p>
+          </div>
+        </div>
+
+        <div class="animation">
+          <div class="animation__block">
+            <p class="animation__text">ШИРОКИЙ АСОРТИМЕНТ ТОВАРУ</p>
+          </div>
+
+          <div class="animation__block">
+            <p class="animation__text">ШИРОКИЙ АСОРТИМЕНТ ТОВАРУ</p>
+          </div>
+        </div>
+
+        <article class="product product--margin">
+          <a href="">
+            <div class="product__image"></div>
+          </a>
+
+          <p class="product__descripsion">Окуляри для зору жіночі</p>
+          <p class="product__name">Verse 20176 blueblocker</p>
+          <div class="product__info-container">
+            <p class="product__price">1200 грн</p>
+          </div>
+
+          <div class="product__buttons">
+            <a href="#" class="button button--product">
+              <div class="icon icon--basket-white"></div>
+
+              У кошик
+            </a>
+
+            <a href="" class="favorite">
+              <div class="icon icon--favorite"></div>
+            </a>
+          </div>
+        </article>
+
+        <article class="product product--margin">
+          <a href="">
+            <div class="product__image"></div>
+          </a>
+
+          <p class="product__descripsion">Окуляри для зору жіночі</p>
+          <p class="product__name">Verse 20176 blueblocker</p>
+          <div class="product__info-container">
+            <p class="product__price">1200 грн</p>
+          </div>
+
+          <div class="product__buttons">
+            <a href="#" class="button button--product">
+              <div class="icon icon--basket-white"></div>
+
+              У кошик
+            </a>
+
+            <a href="" class="favorite">
+              <div class="icon icon--favorite"></div>
+            </a>
+          </div>
+        </article>
+
+        <div class="button--redirect--wrapper">
+          <a href="#" class="button button--redirect"> Перейти до каталогу </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer footer--top-margin">
+      <p class="footer__top-text">
+        кваліфіковані послуги та висока якість заради вашого ідеального зору
       </p>
-    </div>
-    <!-- #endregion -->
-  </header>
 
-  <main class="main main__main-page">
-    <section class="action">
-      <h2 class="action__title">Акційні пропозиції</h2>
+      <p class="footer__our-salon">Наші салони:</p>
 
-      <article class="content">
-        <div class="content__image"></div>
-
-        <div class="content__image--second"></div>
-
-        <h3 class="content__title">3+1 на лінзи родини ТОТАЛ30 та 30+5 на лінзи лінійки Пресіжн</h3>
-        <p class="content__text">компанія Алкон в цей важкий час прийняла рішення продовжити підтримку кінцевих користувачів <br> завдяки акційній пропозиції 3+1 на лінзи родини ТОТАЛ30 <br> та 30+5 на лінзи лінійки Пресіжн. Акція для кінцевого споживача триватиме до кінця року: 3+1 для ТОТАЛ 30 (Сфера <br> + Торика),30+5 Precision 1 (Сфера + Торика).</p>
-      </article>
-    </section>
-
-    <section class="assortment">
-      <div class="animation"> 
-        <div class="animation__block"> 
-          <p class="animation__text">ШИРОКИЙ АСОРТИМЕНТ ОКУЛЯРІВ</p>
-        </div>
-  
-        <div class="animation__block"> 
-          <p class="animation__text">ШИРОКИЙ АСОРТИМЕНТ ОКУЛЯРІВ</p>
-        </div>
-      </div>
-  
-      <div class="animation">
-        <div class="animation__block"> 
-          <p class="animation__text">ШИРОКИЙ АСОРТИМЕНТ ТОВАРУ</p>
-        </div>
-  
-        <div class="animation__block"> 
-          <p class="animation__text">ШИРОКИЙ АСОРТИМЕНТ ТОВАРУ</p>
-        </div>
-      </div>
-  
-      <article class="product product--margin">
-        <a href="">
-          <div class="product__image"></div>
-        </a>
-
-        <p class="product__descripsion">Окуляри для зору жіночі</p>
-        <p class="product__name">Verse 20176 blueblocker</p>
-        <div class="product__info-container">
-          <p class="product__price">1200 грн</p>
-        </div>
-
-        <div class="product__buttons">
-          <a href="#" class="button button--product">
-            <div class="icon icon--basket-white"></div>
-
-            У кошик
+      <div class="footer__nav">
+        <div class="footer__nav--text-wrapper">
+          <a
+            class="footer__nav-link footer__nav-link--phone footer__nav-link--margin-top"
+            href="tel:380669492676"
+          >
+            +38 (066) 949-26-76
           </a>
-  
-          <a href="" class="favorite">
-            <div class="icon icon--favorite"></div>
+
+          <a
+            class="footer__nav-link"
+            href="https://maps.app.goo.gl/UJiXkaydDgSZFeRN8"
+            target="_blank"
+          >
+            м. Івано-Франківськ <br />
+            вул. Галицька, 64
           </a>
         </div>
-      </article>
-  
-      <article class="product product--margin">
-        <a href="">
-          <div class="product__image"></div>
-        </a>
 
-        <p class="product__descripsion">Окуляри для зору жіночі</p>
-        <p class="product__name">Verse 20176 blueblocker</p>
-        <div class="product__info-container">
-          <p class="product__price">1200 грн</p>
-        </div>
-
-        <div class="product__buttons">
-          <a href="#" class="button button--product">
-            <div class="icon icon--basket-white"></div>
-
-            У кошик
+        <div class="footer__nav--text-wrapper">
+          <a
+            class="footer__nav-link footer__nav-link--phone footer__nav-link--margin-top"
+            href="tel:+380506087529"
+          >
+            +38 (050) 608-75-29
           </a>
-  
-          <a href="" class="favorite">
-            <div class="icon icon--favorite"></div>
+
+          <a
+            class="footer__nav-link"
+            href="https://maps.app.goo.gl/cPizpoXS4ZtnP1bz6"
+            target="_blank"
+          >
+            м. Слов’янськ <br />
+            вул. Центральна 43
           </a>
         </div>
-      </article>
-  
-      <div class="button--redirect--wrapper">
-        <a href="#" class="button button--redirect">
-          Перейти до каталогу
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer footer--top-margin">
-    <p class="footer__top-text">кваліфіковані послуги та висока якість заради вашого ідеального зору</p>
-
-    <div class="footer__nav">
-      <p class="footer__nav--text">Наші салони:</p>
-      
-      <a 
-        class="
-          footer__nav-link 
-          footer__nav-link--phone 
-          footer__nav-link--margin-top
-        "
-        href="tel:380669492676"
-      >
-        +38 (066) 949-26-76
-      </a>
-
-      <a 
-        class="footer__nav-link" 
-        href="https://maps.app.goo.gl/UJiXkaydDgSZFeRN8"
-        target="_blank"
-      >
-        м. Івано-Франківськ <br> вул. Галицька, 64
-      </a>
-
-      <a 
-        class="
-          footer__nav-link 
-          footer__nav-link--phone
-          footer__nav-link--margin-top
-        " 
-        href="tel:+380506087529"
-      >
-        +38 (050) 608-75-29
-      </a>
-      
-      <a 
-        class="footer__nav-link" 
-        href="https://maps.app.goo.gl/cPizpoXS4ZtnP1bz6"
-        target="_blank"
-      >
-        м. Слов’янськ <br> вул. Центральна 43
-      </a>
-    </div>
-
-    <menu class="footer__menu">
-      <div class="footer__menu--top">
-        <a href="#page" class="footer__link">
-          <li class="footer__item">Головна</li>
-        </a>
-  
-        <a href="about-us.html" class="footer__link">
-          <li class="footer__item">Про нас</li>
-        </a>
-  
-        <a href="useful.html" class="footer__link">
-          <li class="footer__item">Корисне</li>
-        </a>
       </div>
 
-      <div class="footer__menu--bottom">
-        <a href="catalog.html" class="footer__link">
-          <li class="footer__item">Каталог</li>
-        </a>
-  
-        <a href="reviews.html" class="footer__link">
-          <li class="footer__item">Відгуки</li>
-        </a>
-  
-        <a href="#" class="footer__link">
-          <li class="footer__item">Контакти</li>
-        </a>
-      </div>
-    </menu>
+      <menu class="footer__menu">
+        <div class="footer__menu--top">
+          <a href="#page" class="footer__link">
+            <li class="footer__item">Головна</li>
+          </a>
 
-    <a href="#" class="footer__logo-link">
-      <img 
-        src="../images/footer/footer-logo.png" 
-        alt="ОКУЛІСТ мережа оптик"
-        class="footer__logo-img"
-      >
-    </a>
-  </footer>
-</body>
+          <a href="about-us.html" class="footer__link">
+            <li class="footer__item">Про нас</li>
+          </a>
+
+          <a href="useful.html" class="footer__link">
+            <li class="footer__item">Корисне</li>
+          </a>
+        </div>
+
+        <div class="footer__menu--bottom">
+          <a href="catalog.html" class="footer__link">
+            <li class="footer__item">Каталог</li>
+          </a>
+
+          <a href="reviews.html" class="footer__link">
+            <li class="footer__item">Відгуки</li>
+          </a>
+
+          <a href="#" class="footer__link">
+            <li class="footer__item">Контакти</li>
+          </a>
+        </div>
+      </menu>
+
+      <a href="#" class="footer__logo-link">
+        <img
+          src="../images/footer/footer-logo.png"
+          alt="ОКУЛІСТ мережа оптик"
+          class="footer__logo-img"
+        />
+      </a>
+    </footer>
+  </body>
 </html>
