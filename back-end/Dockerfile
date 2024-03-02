@@ -5,6 +5,7 @@ COPY target/*.jar application.jar
 RUN java -Djarmode=layertools -jar application.jar extract
 # Optimize layer copying
 RUN rm application.jar
+CMD target/*.jar application.jar
 
 # Copy extracted layers to the final image
 FROM openjdk:21-jdk-slim
