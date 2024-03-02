@@ -52,7 +52,7 @@ public class GlassesController {
         return glassesService.findAll();
     }
 
-    /*
+
     @Operation(summary = "Get Glasses by ID")
     @GetMapping("/{id}")
     @ApiResponse(responseCode = "200", description = "Glasses retrieved successfully")
@@ -61,7 +61,7 @@ public class GlassesController {
         logger.info("Retrieving glasses with ID: " + id);
         return glassesService.getById(id);
     }
-    */
+
 
     @Operation(summary = "Update Glasses by ID")
     @PutMapping("/{id}")
