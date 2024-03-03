@@ -1,6 +1,7 @@
 .main {
   @include pageGrid;
   justify-content: center;
+  margin-bottom: 24px;
   
   & > * {
     grid-column: 1 / -1;

@@ -1,22 +1,30 @@
 .description {
+  width: 100%;
+  margin: 0 auto;
   &__image {
     display: block;
-    width: 260px;
     height: 128px;
     margin-bottom: 16px;
     border-radius: 8px;
     box-shadow: $content-box-shadow;
-    margin: 0 auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onTablet {
+      // width: 754px;
+      height: 368px;
+    }
 
     &--first {
       background: url(../images/header/about-us-header-img.png);
-      background-size: contain;
+      background-size: cover;
       background-repeat: no-repeat;
     }
 
     &--second {
       background: url(../images/header/about-us-header-img-2.png);
-      background-size: contain;
+      background-size: cover;
       background-repeat: no-repeat;
     }
   }
@@ -26,7 +34,19 @@
     color: $description-text-color;
     font-size: 0.875rem;
     font-weight: 300;
-    text-align: center;
+    text-align: left;
+
+    @include onTablet {
+      font-family: Montserrat;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 30px;
+      letter-spacing: 0%;
+      text-align: left;
+      margin: 42px 0 62px;
+
+
+    }
 
     &--margin-bottom {
       margin-bottom: 42px;

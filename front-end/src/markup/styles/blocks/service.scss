@@ -5,6 +5,12 @@
 
   grid-column: 1 / -1;
 
+  @include onTablet {
+    width: 627px;
+    padding: 32px;
+
+  }
+
   border: 1px solid $service-border-color;
   border-radius: 24px;
 
@@ -21,6 +27,11 @@
     height: 115px;
     border-radius: 8px;
     box-shadow: $product-box-shadow;
+
+    @include onTablet {
+      width: 563px;
+      height: 280px;
+    }
 
     &--first {
       background: url(../images/service/service_photo1.png);
@@ -48,5 +59,9 @@
     color: $service-text-color;
     font-size: 1rem;
     font-weight: 400;
+
+    @include onTablet {
+      margin-top: 12px;
+    }
   }
 }

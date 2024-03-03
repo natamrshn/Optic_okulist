@@ -53,15 +53,24 @@
 
   &__product {
     padding-inline: 0;
+    width: 260px;
 
+    @include onTablet {
+      width: 365px;
+    }
+    
     &--image {
+      width: 100%;
+
+      @include onTablet {
+        height: 265px;
+      }
 
       transition: background .3s;
       &:hover {
         background: url(../images/products/product-hover-img.png);
         background-size: cover;
-        width: 260px;
-        height: 190px;
+
       }
     }
   }
