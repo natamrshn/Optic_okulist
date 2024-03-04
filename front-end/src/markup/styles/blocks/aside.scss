@@ -1,4 +1,5 @@
 .aside {
+  @include contentPadding;
   z-index: 9999;
   height: 110vh;
   
@@ -29,7 +30,6 @@
     flex-direction: column;
     gap: 24px;
 
-    @include contentPadding;
   }
 
   &__link {
@@ -48,6 +48,5 @@
     display: flex;
     gap: 20px;
 
-    @include contentPadding;
   }
 }
