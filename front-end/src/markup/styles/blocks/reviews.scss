@@ -17,3 +17,18 @@
     margin-bottom: 48px;
   }
 }
+
+.reviews-page {
+  &__reviews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+}
+
+.review {
+  padding: 14px 10px;
+  margin-bottom: 8px;
+  border-radius: 16px;
+  border: 1px solid $review-border-color;
+}

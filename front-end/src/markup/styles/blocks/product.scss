@@ -2,6 +2,7 @@
   color: $content-text-color;
   font-size: 1rem;
 
+
   @include contentPadding;
 
   &--margin {
@@ -93,11 +94,20 @@
   &__descripsion {
     margin: 8px 0 0;
     font-weight: 400;
+
+    @include onTablet {
+      font-size: 18px;
+    }
   }
 
   &__name {
     font-weight: 500;
+    margin-top: 8px;
     margin-bottom: 16px;
+
+    @include onTablet {
+      font-size: 18px;
+    }
   }
 
   &__price {
