@@ -85,6 +85,10 @@
     display: none;
     position: relative;
 
+    input {
+      text-align: center;
+    }
+
     @include onDesktop {
       display: block;
       input {
