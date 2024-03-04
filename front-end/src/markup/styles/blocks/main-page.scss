@@ -1,0 +1,94 @@
+.main-page {
+  &__background {
+    background-image: url("../../images/Image.png");
+    width: 100px;
+    height: 100px;
+  }
+
+  &__title {
+    margin-top: 124px;
+  }
+
+  &__subtitle {
+    color: #011b35;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 17px;
+    letter-spacing: 0%;
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  &__promo {
+    color: #0e0adb;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  &__sale-offers {
+    margin-top: 200px;
+    text-align: center;
+  }
+  
+  &__sale-offers-images-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__sale-offers-image {
+    width: 260px;
+    height: 128px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
+    margin-top: 24px;
+  }
+
+  &__sale-offers-image-warning {
+    width: 260px;
+    height: 340px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 16.4px 0px rgba(0, 0, 0, 0.2);
+    margin-top: 8px;
+  }
+
+  &__special-offers-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  &__sale-company-name {
+    color: #0e0adb;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 24px;
+    text-align: left;
+  }
+
+  &__sale-company-description {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+
+  &__products {
+    background-color: #d8effb;
+    z-index: -1;
+  }
+
+  &__button-margin {
+    margin: 32px auto 48px;
+  }
+}
