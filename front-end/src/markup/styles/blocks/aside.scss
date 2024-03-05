@@ -1,11 +1,12 @@
 .aside {
   @include contentPadding;
   z-index: 9999;
-  height: 110vh;
+  height: 100%;
   
   &__background-image {
     position: absolute;
     width: 100%;
+    height: 100%;
     z-index: -1;
     object-fit: cover;
     filter: blur(9px);
@@ -38,6 +39,10 @@
     font-size: 1.25em;
     font-weight: 700;
     text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 32px;
+    }
 
     &--margin-bottom {
       margin-bottom: 32px;

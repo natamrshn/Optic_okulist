@@ -52,13 +52,16 @@
     align-items: center;
     gap: 8px;
     background: none;
-    border: 1px solid $aside-button-border-color;
+    border: 1px solid #0E0ADB;
     border-radius: 100px;
 
     color: $aside-text-color;
     font-size: 0.875rem;
     font-weight: 600;
 
+     @include onTablet {
+      width: 235px;
+     }
     &:hover {
       color:  #FAFEFD;
     }
