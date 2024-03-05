@@ -1,11 +1,11 @@
-import { createContext } from "react";
+import { createContext, Dispatch, SetStateAction } from "react";
 
 interface AuthContextType {
   token: string;
-  setToken: React.Dispatch<React.SetStateAction<string>>;
-};
+  setToken: Dispatch<SetStateAction<string>>;
+}
 
 export const AuthContext = createContext<AuthContextType>({
-  token: '',
+  token: "",
   setToken: () => {},
 });

@@ -10,6 +10,7 @@ export class AuthAPI {
 
   static headers = {
     Authorization: `Bearer token`,
+    "Content-Type": "application/json",
   };
 
   static setTokenToHeader(token: string) {
@@ -25,13 +26,21 @@ export class AuthAPI {
   static async registrate(userData: RegistrationRequest) {
     const url: string = this.url_auth + "/register";
 
-    return fetch(url, { method: "POST", body: JSON.stringify(userData) });
+    return fetch(url, {
+      method: "POST",
+      body: JSON.stringify(userData),
+      headers: { "Content-Type": "application/json" },
+    });
   }
 
   static async login(userData: LoginRequest) {
     const url: string = this.url_auth + "/login";
 
-    return fetch(url, { method: "POST", body: JSON.stringify(userData) });
+    return fetch(url, {
+      method: "POST",
+      body: JSON.stringify(userData),
+      headers: { "Content-Type": "application/json" },
+    });
   }
 
   static async confirmCode(userData: ConfirmCodeRequest) {
@@ -58,5 +67,12 @@ export class AuthAPI {
     const url = this.url_user + "/start";
 
     return fetch(url, { method: "POST" }); // POST? Maybe is it better to use 'GET'?
+  }
+
+  static async getUserInfo() {
+    const url = this.url_user + "/account";
+    const response = await fetch(url, { headers: this.headers });
+
+    return response.json();
   }
 }

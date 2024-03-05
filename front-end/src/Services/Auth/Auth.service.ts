@@ -95,4 +95,12 @@ export class AuthService {
 
     const response = AuthAPI.initPasswordChanging();
   }
+
+  static async getUserInfo(
+    token: string
+  ): Promise<Omit<RegistrationResponse, "id">> {
+    AuthAPI.setTokenToHeader(token);
+
+    return AuthAPI.getUserInfo();
+  }
 }

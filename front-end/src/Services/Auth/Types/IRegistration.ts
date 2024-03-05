@@ -13,4 +13,5 @@ export interface RegistrationResponse {
   firstName: string;
   lastName: string;
   phoneNumber: number;
+  token: string;
 }
