@@ -2,6 +2,7 @@ package spring.boot.optic.okulist.config;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,8 +23,6 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import spring.boot.optic.okulist.security.JwtAuthenticationFilter;
 
-import java.util.List;
-
 @EnableMethodSecurity
 @EnableWebSecurity
 @Configuration
@@ -40,9 +39,8 @@ public class SecurityConfig {
     @Bean
     protected CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        // Replace "http://localhost:3000" with allowed origins from your front-end application
-        config.setAllowedOrigins(List.of("http://localhost:8080"));
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
+        config.setAllowedOrigins(List.of("http://localhost:3000"));
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
 
@@ -50,7 +48,6 @@ public class SecurityConfig {
         source.registerCorsConfiguration("/**", config);
         return source;
     }
-
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
