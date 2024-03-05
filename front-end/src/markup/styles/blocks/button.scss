@@ -12,6 +12,11 @@
   font-size: 1em;
   font-weight: 600;
 
+  @include onTablet {
+    max-width: 360px;
+
+  }
+
   &--secondary {
     border: 1px solid var(--Accent-colour, #011B35);
     color: var(--Main-text, #02101F);
@@ -105,11 +110,15 @@
     background: transparent;
     border-radius: 100px;
     border: 1px solid var(--Accent-colour, #011B35);
-    margin-top: 16px;
     color: var(--Main-text, #02101F);
     text-align: center;
     font-size: 0.875rem;
     font-weight: 500;
+
+    @include onTablet {
+      font-weight: 700;
+
+    }
     
     &:hover {
       color:  #FAFEFD;
